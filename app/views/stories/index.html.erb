@@ -17,10 +17,11 @@
 	    <div class="expand"><img src="/images/open.png" alt="open" /></div>
 			<div class="id">16</div>
 			<div class="naam"><%= story.name %> (Bob)</div>
-			<div class="description"><img src="/images/new.png" alt="open" /></div>
+			<div class="description"><img src="/images/new.png" alt="open" title="<%= story.description %>"/></div>
 			<div class="notes"><img src="/images/new.png" alt="open" /></div>
-			<div class="priority"><img src="/images/new.png" alt="open" /></div>
-			<div class="points">8</div>
+			<div class="priority"><%= story.priority %></div>
+			<div class="points"><%= story.points %></div>
+      <div class="full-description"><%= story.description %></div>
       <div><%= link_to 'Show', story %></div>
       <div><%= link_to 'Edit', edit_story_path(story) %></div>
       <div><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></div>
