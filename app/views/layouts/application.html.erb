@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trenches</title>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div id="container">
+
+	<div id="header">
+
+		<div id="logo">logo hier</div>
+
+		<div id="topnav">
+			<ul>
+			  <li><a href="#">name</a></li>
+			  <li><a href="#">all projects</a></li>
+				<li><a href="#">product backlog</a></li>
+				<li><a href="#">settings</a></li>
+				<li><a href="#">logout</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<div id="content">
+
+    <%= yield %>
+
+		<h1>Sprint backlog</h1>
+
+		<div id="status-menu">
+	    <ul>
+	      <li><a href="#">open</a></li>
+	      <li><a href="#">in progress</a></li>
+	      <li><a href="#">done</a></li>
+	    </ul>
+	  </div>
+
+
+      
+
+	  <div id="storylist">
+	  	<ul>
+	  		<li class="story">
+	  		  <div class="expand"><img src="open.png" alt="open" /></div>
+					<div class="id">16</div>
+					<div class="naam">Gebruikers aanmaken (Bob)</div>
+					<div class="description"><img src="new.png" alt="open" /></div>
+					<div class="notes"><img src="new.png" alt="open" /></div>
+					<div class="priority"><img src="new.png" alt="open" /></div>
+					<div class="points">8</div>
+				</li>
+        
+	  	</ul>
+  	</div>
+
+
+
+
+
+		<div id="burndown">
+			<img src="http://chart.apis.google.com/chart?chs=400x450&cht=lxy&chtt=Sprint%20burndown&chxt=x,y&chxl=days&chdl=Estimated|Actual&chco=FF0000,00FF00&chd=t:-1|40,36,32,28,24,20,16,12,8,4,0|-1|40,38,36,35,20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1&chxr=0,0,30,2|1,0,40,2&chds=0,40&chm=s,FF0000,0,-1,5|s,0000ff,1,-1,5|s,00aa00,2,-1,5" alt="" />
+		</div>
+
+	</div>
+
+	<div id="footer">
+		footer
+	</div>
+
+</div>
+
+</body>
+</html>
