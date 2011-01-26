@@ -1,21 +1,30 @@
-<h1>Listing stories</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Product backlog</h1>
 
-<% @stories.each do |story| %>
-  <tr>
-    <td><%= link_to 'Show', story %></td>
-    <td><%= link_to 'Edit', edit_story_path(story) %></td>
-    <td><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="status-menu">
+  <ul>
+	  <li><a href="#">open</a></li>
+	  <li><a href="#">in progress</a></li>
+	  <li><a href="#">done</a></li>
+    <li><%= link_to 'New Story', new_story_path %></li>
+  </ul>
+</div>
 
-<br />
-
-<%= link_to 'New Story', new_story_path %>
+<div id="storylist">
+  <ul>
+  <% @stories.each do |story| %>
+	  <li class="story">
+	    <div class="expand"><img src="/images/open.png" alt="open" /></div>
+			<div class="id">16</div>
+			<div class="naam"><%= story.name %> (Bob)</div>
+			<div class="description"><img src="/images/new.png" alt="open" /></div>
+			<div class="notes"><img src="/images/new.png" alt="open" /></div>
+			<div class="priority"><img src="/images/new.png" alt="open" /></div>
+			<div class="points">8</div>
+      <div><%= link_to 'Show', story %></div>
+      <div><%= link_to 'Edit', edit_story_path(story) %></div>
+      <div><%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></div>
+    </li>
+  <% end %>
+	</ul>
+</div>
