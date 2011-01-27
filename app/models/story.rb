@@ -7,7 +7,18 @@ class Story
   field :name
   field :description
   #lijstje notes
+  field :status, :default => "open"
   field :priority, :type => Integer #of symbol?
   field :points, :type => Integer
   referenced_in :project
+  
+  class << self
+    def open
+      criteria.where(:status => "open")
+    end
+    def active
+      criteria.where(:status => "active")
+    end
+  end
+
 end
