@@ -6,4 +6,5 @@ class Story
   #lijstje notes
   field :priority, :type => Integer #of symbol?
   field :points, :type => Integer
+  
 end
