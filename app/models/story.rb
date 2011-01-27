@@ -1,5 +1,8 @@
 class Story
   include Mongoid::Document
+  
+  validates_presence_of :name, :message => "can't be blank"
+  
   #id (autoinc per project?)
   field :name
   field :description

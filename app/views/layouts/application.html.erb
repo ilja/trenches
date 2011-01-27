@@ -20,7 +20,11 @@
 			<ul>
 			  <li><a href="#">name</a></li>
         <li><%= link_to "all projects", projects_path %></li>
-				<li><a href="#">product backlog</a></li>
+                
+        <% unless @project.nil? || @project.new_record? %>          
+          <li><%= link_to "product backlog", project_stories_path(@project) %></li>
+        <% end %>
+        
 				<li><a href="#">settings</a></li>
 				<li><a href="#">logout</a></li>
 			</ul>
