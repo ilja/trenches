@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_filter :load_project
+  
   # GET /stories
   # GET /stories.xml
   def index
@@ -40,11 +42,11 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.xml
   def create
-    @story = Story.new(params[:story])
+    @story = @project.stories.build(params[:story])
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to(@story, :notice => 'Story was successfully created.') }
+        format.html { redirect_to(project_stories_path(@project), :notice => 'Story was successfully created.') }
         format.xml  { render :xml => @story, :status => :created, :location => @story }
       else
         format.html { render :action => "new" }
@@ -60,7 +62,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to(@story, :notice => 'Story was successfully updated.') }
+        format.html { redirect_to(project_stories_path(@project), :notice => 'Story was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,8 +78,12 @@ class StoriesController < ApplicationController
     @story.destroy
 
     respond_to do |format|
-      format.html { redirect_to(stories_url) }
+      format.html { redirect_to(project_stories_url(@project)) }
       format.xml  { head :ok }
     end
+  end
+  
+  def load_project
+    @project = Project.find(params[:project_id])
   end
 end
