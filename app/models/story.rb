@@ -19,6 +19,9 @@ class Story
     def active
       criteria.where(:status => "active")
     end
+    def done
+      criteria.where(:status => "done")
+    end
   end
 
 end

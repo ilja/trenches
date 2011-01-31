@@ -22,6 +22,22 @@ class StoriesController < ApplicationController
       format.xml  { render :xml => @story }
     end
   end
+  
+  def open
+    @stories = @project.stories.open
+    render :index
+  end
+  
+  def active
+    @stories = @project.stories.active
+    render :index
+  end
+  
+  def done
+    @stories = @project.stories.done
+    render :index
+  end
+  
 
   # GET /stories/new
   # GET /stories/new.xml

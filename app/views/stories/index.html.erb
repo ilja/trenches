@@ -3,9 +3,10 @@
 
 <div id="status-menu">
   <ul>
-	  <li><a href="#">open</a></li>
-	  <li><a href="#">in progress</a></li>
-	  <li><a href="#">done</a></li>
+    <li><%= link_to 'All', project_stories_path(@project) %></li>
+    <li><%= link_to 'Open', open_stories_path(@project) %></li>
+	  <li><%= link_to 'In progress', active_stories_path(@project) %></li>
+	  <li><%= link_to 'Done', done_stories_path(@project) %></li>
     <li><%= link_to 'New Story', new_project_story_path(@project) %></li>
   </ul>
 </div>
