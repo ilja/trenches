@@ -16,6 +16,7 @@
 
     <div id="logo"><img src="/images/rails.png" alt="logo"></div>
 
+
 		<div id="topnav">
 			<ul>
 			  <li><a href="#">name</a></li>
@@ -33,6 +34,14 @@
 	</div>
 
 	<div id="content">
+    
+  <% flash.each do |name, msg| %>
+	<div id="<%= "flash_#{name}" %>" class="flashcontainer">
+  	<%= "<img src=\"/images/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
+    <%=  msg %>
+  </div>
+  <% end %>
+    
 
     <%= yield %>
 
