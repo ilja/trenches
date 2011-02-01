@@ -7,3 +7,14 @@ end
 Then /^I should have no projects$/ do
   Story.all.count == 0
 end
+
+Given /^project "([^"]*)" exists$/ do |name|
+  Project.create(:name => name)
+end
+
+
+Given /^I visit the sprints page for project "([^"]*)"$/ do |name|
+  project = Project.first(:conditions => {:name => name})
+  visit project_sprints_path(project.id)
+end
+

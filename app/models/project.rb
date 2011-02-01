@@ -5,4 +5,5 @@ class Project
   
   field :name
   references_many :stories, :dependent => :delete
+  embeds_many :sprints
 end

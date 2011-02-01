@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
   before_filter :load_project
-  
+
   # GET /stories
   # GET /stories.xml
   def index

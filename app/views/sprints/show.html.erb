@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @sprint.name %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @sprint.project.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_sprint_path(@project, @sprint) %> |
+<%= link_to 'Back', project_sprints_path %>

@@ -1,12 +1,14 @@
 TrenchesRb::Application.routes.draw do
-  
-  
+
+
+
   match 'projects/:project_id/stories/open' => 'stories#open', :as => :open_stories
   match 'projects/:project_id/stories/active' => 'stories#active', :as => :active_stories
   match 'projects/:project_id/stories/done' => 'stories#done', :as => :done_stories
 
   resources :projects do
     resources :stories
+    resources :sprints
   end
 
   # The priority is based upon order of creation:
