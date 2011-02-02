@@ -22,7 +22,7 @@ gem 'rails', '3.0.3'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
-gem "launchy", :group => :development
+gem "launchy"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -31,7 +31,7 @@ gem "launchy", :group => :development
 #   gem 'webrat'
 # end
 gem "mongoid", ">= 2.0.0.beta.19"
-#gem "bson_ext", ">= 2.0.0.beta.19"
+gem "bson_ext", "~> 1.2"
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem "cucumber-rails", :group => :test
 gem "capybara", :group => :test

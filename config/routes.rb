@@ -6,6 +6,8 @@ TrenchesRb::Application.routes.draw do
   match 'projects/:project_id/stories/active' => 'stories#active', :as => :active_stories
   match 'projects/:project_id/stories/done' => 'stories#done', :as => :done_stories
 
+  match 'projects/:project_id/backlog' => 'stories#index', :as => :backlog
+  
   resources :projects do
     resources :stories
     resources :sprints

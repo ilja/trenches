@@ -59,10 +59,10 @@ class StoriesController < ApplicationController
   # POST /stories.xml
   def create
     @story = @project.stories.build(params[:story])
-
+    
     respond_to do |format|
       if @story.save
-        format.html { redirect_to(project_stories_path(@project), :notice => 'Story was successfully created.') }
+        format.html { redirect_to(backlog_path(@project), :notice => "'#{@story.name}' was successfully created.") }
         format.xml  { render :xml => @story, :status => :created, :location => @story }
       else
         format.html { render :action => "new" }
@@ -78,7 +78,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to(project_stories_path(@project), :notice => 'Story was successfully updated.') }
+        format.html { redirect_to(backlog_path(@project), :notice => "'#{@story.name}' was successfully updated.") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -91,10 +91,11 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.xml
   def destroy
     @story = Story.find(params[:id])
+    storyname = @story.name
     @story.destroy
 
     respond_to do |format|
-      format.html { redirect_to(project_stories_url(@project)) }
+      format.html { redirect_to(backlog_url(@project), :notice => "'#{storyname}' was successfully deleted.") }
       format.xml  { head :ok }
     end
   end

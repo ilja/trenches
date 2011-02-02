@@ -1,6 +1,6 @@
 
 <h1>Product backlog <%= @project.name %></h1>
-
+<%= @stories.count %>
 <div id="status-menu">
   <ul>
     <li><%= link_to 'All', project_stories_path(@project) %></li>
@@ -29,4 +29,4 @@
     </li>
   <% end %>
 	</ul>
-</div>
+</div>

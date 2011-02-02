@@ -23,7 +23,7 @@
         <li><%= link_to "all projects", projects_path %></li>
                 
         <% unless @project.nil? || @project.new_record? %>          
-          <li><%= link_to "product backlog", project_stories_path(@project) %></li>
+          <li><%= link_to "product backlog", backlog_path(@project) %></li>
         <% end %>
         
 				<li><a href="#">settings</a></li>
