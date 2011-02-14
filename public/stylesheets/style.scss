@@ -1,26 +1,98 @@
 $main-color: #C2C2C2;
+$font1: 'Droid Sans', arial, sans-serif;
 
+$border-color: #bbb;
+$radius: 5px;    
+$spacer1: 6px;
+$nav-bg: url(/images/bg.png);
+$nav-bg-active: url(/images/bg-active.png);
+$nav-bg-hover: url(/images/bg-hover.png);
+
+$bnt-border-normal: 1px solid $border-color;
+$bnt-border-highlight: 1px solid #e9eaea;
+
+$bg-color: #fff;
+$link-color: #343638;
+
+@mixin rounded-left {  
+  @include rounded-top-left;
+  @include rounded-bottom-left;
+}
+
+
+@mixin rounded-top-left {
+  border-top-left-radius: $radius;  
+  -moz-border-radius-topleft: $radius;  
+  -webkit-border-top-left-radius: $radius;  
+}
+
+@mixin rounded-bottom-left {  
+  border-bottom-left-radius: $radius;    
+  -moz-border-radius-bottomleft: $radius;  
+  -webkit-border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-right {
+  @include rounded-top-right;
+  @include rounded-bottom-right;
+}
+
+@mixin rounded-top-right {
+  border-top-right-radius: $radius;  
+  -moz-border-radius-topright: $radius;  
+  -webkit-border-top-right-radius: $radius;  
+}
+
+@mixin rounded-bottom-right {
+  border-bottom-right-radius: $radius;  
+  -moz-border-radius-bottomright: $radius;  
+  -webkit-border-bottom-right-radius: $radius;
+}
+
+
+@mixin inset-shadow {
+   -moz-box-shadow:inset 0 0 5px $border-color;
+   -webkit-box-shadow:inset 0 0 5px $border-color;
+   box-shadow:inset 0 0 5px $border-color;
+}
+
+@mixin glow {
+   -moz-box-shadow: 0 0 5px $border-color;
+   -webkit-box-shadow: 0 0 5px $border-color;
+   box-shadow: 0 0 5px $border-color;
+}
 
 body {
-	font-family: 'Droid Sans', arial, sans-serif;
+	font-family: $font1;
+	font-size: 12px;
+	background: $bg-color;
+	margin: 0;
+	padding: 0;
 }
 
 h1 {
 	font-size: 20px;
 	font-weight: bold;
-
+	background-color: #6c6e71;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E8F4FF), to(#ABBDCC));
+  padding: 18px;
 	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
 }
 
 #container {
 	width:1000px;
 	/*margin:0px auto;*/
 	text-align:left;
-	padding:10px;
+	/*padding:10px;*/
   position: absolute;
   left: 50%;
   margin-left: -510px;
-	border:1px solid red;
+/*	border:1px solid red;*/
 	overflow: visible;
 }
 
@@ -40,25 +112,30 @@ h1 {
 }
 
 #topnav {
+  overflow: auto;
   ul {
 	  border-color: $main-color;
   	border-style: none solid solid solid;
 	  border-width: 1px;
-  	background:  -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E8F4FF), to(#ABBDCC));
+  	background: $nav-bg;
 
 	  padding: 2px 5px 2px 5px;
   	margin: 0px;
-
+    height: 18px;
 	  float: right;
-  	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  	/*text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);*/
+  	
+  	@include rounded-bottom-left;
+  	@include rounded-bottom-right;
+  	
+  	font-family: Calibri;
+    font-size: 14px;
+    text-shadow: 1px 1px 0 #fff;
 
 	  list-style: none;
   }
 
-  a {
-	  text-decoration: none;
-  	color: #272D32;
-  }
+
 
   a:active { font-weight: bold; }
   
@@ -66,9 +143,13 @@ h1 {
 	  display: inline;
   	padding: 0;
 	  margin: 0;
+	  
   }
 
-  li:before { content: "| "; }
+  li:before { 
+    content: "| "; 
+    color: $border-color;
+  }
   li:first-child:before { content: ""; }
 }
 
@@ -81,7 +162,7 @@ h1 {
 }
 
 #status-menu {
-
+  padding-left: $spacer1;
 	font-family: Calibri;
 	font-size: 14px;
 
@@ -93,13 +174,13 @@ h1 {
     /*padding: 2px 0 0 0;*/
   	padding: 0;
 	  margin: 0;
-  	/*border: 1px solid green;*/
+  	/*border: 1px solid green;*/   
+  	
   }
   
   li {
-
-  	background-color: #C5D9EB;
-	  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E8F4FF), to(#ABBDCC));
+  	
+	  background-image: $nav-bg;
 
   	height: 28px;
 	  padding: 0 0 0 0px;
@@ -108,13 +189,13 @@ h1 {
   	display: block;
 	  float: left;
   	list-style-type: none;
-	  border-top: 1px solid #333;
-  	border-bottom: 1px solid #333;
-	  border-left: 1px solid #e9eaea;
-  	border-right: 1px solid #333;
+	  border-top: $bnt-border-normal;
+  	border-bottom: $bnt-border-normal;
+	  border-left: $bnt-border-highlight;
+  	border-right: $bnt-border-normal;
 
-	  -webkit-box-shadow: 1px 1px 1px #bbb;
-    box-shadow: 1px 1px 1px #bbb;
+ 
+
   
     a {
       /*margin-top: 10px;*/
@@ -128,9 +209,10 @@ h1 {
   	  font-size: 18px;*/
     }
     
-    a:hover {
+   /* a:hover {
 	    color: #fff;
     }
+    */
   
   }
 
@@ -138,40 +220,41 @@ h1 {
   
   li:hover {
     background-color: #333333;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#C5D9EB), to(#D8E3ED), color-stop(.6,#6E798A));
+    background-image: $nav-bg-hover;
   }
+  
+  li.active {
+    background-image: $nav-bg-active;
+    color: #fff;
+  }
+  
 
   li:first-child {
-	  -moz-border-radius-topleft: 5px;
-  	-moz-border-radius-bottomleft: 5px;
-	  -webkit-border-top-left-radius: 5px;
-  	-webkit-border-bottom-left-radius: 5px;
-	  border-left: 1px solid #333;
-  	border-right: 1px solid #333;
+    @include rounded-left;  
+	  border-left: $bnt-border-normal;
+  	border-right: $bnt-border-normal;
   }
 
   li:last-child {
-	  -moz-border-radius-topright: 5px;
-  	-moz-border-radius-bottomright: 5px;
-	  -webkit-border-top-right-radius: 5px;
-  	-webkit-border-bottom-right-radius: 5px;
+    @include rounded-right;	  
   }
 }
 
 #storylist {
   clear: left;
 	float: left;
+	padding-left: $spacer1;
 }
 
 #burndown {
 	float: right;
-	border: 1px solid grey;
+	border: $bnt-border-normal;
 }
 
 /* footer */
 
 #footer {
-	border-top: 1px solid #C8C8C8;
+	border-top: $bnt-border-normal;
 	margin-top: 10px;
 	font-size: 10px;
 	color: #C8C8C8;
@@ -180,7 +263,7 @@ h1 {
 
 div#storylist {
 	width: 580px;
-	border: 1px solid blue;
+	/*border: 1px solid blue;*/
   
   ul {
   	display: inline;
@@ -192,12 +275,18 @@ div#storylist {
 
 li.story {
 	list-style: none;
-	background: #e4ebef;
-	border: 1px solid #9daab2;
+	background: #f9f9f9;
+	border: $bnt-border-normal;
 	width: inherit;
-	margin: 5px;
+	margin-bottom: 5px;
 	padding: 3px;
 	position: relative;
+
+  /*
+  @include rounded-left;
+  @include rounded-right;
+  @include inset-shadow;
+  */
 
   div {
     /*  border: 1px solid red; */
