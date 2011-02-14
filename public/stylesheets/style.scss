@@ -73,7 +73,7 @@ body {
 h1 {
 	font-size: 20px;
 	font-weight: bold;
-	background-color: #6c6e71;
+	background-color: $main-color;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E8F4FF), to(#ABBDCC));
   padding: 18px;
 	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
@@ -82,6 +82,10 @@ h1 {
 a {
   text-decoration: none;
   color: $link-color;
+}
+
+a img {
+  border: none;
 }
 
 #container {
@@ -105,9 +109,6 @@ a {
 
 
 #logo {
-	border: 1px solid blue;
-	width: 100px;
-	height: 50px;
 	float: left;
 }
 
