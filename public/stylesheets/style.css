@@ -147,6 +147,7 @@ a img {
       /*margin-bottom: 5px;*/
       text-decoration: none;
       color: black;
+      display: block;
     /*font-family: DroidSansBold, 'Bitstream Vera Sans Bold';
 	  font-size: 18px;*/ }
   #status-menu li:hover {
