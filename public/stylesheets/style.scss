@@ -1,12 +1,14 @@
 $main-color: #C2C2C2;
 $font1: 'Droid Sans', arial, sans-serif;
+$font2: 'Yanone Kaffeesatz', 'Droid Sans', arial, sans-serif;
 
-$border-color: #bbb;
+$border-color: #e8e8e8;
 $radius: 5px;    
 $spacer1: 6px;
 $nav-bg: url(/images/bg.png);
 $nav-bg-active: url(/images/bg-active.png);
 $nav-bg-hover: url(/images/bg-hover.png);
+$bg-title: url(/images/bg-title.png);
 
 $bnt-border-normal: 1px solid $border-color;
 $bnt-border-highlight: 1px solid #e9eaea;
@@ -71,17 +73,24 @@ body {
 }
 
 h1 {
-	font-size: 20px;
+/*	font-size: 20px;
 	font-weight: bold;
 	background-color: $main-color;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E8F4FF), to(#ABBDCC));
   padding: 18px;
 	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  */
+  padding: 0;
+  margin: 0;
 }
 
 a {
   text-decoration: none;
   color: $link-color;
+}
+
+a:hover {
+  color: $link-color - 100;
 }
 
 a img {
@@ -103,13 +112,28 @@ a img {
 /* header */
 
 #header {
-	overflow: auto;
-	padding-bottom: 20px;
+	/*overflow: auto;
+  	padding-bottom: 20px;*/
+  height: 56px;
+  background: url(/images/bg-header.png) repeat-x 0px -10px;
 }
 
 
 #logo {
 	float: left;
+  width: 100px;
+  height: 50px;
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 6px;
+  padding-left: 6px;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
+  color: #ff7800;
+  font-family: $font1;  
+}
+
+#logo a {
+  color: #ff7800;
 }
 
 #topnav {
@@ -129,8 +153,8 @@ a img {
   	@include rounded-bottom-left;
   	@include rounded-bottom-right;
   	
-  	font-family: Calibri;
-    font-size: 14px;
+  	font-family: $font1;
+    font-size: 12px;
     text-shadow: 1px 1px 0 #fff;
 
 	  list-style: none;
@@ -138,7 +162,7 @@ a img {
 
 
 
-  a:active { font-weight: bold; }
+  a:active { /*font-weight: bold;*/ }
   
   li {
 	  display: inline;
@@ -160,12 +184,29 @@ a img {
 #content {
 	clear: both;
 	overflow: auto;
+  background: url(/images/bg-main.png) repeat-x 0px -57px;
+  
+  
+  div#title {
+    background: $bg-title;
+    border:  $bnt-border-normal;
+    height: 45px;
+    padding-left: 18px;
+    padding-top: 10px;
+    font-size: 14px;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+    color: #333;
+    font-family: $font2;
+    margin-bottom: $spacer1;
+  }  
+  
+  
 }
 
 #status-menu {
   padding-left: $spacer1;
-	font-family: Calibri;
-	font-size: 14px;
+/*	font-family: $font1;*/
+	font-size: 12px;
 
 	text-shadow: 1px 1px 0 #fff;
 	overflow: auto;
@@ -250,6 +291,7 @@ a img {
 #burndown {
 	float: right;
 	border: $bnt-border-normal;
+  margin-right: $spacer1;
 }
 
 /* footer */
@@ -277,37 +319,72 @@ div#storylist {
 li.story {
 	list-style: none;
 	background: #f9f9f9;
-	border: $bnt-border-normal;
-	width: inherit;
+	border-left: $bnt-border-normal;
+  border-right: $bnt-border-normal;
+  border-bottom: $bnt-border-normal;
+  
+  /*width: inherit;
 	margin-bottom: 5px;
 	padding: 3px;
-	position: relative;
+	position: relative;*/
 
   /*
   @include rounded-left;
   @include rounded-right;
   @include inset-shadow;
   */
+  
+    
 
   div {
     /*  border: 1px solid red; */
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
+    
+    
+    
   }
   
-  div.expand { width: 20px; }    
-  div.id { width: 20px; }
-  div.naam { width: 404px; }
-  div.priority { width: 20px; }
-  div.description { 
-    width: 20px;
-    height: 20px;
-  }
-  div.notes { width: 20px; }
-  div.points { width: 20px; }
-  div.assigned { width: 50px; }
+    .expand { 
+      width: 20px; 
+      height: 20px;
+    }
+    .id { width: 20px; }
+    .naam { 
+      width: 440px; 
+      font-weight: bold;
+    }
+    .priority { width: 20px; }
+    .description { 
+      width: 20px;
+      height: 20px;
+    }
+    .notes { width: 20px; }
+    .points { width: 20px; }
+    .assigned { width: 50px; }
+    
+    
+    
+    .storyheader {
+    	width: 100%;
+      background-image: $nav-bg;
+    	padding: 3px 0px;
+    }
+    .storybody {
+    	border-top: $bnt-border-normal;
+    	background: white;
+    	padding: 3px;
+      width: 572px;
+    } 
+  
+  
   
 }
+
+li.story:first-child {
+  border-top: $bnt-border-normal;
+}
+
 
 
 
