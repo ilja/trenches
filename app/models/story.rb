@@ -13,7 +13,7 @@ class Story
   referenced_in :project
   
   class << self
-    def open
+    def pending
       criteria.where(:status => "open")
     end
     def active

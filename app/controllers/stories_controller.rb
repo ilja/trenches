@@ -24,7 +24,7 @@ class StoriesController < ApplicationController
   end
   
   def open
-    @stories = @project.stories.open
+    @stories = @project.stories.pending    
     render :index
   end
   

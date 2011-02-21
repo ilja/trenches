@@ -1,0 +1,8 @@
+<% unless @project.nil? || @project.new_record? %>
+<div id="subnav">
+  <ul>
+    <li><%= link_to "product backlog", backlog_path(@project) %></li>
+    <li><%= link_to "sprints", project_sprints_path(@project) %></li>
+  </ul>
+</div>
+<% end %>

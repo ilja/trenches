@@ -30,10 +30,11 @@ a img {
   width: 1000px;
   /*margin:0px auto;*/
   text-align: left;
-  /*padding:10px;*/
-  position: absolute;
+  	/*padding:10px;
+    position: absolute;*/
   left: 50%;
-  margin-left: -510px;
+  margin: 0px auto;
+  /*margin-left: -510px;*/
   /*	border:1px solid red;*/
   overflow: visible; }
 
@@ -62,7 +63,7 @@ a img {
 #topnav {
   overflow: auto; }
   #topnav ul {
-    border-color: #c2c2c2;
+    border-color: #efefef;
     border-style: none solid solid solid;
     border-width: 1px;
     background: url(/images/bg.png);
@@ -108,10 +109,39 @@ a img {
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
     color: #333;
     font-family: "Yanone Kaffeesatz", "Droid Sans", arial, sans-serif;
-    margin-bottom: 6px; }
+    /*margin-bottom: $spacer1;*/ }
+
+#subnav {
+  overflow: auto; }
+  #subnav ul {
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    /*background: $nav-bg;*/
+    background: #efefef;
+    padding: 2px 5px 2px 5px;
+    margin: 0px;
+    height: 18px;
+    /*text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);*/
+    font-family: "Droid Sans", arial, sans-serif;
+    font-size: 12px;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9);
+    list-style: none; }
+  #subnav a:active {
+    /*font-weight: bold;*/ }
+  #subnav li {
+    display: inline;
+    padding: 0;
+    margin: 0; }
+  #subnav li:before {
+    content: "| ";
+    color: #e8e8e8; }
+  #subnav li:first-child:before {
+    content: ""; }
 
 #status-menu {
   padding-left: 6px;
+  margin-top: 6px;
   /*	font-family: $font1;*/
   font-size: 12px;
   text-shadow: 1px 1px 0 #fff;
@@ -133,7 +163,7 @@ a img {
     list-style-type: none;
     border-top: 1px solid #e8e8e8;
     border-bottom: 1px solid #e8e8e8;
-    border-left: 1px solid #e9eaea;
+    border-left: 1px solid white;
     border-right: 1px solid #e8e8e8;
    /* a:hover {
 	    color: #fff;

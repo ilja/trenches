@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
+<% title "#{@project.name}" %>
+<%= render "projects/subnav" %>
+  
+<p>hier de actieve sprint met haar stories, of bij gebrek daaraan de backlog</p>
 
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>

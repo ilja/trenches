@@ -1,15 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @sprint.name %>
-</p>
-
-<p>
-  <b>Project:</b>
-  <%= @sprint.project.name %>
-</p>
-
-
+<% title "#{@project.name} - #{@sprint.name}" %>
 <%= link_to 'Edit', edit_project_sprint_path(@project, @sprint) %> |
 <%= link_to 'Back', project_sprints_path %>
+<p id="notice"><%= notice %></p>
+
+<p>copy stories from backlog to sprint</p>
+
+

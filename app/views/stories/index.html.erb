@@ -1,7 +1,5 @@
-
-<div id="title">
-  <h1>Product backlog <%= @project.name %></h1>
-</div>
+<% title "#{@project.name} - backlog" %>
+<%= render "projects/subnav" %>
 
 <div id="status-menu">
   <ul>
