@@ -3,6 +3,28 @@
 <%= link_to 'Back', project_sprints_path %>
 <p id="notice"><%= notice %></p>
 
-<p>copy stories from backlog to sprint</p>
+<p>tekstje</p>
 
+<div id="backlog-list">
+ <ul id="sortable1" class="connectedSortable">
+  <%= render :partial => 'stories/story', :collection => @project.stories %>
+ </ul>
+</div>
 
+<div id="sprint-list">
+ <ul id="sortable2" class="connectedSortable">
+  <%= render :partial => 'stories/story', :collection => @sprint.stories %>
+ </ul>
+</div>
+
+<style>
+	#sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; }
+	#sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+	</style>
+	<script>
+	$(function() {
+		$( "#sortable1, #sortable2" ).sortable({
+			connectWith: ".connectedSortable"
+		}).disableSelection();
+	});
+	</script>

@@ -305,3 +305,15 @@ ul.fancy {
     border-top: 1px solid #e8e8e8; }
   ul.fancy li:hover {
     background: url(/images/bg-hover.png); }
+
+div#backlog-list {
+  border: 1px solid red;
+  width: 49%;
+  overflow: auto;
+  float: left; }
+
+div#sprint-list {
+  border: 1px solid black;
+  width: 49%;
+  overflow: auto;
+  float: right; }

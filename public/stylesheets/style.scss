@@ -475,3 +475,16 @@ ul.fancy {
   }
 }
 
+div#backlog-list {
+  border: 1px solid red;
+  width: 49%;
+  overflow: auto;
+  float: left;
+}
+
+div#sprint-list {
+  border: 1px solid black;
+  width: 49%;
+  overflow: auto;
+  float: right;
+}

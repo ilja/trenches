@@ -11,11 +11,12 @@ class Story
   field :priority, :type => Integer #of symbol?
   field :points, :type => Integer
   referenced_in :project
-  
-  class << self
-    def pending
-      criteria.where(:status => "open")
-    end
+  referenced_in :sprint
+
+class << self
+  def pending
+    criteria.where(:status => "open")
+  end
     def active
       criteria.where(:status => "active")
     end
