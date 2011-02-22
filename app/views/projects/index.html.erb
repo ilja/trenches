@@ -1,21 +1,16 @@
 <% title "All projects" %>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul class="fancy">
 <% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li>
+    <div>
+      <div class="name"><%= link_to project.name, project %></div>
+      <div class="edit"><%= link_to 'Edit', edit_project_path(project) %></div>
+      <div class="destroy"><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></div>
+    </div>
+  </li>
 <% end %>
-</table>
+</ul>
 
 <br />
 

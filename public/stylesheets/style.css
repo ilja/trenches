@@ -278,4 +278,30 @@ li.story {
 li.story:first-child {
   border-top: 1px solid #e8e8e8; }
 
-/*fsd*/
+/* fancy list */
+ul.fancy {
+  padding: 6px;
+  margin: 0; }
+  ul.fancy li {
+    list-style: none;
+    background: url(/images/bg.png);
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    height: 20px; }
+    ul.fancy li div {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 2px; }
+    ul.fancy li div.name {
+      width: 600px; }
+      ul.fancy li div.name a {
+        display: block; }
+    ul.fancy li div.edit {
+      width: 20px; }
+    ul.fancy li div.destroy {
+      width: 40px; }
+  ul.fancy li:first-child {
+    border-top: 1px solid #e8e8e8; }
+  ul.fancy li:hover {
+    background: url(/images/bg-hover.png); }

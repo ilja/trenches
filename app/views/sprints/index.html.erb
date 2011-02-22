@@ -1,25 +1,16 @@
 <% title "#{@project.name} sprints" %>
 <%= render "projects/subnav" %>
 
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul class="fancy">
 <% @sprints.each do |sprint| %>
-  <tr>
-    <td><%= sprint.name %></td>
-    <td><%= link_to 'Show', project_sprint_path(@project, sprint) %></td>
-    <td><%= link_to 'Edit', edit_project_sprint_path(@project, sprint) %></td>
-    <td><%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li>
+    <div>
+      <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint) %></div>
+      <div class="edit"><%= link_to 'Edit', edit_project_sprint_path(@project, sprint) %></div>
+      <div class="destroy"><%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete %></div>
+    </div>
+  </li>
 <% end %>
-</table>
-
-<br />
+</ul>
 
 <%= link_to 'New Sprint', new_project_sprint_path(@project) %>

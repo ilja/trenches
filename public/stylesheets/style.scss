@@ -432,4 +432,46 @@ li.story:first-child {
 
 
 
-/*fsd*/
+/* fancy list */
+ul.fancy {
+  padding: $spacer1;
+  margin: 0;
+
+  li {
+    list-style: none;
+    background: $nav-bg;
+
+    border-left: $bnt-border-normal;
+    border-right: $bnt-border-normal;
+    border-bottom: $bnt-border-normal;
+    height: 20px;
+
+    div {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 2px;
+    }
+
+    div.name {
+      width: 600px;
+      a {
+        display: block;
+      }
+    }
+    div.edit {
+      width: 20px;
+    }
+    div.destroy {
+      width: 40px;
+    }
+  }
+ 
+  li:first-child {
+    border-top: $bnt-border-normal;
+  }
+
+  li:hover {
+    background: $nav-bg-hover;
+  }
+}
+
