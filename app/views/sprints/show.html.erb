@@ -14,13 +14,9 @@
 <div id="sprint-list">
  <ul id="sortable2" class="connectedSortable">
   <%= render :partial => 'stories/story', :collection => @sprint.stories %>
- </ul>
+  </ul>
 </div>
 
-<style>
-	#sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; }
-	#sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
-	</style>
 	<script>
 	$(function() {
 		$( "#sortable1, #sortable2" ).sortable({

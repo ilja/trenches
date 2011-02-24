@@ -309,11 +309,27 @@ ul.fancy {
 div#backlog-list {
   border: 1px solid red;
   width: 49%;
-  overflow: auto;
-  float: left; }
+  float: left;
+  min-height: 100px; }
 
 div#sprint-list {
   border: 1px solid black;
   width: 49%;
-  overflow: auto;
-  float: right; }
+  float: right;
+  min-height: 100px; }
+
+#sortable1, #sortable2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  margin-right: 10px;
+  min-height: 100px;
+  width: 100%; }
+
+#sortable1 li, #sortable2 li {
+  margin: 0 5px 5px 5px;
+  padding: 5px;
+  font-size: 1.2em;
+  width: 120px;
+  cursor: move; }
