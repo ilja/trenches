@@ -22,5 +22,20 @@
 		$( "#sortable1, #sortable2" ).sortable({
 			connectWith: ".connectedSortable"
 		}).disableSelection();
+
+    $("#sortable2").sortable({
+      receive: function(event, ui) { 
+        alert('save sprint: story added: ' + ui.item.attr('data-id'));
+      }
+    });
+
+
+    $("#sortable2").sortable({
+      remove: function(event, ui) { 
+        alert('save sprint: story removed: ' + ui.item.attr('data-id'));
+      }
+    });
+
+
 	});
 	</script>
