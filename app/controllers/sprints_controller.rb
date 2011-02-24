@@ -83,6 +83,31 @@ class SprintsController < ApplicationController
     end
   end
 
+  def add_story
+    story = @project.stories.find(params[:id])
+    sprint = @project.sprints.find(params[:sprint_id])
+    sprint.stories << story
+    story.sprint = sprint
+    if story.save
+      render :text => 'ok'
+    else 
+      render :text => 'error'
+    end
+    puts "add story" + story.name
+  end
+
+  def remove_story
+    story = @project.stories.find(params[:id])
+    story.sprint_id = nil
+    if story.save
+      render :text => 'ok'
+    else
+      render :text => 'error'
+    end
+
+    puts "remove story" + story.name
+  end
+
   def load_project
     @project = Project.find(params[:project_id])
   end

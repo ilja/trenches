@@ -7,7 +7,7 @@
 
 <div id="backlog-list">
  <ul id="sortable1" class="connectedSortable">
-  <%= render :partial => 'stories/story', :collection => @project.stories %>
+  <%= render :partial => 'stories/story', :collection => @project.backlog %>
  </ul>
 </div>
 
@@ -25,14 +25,13 @@
 
     $("#sortable2").sortable({
       receive: function(event, ui) { 
-        alert('save sprint: story added: ' + ui.item.attr('data-id'));
+        $.post('<%= add_story_path(@project, @sprint) %>?id='+ui.item.attr('data-id'));
       }
     });
 
-
     $("#sortable2").sortable({
       remove: function(event, ui) { 
-        alert('save sprint: story removed: ' + ui.item.attr('data-id'));
+        $.post('<%= remove_story_path(@project, @sprint) %>?id=' + ui.item.attr('data-id'));
       }
     });
 

@@ -13,6 +13,9 @@ TrenchesRb::Application.routes.draw do
     resources :sprints
   end
 
+  match 'projects/:project_id/sprints/:sprint_id/add_story' => 'sprints#add_story', :as => :add_story
+  match 'projects/:project_id/sprints/:sprint_id/remove_story' => 'sprints#remove_story', :as => :remove_story
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

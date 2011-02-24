@@ -6,4 +6,8 @@ class Project
   field :name
   references_many :stories, :dependent => :delete
   embeds_many :sprints
+
+  def backlog
+    stories.where(:sprint_id => nil)
+  end
 end
