@@ -97,7 +97,10 @@ a img {
 /* content */
 #content {
   clear: both;
-  overflow: auto;
+  overflow: hidden;
+  display: inline-block;
+  /* Necessary to trigger "hasLayout" in IE */
+  display: block;
   background: url(/images/bg-main.png) repeat-x 0px -57px; }
   #content div#title {
     background: url(/images/bg-title.png);
@@ -233,6 +236,7 @@ li.story {
   border-left: 1px solid #e8e8e8;
   border-right: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
+  overflow: hidden;
   /*width: inherit;
 	margin-bottom: 5px;
 	padding: 3px;
@@ -248,12 +252,18 @@ li.story {
     vertical-align: middle; }
   li.story .expand {
     width: 20px;
-    height: 20px; }
+    height: 20px;
+    float: left;
+    cursor: pointer; }
   li.story .id {
-    width: 20px; }
+    width: 20px;
+    float: left; }
   li.story .naam {
-    width: 440px;
-    font-weight: bold; }
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 440px; */
+    font-weight: bold;
+    display: block; }
   li.story .priority {
     width: 20px; }
   li.story .description {
@@ -273,7 +283,10 @@ li.story {
     border-top: 1px solid #e8e8e8;
     background: white;
     padding: 3px;
-    width: 572px; }
+    width: 572px;
+    display: none; }
+  li.story .story-menu {
+    float: right; }
 
 li.story:first-child {
   border-top: 1px solid #e8e8e8; }
@@ -306,17 +319,19 @@ ul.fancy {
   ul.fancy li:hover {
     background: url(/images/bg-hover.png); }
 
-div#backlog-list {
-  border: 1px solid red;
+div#sortable-list {
   width: 49%;
-  float: left;
+  background: #f6f6f6;
+  border: 1px solid #e8e8e8;
   min-height: 100px; }
+  div#sortable-list h1 {
+    color: #e8e8e8; }
 
-div#sprint-list {
-  border: 1px solid black;
-  width: 49%;
-  float: right;
-  min-height: 100px; }
+div#sortable-list.backlog {
+  float: left; }
+
+div#sortable-list.sprint {
+  float: right; }
 
 #sortable1, #sortable2 {
   list-style-type: none;
@@ -328,8 +343,7 @@ div#sprint-list {
   width: 100%; }
 
 #sortable1 li, #sortable2 li {
-  margin: 0 5px 5px 5px;
-  padding: 5px;
-  font-size: 1.2em;
-  width: 120px;
-  cursor: move; }
+  margin: 0 5px;
+  font-size: 1.2em; }
+  #sortable1 li div.naam, #sortable2 li div.naam {
+    cursor: move; }

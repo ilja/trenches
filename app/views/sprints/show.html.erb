@@ -3,38 +3,38 @@
 <%= link_to 'Back', project_sprints_path %>
 <p id="notice"><%= notice %></p>
 
-<p>tekstje</p>
+<p>Select which stories are in this sprint</p>
 
-<div id="backlog-list">
- <ul id="sortable1" class="connectedSortable">
-  <%= render :partial => 'stories/story', :collection => @project.backlog %>
- </ul>
-</div>
-
-<div id="sprint-list">
- <ul id="sortable2" class="connectedSortable">
-  <%= render :partial => 'stories/story', :collection => @sprint.stories %>
+<div id="sortable-list" class="backlog">
+  <h1>Project backlog</h1>
+  <ul id="sortable1" class="connectedSortable">
+    <%= render :partial => 'stories/story', :collection => @project.backlog %>
   </ul>
 </div>
 
-	<script>
-	$(function() {
-		$( "#sortable1, #sortable2" ).sortable({
-			connectWith: ".connectedSortable"
-		}).disableSelection();
+<div id="sortable-list" class="sprint">
+  <h1>Sprint backlog</h1>
+  <ul id="sortable2" class="connectedSortable">
+    <%= render :partial => 'stories/story', :collection => @sprint.stories %>
+  </ul>
+</div>
 
-    $("#sortable2").sortable({
-      receive: function(event, ui) { 
-        $.post('<%= add_story_path(@project, @sprint) %>?id='+ui.item.attr('data-id'));
-      }
-    });
+<script type="text/javascript">
+$(function() {
+  $( "#sortable1, #sortable2" ).sortable({
+    connectWith: ".connectedSortable"
+  }).disableSelection();
 
-    $("#sortable2").sortable({
-      remove: function(event, ui) { 
-        $.post('<%= remove_story_path(@project, @sprint) %>?id=' + ui.item.attr('data-id'));
-      }
-    });
+  $("#sortable2").sortable({
+    receive: function(event, ui) { 
+      $.post('<%= add_story_path(@project, @sprint) %>?id='+ui.item.attr('data-id'));
+    }
+  });
 
-
-	});
-	</script>
+  $("#sortable2").sortable({
+    remove: function(event, ui) { 
+      $.post('<%= remove_story_path(@project, @sprint) %>?id=' + ui.item.attr('data-id'));
+    }
+  });
+});
+</script>

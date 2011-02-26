@@ -184,7 +184,9 @@ a img {
 
 #content {
 	clear: both;
-	overflow: auto;
+	overflow: hidden;
+  display: inline-block; /* Necessary to trigger "hasLayout" in IE */
+  display: block;
   background: url(/images/bg-main.png) repeat-x 0px -57px;
   
   
@@ -364,6 +366,7 @@ li.story {
 	border-left: $bnt-border-normal;
   border-right: $bnt-border-normal;
   border-bottom: $bnt-border-normal;
+  overflow: hidden;
   
   /*width: inherit;
 	margin-bottom: 5px;
@@ -390,11 +393,16 @@ li.story {
     .expand { 
       width: 20px; 
       height: 20px;
+      float: left;
+      cursor: pointer;
     }
-    .id { width: 20px; }
+    .id { width: 20px; float: left; }
     .naam { 
-      width: 440px; 
+      margin-left: auto;
+      margin-right: auto;
+      /* width: 440px; */
       font-weight: bold;
+      display: block;
     }
     .priority { width: 20px; }
     .description { 
@@ -417,10 +425,13 @@ li.story {
     	background: white;
     	padding: 3px;
       width: 572px;
+      display: none;
     } 
   
   
-  
+    .story-menu {
+      float: right;
+    } 
 }
 
 li.story:first-child {
@@ -475,20 +486,26 @@ ul.fancy {
   }
 }
 
-div#backlog-list {
-  border: 1px solid red;
+div#sortable-list {
   width: 49%;
+  background: #f6f6f6;
+  border:  $bnt-border-normal;
+
+  min-height: 100px;
+
+  h1 {
+    color: $border-color;
+  }
+}
+
+div#sortable-list.backlog {
   float: left;
-  min-height: 100px;
 }
 
-div#sprint-list {
-  border: 1px solid black;
-  width: 49%;
+div#sortable-list.sprint {
   float: right;
-  min-height: 100px;
-
 }
+
 
 #sortable1, #sortable2 { 
   list-style-type: none; 
@@ -501,9 +518,10 @@ div#sprint-list {
 }
 
 #sortable1 li, #sortable2 li {
-  margin: 0 5px 5px 5px; 
-  padding: 5px; 
-  font-size: 1.2em; 
-  width: 120px;
-  cursor: move; 
+  margin: 0 5px; 
+  font-size: 1.2em;
+  div.naam {
+    cursor: move;
+  }
 }
+
