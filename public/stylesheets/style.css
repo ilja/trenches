@@ -251,19 +251,21 @@ li.story {
     display: inline-block;
     vertical-align: middle; }
   li.story .expand {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     float: left;
     cursor: pointer; }
   li.story .id {
     width: 20px;
-    float: left; }
+    float: left;
+    padding-top: 3px; }
   li.story .naam {
     margin-left: auto;
     margin-right: auto;
     /* width: 440px; */
     font-weight: bold;
-    display: block; }
+    display: block;
+    padding-top: 3px; }
   li.story .priority {
     width: 20px; }
   li.story .description {
@@ -278,13 +280,14 @@ li.story {
   li.story .storyheader {
     width: 100%;
     background-image: url(/images/bg.png);
-    padding: 3px 0px; }
+    padding: 3px 0px 3px 0px; }
   li.story .storybody {
     border-top: 1px solid #e8e8e8;
     background: white;
     padding: 3px;
-    width: 572px;
     display: none; }
+    li.story .storybody .edit-story {
+      float: right; }
   li.story .story-menu {
     float: right; }
 
@@ -336,14 +339,14 @@ div#sortable-list.sprint {
 #sortable1, #sortable2 {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0px 0px 5px 0px;
+  font-size: 1.2em;
   float: left;
   margin-right: 10px;
   min-height: 100px;
   width: 100%; }
 
 #sortable1 li, #sortable2 li {
-  margin: 0 5px;
-  font-size: 1.2em; }
+  margin: 0 5px; }
   #sortable1 li div.naam, #sortable2 li div.naam {
     cursor: move; }

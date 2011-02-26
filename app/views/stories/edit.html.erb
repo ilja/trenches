@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
+<%= link_to 'Destroy', project_story_path(@project, @story), :confirm => 'Are you sure?', :method => :delete %> |
 <%= link_to 'Show', project_story_path(@project, @story) %> |
 <%= link_to 'Back', project_stories_path(@project) %>
