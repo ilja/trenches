@@ -13,8 +13,10 @@ TrenchesRb::Application.routes.draw do
     resources :sprints
   end
 
-  match 'projects/:project_id/sprints/:sprint_id/add_story' => 'sprints#add_story', :as => :add_story
-  match 'projects/:project_id/sprints/:sprint_id/remove_story' => 'sprints#remove_story', :as => :remove_story
+  match 'projects/:project_id/sprints/:sprint_id/add_and_sort_stories' => 'sprints#add_and_sort_stories', :as => :add_and_sort_stories
+  match 'projects/:project_id/sprints/:sprint_id/remove_and_sort_stories' => 'sprints#remove_and_sort_stories', :as => :remove_and_sort_stories
+
+  match 'projects/:project_id/sprints/:sprint_id/sort' => 'sprints#sort', :as => :sort
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

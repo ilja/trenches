@@ -15,7 +15,7 @@
 <div id="sortable-list" class="sprint">
   <h1>Sprint backlog</h1>
   <ul id="sortable2" class="connectedSortable">
-    <%= render :partial => 'stories/story', :collection => @sprint.stories %>
+    <%= render :partial => 'stories/story', :collection => @sprint.stories.asc(:position) %>
   </ul>
 </div>
 
@@ -25,16 +25,33 @@ $(function() {
     connectWith: ".connectedSortable"
   }).disableSelection();
 
-  $("#sortable2").sortable({
-    receive: function(event, ui) { 
-      $.post('<%= add_story_path(@project, @sprint) %>?id='+ui.item.attr('data-id'));
+  $("#sortable1").sortable({
+    update: function(){
+      $.ajax({
+        type: 'post',
+        data: $('#sortable1').sortable('serialize', {attribute: 'id'}),
+        dataType: 'script', 
+        complete: function(request){
+          $('#sortable1').effect('highlight');
+        },
+        url: '<%= remove_and_sort_stories_path(@project, @sprint) %>'
+      })
     }
   });
 
   $("#sortable2").sortable({
-    remove: function(event, ui) { 
-      $.post('<%= remove_story_path(@project, @sprint) %>?id=' + ui.item.attr('data-id'));
+    update: function(){
+      $.ajax({
+        type: 'post',
+        data: $('#sortable2').sortable('serialize', {attribute: 'id'}),
+        dataType: 'script', 
+        complete: function(request){
+          $('#sortable2').effect('highlight');
+        },
+        url: '<%= add_and_sort_stories_path(@project, @sprint) %>'
+      })
     }
   });
+
 });
 </script>

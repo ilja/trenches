@@ -83,29 +83,22 @@ class SprintsController < ApplicationController
     end
   end
 
-  def add_story
-    story = @project.stories.find(params[:id])
+  def add_and_sort_stories
     sprint = @project.sprints.find(params[:sprint_id])
-    sprint.stories << story
-    story.sprint = sprint
-    if story.save
-      render :text => 'ok'
-    else 
-      render :text => 'error'
+    params[:story].each_with_index do |id, index|
+      story = Story.criteria.id(id).first
+      sprint.stories << story
+      story.update_attributes(:position => index+1, :sprint => sprint)
     end
-    puts "add story" + story.name
+    render :nothing => true
   end
 
-  def remove_story
-    story = @project.stories.find(params[:id])
-    story.sprint_id = nil
-    if story.save
-      render :text => 'ok'
-    else
-      render :text => 'error'
+  def remove_and_sort_stories
+    params[:story].each_with_index do |id, index|
+      story = Story.criteria.id(id).first
+      story.update_attributes(:position => index+1, :sprint_id => nil)
     end
-
-    puts "remove story" + story.name
+    render :nothing => true
   end
 
   def load_project
