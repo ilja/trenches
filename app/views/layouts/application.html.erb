@@ -20,10 +20,18 @@
 
 		<div id="topnav">
 			<ul>
-			  <li><a href="#">name</a></li>
+        <% if current_user %>
+          <li><%= current_user.name %></li>
+        <% end %>
         <li><%= link_to "all projects", projects_path %></li>
 				<li><a href="#">settings</a></li>
-				<li><a href="#">logout</a></li>
+        <li>
+          <% if current_user %>
+            <%= link_to "sign out", signout_path %>
+          <% else %>
+            <%= link_to "sign in with GitHub", "/auth/github" %>
+          <% end %>
+        </li>
 			</ul>
 		</div>
 

@@ -5,3 +5,4 @@ tmp/**/*
 .redcar
 .rspec
 .sass-cache
+config/initializers/omniauth.rb

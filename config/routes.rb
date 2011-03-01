@@ -18,6 +18,9 @@ TrenchesRb::Application.routes.draw do
 
   match 'projects/:project_id/sprints/:sprint_id/sort' => 'sprints#sort', :as => :sort
 
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signout' => 'sessions#destroy', :as => :signout
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
