@@ -39,3 +39,4 @@ gem 'rspec-rails', '>= 2.0.1', :group => [:development, :test]
 gem 'cucumber-rails', :group => :test
 gem 'capybara', :group => :test
 gem 'haml', '>= 3.0.0'
+gem 'sass' # automatically compile sass and scss to css
