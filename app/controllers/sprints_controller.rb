@@ -22,6 +22,13 @@ class SprintsController < ApplicationController
     end
   end
 
+  def planning
+    @sprint = @project.sprints.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
+
   # GET /sprints/new
   # GET /sprints/new.xml
   def new

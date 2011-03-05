@@ -18,6 +18,8 @@ TrenchesRb::Application.routes.draw do
 
   match 'projects/:project_id/sprints/:sprint_id/sort' => 'sprints#sort', :as => :sort
 
+  match 'projects/:project_id/sprints/:id/planning' => 'sprints#planning', :as => :sprint_planning
+
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
 

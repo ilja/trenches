@@ -1,57 +1,25 @@
 <% title "#{@project.name} - #{@sprint.name}" %>
-<%= link_to 'Edit', edit_project_sprint_path(@project, @sprint) %> |
-<%= link_to 'Back', project_sprints_path %>
+<%= render "sprints/subnav" %>
+
 <p id="notice"><%= notice %></p>
 
-<p>Select which stories are in this sprint</p>
+<p>These stories are in this sprint</p>
 
-<div id="sortable-list" class="backlog">
-  <h1>Project backlog</h1>
-  <ul id="sortable1" class="connectedSortable">
-    <%= render :partial => 'stories/story', :collection => @project.backlog %>
+<div id="status-menu">
+  <ul>
+    <li><%= link_to 'All', project_stories_path(@project) %></li>
+    <li><%= link_to 'Open', open_stories_path(@project) %></li>
+	<li><%= link_to 'In progress', active_stories_path(@project) %></li>
+	<li><%= link_to 'Done', done_stories_path(@project) %></li>
   </ul>
 </div>
 
-<div id="sortable-list" class="sprint">
-  <h1>Sprint backlog</h1>
-  <ul id="sortable2" class="connectedSortable">
-    <%= render :partial => 'stories/story', :collection => @sprint.stories.asc(:position) %>
-  </ul>
+<div id="storylist">
+  <ul>
+    <%= render :partial => '/stories/story', :collection => @sprint.stories %>
+	</ul>
 </div>
 
-<script type="text/javascript">
-$(function() {
-  $( "#sortable1, #sortable2" ).sortable({
-    connectWith: ".connectedSortable"
-  }).disableSelection();
-
-  $("#sortable1").sortable({
-    update: function(){
-      $.ajax({
-        type: 'post',
-        data: $('#sortable1').sortable('serialize', {attribute: 'id'}),
-        dataType: 'script', 
-        complete: function(request){
-          $('#sortable1').effect('highlight');
-        },
-        url: '<%= remove_and_sort_stories_path(@project, @sprint) %>'
-      })
-    }
-  });
-
-  $("#sortable2").sortable({
-    update: function(){
-      $.ajax({
-        type: 'post',
-        data: $('#sortable2').sortable('serialize', {attribute: 'id'}),
-        dataType: 'script', 
-        complete: function(request){
-          $('#sortable2').effect('highlight');
-        },
-        url: '<%= add_and_sort_stories_path(@project, @sprint) %>'
-      })
-    }
-  });
-
-});
-</script>
+<div id="burndown">
+  <img src="http://chart.apis.google.com/chart?chs=400x450&cht=lxy&chtt=Sprint%20burndown&chxt=x,y&chxl=days&chdl=Estimated|Actual&chco=FF0000,00FF00&chd=t:-1|40,36,32,28,24,20,16,12,8,4,0|-1|40,38,36,35,20,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1&chxr=0,0,30,2|1,0,40,2&chds=0,40&chm=s,FF0000,0,-1,5|s,0000ff,1,-1,5|s,00aa00,2,-1,5" alt="" />
+</div>
