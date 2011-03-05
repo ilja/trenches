@@ -6,3 +6,5 @@ TrenchesRb::Application.initialize!
 
 # Change default sass path
 Sass::Plugin.options[:template_location] = "./public/stylesheets"
+# Show debug_info for FireSass
+Sass::Plugin.options[:debug_info] = true
