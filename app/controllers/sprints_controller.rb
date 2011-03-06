@@ -1,5 +1,7 @@
 class SprintsController < ApplicationController
   before_filter :load_project
+  helper_method :show_scope
+
   # GET /sprints
   # GET /sprints.xml
   def index
@@ -15,6 +17,12 @@ class SprintsController < ApplicationController
   # GET /sprints/1.xml
   def show
     @sprint = @project.sprints.find(params[:id])
+
+    if show_scope == "all"
+      @stories = @sprint.stories
+    else
+      @stories = @sprint.stories.where(:status => show_scope)
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -112,4 +120,9 @@ class SprintsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  private
+
+  def show_scope
+    %w[open active done].include?(params[:show]) ?  params[:show] : "all"
+  end
 end
