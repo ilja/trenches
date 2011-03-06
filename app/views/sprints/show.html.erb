@@ -4,14 +4,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>These stories are in this sprint</p>
-<div id="status-menu">
-  <ul>
-    <li <% if params[:show] == "all" %> class='active'<% end %>><%= link_to 'All', :show => "all" %></li>
-    <li <% if params[:show] == "open" %> class='active'<% end %>><%= link_to 'Open', :show => "open" %></li>
-    <li <% if params[:show] == "active" %> class='active'<% end %>><%= link_to 'In progress', :show => "active" %></li>
-    <li <% if params[:show] == "done" %> class='active'<% end %>><%= link_to 'Done', :show => "done" %></li>
-  </ul>
-</div>
+<%= render :partial => 'status-menu' %>
 
 <div id="storylist">
   <ul>
