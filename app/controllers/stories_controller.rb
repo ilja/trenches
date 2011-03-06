@@ -1,10 +1,16 @@
 class StoriesController < ApplicationController
   before_filter :load_project
 
+  helper_method :show_scope
+
   # GET /stories
   # GET /stories.xml
   def index
-    @stories = @project.stories
+    if show_scope == "all"
+      @stories = @project.stories
+    else
+      @stories = @project.stories.where(:status => show_scope)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -102,5 +108,10 @@ class StoriesController < ApplicationController
   
   def load_project
     @project = Project.find(params[:project_id])
+  end
+
+  private
+  def show_scope
+    %w[open active done].include?(params[:show]) ?  params[:show] : "all"
   end
 end
