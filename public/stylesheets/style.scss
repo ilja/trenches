@@ -187,8 +187,7 @@ a img {
   display: inline-block; /* Necessary to trigger "hasLayout" in IE */
   display: block;
   background: url(/images/bg-main.png) repeat-x 0px -57px;
-  
-  
+
   div#title {
     background: $bg-title;
     border:  $bnt-border-normal;
@@ -200,10 +199,20 @@ a img {
     color: #333;
     font-family: $font2;
     /*margin-bottom: $spacer1;*/
-  }  
-  
-  
+  }
 }
+
+form.edit_story {
+  padding: $spacer1 0 0 $spacer1;
+}
+
+div.field {
+  padding-bottom: 15px;
+  textarea#story_description {
+    width: 700px;
+  }
+}
+
 
 #subnav {
   overflow: auto;
