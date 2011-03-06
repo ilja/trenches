@@ -11,7 +11,7 @@
     <div class="naam"><%= story.name %> (Bob)</div>
   </div>
   <div class="storybody">
-    <div class="full-description"><%= story.description %></div>
+    <div class="full-description"><%= markdown(story.description) %></div>
     <div class="edit-story"><%= link_to 'Edit', edit_project_story_path(story.project, story) %></div>
   </div>
 </li>

@@ -360,13 +360,14 @@ div#storylist {
 	width: 580px;
 	/*border: 1px solid blue;*/
   
-  ul {
+  > ul {
   	display: inline;
 	  padding: 0px;
   }
 }
 
-
+div.full-description {
+}
 
 li.story {
 	list-style: none;

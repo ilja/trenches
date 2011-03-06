@@ -7,13 +7,15 @@ class Story
   #id (autoinc per project?)
   field :name
   field :description
-  #lijstje notes
+  #list of notes?
   field :status, :default => "open"
   field :priority, :type => Integer #of symbol?
   field :points, :type => Integer
   field :position, :type => Integer
   referenced_in :project
   referenced_in :sprint
+
+  
 
   class << self
     def pending
@@ -26,5 +28,4 @@ class Story
       criteria.where(:status => "done").asc(:position)
     end
   end
-
 end
