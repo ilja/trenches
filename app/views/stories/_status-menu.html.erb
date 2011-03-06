@@ -1,0 +1,13 @@
+<div id="status-menu">
+  <ul>
+    <li <% if active_menu_item == "all" %> class='active'<% end %>><%= link_to 'All', :show => "all" %></li>
+    <li <% if active_menu_item == "open" %> class='active'<% end %>><%= link_to 'Open', :show => "open" %></li>
+    <li <% if active_menu_item == "active" %> class='active'<% end %>><%= link_to 'In progress', :show => "active" %></li>
+    <li <% if active_menu_item == "done" %> class='active'<% end %>><%= link_to 'Done', :show => "done" %></li>
+
+    <% if show_new_story %>
+      <li <% if active_menu_item == "new" %> class='active'<% end %>><%= link_to 'New Story', new_project_story_path(@project) %></li>
+    <% end %>
+
+  </ul>
+</div>

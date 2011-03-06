@@ -4,7 +4,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>These stories are in this sprint</p>
-<%= render :partial => 'status-menu' %>
+<%= render :partial => 'stories/status-menu', :locals => {:show_new_story => false, :active_menu_item => show_scope} %>
 
 <div id="storylist">
   <ul>

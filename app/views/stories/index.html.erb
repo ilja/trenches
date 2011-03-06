@@ -1,15 +1,7 @@
 <% title "#{@project.name} - backlog" %>
 <%= render "projects/subnav" %>
 
-<div id="status-menu">
-  <ul>
-    <li><%= link_to 'All', :show => "all" %></li>
-    <li><%= link_to 'Open', :show => "open" %></li>
-    <li><%= link_to 'In progress', :show => "active" %></li>
-    <li><%= link_to 'Done', :show => "done" %></li>
-    <li><%= link_to 'New Story', new_project_story_path(@project) %></li>
-  </ul>
-</div>
+<%= render :partial => 'stories/status-menu', :locals => { :show_new_story => true, :active_menu_item => show_scope } %>
 
 <div id="storylist">
   <ul>
