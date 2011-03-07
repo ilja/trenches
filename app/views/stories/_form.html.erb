@@ -28,15 +28,13 @@
 
   <div class="field">
     <%= f.label :points %><br />
-    <%= f.select :points, ["ace", "two", "three", "five", "eight", "ten", "king"] %>
+    <%= f.select :points, StoryPoint::all %>
   </div>
 
   <div class="field">
     <%= f.label :status %><br />
     <%= f.select :status, ["open", "active", "done"] %>
   </div>
-
-
 
   <div class="actions">
     <%= f.submit %>
