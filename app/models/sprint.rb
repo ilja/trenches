@@ -1,6 +1,7 @@
 class Sprint
   include Mongoid::Document
   field :name, :type => String
+  field :goal, :type => String
   field :start_date, :type => Date
   field :end_date, :type => Date
   embedded_in :project, :inverse_of => :sprints
