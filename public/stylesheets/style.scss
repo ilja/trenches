@@ -540,3 +540,13 @@ div#sortable-list.sprint {
   }
 }
 
+div#flash_notice {
+    padding: $spacer1;
+    margin: $spacer1;
+    border: $bnt-border-normal;
+    background: #f6f6f6;
+}
+
+img.icon {
+    vertical-align: middle;
+}
