@@ -14,7 +14,7 @@ class Story
   field :position, :type => Integer
   referenced_in :project
   referenced_in :sprint
-  references_one :user, :default => nil
+  referenced_in :user, :default => nil
 
   def start(user)
     self.status = "active"

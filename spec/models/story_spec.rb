@@ -14,9 +14,10 @@ describe Story do
 
     it "sets the assigned user" do
       @story.assigned_to.should be_nil
-      user = User.new
+      user = User.create(:name => "bob")
       @story.start(user)
       @story.assigned_to.should == user
+      @story.assigned_to.name.should == "bob"
     end
   end
 end

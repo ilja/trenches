@@ -105,6 +105,23 @@ class StoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def start
+    @story = @project.stories.find(params[:story_id])
+    
+    if current_user
+      @story.start(current_user)
+
+      #todo ajax
+      if @story.save!
+        sprint = @project.sprints.find(@story.sprint_id)
+        redirect_to( project_sprint_path(@project, sprint), :notice => "story started")
+      else
+        #error
+      end
+           
+    end
+  end
   
   def load_project
     @project = Project.find(params[:project_id])

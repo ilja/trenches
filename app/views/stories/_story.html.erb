@@ -8,10 +8,13 @@
       <div class="priority"><%= story.priority %></div>
       <div class="points"><%= story.points %></div>
     </div>
-    <div class="naam"><%= story.name %> (Bob)</div>
+    <div class="naam"><%= story.name %> <%= link_to_story_developer(story) %></div>
   </div>
   <div class="storybody">
     <div class="full-description"><%= markdown(story.description) %></div>
-    <div class="edit-story"><%= link_to 'Edit', edit_project_story_path(story.project, story) %></div>
+    <div class="edit-story">
+      <%= link_to 'Edit', edit_project_story_path(story.project, story) %>
+      <%= link_to 'Start', start_story_path(story.project, story) %>
+    </div>
   </div>
 </li>

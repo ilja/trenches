@@ -3,6 +3,7 @@ class User
   field :provider, :type => String
   field :uid, :type => String
   field :name, :type => String
+  references_many :stories
 
   def self.create_with_omniauth(auth)
     create! do |user|

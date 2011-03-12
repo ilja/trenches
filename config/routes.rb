@@ -13,6 +13,8 @@ TrenchesRb::Application.routes.draw do
     resources :sprints
   end
 
+  match 'projects/:project_id/stories/:story_id/start' => 'stories#start', :as => :start_story
+
   match 'projects/:project_id/sprints/:sprint_id/add_and_sort_stories' => 'sprints#add_and_sort_stories', :as => :add_and_sort_stories
   match 'projects/:project_id/sprints/:sprint_id/remove_and_sort_stories' => 'sprints#remove_and_sort_stories', :as => :remove_and_sort_stories
 
