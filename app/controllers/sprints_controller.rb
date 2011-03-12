@@ -116,11 +116,23 @@ class SprintsController < ApplicationController
     render :nothing => true
   end
 
-  def load_project
-    @project = Project.find(params[:project_id])
+  def activate
+    if current_user
+      sprint = @project.sprints.find(params[:id])
+      current_user.assign_active_sprint(sprint)
+    
+      if current_user.save
+        redirect_to project_sprint_path(@project, current_user.active_sprint), :notice => "Active sprint set."
+      end
+
+    end
   end
 
   private
+
+  def load_project
+    @project = Project.find(params[:project_id])
+  end
 
   def show_scope
     %w[open active done].include?(params[:show]) ?  params[:show] : "all"

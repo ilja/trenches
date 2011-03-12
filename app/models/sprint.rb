@@ -6,6 +6,7 @@ class Sprint
   field :end_date, :type => Date
   embedded_in :project, :inverse_of => :sprints
   references_many :stories
+  references_many :users 
 
   validates_presence_of :start_date, :end_date, :name
   
@@ -51,5 +52,5 @@ class Sprint
             :axis_with_labels => 'x,y',
             :axis_labels => [total_work_days.map {|d| d.day },[0,total_story_points ||= 0]],
             :legend => ["Estimated", "Actual"] )
-  end
+  end  
 end

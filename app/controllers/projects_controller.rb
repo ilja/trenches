@@ -15,9 +15,13 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @project }
+    # redirect to active sprint if exists and is in this project
+    if current_user && @project.sprints.active_for_user(current_user).blank? == false
+      sprint =  @project.sprints.active_for_user(current_user)
+      redirect_to project_sprint_path(@project, sprint)
+    else    
+      # no sprint set or not logged in
+      redirect_to backlog_path(@project)    
     end
   end
 

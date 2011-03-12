@@ -15,6 +15,8 @@ TrenchesRb::Application.routes.draw do
 
   match 'projects/:project_id/stories/:story_id/start' => 'stories#start', :as => :start_story
 
+  match 'projects/:project_id/sprints/:id/activate' => 'sprints#activate', :as => :set_active_sprint
+
   match 'projects/:project_id/sprints/:sprint_id/add_and_sort_stories' => 'sprints#add_and_sort_stories', :as => :add_and_sort_stories
   match 'projects/:project_id/sprints/:sprint_id/remove_and_sort_stories' => 'sprints#remove_and_sort_stories', :as => :remove_and_sort_stories
 
