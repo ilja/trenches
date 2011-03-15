@@ -11,6 +11,13 @@ module LayoutHelper
   def show_title?
     @show_title
   end
+  
+  def render_subnav(layout)
+    unless layout.blank?
+      #render layout
+      content_for(:subnav) { render layout }
+    end
+  end
 
   def stylesheet(*args)
     content_for(:head) { stylesheet_link_tag(*args) }

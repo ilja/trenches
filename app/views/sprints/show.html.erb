@@ -1,12 +1,11 @@
 <% title "#{@project.name} - #{@sprint.name} [#{@sprint.start_date} - #{@sprint.end_date}]" %>
-<%= render "sprints/subnav" %>
+<% render_subnav "sprints/subnav" %>
 
-<p id="notice"><%= notice %></p>
+<q><%= @sprint.goal %></q>
 
-<p><%= @sprint.goal %></p>
 <%= render :partial => 'stories/status-menu', :locals => {:show_new_story => false, :active_menu_item => show_scope} %>
 
-<div id="storylist">
+<div id="storylist" class="sprint">
   <ul>
     <%= render :partial => '/stories/story', :collection => @stories %>
 	</ul>

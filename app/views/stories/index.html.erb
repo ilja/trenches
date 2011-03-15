@@ -1,5 +1,6 @@
 <% title "#{@project.name} - backlog" %>
-<%= render "projects/subnav" %>
+<% render_subnav "projects/subnav" %>
+
 
 <%= render :partial => 'stories/status-menu', :locals => { :show_new_story => true, :active_menu_item => show_scope } %>
 

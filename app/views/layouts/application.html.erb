@@ -35,32 +35,24 @@
 			</ul>
 		</div>
 
+		<div id="title">
+		   <h1><%= h(yield(:title) || "Untitled") %></h1>
+		</div>
+		
+		<%= h(yield(:subnav)) %>
+
 	</div>
 
 	<div id="content">
-    
-  
 
-  <div id="title">
-   <h1><%= h(yield(:title) || "Untitled") %></h1>
-  </div>
-  
+	  <% flash.each do |name, msg| %>
+		<div id="<%= "flash_#{name}" %>" class="flashcontainer">
+	  	<%= "<img src=\"/images/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
+	    <%=  msg %>
+	  </div>
+	  <% end %>
 
-
-  <% flash.each do |name, msg| %>
-	<div id="<%= "flash_#{name}" %>" class="flashcontainer">
-  	<%= "<img src=\"/images/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
-    <%=  msg %>
-  </div>
-  <% end %>
-  
-
-    <%= yield %>
-
-		
-
-
-
+	  <%= yield %>
 
 	</div>
 

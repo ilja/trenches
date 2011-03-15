@@ -97,6 +97,10 @@ a img {
   border: none;
 }
 
+p {
+	margin: 0;
+}
+
 #container {
 	width:1000px;
 	/*margin:0px auto;*/
@@ -114,9 +118,25 @@ a img {
 
 #header {
 	/*overflow: auto;
-  	padding-bottom: 20px;*/
-  height: 56px;
+  	padding-bottom: 20px;
+  height: 56px;*/
   background: url(/images/bg-header.png) repeat-x 0px -10px;
+
+ div#title {
+    background: $bg-title;
+    border:  $bnt-border-normal;
+    height: 45px;
+    padding-left: 18px;
+    padding-top: 10px;
+    font-size: 14px;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+    color: #333;
+    font-family: $font2;
+	clear: both; 
+	display: block;
+    /*margin-bottom: $spacer1;*/
+  }
+
 }
 
 #logo {
@@ -176,6 +196,7 @@ a img {
     color: $border-color;
   }
   li:first-child:before { content: ""; }
+
 }
 
 
@@ -187,19 +208,8 @@ a img {
   display: inline-block; /* Necessary to trigger "hasLayout" in IE */
   display: block;
   background: url(/images/bg-main.png) repeat-x 0px -57px;
-
-  div#title {
-    background: $bg-title;
-    border:  $bnt-border-normal;
-    height: 45px;
-    padding-left: 18px;
-    padding-top: 10px;
-    font-size: 14px;
-    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
-    color: #333;
-    font-family: $font2;
-    /*margin-bottom: $spacer1;*/
-  }
+	padding: $spacer1;
+ 
 }
 
 form.edit_story {
@@ -254,13 +264,12 @@ div.field {
 
 
 #status-menu {
-  padding-left: $spacer1;
   margin-top: $spacer1;
 /*	font-family: $font1;*/
 	font-size: 12px;
 
 	text-shadow: 1px 1px 0 #fff;
-	overflow: auto;
+	overflow: hidden;
 	margin-bottom: 10px;
   
   ul {
@@ -337,7 +346,6 @@ div.field {
 #storylist {
   clear: left;
 	float: left;
-	padding-left: $spacer1;
 }
 
 #burndown {
@@ -357,13 +365,18 @@ div.field {
 
 
 div#storylist {
-	width: 580px;
-	/*border: 1px solid blue;*/
+	width: 988px;
+	/*width: 580px;
+	border: 1px solid blue;*/
   
   > ul {
   	display: inline;
 	  padding: 0px;
   }
+}
+
+div#storylist.sprint {
+	width: 580px;
 }
 
 div.full-description {
@@ -461,7 +474,7 @@ li.story:first-child {
 
 /* fancy list */
 ul.fancy {
-  padding: $spacer1;
+  padding: 0 0 $spacer1 0;
   margin: 0;
 
   li {
@@ -471,7 +484,7 @@ ul.fancy {
     border-left: $bnt-border-normal;
     border-right: $bnt-border-normal;
     border-bottom: $bnt-border-normal;
-    height: 20px;
+    height: 28px;
 
     div {
       display: inline-block;
@@ -506,7 +519,7 @@ div#sortable-list {
   width: 49%;
   background: #f6f6f6;
   border:  $bnt-border-normal;
-
+	margin-top: $spacer1;
   min-height: 100px;
 
   h1 {
