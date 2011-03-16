@@ -44,13 +44,6 @@ class Sprint
   end
 
   def burndown_url
-    Gchart.line(:title => "Sprint burndown",
-            :data => [[300, 100, 30, 200], [100, 200, 300, 10]], 
-            :bar_colors => ['FF0000','00FF00'],
-            :stacked => false,
-            :size => '400x450',
-            :axis_with_labels => 'x,y',
-            :axis_labels => [total_work_days.map {|d| d.day },[0,total_story_points ||= 0]],
-            :legend => ["Estimated", "Actual"] )
+  
   end  
 end
