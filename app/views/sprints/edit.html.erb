@@ -1,6 +1,4 @@
-<h1>Editing sprint</h1>
+<% title "Edit sprint #{@sprint.name}" %>
+<% render_subnav "projects/subnav" %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', project_sprint_path(@project, @sprint) %> |
-<%= link_to 'Back', project_sprints_path(@project) %>

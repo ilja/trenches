@@ -1,6 +1,5 @@
-<% title "#{@project.name} - new sprint" %>
+<% title "New sprint for project: #{@project.name}" %>
 <% render_subnav "projects/subnav" %>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', project_sprints_path(@project) %>

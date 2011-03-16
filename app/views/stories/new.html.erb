@@ -1,7 +1,4 @@
-<% title "#{@project.name} - new story" %>  
+<% title "New story for project: #{@project.name}" %>
 <% render_subnav "projects/subnav" %>
 
 <%= render 'form' %>
-
-<br />
-<%= link_to 'Back', project_stories_path(@project) %>
