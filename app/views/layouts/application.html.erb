@@ -3,8 +3,11 @@
 <head>
   <title>Trenches - <%= yield(:title) %></title>
   <meta charset="UTF-8">
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults, 'jquery-ui-1.8.10.custom.min' %>
+  <%= stylesheet_link_tag :all, 'jquery.jqplot.css' %>
+  <%= javascript_include_tag :defaults, 'jquery-ui-1.8.10.custom.min', 'jquery.jqplot.min', 'jqplot.categoryAxisRenderer' %>
+ 
+  <!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
+
   <%= csrf_meta_tag %>
   <link href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css" >
   <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700" rel="stylesheet" type="text/css" >
@@ -16,7 +19,6 @@
 	<div id="header">
 
     <div id="logo"><a href="/">Trenches</a></div>
-
 
 		<div id="topnav">
 			<ul>
