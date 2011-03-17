@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.text_field :priority %>
+    <%= f.label :moscow, "Priority" %><br />
+    <%= f.select :moscow, Moscow::all %>
   </div>
 
   <div class="field">
