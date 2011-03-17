@@ -1,5 +1,7 @@
 class Sprint
   include Mongoid::Document
+  include Mongoid::Timestamps
+  
   field :name, :type => String
   field :goal, :type => String
   field :start_date, :type => Date

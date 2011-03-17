@@ -1,5 +1,6 @@
 class Project
   include Mongoid::Document
+  include Mongoid::Timestamps
   
   validates_presence_of :name, :message => "can't be blank"
   
