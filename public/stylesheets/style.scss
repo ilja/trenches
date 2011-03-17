@@ -219,7 +219,11 @@ form.edit_story {
 div.field {
   padding-bottom: 15px;
   textarea#story_description {
-    width: 700px;
+    width: 972px;
+  }
+
+  input#story_name {
+    width: 972px;
   }
 }
 
