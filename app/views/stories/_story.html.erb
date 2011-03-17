@@ -1,14 +1,11 @@
 <li class="story" id="story_<%= story.id %>" data-id="<%= story.id %>">
   <div class="storyheader">
-    <div class="expand"><img src="/images/open.png" alt="open" /></div>
-    
+    <div class="expand"><img src="/images/open.png" alt="open" /></div>    
     <div class="story-menu">
-      <div class="description"><img src="/images/new.png" alt="open" title="<%= story.description %>"/></div>
-      <div class="notes"><img src="/images/new.png" alt="open" /></div>
-      <div class="priority"><%= story.priority %></div>
-      <div class="points"><%= story.points %></div>
+      <div class="priority" title="Priority: <%= Moscow.to_name(story.moscow) %>"><%= Moscow.to_name(story.moscow) %></div>
+      <div class="points" title="Story points: <%= story.points %>"><%= story.points %></div>
     </div>
-    <div class="naam"><%= story.name %> <%= link_to_story_developer(story) %></div>
+    <div class="naam" title="<%= story.name %> <%= link_to_story_developer(story) %>"><%= story.name %> <%= link_to_story_developer(story) %></div>
   </div>
   <div class="storybody">
     <div class="full-description"><%= markdown(story.description) %></div>

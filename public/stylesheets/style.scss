@@ -65,6 +65,13 @@ $link-color2: #ff7800;
    box-shadow: 0 0 5px $border-color;
 }
 
+@mixin ellipsis {
+  text-overflow: ellipsis;  
+  overflow: hidden;      
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 body {
 	font-family: $font1;
 	font-size: 12px;
@@ -440,8 +447,12 @@ li.story {
       font-weight: bold;
       display: block;
       padding-top: 3px;
+      @include ellipsis;
     }
-    .priority { width: 20px; }
+    .priority { 
+      width: auto;
+      @include ellipsis;
+    }
     .description { 
       width: 20px;
       height: 20px;
@@ -470,6 +481,7 @@ li.story {
   
     .story-menu {
       float: right;
+      padding-top: 3px;
     } 
 }
 
