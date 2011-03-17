@@ -110,10 +110,12 @@ class SprintsController < ApplicationController
     sprint = @project.sprints.find(params[:sprint_id])
     authorize! :update, sprint
 
-    params[:story].each_with_index do |id, index|
-      story = Story.criteria.id(id).first
-      sprint.stories << story
-      story.update_attributes(:position => index+1, :sprint => sprint)
+    unless params[:story].blank?
+      params[:story].each_with_index do |id, index|
+        story = Story.criteria.id(id).first
+        sprint.stories << story
+        story.update_attributes(:position => index+1, :sprint => sprint)
+      end
     end
     render :nothing => true
   end
@@ -121,9 +123,11 @@ class SprintsController < ApplicationController
   def remove_and_sort_stories
     authorize! :update, Sprint
 
-    params[:story].each_with_index do |id, index|
-      story = Story.criteria.id(id).first
-      story.update_attributes(:position => index+1, :sprint_id => nil)
+    unless params[:story].blank?
+      params[:story].each_with_index do |id, index|
+        story = Story.criteria.id(id).first
+        story.update_attributes(:position => index+1, :sprint_id => nil)
+      end
     end
     render :nothing => true
   end
