@@ -1,4 +1,4 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000368}}
 body {
   font-family: "Droid Sans", arial, sans-serif;
   font-size: 12px;
@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000376}}
 h1 {
   /*	font-size: 20px;
   	font-weight: bold;
@@ -18,24 +18,24 @@ h1 {
   padding: 0;
   margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000388}}
 a {
   text-decoration: none;
-  color: #343638; }
+  color: #ff7800; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000393}}
 a:hover {
   color: black; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\0000397}}
 a img {
   border: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003101}}
 p {
   margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003105}}
 #container {
   width: 1000px;
   /*margin:0px auto;*/
@@ -49,13 +49,13 @@ p {
   overflow: visible; }
 
 /* header */
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003119}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003120}}
 #header {
   	/*overflow: auto;
     	padding-bottom: 20px;
     height: 56px;*/
   background: url(/images/bg-header.png) repeat-x 0px -10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003126}}
   #header div#title {
     background: url(/images/bg-title.png);
     border: 1px solid #e8e8e8;
@@ -70,7 +70,7 @@ p {
     display: block;
     /*margin-bottom: $spacer1;*/ }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003142}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003143}}
 #logo {
   float: left;
   width: 100px;
@@ -83,14 +83,14 @@ p {
   color: #ff7800;
   font-family: "Droid Sans", arial, sans-serif; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003155}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003156}}
 #logo a {
   color: #ff7800; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003159}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003160}}
 #topnav {
   overflow: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003161}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003162}}
   #topnav ul {
     border-color: #efefef;
     border-style: none solid solid solid;
@@ -111,6 +111,9 @@ p {
     font-size: 12px;
     text-shadow: 1px 1px 0 #fff;
     list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003184}}
+  #topnav a {
+    color: #343638; }
 @media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003185}}
   #topnav a:active {
     /*font-weight: bold;*/ }
@@ -175,15 +178,18 @@ div.field {
     display: inline;
     padding: 0;
     margin: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003257}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003256}}
+    #subnav li a {
+      color: #343638; }
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003258}}
   #subnav li:before {
     content: "| ";
     color: #e8e8e8; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003261}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003262}}
   #subnav li:first-child:before {
     content: ""; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003266}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003270}}
 #status-menu {
   margin-top: 6px;
   /*	font-family: $font1;*/
@@ -191,13 +197,13 @@ div.field {
   text-shadow: 1px 1px 0 #fff;
   overflow: hidden;
   margin-bottom: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003275}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003279}}
   #status-menu ul {
     /*padding: 2px 0 0 0;*/
     padding: 0;
     margin: 0;
     /*border: 1px solid green;*/ }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003283}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003287}}
   #status-menu li {
     background-image: url(/images/bg.png);
     height: 28px;
@@ -215,7 +221,7 @@ div.field {
 	    color: #fff;
     }
     */ }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003302}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003306}}
     #status-menu li a {
       /*margin-top: 10px;*/
       margin: 0px 5px;
@@ -227,15 +233,15 @@ div.field {
       display: block;
     /*font-family: DroidSansBold, 'Bitstream Vera Sans Bold';
 	  font-size: 18px;*/ }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003328}}
   #status-menu li:hover {
     background-color: #333333;
     background-image: url(/images/bg-hover.png); }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003333}}
   #status-menu li.active {
     background-image: url(/images/bg-active.png);
     color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003339}}
   #status-menu li:first-child {
     border-top-left-radius: 5px;
     -moz-border-radius-topleft: 5px;
@@ -245,7 +251,7 @@ div.field {
     -webkit-border-bottom-left-radius: 5px;
     border-left: 1px solid #e8e8e8;
     border-right: 1px solid #e8e8e8; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003345}}
   #status-menu li:last-child {
     border-top-right-radius: 5px;
     -moz-border-radius-topright: 5px;
@@ -254,12 +260,12 @@ div.field {
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-right-radius: 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003350}}
 #storylist {
   clear: left;
   float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003355}}
 #burndown {
   float: right;
   border: 1px solid #e8e8e8;
@@ -268,28 +274,28 @@ div.field {
   height: 450px; }
 
 /* footer */
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003365}}
 #footer {
   border-top: 1px solid #e8e8e8;
   margin-top: 10px;
   font-size: 10px;
   color: #C8C8C8; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003373}}
 div#storylist {
   width: 988px;
   /*width: 580px;
   border: 1px solid blue;*/ }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003378}}
   div#storylist > ul {
     display: inline;
     padding: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003384}}
 div#storylist.sprint {
   width: 580px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003391}}
 li.story {
   list-style: none;
   background: #f9f9f9;
@@ -306,23 +312,23 @@ li.story {
   @include rounded-right;
   @include inset-shadow;
   */ }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003408}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003412}}
   li.story div {
     /*  border: 1px solid red; */
     display: inline-block;
     vertical-align: middle; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003417}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003421}}
   li.story .expand {
     width: 22px;
     height: 22px;
     float: left;
     cursor: pointer; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003423}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003427}}
   li.story .id {
     width: 20px;
     float: left;
     padding-top: 3px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003428}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003432}}
   li.story .naam {
     margin-left: auto;
     margin-right: auto;
@@ -330,50 +336,50 @@ li.story {
     font-weight: bold;
     display: block;
     padding-top: 3px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003436}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003440}}
   li.story .priority {
     width: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003437}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003441}}
   li.story .description {
     width: 20px;
     height: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003441}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003445}}
   li.story .notes {
     width: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003442}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003446}}
   li.story .points {
     width: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003443}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003447}}
   li.story .assigned {
     width: 50px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003447}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003451}}
   li.story .storyheader {
     width: 100%;
     background-image: url(/images/bg.png);
     padding: 3px 0px 3px 0px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003452}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003456}}
   li.story .storybody {
     border-top: 1px solid #e8e8e8;
     background: white;
     padding: 3px;
     display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003457}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003461}}
     li.story .storybody .edit-story {
       float: right; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003463}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003467}}
   li.story .story-menu {
     float: right; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003468}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003472}}
 li.story:first-child {
   border-top: 1px solid #e8e8e8; }
 
 /* fancy list */
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003478}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003482}}
 ul.fancy {
   padding: 0 0 6px 0;
   margin: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003482}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003486}}
   ul.fancy li {
     list-style: none;
     background: url(/images/bg.png);
@@ -381,50 +387,53 @@ ul.fancy {
     border-right: 1px solid #e8e8e8;
     border-bottom: 1px solid #e8e8e8;
     height: 28px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003491}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003494}}
+    ul.fancy li a {
+      color: #343638; }
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003496}}
     ul.fancy li div {
       display: inline-block;
       vertical-align: middle;
       padding: 2px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003497}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003502}}
     ul.fancy li div.name {
       width: 600px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003499}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003504}}
       ul.fancy li div.name a {
         display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003503}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003508}}
     ul.fancy li div.edit {
       width: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003506}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003511}}
     ul.fancy li div.destroy {
       width: 40px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003511}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003516}}
   ul.fancy li:first-child {
     border-top: 1px solid #e8e8e8; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003515}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003520}}
   ul.fancy li:hover {
     background: url(/images/bg-hover.png); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003520}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003525}}
 div#sortable-list {
   width: 49%;
   background: #f6f6f6;
   border: 1px solid #e8e8e8;
   margin-top: 6px;
   min-height: 100px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003527}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003532}}
   div#sortable-list h1 {
     color: #e8e8e8; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003532}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003537}}
 div#sortable-list.backlog {
   float: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003536}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003541}}
 div#sortable-list.sprint {
   float: right; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003541}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003546}}
 #sortable1, #sortable2 {
   list-style-type: none;
   margin: 0;
@@ -434,20 +443,20 @@ div#sortable-list.sprint {
   min-height: 100px;
   width: 100%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003551}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003556}}
 #sortable1 li, #sortable2 li {
   margin: 0 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003553}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003558}}
   #sortable1 li div.naam, #sortable2 li div.naam {
     cursor: move; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003558}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003563}}
 div#flash_notice {
   padding: 6px;
   margin: 6px;
   border: 1px solid #e8e8e8;
   background: #f6f6f6; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003565}}
+@media -sass-debug-info{filename{font-family:file\:\/\/c\:\/Working\/trenches\/public\/stylesheets\/style\.scss}line{font-family:\00003570}}
 img.icon {
   vertical-align: middle; }

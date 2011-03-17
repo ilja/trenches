@@ -15,6 +15,7 @@ $bnt-border-highlight: 1px solid #fff;
 
 $bg-color: #fff;
 $link-color: #343638;
+$link-color2: #ff7800;
 
 @mixin rounded-left {  
   @include rounded-top-left;
@@ -86,7 +87,7 @@ h1 {
 
 a {
   text-decoration: none;
-  color: $link-color;
+  color: $link-color2;
 }
 
 a:hover {
@@ -180,8 +181,7 @@ p {
 	  list-style: none;
   }
 
-
-
+  a { color: $link-color; }
   a:active { /*font-weight: bold;*/ }
   
   li {
@@ -253,12 +253,16 @@ div.field {
     display: inline;
     padding: 0;
     margin: 0;    
+    a { color: $link-color; }
   }
   li:before { 
     content: "| "; 
     color: $border-color;
   }
   li:first-child:before { content: ""; }
+
+
+
 }
 
 
@@ -487,6 +491,7 @@ ul.fancy {
     border-right: $bnt-border-normal;
     border-bottom: $bnt-border-normal;
     height: 28px;
+    a { color: $link-color; }
 
     div {
       display: inline-block;
