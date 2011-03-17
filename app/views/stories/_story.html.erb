@@ -3,7 +3,7 @@
     <div class="expand"><img src="/images/open.png" alt="open" /></div>    
     <div class="story-menu">
       <div class="priority" title="Priority: <%= Moscow.to_name(story.moscow) %>"><%= Moscow.to_name(story.moscow) %></div>
-      <div class="points" title="Story points: <%= story.points %>"><%= story.points %></div>
+      <div class="points" title="Story points: <%= story.assigned_points %>"><%= story.assigned_points %></div>
     </div>
     <div class="naam" title="<%= story.name %> <%= link_to_story_developer(story) %>"><%= story.name %> <%= link_to_story_developer(story) %></div>
   </div>
@@ -11,7 +11,7 @@
     <div class="full-description"><%= markdown(story.description) %></div>
     <div class="edit-story">
       <% if can? :update, @story %>
-        <%= link_to 'Edit', edit_project_story_path(story.project, story) %>
+        <%= link_to 'Edit', edit_project_story_path(story.project, story) %> |
       <% end %>
       <% if can? :update, @story %>
         <%= link_to 'Start', start_story_path(story.project, story) %>

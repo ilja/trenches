@@ -27,6 +27,10 @@ class Story
   def assigned_to
     user
   end
+  
+  def assigned_points
+    self.points == 0 ? "?" : self.points
+  end
 
   class << self
     def pending

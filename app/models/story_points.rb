@@ -1,4 +1,5 @@
 class StoryPoint
+  UNKNOWN = 0
   ACE = 1
   TWO = 2
   THREE = 3
@@ -10,6 +11,7 @@ class StoryPoint
 	# Give all possible Points.
 	def StoryPoint.all
 		[
+		  ["?", StoryPoint::UNKNOWN],
 			["Ace", StoryPoint::ACE], 
 			["Two", StoryPoint::TWO], 
 			["Three", StoryPoint::THREE],
