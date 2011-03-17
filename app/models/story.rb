@@ -1,6 +1,7 @@
 class Story
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Versioning
   
   validates_presence_of :name, :message => "can't be blank"
   
@@ -13,10 +14,11 @@ class Story
   field :points, :type => Integer
   field :moscow, :type => Integer
   field :position, :type => Integer
+  field :last_edited_by, :type => String
   referenced_in :project
   referenced_in :sprint
   referenced_in :user, :default => nil
-
+  
   def start(user)
     self.status = "active"
     self.user = user
