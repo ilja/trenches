@@ -6,6 +6,7 @@ class SprintsController < ApplicationController
   # GET /sprints.xml
   def index
     @sprints = @project.sprints
+    authorize! :read, @sprints
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +18,7 @@ class SprintsController < ApplicationController
   # GET /sprints/1.xml
   def show
     @sprint = @project.sprints.find(params[:id])
+    authorize! :read, @sprint
 
     if show_scope == "all"
       @stories = @sprint.stories
@@ -32,6 +34,7 @@ class SprintsController < ApplicationController
 
   def planning
     @sprint = @project.sprints.find(params[:id])
+    authorize! :read, @sprint
     respond_to do |format|
       format.html
     end
@@ -40,6 +43,7 @@ class SprintsController < ApplicationController
   # GET /sprints/new
   # GET /sprints/new.xml
   def new
+    authorize! :create, Sprint
     @sprint = Sprint.new
 
     respond_to do |format|
@@ -51,12 +55,14 @@ class SprintsController < ApplicationController
   # GET /sprints/1/edit
   def edit
     @sprint = @project.sprints.find(params[:id])
+    authorize! :read, @sprint
   end
 
   # POST /sprints
   # POST /sprints.xml
   def create
     @sprint = @project.sprints.build(params[:sprint])
+    authorize! :create, @sprint
 
     respond_to do |format|
       if @sprint.save
@@ -73,6 +79,7 @@ class SprintsController < ApplicationController
   # PUT /sprints/1.xml
   def update
     @sprint = @project.sprints.find(params[:id])
+    authorize! :update, @sprint
 
     respond_to do |format|
       if @sprint.update_attributes(params[:sprint])
@@ -89,6 +96,7 @@ class SprintsController < ApplicationController
   # DELETE /sprints/1.xml
   def destroy
     @sprint = @project.sprints.find(params[:id])
+    authorize! :destroy, @sprint
     sprintname = @sprint.name
     @sprint.destroy
 
@@ -100,6 +108,7 @@ class SprintsController < ApplicationController
 
   def add_and_sort_stories
     sprint = @project.sprints.find(params[:sprint_id])
+    authorize! :update, @sprint
     params[:story].each_with_index do |id, index|
       story = Story.criteria.id(id).first
       sprint.stories << story
@@ -109,6 +118,7 @@ class SprintsController < ApplicationController
   end
 
   def remove_and_sort_stories
+    authorize! :update, Sprint
     params[:story].each_with_index do |id, index|
       story = Story.criteria.id(id).first
       story.update_attributes(:position => index+1, :sprint_id => nil)
@@ -132,6 +142,7 @@ class SprintsController < ApplicationController
 
   def load_project
     @project = Project.find(params[:project_id])
+    authorize! :read, @project
   end
 
   def show_scope

@@ -33,6 +33,7 @@ GEM
     bson (1.2.4)
     bson_ext (1.2.4)
     builder (2.1.2)
+    cancan (1.6.1)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -195,6 +196,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext (~> 1.2)
+  cancan (~> 1.6.1)
   capybara
   cucumber-rails
   haml (>= 3.0.0)

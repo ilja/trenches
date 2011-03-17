@@ -27,6 +27,9 @@ gem 'launchy'
 # authentication with omniauth
 gem 'omniauth'
 
+# authorization with cancan
+gem 'cancan', '~>1.6.1'
+
 # markdown
 gem 'rdiscount'
 

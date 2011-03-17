@@ -1,8 +1,10 @@
-class ProjectsController < ApplicationController
+class ProjectsController < ApplicationController  
+
   # GET /projects
   # GET /projects.xml
   def index
     @projects = Project.all
+    authorize! :read, @project
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
+    authorize! :read, @project
 
     # redirect to active sprint if exists and is in this project
     if current_user && @project.sprints.active_for_user(current_user).blank? == false
@@ -29,6 +32,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
+    authorize! :create, Project
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,12 +43,14 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    authorize! :read, @project
   end
 
   # POST /projects
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+    authorize! :create, @project
 
     respond_to do |format|
       if @project.save
@@ -61,6 +67,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+    authorize! :update, @project
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
@@ -77,6 +84,8 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.xml
   def destroy
     @project = Project.find(params[:id])
+    authorize! :destroy, @project
+
     projectname = @project.name
     @project.destroy
 
