@@ -31,7 +31,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %> or go <%= link_to 'back', project_sprints_path(@project) %>
+    <%= f.submit if can? :update, @sprint %> or go <%= link_to 'back', project_sprints_path(@project) %>
   </div>
 <% end %>
 

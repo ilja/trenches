@@ -13,8 +13,12 @@
   <div class="storybody">
     <div class="full-description"><%= markdown(story.description) %></div>
     <div class="edit-story">
-      <%= link_to 'Edit', edit_project_story_path(story.project, story) %>
-      <%= link_to 'Start', start_story_path(story.project, story) %>
+      <% if can? :update, @story %>
+        <%= link_to 'Edit', edit_project_story_path(story.project, story) %>
+      <% end %>
+      <% if can? :update, @story %>
+        <%= link_to 'Start', start_story_path(story.project, story) %>
+      <% end %>
     </div>
   </div>
 </li>

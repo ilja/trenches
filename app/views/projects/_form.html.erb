@@ -17,6 +17,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %> or go <%= link_to 'back', projects_path %>
+    <% if can? :create, Project %>
+      <%=  f.submit %>
+    <% end %>
+    or go <%= link_to 'back', projects_path %>
   </div>
 <% end %>

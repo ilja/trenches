@@ -5,8 +5,12 @@
   <li>
     <div>
       <div class="name"><%= link_to project.name, project %></div>
-      <div class="edit"><%= link_to 'Edit', edit_project_path(project) %></div>
-      <div class="destroy"><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></div>
+      <% if can? :update, Project %>
+      	<div class="edit"><%= link_to 'Edit', edit_project_path(project) %></div>
+      <% end %>
+      <% if can? :destroy, Project %>
+      	<div class="destroy"><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></div>
+      <% end %>
     </div>
   </li>
 <% end %>
@@ -14,4 +18,6 @@
 
 <br />
 
-<%= link_to 'New Project', new_project_path %>
+<% if can? :create, Project %>
+	<%= link_to 'New Project', new_project_path %>
+<% end %>
