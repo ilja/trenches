@@ -6,8 +6,10 @@
     <li <% if active_menu_item == "done" %> class='active'<% end %>><%= link_to 'Done', :show => "done" %></li>
  
 		
-    <% if can? :create, Story && show_new_story  %>
-      <li <% if active_menu_item == "new" %> class='active'<% end %>><%= link_to 'New Story', new_project_story_path(@project) %></li>
+    <% if can? :create, Story %>
+      <% if show_new_story  %>
+        <li <% if active_menu_item == "new" %> class='active'<% end %>><%= link_to 'New Story', new_project_story_path(@project) %></li>
+      <% end %>
     <% end %>
     
 
