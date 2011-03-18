@@ -20,10 +20,12 @@
 <script type="text/javascript">
 $(function() {
   $( "#sortable1, #sortable2" ).sortable({
+    items: "li:not(.not-sortable)",
     connectWith: ".connectedSortable"
   }).disableSelection();
 
   $("#sortable1").sortable({
+   
     update: function(){
       $.ajax({
         type: 'post',
@@ -37,7 +39,7 @@ $(function() {
     }
   });
 
-  $("#sortable2").sortable({
+  $("#sortable2").sortable({    
     update: function(){
       $.ajax({
         type: 'post',

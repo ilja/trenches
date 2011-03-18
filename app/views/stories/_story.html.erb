@@ -1,4 +1,8 @@
-<li class="story" id="story_<%= story.id %>" data-id="<%= story.id %>">
+<% if story.points == 0 %>
+  <li class="story not-sortable" id="story_<%= story.id %>" data-id="<%= story.id %>">
+<% else %>
+  <li class="story" id="story_<%= story.id %>" data-id="<%= story.id %>">
+<% end %>
   <div class="storyheader">
     <div class="expand"><img src="/images/open.png" alt="open" /></div>    
     <div class="story-menu">
