@@ -529,10 +529,14 @@ ul.fancy {
     height: 28px;
     a { color: $link-color; }
 
+    >div {
+      padding: 3px 3px;
+    }
+
     div {
-      display: inline-block;
-      vertical-align: middle;
-      padding: 2px;
+      display: inline-block;      
+      height: 22px;
+      line-height: 22px;
     }
 
     div.name {
