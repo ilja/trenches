@@ -51,17 +51,36 @@ describe Sprint do
     end
   
     it "can give the total done story points on a given date" do
+      date = Date.new(2011, 03, 18) 
       @story.status = "done"
-      @story.save
-      on_date = Date.new(2011, 03, 17) #todo: set done date when marking story as done
-      @sprint.done_story_points(on_date).should == 5
+      @story.done_date = date
+      @story.save      
+      @sprint.done_story_points_on(date).should == 5
+    end
+
+    it "does not give total done story points for a different date than the given date" do
+      date = Date.new(2011, 03, 18) 
+      @story.status = "done"
+      @story.done_date = Date.new(2011, 03, 17) 
+      @story.save      
+      @sprint.done_story_points_on(date).should == 0
     end
     
-    it "can give the total open story points on a given date" do
+    it "can give the total open story points" do      
       @story.status = "done"
-      @story.save
-      on_date = Date.new(2011, 03, 17) #todo: set done date when marking story as done
-      @sprint.open_story_points(on_date).should == 3
+      @story.done_date = Date.new(2011, 03, 17)
+      @story.save      
+      @sprint.open_story_points.should == 3
+    end
+
+    describe ".done_story_points_per_workday" do
+      it "returns a nested array of story points per day" do
+        @sprint = @p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 11), :name => "My test sprint")
+
+        expected = [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0]]
+
+        @sprint.done_story_points_per_workday.should == expected
+      end
     end
   end
 end

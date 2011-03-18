@@ -14,6 +14,7 @@ TrenchesRb::Application.routes.draw do
   end
 
   match 'projects/:project_id/stories/:story_id/start' => 'stories#start', :as => :start_story
+  match 'projects/:project_id/stories/:story_id/finish' => 'stories#finish', :as => :finish_story
 
   match 'projects/:project_id/sprints/:id/activate' => 'sprints#activate', :as => :set_active_sprint
 

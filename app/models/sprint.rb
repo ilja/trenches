@@ -12,11 +12,11 @@ class Sprint
 
   validates_presence_of :start_date, :end_date, :name
   
-  # give the total workdays in this sprint
+  # give the total number of workdays in this sprint
   def total_work_days
     (start_date..end_date).select{|d|(1..5).include?(d.wday)}    
   end
-  
+
   # give the total remaining workdays in this sprint on the given date
   def remaining_work_days(day)
     (day+1..end_date).select{|d|(1..5).include?(d.wday)}    
@@ -33,19 +33,49 @@ class Sprint
     end
   end
 
-  def done_story_points(date)
-    stories.done.inject(0) do |sum, story|
+  def done_story_points_on(date)    
+    stories.done.where(:done_date => date).inject(0) do |sum, story|
       sum + story.points
     end
   end
 
-  def open_story_points(date)
+  def open_story_points
     stories.any_in(:status => ["open", "active"]).inject(0) do |sum, story|
       sum + story.points
     end
   end
 
-  def burndown_url
+  def done_story_points_per_workday
+    count = 0
+    result = []
+    total_work_days.each do |day|
+      result << [count, self.done_story_points_on(day)]      
+      count += 1
+    end
+
+    result
+  end 
+
+  def open_story_points_per_workday
+    count = 0
+    result = []
   
-  end  
+puts DateTime.parse(start_date.to_s)
+puts end_date
+
+    work_days = (start_date..end_date)
+    puts work_days.inspect
+
+    work_days.each do |day|
+   
+     # puts  Date.new(2011, 03, 17)
+     # puts "Day: #{day}: #{done_story_points_on(day)}"
+      open = total_story_points - done_story_points_on(DateTime.parse(day.to_s))
+      puts open
+   #   result << [count, open]
+    #  count += 1
+    end
+
+    result
+  end 
 end

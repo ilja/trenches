@@ -15,6 +15,7 @@ class Story
   field :moscow, :type => Integer
   field :position, :type => Integer
   field :last_edited_by, :type => String
+  field :done_date, :type => Date
   referenced_in :project
   referenced_in :sprint
   referenced_in :user, :default => nil
@@ -22,6 +23,12 @@ class Story
   def start(user)
     self.status = "active"
     self.user = user
+  end
+
+  def finish(user)
+    self.status = "done"
+    self.user = user
+    self.done_date = DateTime.now
   end
 
   def assigned_to

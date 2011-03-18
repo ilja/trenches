@@ -133,6 +133,24 @@ class StoriesController < ApplicationController
            
     end
   end
+
+  def finish
+    @story = @project.stories.find(params[:story_id])
+    authorize! :update, @story
+    
+    if current_user
+      @story.finish(current_user)
+
+      #todo ajax
+      if @story.save!
+        sprint = @project.sprints.find(@story.sprint_id)
+        redirect_to( project_sprint_path(@project, sprint), :notice => "story finished")
+      else
+        #error
+      end
+           
+    end
+  end
   
   def load_project
     @project = Project.find(params[:project_id])
