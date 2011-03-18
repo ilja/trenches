@@ -22,6 +22,8 @@ class SprintsController < ApplicationController
 
     if show_scope == "all"
       @stories = @sprint.stories
+    elsif show_scope == "my"
+      @stories = @sprint.stories.stories_for(current_user)
     else
       @stories = @sprint.stories.where(:status => show_scope)
     end
@@ -152,6 +154,6 @@ class SprintsController < ApplicationController
   end
 
   def show_scope
-    %w[open active done].include?(params[:show]) ?  params[:show] : "all"
+    %w[open active done my].include?(params[:show]) ?  params[:show] : "all"
   end
 end

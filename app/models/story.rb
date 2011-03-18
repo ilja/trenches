@@ -28,6 +28,7 @@ class Story
     user
   end
   
+  # show ? instead of 0
   def assigned_points
     self.points == 0 ? "?" : self.points
   end
@@ -41,6 +42,9 @@ class Story
     end
     def done
       criteria.where(:status => "done").asc(:position)
+    end
+    def stories_for(user)
+      criteria.where(:user_id => user.id).asc(:position)
     end
   end
 end

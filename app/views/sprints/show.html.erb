@@ -3,7 +3,7 @@
 
 <q><%= @sprint.goal %></q>
 
-<%= render :partial => 'stories/status-menu', :locals => {:show_new_story => false, :active_menu_item => show_scope} %>
+<%= render :partial => 'stories/status-menu', :locals => {:show_new_story => false, :show_my_stories => true, :active_menu_item => show_scope} %>
 
 <div id="storylist" class="sprint">
   <ul>
