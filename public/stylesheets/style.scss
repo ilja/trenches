@@ -139,15 +139,18 @@ p {
     background: $bg-title;
     border:  $bnt-border-normal;
     height: 45px;
-    padding-left: 18px;
-    padding-top: 10px;
+    padding: 10px 18px 0px 18px;   
     font-size: 14px;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
     color: #333;
     font-family: $font2;
-	clear: both; 
-	display: block;
-    /*margin-bottom: $spacer1;*/
+    clear: both; 
+    display: block;
+
+    h1 {
+      @include ellipsis;      
+    }
+
   }
 
 }
