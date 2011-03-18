@@ -7,7 +7,7 @@ class StoriesController < ApplicationController
   # GET /stories.xml
   def index
     if show_scope == "all"
-      @stories = @project.stories
+      @stories = @project.stories.asc(:moscow)
     else
       @stories = @project.stories.where(:status => show_scope)
     end
