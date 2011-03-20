@@ -21,11 +21,11 @@ class SprintsController < ApplicationController
     authorize! :read, @sprint
 
     if show_scope == "all"
-      @stories = @sprint.stories
+      @stories = @sprint.stories.asc(:position)
     elsif show_scope == "my"
-      @stories = @sprint.stories.stories_for(current_user)
+      @stories = @sprint.stories.stories_for(current_user).asc(:position)
     else
-      @stories = @sprint.stories.where(:status => show_scope)
+      @stories = @sprint.stories.where(:status => show_scope).asc(:position)
     end
 
     respond_to do |format|
