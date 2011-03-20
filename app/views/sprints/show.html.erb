@@ -11,19 +11,25 @@
 	</ul>
 </div>
 
-<%= @sprint.open_story_points_per_workday.to_json %>
 
 <div id="burndown"></div>
 
 <script type="text/javascript">
 $(function() {
-	$.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
+  xticks = <%= @sprint.workdays_as_ticks %>;
+
+	var burndown = $.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
 	{ 
 		title:'Burndown chart',
 	  axes:{
-		  yaxis:{min:0, max:<%= @sprint.total_story_points %>}},
-		  xasis:{ticks:<%= @sprint.total_work_days.map {|d| d.day }.to_json %>, renderer:$.jqplot.CategoryAxisRenderer},
-	  series:[{color:'#000000'}]
+      yaxis:{
+        min:0, 
+        max:<%= @sprint.total_story_points %>,
+      }, 
+      xaxis:{ticks:xticks},
+    },
+
+	  series:[{color:'#ff7800'}]
 	});
 
 });
