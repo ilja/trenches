@@ -1,7 +1,7 @@
 class Sprint
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
   field :name, :type => String
   field :goal, :type => String
   field :start_date, :type => Date
@@ -11,7 +11,7 @@ class Sprint
   references_many :users 
 
   validates_presence_of :start_date, :end_date, :name
-  
+
   # give the total number of workdays in this sprint
   def total_work_days
     (start_date..end_date).select{|d|(1..5).include?(d.wday)}    
@@ -21,7 +21,7 @@ class Sprint
   def remaining_work_days(day)
     (day+1..end_date).select{|d|(1..5).include?(d.wday)}    
   end
-  
+
   # give the total spent workdays in this sprint on the given date
   def spent_work_days(day)
     (start_date..day).select{|d|(1..5).include?(d.wday)}    
