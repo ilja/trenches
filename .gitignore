@@ -7,3 +7,4 @@ tmp/**/*
 .sass-cache
 config/initializers/omniauth.rb
 .idea
+*.sublime-project
