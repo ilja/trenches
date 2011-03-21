@@ -511,38 +511,40 @@ img.icon {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\000033}}
 .jqplot-target {
   position: relative;
-  color: #333333;
+  color: green;
   font-family: "Droid Sans", arial, sans-serif;
-  font-size: 1em; }
+  font-size: 1em;
+  /*    height: 300px;
+      width: 400px;*/ }
 
 /*rules applied to all axes*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000313}}
 .jqplot-axis {
   font-size: 0.75em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000317}}
 .jqplot-xaxis {
   margin-top: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000321}}
 .jqplot-x2axis {
   margin-bottom: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000325}}
 .jqplot-yaxis {
   margin-right: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000329}}
 .jqplot-y2axis, .jqplot-y3axis, .jqplot-y4axis, .jqplot-y5axis, .jqplot-y6axis, .jqplot-y7axis, .jqplot-y8axis, .jqplot-y9axis {
   margin-left: 10px;
   margin-right: 10px; }
 
 /*rules applied to all axis tick divs*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000335}}
 .jqplot-axis-tick, .jqplot-xaxis-tick, .jqplot-yaxis-tick, .jqplot-x2axis-tick, .jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
   position: absolute; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000340}}
 .jqplot-xaxis-tick {
   top: 0px;
   /* initial position untill tick is drawn in proper place */
@@ -550,7 +552,7 @@ img.icon {
   /*    padding-top: 10px;*/
   vertical-align: top; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000348}}
 .jqplot-x2axis-tick {
   bottom: 0px;
   /* initial position untill tick is drawn in proper place */
@@ -558,7 +560,7 @@ img.icon {
   /*    padding-bottom: 10px;*/
   vertical-align: bottom; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000356}}
 .jqplot-yaxis-tick {
   right: 0px;
   /* initial position untill tick is drawn in proper place */
@@ -566,7 +568,7 @@ img.icon {
   /*    padding-right: 10px;*/
   text-align: right; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000364}}
 .jqplot-yaxis-tick.jqplot-breakTick {
   right: -20px;
   margin-right: 0px;
@@ -575,7 +577,7 @@ img.icon {
   z-index: 2;
   font-size: 1.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000373}}
 .jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
   left: 0px;
   /* initial position untill tick is drawn in proper place */
@@ -584,69 +586,69 @@ img.icon {
   /*    padding-right: 15px;*/
   text-align: left; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000382}}
 .jqplot-meterGauge-tick {
   font-size: 0.75em;
   color: #999999; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000387}}
 .jqplot-meterGauge-label {
   font-size: 1em;
   color: #999999; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000391}}
 .jqplot-xaxis-label {
   margin-top: 10px;
   font-size: 11pt;
   position: absolute; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\0000397}}
 .jqplot-x2axis-label {
   margin-bottom: 10px;
   font-size: 11pt;
   position: absolute; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003103}}
 .jqplot-yaxis-label {
   margin-right: 10px;
   /*    text-align: center;*/
   font-size: 11pt;
   position: absolute; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003110}}
 .jqplot-y2axis-label, .jqplot-y3axis-label, .jqplot-y4axis-label, .jqplot-y5axis-label, .jqplot-y6axis-label, .jqplot-y7axis-label, .jqplot-y8axis-label, .jqplot-y9axis-label {
   /*    text-align: center;*/
   font-size: 11pt;
   position: absolute; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003116}}
 table.jqplot-table-legend {
   margin-top: 12px;
   margin-bottom: 12px;
   margin-left: 12px;
   margin-right: 12px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003123}}
 table.jqplot-table-legend, table.jqplot-cursor-legend {
   background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid #cccccc;
   position: absolute;
   font-size: 0.75em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003130}}
 td.jqplot-table-legend {
   vertical-align: middle; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003134}}
 td.jqplot-seriesToggle:hover, td.jqplot-seriesToggle:active {
   cursor: pointer; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003138}}
 td.jqplot-table-legend > div {
   border: 1px solid #cccccc;
   padding: 1px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003141}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003143}}
 div.jqplot-table-legend-swatch {
   width: 0px;
   height: 0px;
@@ -659,19 +661,19 @@ div.jqplot-table-legend-swatch {
   border-left-style: solid;
   border-right-style: solid; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003154}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003156}}
 .jqplot-title {
   top: 0px;
   left: 0px;
   padding-bottom: 0.5em;
   font-size: 1.2em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003161}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003163}}
 table.jqplot-cursor-tooltip {
   border: 1px solid #cccccc;
   font-size: 0.75em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003167}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003169}}
 .jqplot-cursor-tooltip {
   border: 1px solid #cccccc;
   font-size: 0.75em;
@@ -679,7 +681,7 @@ table.jqplot-cursor-tooltip {
   background: rgba(208, 208, 208, 0.5);
   padding: 1px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003175}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003177}}
 .jqplot-highlighter-tooltip {
   border: 1px solid #cccccc;
   font-size: 0.75em;
@@ -687,34 +689,34 @@ table.jqplot-cursor-tooltip {
   background: rgba(208, 208, 208, 0.5);
   padding: 1px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003183}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003185}}
 .jqplot-point-label {
   font-size: 0.75em;
   z-index: 2; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003190}}
 td.jqplot-cursor-legend-swatch {
   vertical-align: middle;
   text-align: center; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003193}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003195}}
 div.jqplot-cursor-legend-swatch {
   width: 1.2em;
   height: 0.7em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003198}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003200}}
 .jqplot-error {
   /*   Styles added to the plot target container when there is an error go here.*/
   text-align: center; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003203}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003205}}
 .jqplot-error-message {
   /*    Styling of the custom error message div goes here.*/
   position: relative;
   top: 46%;
   display: inline-block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003210}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003212}}
 div.jqplot-bubble-label {
   font-size: 0.8em;
   /*    background: rgba(90%, 90%, 90%, 0.15);*/
@@ -722,11 +724,11 @@ div.jqplot-bubble-label {
   padding-right: 2px;
   color: #333333; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003218}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003220}}
 div.jqplot-bubble-label.jqplot-bubble-label-highlight {
   background: rgba(229, 229, 229, 0.7); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003222}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/_jquery\.jqplot\.scss}line{font-family:\00003224}}
 div.jqplot-noData-container {
   text-align: center;
   background-color: rgba(244, 244, 244, 0.3); }

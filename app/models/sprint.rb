@@ -59,16 +59,6 @@ class Sprint
     result
   end 
 
-  def workdays_as_ticks
-    result = []
-    counter = 0
-    total_work_days.each do |day|
-      result << [counter, day.mday]
-      counter += 1
-    end
-    result
-  end
-
   def open_story_points_per_workday
     count = 0
     result = []  

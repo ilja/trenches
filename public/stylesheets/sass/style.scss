@@ -1,6 +1,7 @@
 $main-color: #EFEFEF;
 $font1: 'Droid Sans', arial, sans-serif;
 $font2: 'Yanone Kaffeesatz', 'Droid Sans', arial, sans-serif;
+$text-color: #333333;
 
 $border-color: #e8e8e8;
 $radius: 5px;    
@@ -616,3 +617,5 @@ div#flash_notice {
 img.icon {
     vertical-align: middle;
 }
+
+@import "jquery.jqplot"

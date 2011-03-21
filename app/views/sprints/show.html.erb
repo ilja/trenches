@@ -16,21 +16,20 @@
 
 <script type="text/javascript">
 $(function() {
-  xticks = <%= @sprint.workdays_as_ticks.to_json %>;
-
-	var burndown = $.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
+  xticks = <%= total_work_days_ticks(@sprint) %>;
+	$.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
 	{ 
 		title:'Burndown chart',
 	  axes:{
-      yaxis:{
-        min:0, 
-        max:<%= @sprint.total_story_points %>,
-      }, 
+      yaxis:{ min:0, max:<%= @sprint.total_story_points %>}, 
       xaxis:{ticks:xticks},
     },
-
-	  series:[{color:'#ff7800'}]
+	  series:[{color:'#ff7800'}],
+    grid:{
+      shadow:false, 
+      borderWidth:0.1,
+      
+    }
 	});
-
 });
 </script>
