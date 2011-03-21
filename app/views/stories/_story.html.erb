@@ -15,15 +15,10 @@
     <div class="full-description"><%= markdown(story.description) %></div>
     <div class="edit-story">
       <% if can? :update, story %>
-        <%= link_to 'Edit', edit_project_story_path(story.project, story) %> |
+        <%= link_to 'Edit', edit_project_story_path(story.project, story) %>
       <% end %>
       <% if can? :update, story %>
-        <% if story.status == "open" %>
-          <%= link_to 'Start', start_story_path(story.project, story) %>
-        <% end %>
-        <% if story.status == "active" %>
-          <%= link_to 'Done', finish_story_path(story.project, story) %>
-        <% end %>
+        <%= change_status_button(story) %>      
       <% end %>
     </div>
   </div>
