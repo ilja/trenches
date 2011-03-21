@@ -50,21 +50,19 @@ class Sprint
   end
 
   def done_story_points_per_workday
-    count = 0
-    all_days = start_date..end_date
+    count = 0   
     result = []
-    all_days.each do |day|
+    total_days.each do |day|
       result << [count, self.done_story_points_on(day)]      
       count += 1
     end
-
     result
   end 
 
   def workdays_as_ticks
     result = []
     counter = 0
-    total_days.each do |day|
+    total_work_days.each do |day|
       result << [counter, day.mday]
       counter += 1
     end
@@ -73,14 +71,12 @@ class Sprint
 
   def open_story_points_per_workday
     count = 0
-    result = []
-  
-    total_days.each do |day|     
+    result = []  
+    total_work_days.each do |day|     
       open = total_story_points - done_story_points_on(day)
       result << [count, open]
       count += 1
     end
-
     result
   end 
 end
