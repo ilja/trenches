@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
 $(function() {
-  xticks = <%= @sprint.workdays_as_ticks %>;
+  xticks = <%= @sprint.workdays_as_ticks.to_json %>;
 
 	var burndown = $.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
 	{ 

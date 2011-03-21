@@ -80,6 +80,8 @@ $link-color2: #ff7800;
 body {
 	font-family: $font1;
 	font-size: 12px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 	background: $bg-color;
 	margin: 0;
 	padding: 0;
@@ -147,8 +149,13 @@ p {
     clear: both; 
     display: block;
 
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
     h1 {
-      @include ellipsis;      
+      @include ellipsis;     
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; 
     }
 
   }

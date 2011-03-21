@@ -68,7 +68,6 @@ class Sprint
       result << [counter, day.mday]
       counter += 1
     end
-
     result
   end
 
@@ -76,15 +75,10 @@ class Sprint
     count = 0
     result = []
   
-
-
-    total_days.each do |day|
-   
-     # puts  Date.new(2011, 03, 17)
-     # puts "Day: #{day}: #{done_story_points_on(day)}"
+    total_days.each do |day|     
       open = total_story_points - done_story_points_on(day)
       result << [count, open]
-     count += 1
+      count += 1
     end
 
     result
