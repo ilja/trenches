@@ -1,4 +1,5 @@
 class Moscow
+	UNKNOWN = 0
 	MUST = 1
   SHOULD = 2
   COULD = 3
@@ -7,6 +8,7 @@ class Moscow
 	# Give all possible moscow values
 	def Moscow.all
 		[
+			["?", Moscow::UNKNOWN], 
 			["Must have", Moscow::MUST], 
 			["Should have", Moscow::SHOULD], 
 			["Could have", Moscow::COULD],
