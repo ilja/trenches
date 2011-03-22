@@ -1,0 +1,17 @@
+<% unless @project.nil? || @project.new_record? %>
+<div id="subnav">
+  <ul>
+    <li><%= link_to "product backlog", backlog_path(@project) %></li>
+    <li><%= link_to "sprints", project_sprints_path(@project) %></li>
+    
+    <% if @sprint %>
+    	<li><%= link_to 'planning', sprint_planning_path(@project, @sprint) %></li>    
+    <% end %>
+    
+    <% if current_user && current_user.sprint_id %>
+   		<li><%= link_to 'my active sprint', project_sprint_path(@project, @project.sprints.find(current_user.sprint_id)) %></li>    
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
