@@ -17,7 +17,6 @@ class Project
   end
 
   def active_sprint_for(user)
-    sprints.find(user.sprint_id)
+    sprints.criteria.id(user.sprint_id).first
   end
-
 end

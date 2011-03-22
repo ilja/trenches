@@ -9,9 +9,9 @@
     <% end %>
     
     <% if current_user && current_user.sprint_id && @project.sprints.count > 0  
-        sprint = @project.sprints.where(:id => current_user.sprint_id)
+        sprint = @project.active_sprint_for(current_user)
           unless sprint.blank?
-    %>
+    %>  
    		<li><%= link_to 'my active sprint', project_sprint_path(@project, sprint) %></li>
         <% end %>
     <% end %>
