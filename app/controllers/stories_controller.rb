@@ -64,7 +64,8 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
-    @story = Story.find(params[:id])
+    @story = Story.find(params[:id])    
+    session[:return_to] = request.referer #remember where we came from
     authorize! :read, @story
   end
 
@@ -93,7 +94,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to(backlog_path(@project), :notice => "'#{@story.name}' was successfully updated.") }
+        format.html { redirect_to(session[:return_to], :notice => "'#{@story.name}' was successfully updated.") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
