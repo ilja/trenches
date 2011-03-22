@@ -1,6 +1,6 @@
-<%= form_for([@project, @sprint]) do |f| %>
-  <% if @sprint.errors.any? %>
-    <div id="error_explanation">
+<% if @sprint.errors.any? %>
+   <div id="flash_warning" class="flashcontainer">
+      <img src="/images/dialog-warning.png" alt='info' class='icon' />
       <h2><%= pluralize(@sprint.errors.count, "error") %> prohibited this sprint from being saved:</h2>
 
       <ul>
@@ -9,7 +9,9 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
+
+<%= form_for([@project, @sprint]) do |f| %>
 
   <div class="field">
     <%= f.label :name %><br />

@@ -17,6 +17,8 @@ $bnt-border-highlight: 1px solid #fff;
 $bg-color: #fff;
 $link-color: #343638;
 $link-color2: #ff7800;
+$warning-color: #FF2500;
+$warning-background-color: #F7EDDD;
 
 @mixin rounded-left {  
   @include rounded-top-left;
@@ -613,6 +615,18 @@ div#flash_notice {
     border: $bnt-border-normal;
     background: #f6f6f6;
 }
+
+div#flash_warning {
+    padding: $spacer1;
+    margin: 0 0 $spacer1 0;
+    border: 1px solid $warning-color;
+    background: $warning-background-color;
+}
+
+.field_with_errors {
+
+}
+
 
 img.icon {
     vertical-align: middle;
