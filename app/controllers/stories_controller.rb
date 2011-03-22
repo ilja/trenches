@@ -127,7 +127,7 @@ class StoriesController < ApplicationController
       #todo ajax
       if @story.save!
         sprint = @project.sprints.find(@story.sprint_id)
-        redirect_to( project_sprint_path(@project, sprint), :notice => "story started")
+        redirect_to(request.referer, :notice => "story started")
       else
         #error
       end
@@ -145,7 +145,7 @@ class StoriesController < ApplicationController
       #todo ajax
       if @story.save!
         sprint = @project.sprints.find(@story.sprint_id)
-        redirect_to( project_sprint_path(@project, sprint), :notice => "story finished")
+        redirect_to(request.referer, :notice => "story finished")
       else
         #error
       end
