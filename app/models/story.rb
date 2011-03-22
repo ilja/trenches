@@ -13,6 +13,7 @@ class Story
   field :priority, :type => Integer
   field :points, :type => Integer
   field :moscow, :type => Integer
+  field :backlog_position, :type => Integer
   field :position, :type => Integer
   field :last_edited_by, :type => String
   field :done_date, :type => Date

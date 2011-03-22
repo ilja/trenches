@@ -8,8 +8,12 @@
     	<li><%= link_to 'planning', sprint_planning_path(@project, @sprint) %></li>    
     <% end %>
     
-    <% if current_user && current_user.sprint_id %>
-   		<li><%= link_to 'my active sprint', project_sprint_path(@project, @project.sprints.find(current_user.sprint_id)) %></li>    
+    <% if current_user && current_user.sprint_id && @project.sprints.count > 0  
+        sprint = @project.sprints.where(:id => current_user.sprint_id)
+          unless sprint.blank?
+    %>
+   		<li><%= link_to 'my active sprint', project_sprint_path(@project, sprint) %></li>
+        <% end %>
     <% end %>
   </ul>
 </div>

@@ -4,7 +4,14 @@
   <li class="story" id="story_<%= story.id %>" data-id="<%= story.id %>">
 <% end %>
   <div class="storyheader">
-    <div class="expand"><img src="/images/open.png" alt="open" /></div>    
+    <% if sortable %>
+    <div class="grip">
+      <img src="/images/grip.png" alt="drag to sort" />
+    </div>
+    <% end %>
+    <div class="expand">    
+      <img src="/images/open.png" alt="open" />
+    </div>    
     <div class="story-menu">
       <div class="priority" title="Priority: <%= Moscow.to_name(story.moscow) %>"><%= Moscow.to_name(story.moscow) %></div>
       <div class="points" title="Story points: <%= story.assigned_points %>"><%= story.assigned_points %></div>

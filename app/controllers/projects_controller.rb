@@ -94,4 +94,18 @@ class ProjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def sort_stories
+    @project = Project.find(params[:project_id])
+    authorize! :update, @project
+
+    unless params[:story].blank?
+      params[:story].each_with_index do |id, index|
+        story = Story.criteria.id(id).first        
+        story.update_attributes(:backlog_position => index+1)
+      end
+    end    
+    render :nothing => true
+  end
+
 end

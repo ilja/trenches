@@ -13,7 +13,7 @@ class Project
   end
 
   def backlog
-    stories.where(:sprint_id => nil).asc(:position)
+    stories.where(:sprint_id => nil)
   end
 
   def active_sprint_for(user)

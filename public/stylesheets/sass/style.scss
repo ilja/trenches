@@ -448,7 +448,13 @@ li.story {
     
     
   }
-  
+    .grip {
+      width: 10px;
+      height: 22px;
+      float: left;
+      cursor: move;
+    }
+
     .expand { 
       width: 22px; 
       height: 22px;
