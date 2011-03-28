@@ -1,0 +1,74 @@
+$font1: 'Vollkorn', Garamond,"Times New Roman", serif; 
+
+body {
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height: 1.4;
+  word-spacing:1.1pt;
+  letter-spacing:0.2pt; 
+  font-family: $font1;
+  color: #000; 
+  background: none; 
+  font-size: 12pt;
+
+}
+
+
+div#logo, div#topnav, div#footer, div#subnav, div#status-menu, div#edit-story, div#burndown {
+  display:none;
+}
+
+div#storylist ul {
+  padding: 0;
+}
+
+
+li.story {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+
+  div.expand {
+    display: none;
+  }
+
+
+  div {
+    display: inline-block;
+  }
+  .storyheader {
+    width: 100%;
+    line-height: 24px;
+    height: 24px;
+  }
+  .story-menu {
+    vertical-align: middle;
+  }
+  .priority {
+    white-space: nowrap;
+    width: auto;
+  }
+  .priority:before {
+    content: "Priority: ";
+  }
+  .points {
+    padding-left: 15px;
+    width: auto;
+  }
+  .points:before {
+    content: "Story Points: ";
+  }
+}
+li.story:last-child {
+  border-bottom: none;
+}
+
+div.story-menu {
+  float: right;
+}
+
+div.naam {
+  font-weight: bold;
+  font-size: 20px;
+}

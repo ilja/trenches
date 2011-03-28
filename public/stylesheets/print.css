@@ -1,0 +1,67 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\000033}}
+body {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.4;
+  word-spacing: 1.1pt;
+  letter-spacing: 0.2pt;
+  font-family: "Vollkorn", Garamond, "Times New Roman", serif;
+  color: #000;
+  background: none;
+  font-size: 12pt; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000318}}
+div#logo, div#topnav, div#footer, div#subnav, div#status-menu, div#edit-story, div#burndown {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000322}}
+div#storylist ul {
+  padding: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000327}}
+li.story {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000332}}
+  li.story div.expand {
+    display: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000337}}
+  li.story div {
+    display: inline-block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000340}}
+  li.story .storyheader {
+    width: 100%;
+    line-height: 24px;
+    height: 24px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000345}}
+  li.story .story-menu {
+    vertical-align: middle; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000348}}
+  li.story .priority {
+    white-space: nowrap;
+    width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000352}}
+  li.story .priority:before {
+    content: "Priority: "; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000355}}
+  li.story .points {
+    padding-left: 15px;
+    width: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000359}}
+  li.story .points:before {
+    content: "Story Points: "; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000363}}
+li.story:last-child {
+  border-bottom: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000367}}
+div.story-menu {
+  float: right; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ilja\/work\/trenches\/public\/stylesheets\/sass\/print\.scss}line{font-family:\0000371}}
+div.naam {
+  font-weight: bold;
+  font-size: 20px; }
