@@ -1,4 +1,5 @@
-$font1: 'Vollkorn', Garamond,"Times New Roman", serif; 
+$font1: Georgia, Times new roman, serif;
+$lightgrey: #a4a4a4;
 
 body {
   width:100% !important;
@@ -14,8 +15,19 @@ body {
 
 }
 
+a:link, a:visited {
+  color: #520;
+  background: transparent;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
-div#logo, div#topnav, div#footer, div#subnav, div#status-menu, div#edit-story, div#burndown {
+a:link:after, a:visited:after {
+  content: " (" attr(href) ") ";
+  font-size: 90%;
+}
+
+div#logo, div#topnav, div#footer, div#subnav, div#status-menu, div#burndown {
   display:none;
 }
 
@@ -23,6 +35,9 @@ div#storylist ul {
   padding: 0;
 }
 
+span.soft {
+  color: red;
+}
 
 li.story {
   display: block;
@@ -41,16 +56,22 @@ li.story {
     width: 100%;
     line-height: 24px;
     height: 24px;
+    position: relative;
+    div.grip {
+      display: none;
+    }
   }
   .story-menu {
     vertical-align: middle;
   }
   .priority {
     white-space: nowrap;
-    width: auto;
+    width: auto;   
   }
   .priority:before {
     content: "Priority: ";
+    color: $lightgrey;
+    opacity: 0.2;
   }
   .points {
     padding-left: 15px;
@@ -58,17 +79,39 @@ li.story {
   }
   .points:before {
     content: "Story Points: ";
+    color: $lightgrey;
+    opacity: 0.2;
   }
+  .edit-story {
+    display: none;
+  }
+
+  div.storybody {
+    display: inline-block !important;    
+  }  
 }
 li.story:last-child {
   border-bottom: none;
 }
 
+div#storylist div.full-description ul {
+    padding-left: 40px;
+}
+
 div.story-menu {
-  float: right;
+  position: absolute;
+  top: 30px;
+  left: 2px;
 }
 
 div.naam {
-  font-weight: bold;
-  font-size: 20px;
+ 
+   font-size: 24pt;
+   font-weight: bold;
+   
+}
+
+div.full-description {
+  padding: 20px 2px 0px 2px;
+
 }
