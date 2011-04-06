@@ -14,7 +14,7 @@ def run_spec(file)
   puts output
  
   last_output = output.split("\n").last
-  growl last_output.gsub(/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]/, '')
+  growl file.split("/").last, last_output.gsub(/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]/, '')
 end
 
 watch("spec/.*/*_spec\.rb") do |match|
@@ -25,12 +25,12 @@ watch("app/(.*/.*)\.rb") do |match|
   run_spec %{spec/#{match[1]}_spec.rb}
 end
 
-def growl message
+def growl file, message
   if message.match(/\s0\s(errors|failures)/)
-    title = 'All specs passed'
+    title = "#{file} passed"
     image = $pass
   else
-    title = 'Some specs failed'
+    title = "#{file} failed"
     image = $fail
   end
 
