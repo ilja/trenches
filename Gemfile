@@ -44,7 +44,14 @@ gem 'rdiscount'
 # end
 gem 'mongoid', '>= 2.0.0.beta.19'
 gem 'bson_ext', '~> 1.2'
-gem 'rspec-rails', '>= 2.0.1', :group => [:development, :test]
+
+group :development, :test do
+  gem 'rspec-rails', '>= 2.0.1'
+  gem 'watchr'
+  gem 'notifier'
+  gem 'spork', '~>0.9.0rc'
+end
+
 gem 'cucumber-rails', :group => :test
 gem 'capybara', :group => :test
 gem 'haml', '>= 3.0.0'
