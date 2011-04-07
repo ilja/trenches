@@ -1,5 +1,24 @@
-$font1: Georgia, Times new roman, serif;
+@import "shared";
+
+$font3: 'EB Garamond', Times new roman, serif;
 $lightgrey: #a4a4a4;
+
+@mixin label {
+    
+    /*    opacity: 0.2;*/
+    /* 	border: $bnt-border-normal;*/
+    /*		@include rounded; */
+    /*    margin-right: 3px;
+    background: $lightgrey !important;*/
+    padding-right: 5px;
+    /*    padding: 2px;
+    margin: 2px;*/
+}
+
+@mixin label_font {
+    font-family: $font1;
+    font-size: 10pt;
+}
 
 body {
   width:100% !important;
@@ -8,7 +27,7 @@ body {
   line-height: 1.4;
   word-spacing:1.1pt;
   letter-spacing:0.2pt; 
-  font-family: $font1;
+  font-family: $font3;
   color: #000; 
   background: none; 
   font-size: 12pt;
@@ -42,7 +61,7 @@ span.soft {
 li.story {
   display: block;
   border-bottom: 1px solid #ddd;
-  margin-bottom: 15px;
+  margin: 30px 0 15px 0;
 
   div.expand {
     display: none;
@@ -54,36 +73,41 @@ li.story {
   }
   .storyheader {
     width: 100%;
-    line-height: 24px;
     height: 24px;
-    position: relative;
+    position: relative;   
     div.grip {
       display: none;
     }
   }
   .story-menu {
     vertical-align: middle;
+    display: block;
   }
   .priority {
     white-space: nowrap;
     width: auto;   
+    @include label_font;
   }
   .priority:before {
     content: "Priority: ";
-    color: $lightgrey;
-    opacity: 0.2;
+    @include label;
   }
   .points {
     padding-left: 15px;
     width: auto;
+    @include label_font; 
   }
   .points:before {
     content: "Story Points: ";
-    color: $lightgrey;
-    opacity: 0.2;
+    @include label;
   }
   .edit-story {
     display: none;
+  }
+
+  div.naam {
+    font-size: 24pt;
+    font-weight: bold;   
   }
 
   div.storybody {
@@ -98,20 +122,3 @@ div#storylist div.full-description ul {
     padding-left: 40px;
 }
 
-div.story-menu {
-  position: absolute;
-  top: 30px;
-  left: 2px;
-}
-
-div.naam {
- 
-   font-size: 24pt;
-   font-weight: bold;
-   
-}
-
-div.full-description {
-  padding: 20px 2px 0px 2px;
-
-}
