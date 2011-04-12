@@ -2,6 +2,9 @@ Feature: Manage sprints
   In order develop iteratively
   As a developer
   I want to have sprints
+  
+  Background:
+    Given I am logged in
 	
 	@omniauth_test
   Scenario: Create a new sprint
@@ -18,6 +21,7 @@ Feature: Manage sprints
     Given project "x" exists
     And I visit the sprints page for project "x"
     And I have created sprint "a sprint"
+    Then show me the page
     When I follow "Edit"
     And I fill in "Name" with "The sprint"
     And I press "Update Sprint"
