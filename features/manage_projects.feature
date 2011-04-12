@@ -2,7 +2,11 @@ Feature: Manage projects
   In order have projects
   As a registered user
   I want to create, update and delete projects
+
+  Background:
+    Given I am logged in
   
+  @omniauth_test
   Scenario: Create a project
     Given I am on the projects page
     When I follow "New Project"
@@ -10,7 +14,8 @@ Feature: Manage projects
     And I press "Create Project"
     Then I should see "'My project' was successfully created."
     And I should be on the projects page
-   
+
+  @omniauth_test
   Scenario: Update a project
     Given I am on the projects page
     And I have created project "asdf"
@@ -20,7 +25,8 @@ Feature: Manage projects
     Then I should see "'My Special Test' was successfully updated."
     And I should be on the projects page
     And I should not see "asdf"
-    
+
+  @omniauth_test
   Scenario: Delete a project
     Given I am on the projects page
     And I have created project "deleteme"
