@@ -50,6 +50,7 @@ group :development, :test do
   gem 'watchr'
   gem 'notifier'
   gem 'spork', '~>0.9.0rc'
+  gem 'factory_girl_rails'
 end
 
 gem 'cucumber-rails', :group => :test

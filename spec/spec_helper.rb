@@ -10,7 +10,10 @@ Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  
+ # require 'mongoid'
+ # require 'factory_girl'
+#  Factory.find_definitions
+
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -32,6 +35,11 @@ Spork.prefork do
     # examples within a transaction, remove the following line or assign false
     # instead of true.
     #config.use_transactional_fixtures = true
+
+    config.before :all do
+      Mongoid.master.collections.select { |c| c.name != 'system.indexes' }.each(&:drop)
+    end
+
   end
 end
 

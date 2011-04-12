@@ -5,7 +5,7 @@ describe Sprint do
     @p = Project.create
   end
 
-  subject do    
+  subject do
     @p.sprints.create
   end
 
@@ -59,10 +59,10 @@ describe Sprint do
     end
 
     it "does not give total done story points for a different date than the given date" do
-      date = Date.new(2011, 03, 18) 
+      date = Date.new(2011, 03, 17) 
       @story.status = "done"
-      @story.done_date = Date.new(2011, 03, 17) 
-      @story.save      
+      @story.done_date = Date.new(2011, 03, 18) 
+      @story.save
       @sprint.done_story_points_on(date).should == 0
     end
     

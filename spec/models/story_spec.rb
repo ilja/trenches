@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Story do
   describe ".start" do
     before(:each) do
-      @story = Story.create(:name => "test story")
+      @story = Factory.create(:story, :name => "test story")
     end
 
     it "changes status to active" do
@@ -14,7 +14,7 @@ describe Story do
 
     it "sets the assigned user" do
       @story.assigned_to.should be_nil
-      user = User.create(:name => "bob")
+      user = Factory.create(:user, :name => "bob")
       @story.start(user)
       @story.assigned_to.should == user
       @story.assigned_to.name.should == "bob"
@@ -23,8 +23,8 @@ describe Story do
 
   describe ".finish" do
     before(:each) do
-      @story = Story.create(:name => "test story")
-      @user = User.new
+      @story = Factory.create(:story, :name => "test story")
+      @user = Factory.create(:user)
       @story.start(@user)
     end
     it "changes status to done" do      
