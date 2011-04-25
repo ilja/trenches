@@ -22,9 +22,9 @@ class User
     sprint
   end
 
-  def active_sprint_for(project)
+  #def active_sprint_for(project)
    # sprint = project.sprints.where(:user => self).first
     #sprint
-  end
+  #end
 
 end
