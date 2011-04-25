@@ -14,21 +14,21 @@ class Sprint
 
   # give the total number of workdays in this sprint
   def total_work_days
-    (start_date..end_date).select{|d| (1..5).include?(d.wday) }
+    total_days.select{|d| (1..5).include?(d.wday) }
   end
 
   def total_days
-    (start_date..end_date)
+    (start_date.to_date..end_date.to_date)
   end
 
   # give the total remaining workdays in this sprint on the given date
   def remaining_work_days(day)
-    (day+1..end_date).select{|d|(1..5).include?(d.wday)}
+    ((day+1).to_date..end_date.to_date).select{|d|(1..5).include?(d.wday)}
   end
 
   # give the total spent workdays in this sprint on the given date
   def spent_work_days(day)
-    (start_date..day).select{|d|(1..5).include?(d.wday)}
+    (start_date.to_date..day.to_date).select{|d|(1..5).include?(d.wday)}
   end
 
   def total_story_points
@@ -69,6 +69,5 @@ class Sprint
     end
     result
   end
-  
-  alias :cover? :include? unless RUBY_VERSION.start_with?('1.9')
+
 end
