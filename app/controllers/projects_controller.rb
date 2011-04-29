@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController  
+class ProjectsController < ApplicationController
 
   # GET /projects
   # GET /projects.xml
@@ -19,12 +19,12 @@ class ProjectsController < ApplicationController
     authorize! :read, @project
 
     # redirect to active sprint if exists and is in this project
-    if current_user && @project.sprints.active_for_user(current_user).blank? == false
-      sprint =  @project.sprints.active_for_user(current_user)
+    if current_user && @project.active_sprint_for(current_user).blank? == false
+      sprint =  @project.active_sprint_for(current_user)
       redirect_to project_sprint_path(@project, sprint)
-    else    
+    else
       # no sprint set or not logged in
-      redirect_to backlog_path(@project)    
+      redirect_to backlog_path(@project)
     end
   end
 
@@ -101,10 +101,10 @@ class ProjectsController < ApplicationController
 
     unless params[:story].blank?
       params[:story].each_with_index do |id, index|
-        story = Story.criteria.id(id).first        
+        story = Story.criteria.id(id).first
         story.update_attributes(:backlog_position => index+1)
       end
-    end    
+    end
     render :nothing => true
   end
 
