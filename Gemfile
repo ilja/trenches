@@ -1,10 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.0.4'
+gem 'rails', '~>3.1.0.rc1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'sqlite3'
+
+# Asset template engines
+gem 'sass'
+gem 'coffee-script'
+gem 'uglifier'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -23,7 +29,7 @@ gem 'rails', '~>3.0.4'
 # gem 'aws-s3', :require => 'aws/s3'
 
 
-gem 'jquery-rails', '>= 0.2.6'
+gem 'jquery-rails'
 
 gem 'launchy'
 
@@ -51,10 +57,12 @@ group :development, :test do
   gem 'notifier'
   gem 'spork', '~>0.9.0rc'
   gem 'factory_girl_rails'
+  # Pretty printed test output
+  gem 'turn', :require => false
 end
 
 gem 'cucumber-rails', :group => :test
 gem 'capybara', :group => :test
 gem 'database_cleaner', :group => :test
-gem 'haml', '>= 3.0.0'
-gem 'sass' # automatically compile sass and scss to css
+#gem 'haml', '>= 3.0.0'
+#gem 'sass' # automatically compile sass and scss to css
