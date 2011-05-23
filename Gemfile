@@ -48,8 +48,9 @@ gem 'rdiscount'
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem 'mongoid', '>= 2.0.0.beta.19'
-gem 'bson_ext', '~> 1.2'
+
+gem 'mongoid', '>= 2.0.1'
+gem 'bson_ext', '>= 1.3.0'
 
 group :development, :test do
   gem 'rspec-rails', '>= 2.0.1'
