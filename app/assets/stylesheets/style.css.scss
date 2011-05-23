@@ -1,4 +1,5 @@
-@import "shared";
+@import "shared.scss";
+
 
 body {
 	font-family: $font1;
@@ -58,7 +59,7 @@ p {
 	/*overflow: auto;
   	padding-bottom: 20px;
   height: 56px;*/
-  background: url(/images/bg-header.png) repeat-x 0px -10px;
+  background: url(/assets/bg-header.png) repeat-x 0px -10px;
 
  div#title {
     background: $bg-title;
@@ -152,7 +153,7 @@ p {
 	overflow: hidden;
   display: inline-block; /* Necessary to trigger "hasLayout" in IE */
   display: block;
-  background: url(/images/bg-main.png) repeat-x 0px -57px;
+  background: url(/assets/bg-main.png) repeat-x 0px -57px;
 	padding: $spacer1;
  
 }
@@ -558,4 +559,4 @@ img.icon {
     vertical-align: middle;
 }
 
-@import "jquery.jqplot"
+@import "jquery.jqplot.css"

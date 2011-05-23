@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   
-  <%= stylesheet_link_tag 'print', :media => 'print' %>
+  <%#= stylesheet_link_tag 'print', :media => 'print' %>
     
   <!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
 
@@ -52,7 +52,7 @@
 
 	  <% flash.each do |name, msg| %>
 		<div id="<%= "flash_#{name}" %>" class="flashcontainer">
-	  		<%= "<img src=\"/images/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
+	  		<%= "<img src=\"/assets/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
 	    	<%=  msg %>
 	  	</div>
 	  <% end %>

@@ -42,6 +42,9 @@ gem 'cancan', '~>1.6.1'
 # markdown
 gem 'rdiscount'
 
+# fix sass @import stuff?
+gem 'tilt', :git => 'git://github.com/rtomayko/tilt.git'
+
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
