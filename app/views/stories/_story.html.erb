@@ -22,7 +22,7 @@
     <div class="full-description"><%= markdown(story.description) %></div>
     <div class="edit-story">
       <% if can? :update, story %>
-        <%= link_to 'Edit', edit_project_story_path(story.project, story) %>
+        <%= link_to 'Edit', edit_project_story_path(story.project, story), 'data-skip-pjax' => true %>
       <% end %>
       <% if can? :update, story %>
         <%= change_status_button(story) %>      

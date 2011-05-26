@@ -155,6 +155,8 @@ GEM
       oa-more (= 0.2.6)
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
+    pjax_rails (0.1.5)
+      jquery-rails
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.3.0)
@@ -249,6 +251,7 @@ DEPENDENCIES
   mongoid (>= 2.0.1)
   notifier
   omniauth
+  pjax_rails
   rails (~> 3.1.0.rc1)
   rdiscount
   rspec-rails (>= 2.0.1)

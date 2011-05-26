@@ -28,7 +28,7 @@
     	<% if current_user %>        
           <li><%= current_user.name %></li>
         <% end %>
-        <li><%= link_to "all projects", projects_path %></li>
+        <li><%= link_to "all projects", projects_path, 'data-skip-pjax' => true %></li>
 				<li><a href="#">settings</a></li>
         <li>
           <% if current_user %>
@@ -48,7 +48,7 @@
 
 	</div>
 
-	<div id="content">
+	<div id="content" data-pjax-container>
 
 	  <% flash.each do |name, msg| %>
 		<div id="<%= "flash_#{name}" %>" class="flashcontainer">
