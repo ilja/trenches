@@ -1,6 +1,6 @@
 <% title "#{@project.name} - #{@sprint.name} planning" %>
 <% render_subnav "shared/subnav" %>
-
+<div data-header-title><%= yield(:title) %></div>
 <p>Select which stories are in this sprint</p>
 
 <div id="sortable-list" class="backlog">

@@ -9,3 +9,8 @@ $ ->
       $(this).find("img").attr src:"/assets/open.png"
 
     storybody.toggle('fast')
+
+	
+	$(document).bind 'end.pjax', ->
+		title = $('[data-pjax-container]').find('[data-header-title]').remove().text()
+		$('div#title h1').html title

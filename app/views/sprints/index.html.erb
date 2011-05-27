@@ -1,5 +1,6 @@
 <% title "#{@project.name} sprints" %>
 <% render_subnav "shared/subnav" %>
+<div data-header-title><%= yield(:title) %></div>
 
 <ul class="fancy">
 <% @sprints.each do |sprint| %>

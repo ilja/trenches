@@ -1,4 +1,5 @@
 <% title "Edit story: #{@story.name}" %>
 <% render_subnav "shared/subnav" %>
+<div data-header-title><%= yield(:title) %></div>
 
 <%= render 'form' %>

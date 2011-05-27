@@ -554,6 +554,9 @@ div#flash_warning {
 
 }
 
+div[data-header-title] {
+	display: none;
+}
 
 img.icon {
     vertical-align: middle;

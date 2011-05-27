@@ -1,4 +1,5 @@
 <% title "Edit sprint #{@sprint.name}" %>
 <% render_subnav "shared/subnav" %>
+<div data-header-title><%= yield(:title) %></div>
 
 <%= render 'form' %>

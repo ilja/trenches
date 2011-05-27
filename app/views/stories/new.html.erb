@@ -1,4 +1,14 @@
 <% title "New story for project: #{@project.name}" %>
 <% render_subnav "shared/subnav" %>
+<div data-header-title><%= yield(:title) %></div>
 
 <%= render 'form' %>
+
+<script type="text/javascript">
+$(function() {
+	var headertitle = $('[data-pjax-container]').find('title').text()
+	//var headertitle = $('[data-header-title]').text()
+	if (headertitle)
+		$('div#title h1').html(headertitle)
+});
+</script>
