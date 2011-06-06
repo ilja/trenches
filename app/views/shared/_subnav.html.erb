@@ -1,5 +1,5 @@
 <% unless @project.nil? || @project.new_record? %>
-<div id="subnav">
+<div id="subnav" data-subnav-container>
   <ul>
     <li><%= link_to "product backlog", backlog_path(@project) %></li>
     <li><%= link_to "sprints", project_sprints_path(@project) %></li>

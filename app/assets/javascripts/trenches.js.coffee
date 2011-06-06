@@ -2,16 +2,18 @@
 
 $ ->
 
-
   $(document).bind 'end.pjax', ->
-    title = $('[data-pjax-container]').find('[data-header-title]').remove().text()
-    $('div#title h1').html title
+    title = $.trim( $(document).find('title').text() )
+    subnav = $('[data-pjax-container]').find('[data-subnav-container]').remove().html()
+    
+    $('div#title h1').html title if title
+    $('div#header').find('[data-subnav-container]').html subnav if subnav
 
   $('#sortable').sortable
     update: ->
       $.ajax
         type: 'post'
-        data: $('#sortable').sortable('serialize', {attribute: 'id'})
+        data: $('#sortable').sortable('serialize', attribute: 'id')
         dataType: 'script'
         complete: ->
           $('#storylist').effect('highlight')
@@ -27,24 +29,27 @@ $ ->
       $(this).find("img").attr src:"/assets/open.png"
     storybody.toggle('fast')
 
-  sortable_settings = {items: "li:not(.not-sortable)", connectWith: ".connectedSortable"  }
+  sortable_settings = 
+    items: "li:not(.not-sortable)"
+    connectWith: ".connectedSortable"
   $("#sortable-backlog, #sortable-sprintlog").sortable(sortable_settings).disableSelection()
 
   $("#sortable-backlog").sortable
     update: ->
       $.ajax
         type: 'post'
-        data: $('#sortable-backlog').sortable('serialize', {attribute: 'id'})
+        data: $('#sortable-backlog').sortable('serialize', attribute: 'id')
         dataType: 'script'
         complete: ->
           $('#sortable-backlog').effect('highlight')
+          #$('[data-url="' + this.url + '"]').effect 'highlight'
         url: $('#sortable-backlog').attr("data-url")
 
   $("#sortable-sprintlog").sortable
     update: ->
       $.ajax
         type: 'post'
-        data: $('#sortable-sprintlog').sortable('serialize', {attribute: 'id'})
+        data: $('#sortable-sprintlog').sortable('serialize', attribute: 'id')
         dataType: 'script'
         complete: ->
           $('#sortable-sprintlog').effect('highlight')

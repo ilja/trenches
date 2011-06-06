@@ -6,6 +6,7 @@ module LayoutHelper
   def title(page_title, show_title = true)
     content_for(:title) { h(page_title.to_s) }
     @show_title = show_title
+    "<title>#{page_title.to_s}</title>".html_safe
   end
 
   def show_title?
@@ -14,8 +15,8 @@ module LayoutHelper
 
   def render_subnav(layout)
     unless layout.blank?
-      #render layout
       content_for(:subnav) { render layout }
+      render layout
     end
   end
 

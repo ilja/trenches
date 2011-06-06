@@ -1,6 +1,5 @@
-<% title "#{@project.name} - backlog" %>
-<% render_subnav "shared/subnav" %>
-<div data-header-title><%= yield(:title) %></div>
+<%= title "#{@project.name} - backlog" %>
+<%= render_subnav "shared/subnav" %>
 
 <%= render :partial => 'stories/status-menu', :locals => { :show_new_story => true, :show_my_stories => false, :active_menu_item => show_scope } %>
 

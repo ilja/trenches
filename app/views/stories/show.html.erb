@@ -1,5 +1,4 @@
-<%= @story.name %>
-<div data-header-title><%= yield(:title) %></div>
+<%= title("#{@story.name}") %>
 
 <% if can? :update, @story %>
 	<%= link_to 'Edit', edit_project_story_path(@project, @story) %> |

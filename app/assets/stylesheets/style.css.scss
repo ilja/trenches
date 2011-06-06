@@ -209,10 +209,13 @@ div.field {
     content: "| "; 
     color: $border-color;
   }
-  li:first-child:before { content: ""; }
+  li:first-child:before { 
+    content: ""; 
+  }
+}
 
-
-
+div#content div#subnav {
+  display: none;
 }
 
 

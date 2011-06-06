@@ -1,6 +1,5 @@
-<% title "New sprint for project: #{@project.name}" %>
-<% render_subnav "shared/subnav" %>
-<div data-header-title><%= yield(:title) %></div>
+<%= title "New sprint for project: #{@project.name}" %>
+<%= render_subnav "shared/subnav" %>
 
 <%= render 'form' %>
 
