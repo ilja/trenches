@@ -6,9 +6,9 @@
 <%= render :partial => 'stories/status-menu', :locals => {:show_new_story => false, :show_my_stories => true, :active_menu_item => show_scope} %>
 
 <div id="storylist" class="sprint">
- 	<ul>
-   	<%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
-	</ul>
+  <ul>
+    <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
+  </ul>
 </div>
 <div id="burndown"></div>
 
@@ -16,19 +16,18 @@
 <script type="text/javascript">
 $(function() {
   xticks = <%= total_work_days_ticks(@sprint) %>;
-	$.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
-	{ 
-		title:'Burndown chart',
-	  axes:{
-      yaxis:{ min:0, max:<%= @sprint.total_story_points %>}, 
+  $.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
+  {
+    title:'Burndown chart',
+    axes:{
+      yaxis:{ min:0, max:<%= @sprint.total_story_points %>},
       xaxis:{ticks:xticks},
     },
-	  series:[{color:'#ff7800'}],
+    series:[{color:'#ff7800'}],
     grid:{
-      shadow:false, 
+      shadow:false,
       borderWidth:0.1,
-      
     }
-	});
+  });
 });
 </script>

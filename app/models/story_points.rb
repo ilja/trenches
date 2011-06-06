@@ -8,17 +8,17 @@ class StoryPoint
   TEN = 10
   KING = 20
 
-	# Give all possible Points.
-	def StoryPoint.all
-		[
-		  ["?", StoryPoint::UNKNOWN],
-			["Ace", StoryPoint::ACE], 
-			["Two", StoryPoint::TWO], 
-			["Three", StoryPoint::THREE],
-			["Five", StoryPoint::FIVE],
-			["Eight", StoryPoint::EIGHT],
-			["Ten", StoryPoint::TEN],
-			["King", StoryPoint::KING]
-		]
-	end
+  # Give all possible Points.
+  def StoryPoint.all
+    [
+      ["?", StoryPoint::UNKNOWN],
+      ["Ace", StoryPoint::ACE],
+      ["Two", StoryPoint::TWO],
+      ["Three", StoryPoint::THREE],
+      ["Five", StoryPoint::FIVE],
+      ["Eight", StoryPoint::EIGHT],
+      ["Ten", StoryPoint::TEN],
+      ["King", StoryPoint::KING]
+    ]
+  end
 end

@@ -2,9 +2,9 @@ class Story
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Versioning
-  
+
   validates_presence_of :name, :message => "can't be blank"
-  
+
   #id (autoinc per project?)
   field :name
   field :description
@@ -20,7 +20,7 @@ class Story
   referenced_in :project
   referenced_in :sprint
   referenced_in :user, :default => nil
-  
+
   def start(user)
     self.status = "active"
     self.user = user
@@ -35,7 +35,7 @@ class Story
   def assigned_to
     user
   end
-  
+
   # show ? instead of 0
   def assigned_points
     self.points == 0 ? "?" : self.points

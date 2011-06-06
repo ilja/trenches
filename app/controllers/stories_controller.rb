@@ -30,25 +30,24 @@ class StoriesController < ApplicationController
       format.xml  { render :xml => @story }
     end
   end
-  
+
   def open
     @stories = @project.stories.pending    
  #   authorize! :read, @stories
     render :index
   end
-  
+
   def active
     @stories = @project.stories.active
    # authorize! :read, @stories
     render :index
   end
-  
+
   def done
     @stories = @project.stories.done
    # authorize! :read, @stories
     render :index
   end
-  
 
   # GET /stories/new
   # GET /stories/new.xml
@@ -74,7 +73,7 @@ class StoriesController < ApplicationController
   def create
     @story = @project.stories.build(params[:story])
    # authorize! :create, @story
-    
+
     respond_to do |format|
       if @story.save
         format.html { redirect_to(backlog_path(@project), :notice => "'#{@story.name}' was successfully created.") }
@@ -120,7 +119,7 @@ class StoriesController < ApplicationController
   def start
     @story = @project.stories.find(params[:story_id])
   #  authorize! :update, @story
-    
+
     if current_user
       @story.start(current_user)
 
@@ -138,7 +137,7 @@ class StoriesController < ApplicationController
   def finish
     @story = @project.stories.find(params[:story_id])
   #  authorize! :update, @story
-    
+
     if current_user
       @story.finish(current_user)
 
@@ -152,7 +151,7 @@ class StoriesController < ApplicationController
            
     end
   end
-  
+
   def load_project
     @project = Project.find(params[:project_id])
   #  authorize! :read, @project

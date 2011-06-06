@@ -2,10 +2,10 @@ Feature: Manage stories
   In order to capture what a user should be able to do
   As a registered user
   I want to create, update and delete user stories
-  
+
   Background:
     Given I am logged in
-  
+
   @omniauth_test
   Scenario: Create a userstory
     Given I visit the backlog page of project "y"

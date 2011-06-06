@@ -4,15 +4,15 @@
     <li <% if active_menu_item == "open" %> class='active'<% end %>><%= link_to 'Open', :show => "open" %></li>
     <li <% if active_menu_item == "active" %> class='active'<% end %>><%= link_to 'In progress', :show => "active" %></li>
     <li <% if active_menu_item == "done" %> class='active'<% end %>><%= link_to 'Done', :show => "done" %></li>
- 		
+
     <% if can? :create, Story %>
       <% if show_new_story  %>
         <li <% if active_menu_item == "new" %> class='active'<% end %>><%= link_to 'New Story', new_project_story_path(@project) %></li>
       <% end %>
     <% end %>
-    
-    <% if show_my_stories and current_user%>      
-        <li <% if active_menu_item == "my" %> class='active'<% end %>><%= link_to 'My stories', :show => "my" %></li>      
+
+    <% if show_my_stories and current_user%>
+        <li <% if active_menu_item == "my" %> class='active'<% end %>><%= link_to 'My stories', :show => "my" %></li>
     <% end %>
 
   </ul>

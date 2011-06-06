@@ -5,30 +5,30 @@
   <meta charset="UTF-8">
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  
-  
+
+
   <!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
 
   <%= csrf_meta_tag %>
   <link href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" rel="stylesheet" type="text/css" media='all' >
-  <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700" rel="stylesheet" type="text/css" media='screen'>  
+  <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700" rel="stylesheet" type="text/css" media='screen'>
   <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css' media='print'>
 </head>
 <body>
 
 <div id="container">
 
-	<div id="header">
+  <div id="header">
 
     <div id="logo"><a href="/">Trenches</a></div>
 
-		<div id="topnav">
-			<ul>
-    	<% if current_user %>        
+    <div id="topnav">
+      <ul>
+      <% if current_user %>
           <li><%= current_user.name %></li>
         <% end %>
         <li><%= link_to "all projects", projects_path, 'data-skip-pjax' => true %></li>
-				<li><a href="#">settings</a></li>
+        <li><a href="#">settings</a></li>
         <li>
           <% if current_user %>
             <%= link_to "sign out", signout_path %>
@@ -36,34 +36,34 @@
             <%= link_to "sign in with GitHub", "/auth/github" %>
           <% end %>
         </li>
-			</ul>
-		</div>
+      </ul>
+    </div>
 
-		<div id="title">
-		   <h1><%= h(yield(:title) || "Untitled") %></h1>
-		</div>
-		
-		<%= h(yield(:subnav)) %>
+    <div id="title">
+       <h1><%= h(yield(:title) || "Untitled") %></h1>
+    </div>
 
-	</div>
+    <%= h(yield(:subnav)) %>
 
-	<div id="content" data-pjax-container>
+  </div>
+
+  <div id="content" data-pjax-container>
 
 
-	  <% flash.each do |name, msg| %>
-		<div id="<%= "flash_#{name}" %>" class="flashcontainer">
-	  		<%= "<img src=\"/assets/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
-	    	<%=  msg %>
-	  	</div>
-	  <% end %>
+    <% flash.each do |name, msg| %>
+    <div id="<%= "flash_#{name}" %>" class="flashcontainer">
+        <%= "<img src=\"/assets/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
+        <%=  msg %>
+      </div>
+    <% end %>
 
-	  <%= yield %>
+    <%= yield %>
 
-	</div>
+  </div>
 
-	<div id="footer">
-		footer
-	</div>
+  <div id="footer">
+    footer
+  </div>
 
 </div>
 

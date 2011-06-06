@@ -2,11 +2,11 @@ Feature: Manage sprints
   In order develop iteratively
   As a developer
   I want to have sprints
-  
+
   Background:
     Given I am logged in
-	
-	@omniauth_test
+
+  @omniauth_test
   Scenario: Create a new sprint
     Given project "x" exists
     And I visit the sprints page for project "x"
@@ -16,7 +16,7 @@ Feature: Manage sprints
     Then I should see "'My first sprint' was successfully created."
     And I should be on the sprints page
 
-	@omniauth_test
+  @omniauth_test
   Scenario: Edit an existing sprint
     Given project "x" exists
     And I visit the sprints page for project "x"
@@ -29,7 +29,7 @@ Feature: Manage sprints
     And I should be on the sprints page
     And I should not see "a sprint"
 
-	@omniauth_test
+  @omniauth_test
   Scenario: Delete an existing sprint
     Given project "x" exists
     And I visit the sprints page for project "x"

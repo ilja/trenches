@@ -11,7 +11,7 @@ module LayoutHelper
   def show_title?
     @show_title
   end
-  
+
   def render_subnav(layout)
     unless layout.blank?
       #render layout

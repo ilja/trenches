@@ -5,7 +5,7 @@ Feature: Manage projects
 
   Background:
     Given I am logged in
-  
+
   @omniauth_test
   Scenario: Create a project
     Given I am on the projects page
@@ -34,5 +34,5 @@ Feature: Manage projects
     Then I should see "'deleteme' was successfully deleted."
     And I should be on the projects page
     And I should have no projects
-    
+
    

@@ -8,7 +8,7 @@ TrenchesRb::Application.routes.draw do
 
   match 'projects/:project_id/backlog' => 'stories#index', :as => :backlog
   match 'projects/:project_id/sort_stories' => 'projects#sort_stories', :as => :sort_stories
-  
+
   resources :projects do
     resources :stories
     resources :sprints
@@ -27,7 +27,7 @@ TrenchesRb::Application.routes.draw do
   match 'projects/:project_id/sprints/:id/planning' => 'sprints#planning', :as => :sprint_planning
 
   match '/auth/:provider/callback' => 'sessions#create'
-  
+
   match '/signout' => 'sessions#destroy', :as => :signout
 
   # The priority is based upon order of creation:
