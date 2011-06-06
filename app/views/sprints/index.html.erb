@@ -8,13 +8,13 @@
     <div>
       <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint) %></div>
       <% if can? :update, Sprint %>
-      	<div class="activate"><%= link_to 'Make active', set_active_sprint_path(@project, sprint) %></div>
+        <div class="activate"><%= link_to 'Make active', set_active_sprint_path(@project, sprint) %></div>
       <% end %>
       <% if can? :update, Sprint %>
-      	<div class="edit"><%= link_to 'Edit', edit_project_sprint_path(@project, sprint) %></div>
-			<% end %>
+        <div class="edit"><%= link_to 'Edit', edit_project_sprint_path(@project, sprint) %></div>
+      <% end %>
       <% if can? :destroy, Sprint %>
-      	<div class="destroy"><%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete %></div>
+        <div class="destroy"><%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete %></div>
       <% end %>
     </div>
   </li>
@@ -22,5 +22,5 @@
 </ul>
 
 <% if can? :create, Sprint %>
-	<%= link_to 'New Sprint', new_project_sprint_path(@project) %>
+  <%= link_to 'New Sprint', new_project_sprint_path(@project) %>
 <% end %>

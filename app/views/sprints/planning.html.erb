@@ -3,55 +3,16 @@
 <div data-header-title><%= yield(:title) %></div>
 <p>Select which stories are in this sprint</p>
 
-<div id="sortable-list" class="backlog">
+<div class="sortable-list backlog">
   <h1>Project backlog</h1>
-  <ul id="sortable-backlog" class="connectedSortable">
+  <ul id="sortable-backlog" class="connectedSortable" data-url="<%= remove_and_sort_stories_path(@project, @sprint) %>">
     <%= render :partial => 'stories/story', :collection => @project.backlog.asc(:backlog_position), :locals => {:sortable => true} %>
   </ul>
 </div>
 
-<div id="sortable-list" class="sprint">
+<div class="sortable-list sprint">
   <h1>Sprint backlog</h1>
-  <ul id="sortable-sprintlog" class="connectedSortable">
+  <ul id="sortable-sprintlog" class="connectedSortable" data-url="<%= add_and_sort_stories_path(@project, @sprint) %>">
     <%= render :partial => 'stories/story', :collection => @sprint.stories.asc(:position), :locals => {:sortable => true} %>
   </ul>
 </div>
-
-<script type="text/javascript">
-$(function() {
-  $("#sortable-backlog, #sortable-sprintlog").sortable({
-    items: "li:not(.not-sortable)",
-    connectWith: ".connectedSortable"
-  }).disableSelection();
-
-  $("#sortable-backlog").sortable({
-   
-    update: function(){
-      $.ajax({
-        type: 'post',
-        data: $('#sortable-backlog').sortable('serialize', {attribute: 'id'}),
-        dataType: 'script',
-        complete: function(request){
-          $('#sortable-backlog').effect('highlight');
-        },
-        url: '<%= remove_and_sort_stories_path(@project, @sprint) %>'
-      })
-    }
-  });
-
-  $("#sortable-sprintlog").sortable({    
-    update: function(){
-      $.ajax({
-        type: 'post',
-        data: $('#sortable-sprintlog').sortable('serialize', {attribute: 'id'}),
-        dataType: 'script',
-        complete: function(request){
-          $('#sortable-sprintlog').effect('highlight');
-        },
-        url: '<%= add_and_sort_stories_path(@project, @sprint) %>'
-      })
-    }
-  });
-
-});
-</script>

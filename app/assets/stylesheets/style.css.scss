@@ -498,7 +498,7 @@ ul.fancy {
   }
 }
 
-div#sortable-list {
+div.sortable-list {
   width: 49%;
   background: #f6f6f6;
   border:  $bnt-border-normal;
@@ -510,11 +510,11 @@ div#sortable-list {
   }
 }
 
-div#sortable-list.backlog {
+div.sortable-list.backlog {
   float: left;
 }
 
-div#sortable-list.sprint {
+div.sortable-list.sprint {
   float: right;
 }
 
