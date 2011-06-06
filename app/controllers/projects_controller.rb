@@ -101,7 +101,7 @@ class ProjectsController < ApplicationController
 
     unless params[:story].blank?
       params[:story].each_with_index do |id, index|
-        story = Story.criteria.id(id).first
+        story = Story.find(id)
         story.update_attributes(:backlog_position => index+1)
       end
     end

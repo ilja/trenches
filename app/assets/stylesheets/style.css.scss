@@ -519,7 +519,7 @@ div#sortable-list.sprint {
 }
 
 
-#sortable1, #sortable2 { 
+#sortable-backlog, #sortable-sprintlog { 
   list-style-type: none; 
   margin: 0; 
   padding: 0px 0px 5px 0px; 
@@ -529,7 +529,7 @@ div#sortable-list.sprint {
   width: 100%;
 }
 
-#sortable1 li, #sortable2 li {
+#sortable-backlog li, #sortable-sprintlog li {
   margin: 0 5px; 
   div.naam {
     cursor: move;

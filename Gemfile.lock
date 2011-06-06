@@ -59,6 +59,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.1)
+    coffeebeans (1.0.1)
+      actionpack (>= 3.0.0)
+      coffee-script
     configuration (1.2.0)
     cucumber (0.10.3)
       builder (>= 2.1.2)
@@ -243,6 +246,7 @@ DEPENDENCIES
   cancan (~> 1.6.1)
   capybara
   coffee-script
+  coffeebeans
   cucumber-rails
   database_cleaner
   factory_girl_rails

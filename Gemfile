@@ -31,6 +31,7 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'pjax_rails'
+gem 'coffeebeans'
 
 gem 'launchy'
 

@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
     else
       @stories = @project.stories.where(:status => show_scope).asc(:backlog_position)
     end
-    authorize! :read, @stories
+   # authorize! :read, @stories
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,7 +23,7 @@ class StoriesController < ApplicationController
   # GET /stories/1.xml
   def show
     @story = Story.find(params[:id])
-    authorize! :read, @story
+  #  authorize! :read, @story
 
     respond_to do |format|
       format.html # show.html.erb
@@ -33,19 +33,19 @@ class StoriesController < ApplicationController
   
   def open
     @stories = @project.stories.pending    
-    authorize! :read, @stories
+ #   authorize! :read, @stories
     render :index
   end
   
   def active
     @stories = @project.stories.active
-    authorize! :read, @stories
+   # authorize! :read, @stories
     render :index
   end
   
   def done
     @stories = @project.stories.done
-    authorize! :read, @stories
+   # authorize! :read, @stories
     render :index
   end
   
@@ -54,7 +54,7 @@ class StoriesController < ApplicationController
   # GET /stories/new.xml
   def new
     @story = Story.new
-    authorize! :create, Story
+   # authorize! :create, Story
 
     respond_to do |format|
       format.html # new.html.erb
@@ -66,14 +66,14 @@ class StoriesController < ApplicationController
   def edit
     @story = Story.find(params[:id])    
     session[:return_to] = request.referer #remember where we came from
-    authorize! :read, @story
+  #  authorize! :read, @story
   end
 
   # POST /stories
   # POST /stories.xml
   def create
     @story = @project.stories.build(params[:story])
-    authorize! :create, @story
+   # authorize! :create, @story
     
     respond_to do |format|
       if @story.save
@@ -90,7 +90,7 @@ class StoriesController < ApplicationController
   # PUT /stories/1.xml
   def update
     @story = Story.find(params[:id])
-    authorize! :update, @story
+  #  authorize! :update, @story
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
@@ -107,7 +107,7 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.xml
   def destroy
     @story = Story.find(params[:id])
-    authorize! :destroy, @story
+  #  authorize! :destroy, @story
     storyname = @story.name
     @story.destroy
 
@@ -119,7 +119,7 @@ class StoriesController < ApplicationController
 
   def start
     @story = @project.stories.find(params[:story_id])
-    authorize! :update, @story
+  #  authorize! :update, @story
     
     if current_user
       @story.start(current_user)
@@ -137,7 +137,7 @@ class StoriesController < ApplicationController
 
   def finish
     @story = @project.stories.find(params[:story_id])
-    authorize! :update, @story
+  #  authorize! :update, @story
     
     if current_user
       @story.finish(current_user)
@@ -155,7 +155,7 @@ class StoriesController < ApplicationController
   
   def load_project
     @project = Project.find(params[:project_id])
-    authorize! :read, @project
+  #  authorize! :read, @project
   end
 
   private

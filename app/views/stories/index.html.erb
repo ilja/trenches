@@ -5,26 +5,28 @@
 <%= render :partial => 'stories/status-menu', :locals => { :show_new_story => true, :show_my_stories => false, :active_menu_item => show_scope } %>
 
 <div id="storylist">
-  <ul id="sortable" >
+  <ul id="sortable" data-url="<%= sort_stories_path(@project) %>">
     <%= render :partial => 'story', :collection => @stories, :locals => {:sortable => true} %>
 	</ul>
 </div>
 
+
+
 <script type="text/javascript">
-$(function() {
-	$( "#sortable" ).sortable({
-		update: function(){
-      $.ajax({
-        type: 'post',
-        data: $('#sortable').sortable('serialize', {attribute: 'id'}),
-        dataType: 'script',
-        complete: function(request){
-          $('#storylist').effect('highlight');
-        },
-        url: '<%= sort_stories_path(@project) %>'
-      })
-    }
-	});
-	$( "#sortable" ).disableSelection();
-});
+// $(function() {
+// 	$( "#sortable" ).sortable({
+// 		update: function(){
+//       $.ajax({
+//         type: 'post',
+//         data: $('#sortable').sortable('serialize', {attribute: 'id'}),
+//         dataType: 'script',
+//         complete: function(request){
+//           $('#storylist').effect('highlight');
+//         },
+//         url: '<%= sort_stories_path(@project) %>'
+//       })
+//     }
+// 	});
+// 	$( "#sortable" ).disableSelection();
+// });
 </script>
