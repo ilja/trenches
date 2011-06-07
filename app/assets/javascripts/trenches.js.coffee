@@ -40,7 +40,8 @@ $ ->
         type: 'post'
         data: $('#sortable-backlog').sortable('serialize', attribute: 'id')
         dataType: 'script'
-        complete: ->
+        complete:(request) ->
+          #todo: show if request has error
           $('#sortable-backlog').effect('highlight')
           #$('[data-url="' + this.url + '"]').effect 'highlight'
         url: $('#sortable-backlog').attr("data-url")
@@ -51,6 +52,6 @@ $ ->
         type: 'post'
         data: $('#sortable-sprintlog').sortable('serialize', attribute: 'id')
         dataType: 'script'
-        complete: ->
+        complete: (request) ->
           $('#sortable-sprintlog').effect('highlight')
         url: $('#sortable-sprintlog').attr("data-url")
