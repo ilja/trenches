@@ -28,9 +28,6 @@ class SprintsController < ApplicationController
     @sprint = @project.sprints.find(params[:id])
     authorize! :read, @sprint
     respond_with @sprint
-        # respond_to do |format|
-        #   format.html
-        # end
   end
 
   def new
@@ -65,7 +62,6 @@ class SprintsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy
@@ -110,7 +106,6 @@ class SprintsController < ApplicationController
       if current_user.save
         redirect_to project_sprint_path(@project, current_user.active_sprint), :notice => "Active sprint set."
       end
-
     end
   end
 

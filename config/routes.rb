@@ -1,11 +1,5 @@
 TrenchesRb::Application.routes.draw do
 
-
-
-  match 'projects/:project_id/stories/open' => 'stories#open', :as => :open_stories
-  match 'projects/:project_id/stories/active' => 'stories#active', :as => :active_stories
-  match 'projects/:project_id/stories/done' => 'stories#done', :as => :done_stories
-
   match 'projects/:project_id/backlog' => 'stories#index', :as => :backlog
   match 'projects/:project_id/sort_stories' => 'projects#sort_stories', :as => :sort_stories
 

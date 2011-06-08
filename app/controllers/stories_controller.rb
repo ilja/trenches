@@ -19,24 +19,6 @@ class StoriesController < ApplicationController
     respond_with @story
   end
 
-  # def open
-  #    @stories = @project.stories.pending    
-  #    authorize! :read, @stories
-  #    render :index
-  #  end
-  # 
-  #  def active
-  #    @stories = @project.stories.active
-  #    authorize! :read, @stories
-  #    render :index
-  #  end
-  # 
-  #  def done
-  #    @stories = @project.stories.done
-  #    authorize! :read, @stories
-  #    render :index
-  #  end
-
   def new
     @story = Story.new
     authorize! :create, Story

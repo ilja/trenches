@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :layout
-
   helper_method :current_user
 
   private
