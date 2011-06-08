@@ -1,21 +1,14 @@
 class SprintsController < ApplicationController
   before_filter :load_project
   helper_method :show_scope
+  respond_to :html
 
-  # GET /sprints
-  # GET /sprints.xml
   def index
     @sprints = @project.sprints
     authorize! :read, @sprints
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sprints }
-    end
+    respond_with @sprints
   end
 
-  # GET /sprints/1
-  # GET /sprints/1.xml
   def show
     @sprint = @project.sprints.find(params[:id])
     authorize! :read, @sprint
@@ -27,85 +20,60 @@ class SprintsController < ApplicationController
     else
       @stories = @sprint.stories.where(:status => show_scope).asc(:position)
     end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @sprint }
-    end
+    
+    respond_with @sprint
   end
 
   def planning
     @sprint = @project.sprints.find(params[:id])
     authorize! :read, @sprint
-    respond_to do |format|
-      format.html
-    end
+    respond_with @sprint
+        # respond_to do |format|
+        #   format.html
+        # end
   end
 
-  # GET /sprints/new
-  # GET /sprints/new.xml
   def new
     authorize! :create, Sprint
     @sprint = Sprint.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sprint }
-    end
+    respond_with @sprint
   end
 
-  # GET /sprints/1/edit
   def edit
     @sprint = @project.sprints.find(params[:id])
     authorize! :read, @sprint
   end
 
-  # POST /sprints
-  # POST /sprints.xml
   def create
+    # todo: fix date select assignment failure
     @sprint = @project.sprints.build(params[:sprint])
     authorize! :create, @sprint
 
-    respond_to do |format|
-      if @sprint.save
-        format.html { redirect_to(project_sprints_path(@project), :notice => "'#{@sprint.name}' was successfully created.") }
-        format.xml  { render :xml => @sprint, :status => :created, :location => @sprint }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @sprint.errors, :status => :unprocessable_entity }
-      end
+    if @sprint.save
+      redirect_to project_sprints_path(@project), :notice => "'#{@sprint.name}' was successfully created."
+    else
+      render :new
     end
   end
 
-  # PUT /sprints/1
-  # PUT /sprints/1.xml
   def update
     @sprint = @project.sprints.find(params[:id])
     authorize! :update, @sprint
 
-    respond_to do |format|
-      if @sprint.update_attributes(params[:sprint])
-        format.html { redirect_to(project_sprints_path(@project),  :notice => "'#{@sprint.name}' was successfully updated.") }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @sprint.errors, :status => :unprocessable_entity }
-      end
+    if @sprint.update_attributes(params[:sprint])
+      redirect_to project_sprints_path(@project),  :notice => "'#{@sprint.name}' was successfully updated."
+    else
+      render :edit
     end
+
   end
 
-  # DELETE /sprints/1
-  # DELETE /sprints/1.xml
   def destroy
     @sprint = @project.sprints.find(params[:id])
     authorize! :destroy, @sprint
     sprintname = @sprint.name
     @sprint.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(project_sprints_url, :notice => "'#{sprintname}' was successfully deleted.") }
-      format.xml  { head :ok }
-    end
+    redirect_to project_sprints_url, :notice => "'#{sprintname}' was successfully deleted."
   end
 
   def add_and_sort_stories
@@ -138,7 +106,7 @@ class SprintsController < ApplicationController
     if current_user
       sprint = @project.sprints.find(params[:id])
       current_user.assign_active_sprint(sprint)
-    
+
       if current_user.save
         redirect_to project_sprint_path(@project, current_user.active_sprint), :notice => "Active sprint set."
       end
