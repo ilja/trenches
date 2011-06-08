@@ -50,10 +50,10 @@ describe ProjectsController do
         assigns(:project).should be(mock_project)
       end
 
-      it "redirects to the created project" do
+      it "redirects to the projects index" do
         Project.stub(:new) { mock_project(:save => true) }
         post :create, :project => {}
-        response.should redirect_to(project_url(mock_project))
+        response.should redirect_to(projects_url)
       end
     end
 
@@ -86,10 +86,10 @@ describe ProjectsController do
         assigns(:project).should be(mock_project)
       end
 
-      it "redirects to the project" do
+      it "redirects to the projects index" do
         Project.stub(:find) { mock_project(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(project_url(mock_project))
+        response.should redirect_to(projects_url)
       end
     end
 
