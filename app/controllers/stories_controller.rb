@@ -1,134 +1,96 @@
 class StoriesController < ApplicationController
   before_filter :load_project
-
   helper_method :show_scope
+  respond_to :html
 
-  # GET /stories
-  # GET /stories.xml
   def index
     if show_scope == "all"
       @stories = @project.stories.asc(:backlog_position)
     else
       @stories = @project.stories.where(:status => show_scope).asc(:backlog_position)
     end
-   # authorize! :read, @stories
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @stories }
-    end
+    authorize! :read, @stories
+    respond_with @stories
   end
 
-  # GET /stories/1
-  # GET /stories/1.xml
   def show
     @story = Story.find(params[:id])
-  #  authorize! :read, @story
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @story }
-    end
+    authorize! :read, @story
+    respond_with @story
   end
 
-  def open
-    @stories = @project.stories.pending    
- #   authorize! :read, @stories
-    render :index
-  end
+  # def open
+  #    @stories = @project.stories.pending    
+  #    authorize! :read, @stories
+  #    render :index
+  #  end
+  # 
+  #  def active
+  #    @stories = @project.stories.active
+  #    authorize! :read, @stories
+  #    render :index
+  #  end
+  # 
+  #  def done
+  #    @stories = @project.stories.done
+  #    authorize! :read, @stories
+  #    render :index
+  #  end
 
-  def active
-    @stories = @project.stories.active
-   # authorize! :read, @stories
-    render :index
-  end
-
-  def done
-    @stories = @project.stories.done
-   # authorize! :read, @stories
-    render :index
-  end
-
-  # GET /stories/new
-  # GET /stories/new.xml
   def new
     @story = Story.new
-   # authorize! :create, Story
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @story }
-    end
+    authorize! :create, Story
+    respond_with @story
   end
 
-  # GET /stories/1/edit
   def edit
     @story = Story.find(params[:id])    
     session[:return_to] = request.referer #remember where we came from
-  #  authorize! :read, @story
+    authorize! :update, @story
   end
 
-  # POST /stories
-  # POST /stories.xml
   def create
     @story = @project.stories.build(params[:story])
-   # authorize! :create, @story
+    authorize! :create, @story
 
-    respond_to do |format|
-      if @story.save
-        format.html { redirect_to(backlog_path(@project), :notice => "'#{@story.name}' was successfully created.") }
-        format.xml  { render :xml => @story, :status => :created, :location => @story }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @story.errors, :status => :unprocessable_entity }
-      end
+    if @story.save
+      redirect_to backlog_path(@project), :notice => "'#{@story.name}' was successfully created."
+    else
+      render :new
     end
   end
 
-  # PUT /stories/1
-  # PUT /stories/1.xml
   def update
     @story = Story.find(params[:id])
-  #  authorize! :update, @story
+    authorize! :update, @story
 
-    respond_to do |format|
-      if @story.update_attributes(params[:story])
-        format.html { redirect_to(session[:return_to], :notice => "'#{@story.name}' was successfully updated.") }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @story.errors, :status => :unprocessable_entity }
-      end
+    if @story.update_attributes(params[:story])
+      redirect_to session[:return_to], :notice => "'#{@story.name}' was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /stories/1
-  # DELETE /stories/1.xml
   def destroy
     @story = Story.find(params[:id])
-  #  authorize! :destroy, @story
+    authorize! :destroy, @story
     storyname = @story.name
     @story.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(backlog_url(@project), :notice => "'#{storyname}' was successfully deleted.") }
-      format.xml  { head :ok }
-    end
+    redirect_to backlog_url(@project), :notice => "'#{storyname}' was successfully deleted."
   end
 
   def start
     @story = @project.stories.find(params[:story_id])
-  #  authorize! :update, @story
+    authorize! :update, @story
 
     if current_user
       @story.start(current_user)
 
-      #todo ajax
       if @story.save!
         sprint = @project.sprints.find(@story.sprint_id)
         redirect_to(request.referer, :notice => "story started")
       else
-        #error
+        #todo: error
       end
            
     end
@@ -136,17 +98,16 @@ class StoriesController < ApplicationController
 
   def finish
     @story = @project.stories.find(params[:story_id])
-  #  authorize! :update, @story
+    authorize! :update, @story
 
     if current_user
       @story.finish(current_user)
 
-      #todo ajax
       if @story.save!
         sprint = @project.sprints.find(@story.sprint_id)
         redirect_to(request.referer, :notice => "story finished")
       else
-        #error
+        #todo: error
       end
            
     end
@@ -154,7 +115,7 @@ class StoriesController < ApplicationController
 
   def load_project
     @project = Project.find(params[:project_id])
-  #  authorize! :read, @project
+    authorize! :read, @project
   end
 
   private

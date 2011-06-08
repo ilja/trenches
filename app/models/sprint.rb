@@ -9,9 +9,9 @@ class Sprint
   embedded_in :project, :inverse_of => :sprints
   references_many :stories
   references_many :users
-
+  
   validates_presence_of :start_date, :end_date, :name
-
+  
   # give the total number of workdays in this sprint
   def total_work_days
     total_days.select{|d| (1..5).include?(d.wday) }
