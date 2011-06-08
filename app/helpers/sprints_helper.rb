@@ -8,5 +8,4 @@ module SprintsHelper
     end
     result.to_json
   end
-
 end

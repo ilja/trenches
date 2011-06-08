@@ -1,15 +1,10 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the SprintsHelper. For example:
-#
-# describe SprintsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe SprintsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#total_work_days_ticks(sprint)" do
+    it "should return the total work days as json array grouped like [workday_number, workday_date]" do
+      sprint = stub :total_work_days => [Date.new(2011, 06, 03),Date.new(2011, 06, 06),Date.new(2011, 06, 07)]      
+      helper.total_work_days_ticks(sprint).should eq([[0,3],[1,6],[2,7]].to_json)
+    end
+  end
 end
