@@ -7,7 +7,7 @@ module StoriesHelper
 
   def change_status_button(story)
     html = ""
-    unless story.blank? or story.points.blank?
+    unless story.blank? or story.points.blank? or story.sprint_id.blank?
       if story.points > StoryPoint::UNKNOWN
         html << "| " unless story.status == "done"
 

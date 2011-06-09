@@ -10,25 +10,36 @@ describe StoriesHelper do
     end
   end
   describe "#change_status_button" do
-    it "doesn't render a link if the story points are unknown" do
-      story = Factory.create(:story, :points =>  StoryPoint::UNKNOWN)
+    describe "when in a sprint" do
+      before(:each) do
+        @p = Factory.create(:project)
+        @s = @p.sprints.create(
+          :start_date => Date.new(2011, 03, 07),
+          :end_date => Date.new(2011, 03, 25),
+          :name => "My test sprint")
+      end
+      it "doesn't render a link if the story points are unknown" do
+        story = Factory.create(:story, :points =>  StoryPoint::UNKNOWN)
+        helper.change_status_button(story).should == ""
+      end
+      it "does not prepend '| ' if the status is 'done'" do
+        story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "done")
+        helper.change_status_button(story).should == ""
+      end
+      it "renders a link to start the story if the status is 'open'" do
+        story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "open", :project => @p, :sprint => @s)
+        expected = "| <a href=\"/projects/#{@p.id}/stories/#{story.id}/start\">Start</a>"
+        helper.change_status_button(story).should == expected
+      end
+      it "renders a link to mark the story as done if the status is 'active'" do
+        story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "active", :project => @p, :sprint => @s)
+        expected = "| <a href=\"/projects/#{@p.id}/stories/#{story.id}/finish\">Done</a>"
+        helper.change_status_button(story).should == expected
+      end
+    end
+    it "doesn't render a link if the story is not in a sprint" do
+      story = Factory.create(:story, :points =>  StoryPoint::TWO)
       helper.change_status_button(story).should == ""
-    end
-    it "does not prepend '| ' if the status is 'done'" do
-      story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "done")
-      helper.change_status_button(story).should == ""
-    end
-    it "renders a link to start the story if the status is 'open'" do
-      project = Factory.create(:project)
-      story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "open", :project => project)
-      expected = "| <a href=\"/projects/#{project.id}/stories/#{story.id}/start\">Start</a>"
-      helper.change_status_button(story).should == expected
-    end
-    it "renders a link to mark the story as done if the status is 'active'" do
-      project = Factory.create(:project)
-      story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "active", :project => project)
-      expected = "| <a href=\"/projects/#{project.id}/stories/#{story.id}/finish\">Done</a>"
-      helper.change_status_button(story).should == expected
     end
   end
 end

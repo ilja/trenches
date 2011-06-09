@@ -74,7 +74,6 @@ class StoriesController < ApplicationController
       else
         #todo: error
       end
-           
     end
   end
 
@@ -91,9 +90,10 @@ class StoriesController < ApplicationController
       else
         #todo: error
       end
-           
     end
   end
+  
+  
 
   def load_project
     @project = Project.find(params[:project_id])
