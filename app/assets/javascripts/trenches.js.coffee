@@ -4,10 +4,9 @@ $ ->
 
   $(document).bind 'end.pjax', ->
     title = $.trim( $(document).find('title').text() )
-    subnav = $('[data-pjax-container]').find('[data-subnav-container]').remove().html()
-    
     $('div#title h1').html title if title
-    $('div#header').find('[data-subnav-container]').html subnav if subnav
+    #subnav = $('[data-pjax-container]').find('[data-subnav-container]').remove().html()
+    #$('div#header').find('[data-subnav-container]').html subnav if subnav
 
   $('#sortable').sortable
     update: ->

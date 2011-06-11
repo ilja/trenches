@@ -1,5 +1,6 @@
 <%= title "#{@project.name} - #{@sprint.name} planning" %>
-<%= render_subnav "shared/subnav" %>
+<% render_subnav "shared/subnav" %>
+<%= render "shared/flash" %>
 
 <p>Select stories for sprint: <%= @sprint.name %></p>
 

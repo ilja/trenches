@@ -21,7 +21,7 @@
 
   <div id="header">
 
-    <div id="logo"><a href="/">Trenches</a></div>
+    <div id="logo"><%= link_to "Trenches", root_path, 'data-skip-pjax' => true %></div>
 
     <div id="topnav">
       <ul>
@@ -49,20 +49,14 @@
   </div>
 
   <div id="content" data-pjax-container>
-
-    <% flash.each do |name, msg| %>
-    <div id="<%= "flash_#{name}" %>" class="flashcontainer">
-        <%= "<img src=\"/assets/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
-        <%=  msg %>
-      </div>
-    <% end %>
+    <%= render "shared/flash" %>
 
     <%= yield %>
 
   </div>
 
   <div id="footer">
-    footer
+    Trenches 0.2
   </div>
 
 </div>

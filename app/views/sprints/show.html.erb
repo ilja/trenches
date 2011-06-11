@@ -1,5 +1,5 @@
 <%= title "#{@project.name} - #{@sprint.name} [#{@sprint.start_date} - #{@sprint.end_date}]" %>
-<%= render_subnav "shared/subnav" %>
+<% render_subnav "shared/subnav" %>
 <q><%= @sprint.goal %></q>
 
 <%= render :partial => 'stories/status-menu', :locals => {:show_new_story => false, :show_my_stories => true, :active_menu_item => show_scope} %>

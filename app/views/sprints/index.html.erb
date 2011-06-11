@@ -1,11 +1,11 @@
 <%= title "#{@project.name} sprints" %>
-<%= render_subnav "shared/subnav" %>
+<% render_subnav "shared/subnav" %>
 
 <ul class="fancy">
 <% @sprints.each do |sprint| %>
   <li>
     <div>
-      <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint) %></div>
+      <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint), 'data-skip-pjax' => true %></div>
       <% if can? :update, Sprint %>
         <div class="activate"><%= link_to 'Make active', set_active_sprint_path(@project, sprint) %></div>
       <% end %>
