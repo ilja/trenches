@@ -4,7 +4,7 @@
 <% @projects.each do |project| %>
   <li>
     <div>
-      <div class="name"><%= link_to project.name, project, 'data-skip-pjax' => true %></div>
+      <div class="name"><%= link_to project.name, project, 'data-skip-pjax' => :true %></div>
       <% if can? :update, Project %>
       	<div class="edit"><%= link_to 'Edit', edit_project_path(project) %></div>
       <% end %>
