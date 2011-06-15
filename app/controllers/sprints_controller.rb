@@ -77,8 +77,8 @@ class SprintsController < ApplicationController
     authorize! :update, sprint
 
     unless params[:story].blank?
-      params[:story].each_with_index do |id, index|
-        story = Story.criteria.id(id).first
+      params[:story].each_with_index do |story_id, index|
+        story = Story.find(story_id)
         sprint.stories << story
         story.update_attributes(:position => index+1, :sprint => sprint)
       end
@@ -90,8 +90,8 @@ class SprintsController < ApplicationController
     authorize! :update, Sprint
 
     unless params[:story].blank?
-      params[:story].each_with_index do |id, index|
-        story = Story.criteria.id(id).first
+      params[:story].each_with_index do |story_id, index|
+        story = Story.find(story_id)
         story.update_attributes(:position => index+1, :sprint_id => nil)
       end
     end
