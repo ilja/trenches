@@ -1,18 +1,18 @@
 <% unless @project.nil? || @project.new_record? %>
 <div id="subnav" data-subnav-container>
   <ul>
-    <li><%= link_to "product backlog", backlog_path(@project) %></li>
-    <li><%= link_to "sprints", project_sprints_path(@project) %></li>
+    <li><%= link_to "product backlog", backlog_path(@project), 'data-skip-pjax' => true %></li>
+    <li><%= link_to "sprints", project_sprints_path(@project), 'data-skip-pjax' => true  %></li>
 
     <% if @sprint && @sprint.new_record? == false %>
-      <li><%= link_to 'planning', sprint_planning_path(@project, @sprint) %></li>
+      <li><%= link_to 'planning', sprint_planning_path(@project, @sprint), 'data-skip-pjax' => true %></li>
     <% end %>
 
     <% if current_user && current_user.sprint_id && @project.sprints.count > 0
         sprint = @project.active_sprint_for(current_user)
           unless sprint.blank?
     %>
-      <li><%= link_to 'my active sprint', project_sprint_path(@project, sprint) %></li>
+      <li><%= link_to 'my active sprint', project_sprint_path(@project, sprint), 'data-skip-pjax' => true  %></li>
         <% end %>
     <% end %>
   </ul>
