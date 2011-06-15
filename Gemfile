@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.1.0.rc1'
+gem 'rails', '~>3.1.0.rc4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -70,5 +70,4 @@ end
 gem 'cucumber-rails', :group => :test
 gem 'capybara', :group => :test
 gem 'database_cleaner', :group => :test
-#gem 'haml', '>= 3.0.0'
-#gem 'sass' # automatically compile sass and scss to css
+
