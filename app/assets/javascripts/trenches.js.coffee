@@ -3,7 +3,7 @@
 jQuery ->
 
   $(document).bind 'end.pjax', ->
-    title = $.trim( $(document).find('title').text() )
+    title = $.trim( $(document).find('title').first().text() )
     $('div#title h1').html(title) if title
     #subnav = $('[data-pjax-container]').find('[data-subnav-container]').remove().html()
     #$('div#header').find('[data-subnav-container]').html subnav if subnav
