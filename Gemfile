@@ -36,7 +36,7 @@ gem 'coffeebeans'
 gem 'launchy'
 
 # authentication with omniauth
-gem 'omniauth'
+gem 'omniauth', '~>0.2.6'
 
 # authorization with cancan
 gem 'cancan', '~>1.6.1'
