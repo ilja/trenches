@@ -46,7 +46,7 @@ class SprintsController < ApplicationController
     @sprint = @project.sprints.build(params[:sprint])
     authorize! :create, @sprint
 
-    if @sprint.save
+    if @sprint.save!
       redirect_to project_sprints_path(@project), :notice => "'#{@sprint.name}' was successfully created."
     else
       render :new

@@ -1,6 +1,7 @@
 class Sprint
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::MultiParameterAttributes #so we can assign dates from date_select form helpers
 
   field :name, :type => String
   field :goal, :type => String
@@ -10,7 +11,7 @@ class Sprint
   references_many :stories
   references_many :users
   
-  validates_presence_of :start_date, :end_date, :name
+  validates_presence_of :name, :start_date, :end_date
   
   # give the total number of workdays in this sprint
   def total_work_days
