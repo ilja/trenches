@@ -9,7 +9,7 @@ class Story
   field :name
   field :description
   #list of notes?
-  field :status, :default => "open"
+  field :status, :type => String, default: "open"
   field :priority, :type => Integer
   field :points, :type => Integer
   field :moscow, :type => Integer
@@ -19,7 +19,7 @@ class Story
   field :done_date, :type => Date
   referenced_in :project
   referenced_in :sprint
-  referenced_in :user, :default => nil
+  referenced_in :user#, default: nil
 
   def start(user)
     self.status = "active"

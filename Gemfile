@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.1.0.rc4'
+#gem 'rails', '~>3.1.0.rc5'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
 gem 'sqlite3'
 
@@ -45,7 +45,7 @@ gem 'cancan', '~>1.6.1'
 gem 'rdiscount'
 
 # fix sass @import stuff?
-gem 'tilt', :git => 'git://github.com/rtomayko/tilt.git'
+#gem 'tilt', :git => 'git://github.com/rtomayko/tilt.git'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
