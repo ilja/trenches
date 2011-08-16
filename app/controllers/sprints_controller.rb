@@ -20,7 +20,7 @@ class SprintsController < ApplicationController
     else
       @stories = @sprint.stories.where(:status => show_scope).asc(:position)
     end
-    
+
     respond_with @sprint
   end
 
@@ -79,7 +79,6 @@ class SprintsController < ApplicationController
     unless params[:story].blank?
       params[:story].each_with_index do |story_id, index|
         story = Story.find(story_id)
-        sprint.stories << story
         story.update_attributes(:position => index+1, :sprint => sprint)
       end
     end
