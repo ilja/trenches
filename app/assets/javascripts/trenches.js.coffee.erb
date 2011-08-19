@@ -23,13 +23,13 @@ jQuery ->
   $('div.expand').live 'click', ->
     storybody = $(this).parents("li.story").children('.storybody')
     if storybody.css('display') == 'none'
-      $(this).find("img").attr src:"/assets/close.png"
+      $(this).find("img").attr src:"<%= image_path("close.png") %>"
     else
-      $(this).find("img").attr src:"/assets/open.png"
+      $(this).find("img").attr src:"<%= image_path("open.png") %>"
     storybody.toggle('fast')
 
-  # sortable lists 
-  sortable_settings = 
+  # sortable lists
+  sortable_settings =
     items: "li:not(.not-sortable)"
     connectWith: ".connectedSortable"
   $(".sortable").sortable(sortable_settings).disableSelection()

@@ -48,6 +48,16 @@ GIT
       rdoc (~> 3.4)
       thor (~> 0.14.6)
 
+GIT
+  remote: https://github.com/rails/sass-rails.git
+  revision: 231eb6703980d0fd939f786ff2c9d3db7e8f98e1
+  branch: 3-1-stable
+  specs:
+    sass-rails (3.1.0.rc.6)
+      actionpack (~> 3.1.0.rc6)
+      railties (~> 3.1.0.rc6)
+      sass (>= 3.1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -271,7 +281,7 @@ DEPENDENCIES
   rails!
   rdiscount
   rspec-rails (>= 2.0.1)
-  sass
+  sass-rails!
   spork (~> 0.9.0rc)
   sqlite3
   therubyracer

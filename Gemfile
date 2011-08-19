@@ -10,7 +10,7 @@ gem 'sqlite3'
 gem 'therubyracer'
 
 # Asset template engines
-gem 'sass'
+gem 'sass-rails', :git => 'https://github.com/rails/sass-rails.git', :branch => '3-1-stable'
 gem 'coffee-script'
 gem 'uglifier'
 
