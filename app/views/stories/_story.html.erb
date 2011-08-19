@@ -6,11 +6,11 @@
   <div class="storyheader">
     <% if sortable %>
     <div class="grip">
-      <%= image_tag "grip.png" :alt => "drag to sort" %>
+      <%= image_tag "grip.png", :alt => "drag to sort" %>
     </div>
     <% end %>
     <div class="expand">
-      <%= image_tag "open.png" :alt => "open" %>
+      <%= image_tag "open.png", :alt => "open" %>
     </div>
     <div class="story-menu">
       <div class="priority" title="Priority: <%= Moscow.to_name(story.moscow) %>"><%= Moscow.to_name(story.moscow) %></div>
