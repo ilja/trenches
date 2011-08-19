@@ -7,6 +7,8 @@ gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
 gem 'sqlite3'
 
+gem 'therubyracer'
+
 # Asset template engines
 gem 'sass'
 gem 'coffee-script'
