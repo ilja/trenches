@@ -5,8 +5,6 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead:
 gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
-#gem 'sqlite3'
-
 # Asset pipeline stuff
 gem 'sass-rails', :git => 'https://github.com/rails/sass-rails.git', :branch => '3-1-stable'
 gem 'coffee-script'
