@@ -5,31 +5,17 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead:
 gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
-gem 'sqlite3'
+#gem 'sqlite3'
 
-gem 'therubyracer'
-
-# Asset template engines
+# Asset pipeline stuff
 gem 'sass-rails', :git => 'https://github.com/rails/sass-rails.git', :branch => '3-1-stable'
 gem 'coffee-script'
 gem 'uglifier'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
+gem 'therubyracer'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
 # gem 'ruby-debug19'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
 
 gem 'jquery-rails'
 gem 'pjax_rails'
@@ -46,16 +32,7 @@ gem 'cancan', '~>1.6.1'
 # markdown
 gem 'rdiscount'
 
-# fix sass @import stuff?
-#gem 'tilt', :git => 'git://github.com/rtomayko/tilt.git'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
-
+#mongodb
 gem 'mongoid', '>= 2.0.1'
 gem 'bson_ext', '>= 1.3.0'
 

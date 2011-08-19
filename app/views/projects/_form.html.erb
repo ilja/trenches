@@ -1,6 +1,6 @@
 <% if @project.errors.any? %>
    <div id="flash_warning" class="flashcontainer">
-      <img src="/assets/dialog-warning.png" alt='info' class='icon' />
+      <%= image_tag "dialog-warning.png" :alt => "info", :class => "icon" %>
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
       <ul>

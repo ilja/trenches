@@ -6,12 +6,12 @@
   <div class="storyheader">
     <% if sortable %>
     <div class="grip">
-      <img src="/assets/grip.png" alt="drag to sort" />
+      <%= image_tag "grip.png" :alt => "drag to sort" %>
     </div>
     <% end %>
-    <div class="expand">    
-      <img src="/assets/open.png" alt="open" />
-    </div>    
+    <div class="expand">
+      <%= image_tag "open.png" :alt => "open" %>
+    </div>
     <div class="story-menu">
       <div class="priority" title="Priority: <%= Moscow.to_name(story.moscow) %>"><%= Moscow.to_name(story.moscow) %></div>
       <div class="points" title="Story points: <%= story.assigned_points %>"><%= story.assigned_points %></div>
@@ -25,7 +25,7 @@
         <%= link_to 'Edit', edit_project_story_path(story.project, story), 'data-skip-pjax' => true %>
       <% end %>
       <% if can? :update, story and @sprint%>
-        <%= change_status_button(story) %>      
+        <%= change_status_button(story) %>
       <% end %>
     </div>
   </div>
