@@ -4,12 +4,12 @@ $font2: 'Yanone Kaffeesatz', 'Droid Sans', arial, sans-serif;
 $text-color: #333333;
 
 $border-color: #e8e8e8;
-$radius: 5px;    
+$radius: 5px;
 $spacer1: 6px;
-$nav-bg: url(/assets/bg.png);
-$nav-bg-active: url(/assets/bg-active.png);
-$nav-bg-hover: url(/assets/bg-hover.png);
-$bg-title: url(/assets/bg-title.png);
+$nav-bg: url(<%= image_path("bg.png") %>);
+$nav-bg-active: url(<%= image_path("bg-active.png") %>);
+$nav-bg-hover: url(<%= image_path("bg-hover.png") %>);
+$bg-title: url(<%= image_path("bg-title.png") %>);
 
 $bnt-border-normal: 1px solid $border-color;
 $bnt-border-highlight: 1px solid #fff;
@@ -20,21 +20,21 @@ $link-color2: #ff7800;
 $warning-color: #FF2500;
 $warning-background-color: #F7EDDD;
 
-@mixin rounded-left {  
+@mixin rounded-left {
   @include rounded-top-left;
   @include rounded-bottom-left;
 }
 
 
 @mixin rounded-top-left {
-  border-top-left-radius: $radius;  
-  -moz-border-radius-topleft: $radius;  
-  -webkit-border-top-left-radius: $radius;  
+  border-top-left-radius: $radius;
+  -moz-border-radius-topleft: $radius;
+  -webkit-border-top-left-radius: $radius;
 }
 
-@mixin rounded-bottom-left {  
-  border-bottom-left-radius: $radius;    
-  -moz-border-radius-bottomleft: $radius;  
+@mixin rounded-bottom-left {
+  border-bottom-left-radius: $radius;
+  -moz-border-radius-bottomleft: $radius;
   -webkit-border-bottom-left-radius: $radius;
 }
 
@@ -44,14 +44,14 @@ $warning-background-color: #F7EDDD;
 }
 
 @mixin rounded-top-right {
-  border-top-right-radius: $radius;  
-  -moz-border-radius-topright: $radius;  
-  -webkit-border-top-right-radius: $radius;  
+  border-top-right-radius: $radius;
+  -moz-border-radius-topright: $radius;
+  -webkit-border-top-right-radius: $radius;
 }
 
 @mixin rounded-bottom-right {
-  border-bottom-right-radius: $radius;  
-  -moz-border-radius-bottomright: $radius;  
+  border-bottom-right-radius: $radius;
+  -moz-border-radius-bottomright: $radius;
   -webkit-border-bottom-right-radius: $radius;
 }
 
@@ -74,8 +74,8 @@ $warning-background-color: #F7EDDD;
 }
 
 @mixin ellipsis {
-  text-overflow: ellipsis;  
-  overflow: hidden;      
+  text-overflow: ellipsis;
+  overflow: hidden;
   -o-text-overflow: ellipsis;
   white-space: nowrap;
 }

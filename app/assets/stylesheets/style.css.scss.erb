@@ -59,27 +59,27 @@ p {
 	/*overflow: auto;
   	padding-bottom: 20px;
   height: 56px;*/
-  background: url(/assets/bg-header.png) repeat-x 0px -10px;
+  background: url(<%= image_path("bg-header.png") %>) repeat-x 0px -10px;
 
  div#title {
     background: $bg-title;
     border:  $bnt-border-normal;
     height: 45px;
-    padding: 10px 18px 0px 18px;   
+    padding: 10px 18px 0px 18px;
     font-size: 14px;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
     color: #333;
     font-family: $font2;
-    clear: both; 
+    clear: both;
     display: block;
 
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 
     h1 {
-      @include ellipsis;     
+      @include ellipsis;
       text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased; 
+      -webkit-font-smoothing: antialiased;
     }
 
   }
@@ -96,7 +96,7 @@ p {
   padding-left: 6px;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
   color: #ff7800;
-  font-family: $font1;  
+  font-family: $font1;
 }
 
 #logo a {
@@ -114,12 +114,12 @@ p {
 	  padding: 2px 5px 2px 5px;
   	margin: 0px;
     height: 18px;
-	  float: right;    
+	  float: right;
   	/*text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);*/
-  	
+
   	@include rounded-bottom-left;
   	@include rounded-bottom-right;
-  	
+
   	font-family: $font1;
     font-size: 12px;
     text-shadow: 1px 1px 0 #fff;
@@ -129,16 +129,16 @@ p {
 
   a { color: $link-color; }
   a:active { /*font-weight: bold;*/ }
-  
+
   li {
 	  display: inline;
   	padding: 0;
 	  margin: 0;
-	  
+
   }
 
-  li:before { 
-    content: "| "; 
+  li:before {
+    content: "| ";
     color: $border-color;
   }
   li:first-child:before { content: ""; }
@@ -153,9 +153,9 @@ p {
 	overflow: hidden;
   display: inline-block; /* Necessary to trigger "hasLayout" in IE */
   display: block;
-  background: url(/assets/bg-main.png) repeat-x 0px -57px;
+  background: url(<%= image_path("bg-main.png") %>) repeat-x 0px -57px;
 	padding: $spacer1;
- 
+
 }
 
 form.edit_story {
@@ -186,10 +186,10 @@ div.field {
 
     padding: 2px 5px 2px 5px;
     margin: 0px;
-    height: 18px;    
-    
+    height: 18px;
+
     /*text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);*/
-    
+
     font-family: $font1;
     font-size: 12px;
     text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9);
@@ -198,19 +198,19 @@ div.field {
   }
 
   a:active { /*font-weight: bold;*/ }
-  
+
   li {
     display: inline;
     padding: 0;
-    margin: 0;    
+    margin: 0;
     a { color: $link-color; }
   }
-  li:before { 
-    content: "| "; 
+  li:before {
+    content: "| ";
     color: $border-color;
   }
-  li:first-child:before { 
-    content: ""; 
+  li:first-child:before {
+    content: "";
   }
 }
 
@@ -228,17 +228,17 @@ div#content div#subnav {
 	text-shadow: 1px 1px 0 #fff;
 	overflow: hidden;
 	margin-bottom: 10px;
-  
+
   ul {
     /*padding: 2px 0 0 0;*/
   	padding: 0;
 	  margin: 0;
-  	/*border: 1px solid green;*/   
-  	
+  	/*border: 1px solid green;*/
+
   }
-  
+
   li {
-  	
+
 	  background-image: $nav-bg;
 
   	height: 28px;
@@ -253,9 +253,9 @@ div#content div#subnav {
 	  border-left: $bnt-border-highlight;
   	border-right: $bnt-border-normal;
 
- 
 
-  
+
+
     a {
       /*margin-top: 10px;*/
 	    margin: 0px 5px;
@@ -268,35 +268,35 @@ div#content div#subnav {
       /*font-family: DroidSansBold, 'Bitstream Vera Sans Bold';
   	  font-size: 18px;*/
     }
-    
+
    /* a:hover {
 	    color: #fff;
     }
     */
-  
+
   }
 
-  
-  
+
+
   li:hover {
     background-color: #333333;
     background-image: $nav-bg-hover;
   }
-  
+
   li.active {
     background-image: $nav-bg-active;
     color: #fff;
   }
-  
+
 
   li:first-child {
-    @include rounded-left;  
+    @include rounded-left;
 	  border-left: $bnt-border-normal;
   	border-right: $bnt-border-normal;
   }
 
   li:last-child {
-    @include rounded-right;	  
+    @include rounded-right;
   }
 }
 
@@ -326,7 +326,7 @@ div#storylist {
 	width: 988px;
 	/*width: 580px;
 	border: 1px solid blue;*/
-  
+
   > ul {
   	display: inline;
 	  padding: 0px;
@@ -350,7 +350,7 @@ li.story {
   border-right: $bnt-border-normal;
   border-bottom: $bnt-border-normal;
   overflow: hidden;
-  
+
   /*width: inherit;
 	margin-bottom: 5px;
 	padding: 3px;
@@ -361,16 +361,16 @@ li.story {
   @include rounded-right;
   @include inset-shadow;
   */
-  
-    
+
+
 
   div {
     /*  border: 1px solid red; */
     display: inline-block;
     vertical-align: middle;
-    
-    
-    
+
+
+
   }
     .grip {
       width: 10px;
@@ -379,18 +379,18 @@ li.story {
       cursor: move;
     }
 
-    .expand { 
-      width: 22px; 
+    .expand {
+      width: 22px;
       height: 22px;
       float: left;
       cursor: pointer;
     }
-    .id { 
-      width: 20px; 
+    .id {
+      width: 20px;
       float: left;
       padding-top: 3px;
     }
-    .naam { 
+    .naam {
       margin-left: auto;
       margin-right: auto;
       /* width: 440px; */
@@ -400,16 +400,16 @@ li.story {
 			line-height: 22px;
       @include ellipsis;
     }
-    .priority { 
+    .priority {
       width: auto;
       @include ellipsis;
     }
-    .description { 
+    .description {
       width: 20px;
       height: 20px;
     }
     .notes { width: 20px; }
-    .points { 
+    .points {
 			width: 20px;
 			height: 20px;
 			line-height: 20px;
@@ -420,9 +420,9 @@ li.story {
 			background: rgba(255, 255, 255, 0.4);
 		}
     .assigned { width: 50px; }
-    
-    
-    
+
+
+
     .storyheader {
     	width: 100%;
       background-image: $nav-bg;
@@ -436,12 +436,12 @@ li.story {
       .edit-story {
         float: right;
       }
-    } 
-  
-  
+    }
+
+
     .story-menu {
       float: right;
-    } 
+    }
 }
 
 li.story:first-child {
@@ -473,7 +473,7 @@ ul.fancy {
     }
 
     div {
-      display: inline-block;      
+      display: inline-block;
       height: 22px;
       line-height: 22px;
     }
@@ -491,7 +491,7 @@ ul.fancy {
       width: 40px;
     }
   }
- 
+
   li:first-child {
     border-top: $bnt-border-normal;
   }
@@ -522,18 +522,18 @@ div.sortable-list.sprint {
 }
 
 
-#sortable-backlog, #sortable-sprintlog { 
-  list-style-type: none; 
-  margin: 0; 
-  padding: 0px 0px 5px 0px; 
-  float: left; 
-  margin-right: 10px; 
+#sortable-backlog, #sortable-sprintlog {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px 0px 5px 0px;
+  float: left;
+  margin-right: 10px;
   min-height: 100px;
   width: 100%;
 }
 
 #sortable-backlog li, #sortable-sprintlog li {
-  margin: 0 5px; 
+  margin: 0 5px;
   div.naam {
     cursor: move;
   }
