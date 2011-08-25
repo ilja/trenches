@@ -32,9 +32,9 @@
         <li><a href="#">settings</a></li>
         <li>
           <% if current_user %>
-            <%= link_to "sign out", signout_path %>
+            <%= link_to "sign out", signout_path, 'data-skip-pjax' => true %>
           <% else %>
-            <%= link_to "sign in with GitHub", signin_path %>
+            <%= link_to "sign in with GitHub", signin_path, 'data-skip-pjax' => true %>
           <% end %>
         </li>
       </ul>

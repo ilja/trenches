@@ -16,7 +16,7 @@ gem 'therubyracer'
 # gem 'ruby-debug19'
 
 gem 'jquery-rails'
-gem 'pjax_rails'
+#gem 'pjax_rails'
 gem 'coffeebeans'
 
 gem 'launchy'
