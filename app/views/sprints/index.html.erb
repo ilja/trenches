@@ -1,25 +1,41 @@
-<%= title "#{@project.name} sprints" %>
-<% render_subnav "shared/subnav" %>
+<header>
+  <h1>
+    <%= link_to @project.name, backlog_path(@project) %>
+    /
+    Sprints
+  </h1>
 
-<ul class="fancy">
-<% @sprints.each do |sprint| %>
-  <li>
-    <div>
-      <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint), 'data-skip-pjax' => true %></div>
-      <% if can? :update, Sprint %>
-        <div class="activate"><%= link_to 'Make active', set_active_sprint_path(@project, sprint) %></div>
-      <% end %>
-      <% if can? :update, Sprint %>
-        <div class="edit"><%= link_to 'Edit', edit_project_sprint_path(@project, sprint) %></div>
-      <% end %>
-      <% if can? :destroy, Sprint %>
-        <div class="destroy"><%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete %></div>
-      <% end %>
-    </div>
-  </li>
-<% end %>
-</ul>
+</header>
 
-<% if can? :create, Sprint %>
-  <%= link_to 'New Sprint', new_project_sprint_path(@project) %>
-<% end %>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
+
+  <section class="sprints-container">
+    <nav class="button-group">
+    <% if can? :create, Sprint %>
+      <%= link_to 'New Sprint', new_project_sprint_path(@project), :class => "button" %>
+    <% end %>
+    </nav>
+
+    <ul class="fancy">
+    <% @sprints.each do |sprint| %>
+      <li>
+        <div>
+          <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint), 'data-skip-pjax' => true %></div>
+          <% if can? :update, Sprint %>
+            <div class="activate"><%= link_to 'Make active', set_active_sprint_path(@project, sprint) %></div>
+          <% end %>
+          <% if can? :update, Sprint %>
+            <div class="edit"><%= link_to 'Edit', edit_project_sprint_path(@project, sprint) %></div>
+          <% end %>
+          <% if can? :destroy, Sprint %>
+            <div class="destroy"><%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete %></div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+
+  </section>
+
+</div>

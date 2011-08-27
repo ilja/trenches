@@ -1,23 +1,36 @@
-<%= title "All projects" %>
+<header>
+  <h1>
+    All projects
+  </h1>
+</header>
 
-<ul class="fancy">
-<% @projects.each do |project| %>
-  <li>
-    <div>
-      <div class="name"><%= link_to project.name, project, 'data-skip-pjax' => :true %></div>
-      <% if can? :update, Project %>
-      	<div class="edit"><%= link_to 'Edit', edit_project_path(project) %></div>
+
+<div id="main" role="main">
+  <%= render "shared/flash" %>
+
+  <section class="backlog-container">
+    <nav class="button-group">
+      <% if can? :create, Project %>
+        <%= link_to 'New Project', new_project_path, :class => "button" %>
       <% end %>
-      <% if can? :destroy, Project %>
-      	<div class="destroy"><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></div>
-      <% end %>
-    </div>
-  </li>
-<% end %>
-</ul>
+    </nav>
 
-<br />
+    <ul class="fancy">
+    <% @projects.each do |project| %>
+      <li>
+        <div>
+          <div class="name"><%= link_to project.name, project, 'data-skip-pjax' => :true %></div>
+          <% if can? :update, Project %>
+          	<div class="edit"><%= link_to 'Edit', edit_project_path(project) %></div>
+          <% end %>
+          <% if can? :destroy, Project %>
+          	<div class="destroy"><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+    </ul>
 
-<% if can? :create, Project %>
-	<%= link_to 'New Project', new_project_path %>
-<% end %>
+  </section>
+
+</div>

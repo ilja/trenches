@@ -1,32 +1,48 @@
-<%= title "#{@project.name} - #{@sprint.name} [#{@sprint.start_date} - #{@sprint.end_date}]" %>
-<% render_subnav "shared/subnav" %>
-<q><%= @sprint.goal %></q>
+<header>
+  <h1>
+    <%= link_to @project.name, backlog_path(@project) %>
+    /
+    <%= link_to @sprint.name, sprint_planning_path(@project, @sprint)%>
+  </h1>
+</header>
 
-<%= render :partial => 'stories/status-menu', :locals => {:show_new_story => false, :show_my_stories => true, :active_menu_item => show_scope} %>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
 
-<div id="storylist" class="sprint">
-  <ul>
-    <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
-  </ul>
-</div>
-<div id="burndown"></div>
+  <section class="sprint-container">
+
+    <nav class="button-group">
+      <%= link_to 'All stories', {:show => "all"}, :class => "button" %>
+      <%= link_to 'My stories', {:show => "my"}, :class => "button" %>
+    </nav>
+
+    <nav id="togglebuttons" class="button-group">
+      <%= link_to 'Open', {:show => "open"}, :class => "button" %>
+      <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
+      <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+    </nav>
+
+    <ul class="storylist">
+      <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
+    </ul>
+
+  </section>
+
+  <aside>
+    <h2 class="sprint-time">
+    <time datetime="2011-08-20">20-08-2011</time> &mdash;
+    <time datetime="2011-09-14">14-09-2011</time>
+    </h2>
+
+    <blockquote>
+     <%= @sprint.goal %>
+    </blockquote>
+    <div class="progress-bar">
+      <span style="width: 75%"></span>
+    </div>
+  </aside>
+
+ </div>
 
 
-<script type="text/javascript">
-$(function() {
-  xticks = <%= total_work_days_ticks(@sprint) %>;
-  $.jqplot('burndown', [<%= @sprint.open_story_points_per_workday.to_json %>],
-  {
-    title:'Burndown chart',
-    axes:{
-      yaxis:{ min:0, max:<%= @sprint.total_story_points %>},
-      xaxis:{ticks:xticks},
-    },
-    series:[{color:'#ff7800'}],
-    grid:{
-      shadow:false,
-      borderWidth:0.1,
-    }
-  });
-});
-</script>
+

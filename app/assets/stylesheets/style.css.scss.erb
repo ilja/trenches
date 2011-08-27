@@ -1,6 +1,166 @@
 @import "shared.scss";
 
 
+
+
+
+
+#logo {
+  float: left;
+  width: 100px;
+  height: 50px;
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 6px;
+  padding-left: 6px;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
+  color: #ff7800;
+  font-family: $font1;
+}
+
+
+
+#topnav {
+  overflow: auto;
+}
+
+#topnav  ul {
+    border-color: $main-color;
+    border-style: none solid solid solid;
+    border-width: 1px;
+    background: $nav-bg;
+
+    padding: 2px 5px 2px 5px;
+    margin: 0px;
+    height: 18px;
+    float: right;
+    /*text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+
+    @include rounded-bottom-left;
+    @include rounded-bottom-right;*/
+
+    font-family: $font1;
+    font-size: 12px;
+    text-shadow: 1px 1px 0 #fff;
+
+    list-style: none;
+  }
+
+#topnav  a { color: $link-color; }
+#topnav  a:active { /*font-weight: bold;*/ }
+
+#topnav  li {
+    display: inline;
+    padding: 0;
+    margin: 0;
+
+  }
+
+#topnav  li:before {
+    content: "| ";
+    color: $border-color;
+  }
+#topnav  li:first-child:before { content: ""; }
+
+
+
+
+
+#container {
+  width:940px;
+  text-align:left;
+  left: 50%;
+  margin:0px auto;
+  overflow: visible;
+  border: 1px solid red;
+}
+
+header {
+  clear: both;
+}
+
+div.main {
+  display: table;
+  margin: 0;
+
+}
+
+section.sprint-container {
+  width: 640px;
+  padding-right: 20px;
+
+  border: 1px solid green;
+  display: table-cell;
+   vertical-align: top;
+}
+
+section.backlog-container, section.sprints-container {
+  width: 940px;
+  display: table-cell;
+   vertical-align: top;
+}
+
+
+nav#togglebuttons {
+  float: right;
+}
+
+
+
+aside {
+  display: table-cell;
+   vertical-align: top;
+  width: 280px;
+  border: 1px solid yellow;
+
+}
+
+
+blockquote {
+  margin: 10px 0px 18px 10px;
+
+  border-left: 5px solid #eee;
+  padding-left: 15px;
+}
+blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+}
+blockquote small {
+  display: block;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: #bfbfbf;
+}
+blockquote small:before {
+  content: '\2014 \00A0';
+}
+
+
+
+h2.sprint-time {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+
+div.progress-bar {
+  width: 100%;
+  border: 1px solid gray;
+  height: 20px;
+}
+div.progress-bar span {
+  display: block;
+  height: 100%;
+  background: green;
+}
+
+/*
+
 body {
 	font-family: $font1;
 	font-size: 12px;
@@ -12,13 +172,13 @@ body {
 }
 
 h1 {
-/*	font-size: 20px;
+	font-size: 20px;
 	font-weight: bold;
 	background-color: $main-color;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E8F4FF), to(#ABBDCC));
   padding: 18px;
 	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-  */
+
   padding: 0;
   margin: 0;
 }
@@ -42,23 +202,19 @@ p {
 
 #container {
 	width:1000px;
-	/*margin:0px auto;*/
+
 	text-align:left;
-	/*padding:10px;
-  position: absolute;*/
+
   left: 50%;
   margin:0px auto;
-  /*margin-left: -510px;*/
-/*	border:1px solid red;*/
+
 	overflow: visible;
 }
 
-/* header */
+
 
 #header {
-	/*overflow: auto;
-  	padding-bottom: 20px;
-  height: 56px;*/
+
   background: asset-url("bg-header.png", image) repeat-x 0px -10px;
 
  div#title {
@@ -102,6 +258,8 @@ p {
 #logo a {
   color: #ff7800;
 }
+
+*/
 
 #topnav {
   overflow: auto;
@@ -314,7 +472,7 @@ div#content div#subnav {
 
 /* footer */
 
-#footer {
+footer {
 	border-top: $bnt-border-normal;
 	margin-top: 10px;
 	font-size: 10px;
@@ -323,7 +481,7 @@ div#content div#subnav {
 
 
 div#storylist {
-	width: 988px;
+	width: 940px;
 	/*width: 580px;
 	border: 1px solid blue;*/
 
@@ -331,6 +489,11 @@ div#storylist {
   	display: inline;
 	  padding: 0px;
   }
+}
+
+ul.storylist {
+  display: inline;
+  padding: 0;
 }
 
 div#storylist.sprint {
@@ -566,3 +729,5 @@ img.icon {
 }
 
 @import "jquery.jqplot.css"
+
+

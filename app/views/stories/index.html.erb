@@ -1,10 +1,37 @@
-<%= title "#{@project.name} product backlog" %>
-<% render_subnav "shared/subnav" %>
+<header>
+  <h1>
+    <%= link_to @project.name, backlog_path(@project) %>
+    /
+    Product Backlog
+  </h1>
+    <%= link_to "sprints", project_sprints_path(@project) %>
+</header>
 
-<%= render :partial => 'stories/status-menu', :locals => { :show_new_story => true, :show_my_stories => false, :active_menu_item => show_scope } %>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
 
-<div id="storylist">
-  <ul id="sortable" data-url="<%= sort_stories_path(@project) %>">
-    <%= render :partial => 'story', :collection => @stories, :locals => {:sortable => true} %>
-  </ul>
+  <section class="backlog-container">
+
+    <nav class="button-group">
+      <% if can? :create, Story %>
+        <% if show_new_story  %>
+         <%= link_to 'New Story', new_project_story_path(@project), :class => "button" %>
+        <% end %>
+      <% end %>
+    </nav>
+
+    <nav id="togglebuttons" class="button-group">
+      <%= link_to 'Open', {:show => "open"}, :class => "button" %>
+      <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
+      <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+    </nav>
+
+    <div id="storylist">
+      <ul id="sortable" data-url="<%= sort_stories_path(@project) %>">
+        <%= render :partial => 'story', :collection => @stories, :locals => {:sortable => true} %>
+      </ul>
+    </div>
+
+  </section>
+
 </div>
