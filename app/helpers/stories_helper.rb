@@ -8,15 +8,11 @@ module StoriesHelper
   def change_status_button(story)
     html = ""
     unless story.blank? or story.points.blank? or story.sprint_id.blank?
-      if story.points > StoryPoint::UNKNOWN
-        html << "| " unless story.status == "done"
-
       if story.status == "open"
-          html << link_to('Start', start_story_path(story.project, story))
-        end
-        if story.status == "active"
-          html << link_to('Done', finish_story_path(story.project, story))
-        end
+        html << link_to('Start', start_story_path(story.project, story), :class => "button")
+      end
+      if story.status == "active"
+        html << link_to('Done', finish_story_path(story.project, story), :class => "button")
       end
     end
     html.html_safe

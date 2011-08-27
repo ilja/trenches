@@ -14,9 +14,7 @@
 
     <nav class="button-group">
       <% if can? :create, Story %>
-        <% if show_new_story  %>
          <%= link_to 'New Story', new_project_story_path(@project), :class => "button" %>
-        <% end %>
       <% end %>
     </nav>
 

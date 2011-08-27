@@ -1,5 +1,14 @@
-<%= title "New sprint for #{@project.name}" %>
-<% render_subnav "shared/subnav" %>
+<header>
+  <h1>
+    New Sprint
+  </h1>
+</header>
 
-<%= render 'form' %>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
 
+  <section class="backlog-container">
+    <%= render 'form', :button_name => "Create Sprint" %>
+  </section>
+
+</div>

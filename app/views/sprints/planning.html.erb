@@ -1,19 +1,30 @@
-<%= title "#{@project.name} - #{@sprint.name} planning" %>
-<% render_subnav "shared/subnav" %>
-<%= render "shared/flash" %>
+<header>
+  <h1>
+    <%= link_to @project.name, backlog_path(@project) %>
+    /
+    <%= link_to @sprint.name, project_sprint_path(@project, @sprint) %>
 
-<p>Select stories for sprint: <%= @sprint.name %></p>
+    / Planning
+  </h1>
+</header>
 
-<div class="sortable-list backlog">
-  <h1>Project backlog</h1>
-  <ul id="sortable-backlog" class="sortable connectedSortable" data-url="<%= remove_and_sort_stories_path(@project, @sprint) %>">
-    <%= render :partial => 'stories/story', :collection => @project.backlog.asc(:backlog_position), :locals => {:sortable => true} %>
-  </ul>
-</div>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
 
-<div class="sortable-list sprint">
-  <h1>Sprint backlog</h1>
-  <ul id="sortable-sprintlog" class="sortable connectedSortable" data-url="<%= add_and_sort_stories_path(@project, @sprint) %>">
-    <%= render :partial => 'stories/story', :collection => @sprint.stories.asc(:position), :locals => {:sortable => true} %>
-  </ul>
+  <p>Select stories for sprint: <%= @sprint.name %></p>
+
+  <div class="sortable-list backlog">
+    <h1>Project backlog</h1>
+    <ul id="sortable-backlog" class="sortable connectedSortable" data-url="<%= remove_and_sort_stories_path(@project, @sprint) %>">
+      <%= render :partial => 'stories/story', :collection => @project.backlog.asc(:backlog_position), :locals => {:sortable => true} %>
+    </ul>
+  </div>
+
+  <div class="sortable-list sprint">
+    <h1>Sprint backlog</h1>
+    <ul id="sortable-sprintlog" class="sortable connectedSortable" data-url="<%= add_and_sort_stories_path(@project, @sprint) %>">
+      <%= render :partial => 'stories/story', :collection => @sprint.stories.asc(:position), :locals => {:sortable => true} %>
+    </ul>
+  </div>
+
 </div>

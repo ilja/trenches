@@ -21,12 +21,14 @@
   <div class="storybody">
     <div class="full-description"><%= markdown(story.description) %></div>
     <div class="edit-story">
-      <% if can? :update, story %>
-        <%= link_to 'Edit', edit_project_story_path(story.project, story), 'data-skip-pjax' => true %>
-      <% end %>
-      <% if can? :update, story and @sprint%>
-        <%= change_status_button(story) %>
-      <% end %>
+      <nav class="button-group">
+        <% if can? :update, story %>
+          <%= link_to 'Edit', edit_project_story_path(story.project, story), :class => "button" %>
+        <% end %>
+        <% if can? :update, story and @sprint%>
+          <%= change_status_button(story) %>
+        <% end %>
+      </nav>
     </div>
   </div>
 </li>

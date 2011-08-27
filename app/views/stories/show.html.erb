@@ -1,6 +1,8 @@
 <%= title("#{@story.name}") %>
 
+<nav class="button-group">
 <% if can? :update, @story %>
-	<%= link_to 'Edit', edit_project_story_path(@project, @story) %> |
+	<%= link_to 'Edit', edit_project_story_path(@project, @story), :class => "button" %> |
 <% end %>
-<%= link_to 'Back', project_stories_path(@project) %>
+<%= link_to 'Back', project_stories_path(@project), :class => "button"  %>
+</nav>

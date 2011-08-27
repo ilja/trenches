@@ -1,5 +1,16 @@
-<%= title "New story for #{@project.name}" %>
-<% render_subnav "shared/subnav" %>
+<header>
+  <h1>
+    <%= link_to @project.name, backlog_path(@project) %>
+    /
+    New Story
+  </h1>
+</header>
 
-<%= render 'form' %>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
 
+  <section class="backlog-container">
+    <%= render 'form', :button_name => "Create Story" %>
+  </section>
+
+</div>

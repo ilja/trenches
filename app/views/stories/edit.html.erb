@@ -1,4 +1,16 @@
-<%= title "Edit #{@story.name}" %>
-<% render_subnav "shared/subnav" %>
+<header>
+  <h1>
+    <%= link_to @project.name, backlog_path(@project) %>
+    /
+    Edit <%= @story.name %>
+  </h1>
+</header>
 
-<%= render 'form' %>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
+
+  <section class="backlog-container">
+    <%= render 'form', :button_name => "Update Story" %>
+  </section>
+
+</div>

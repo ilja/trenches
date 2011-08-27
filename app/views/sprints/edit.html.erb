@@ -1,4 +1,14 @@
-<%= title "Edit #{@sprint.name}" %>
-<% render_subnav "shared/subnav" %>
+<header>
+  <h1>
+    Edit <%= @sprint.name %>
+  </h1>
+</header>
 
-<%= render 'form' %>
+<div id="main" role="main">
+  <%= render "shared/flash" %>
+
+  <section class="backlog-container">
+    <%= render 'form', :button_name => "Update Sprint" %>
+  </section>
+
+</div>

@@ -19,7 +19,7 @@
 
   <div class="actions">
     <% if can? :create, Project %>
-      <%=  f.submit %>
+      <%=  f.submit button_name, :class => "button", :disable_with => 'Saving...'  %>
     <% end %>
     or go <%= link_to 'back', projects_path %>
   </div>
