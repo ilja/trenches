@@ -12,16 +12,16 @@
 
   <section class="backlog-container">
 
-    <nav class="button-group">
+    <nav class="button-container">
       <% if can? :create, Story %>
-         <%= link_to 'New Story', new_project_story_path(@project), :class => "button" %>
+         <%= link_to 'New Story', new_project_story_path(@project), :class => "button primary" %>
       <% end %>
-    </nav>
 
-    <nav id="togglebuttons" class="button-group">
-      <%= link_to 'Open', {:show => "open"}, :class => "button" %>
-      <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
-      <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+      <nav id="togglebuttons" class="button-group">
+        <%= link_to 'Open', {:show => "open"}, :class => "button" %>
+        <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
+        <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+      </nav>
     </nav>
 
     <div id="storylist">
