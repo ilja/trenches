@@ -2,24 +2,28 @@
   <h1>
     <%= link_to @project.name, backlog_path(@project) %>
     /
-    <%= link_to @sprint.name, sprint_planning_path(@project, @sprint)%>
+    <%= @sprint.name %>
   </h1>
+  <nav class="header-right">
+  <%= link_to "Planning", sprint_planning_path(@project, @sprint), :class => "button" %>
+  </nav>
 </header>
 
 <div id="main" role="main">
   <%= render "shared/flash" %>
 
   <section class="sprint-container">
+    <nav class="button-container">
+      <nav class="button-group">
+        <%= link_to 'All stories', {:show => "all"}, :class => "button" %>
+        <%= link_to 'My stories', {:show => "my"}, :class => "button" %>
+      </nav>
 
-    <nav class="button-group">
-      <%= link_to 'All stories', {:show => "all"}, :class => "button" %>
-      <%= link_to 'My stories', {:show => "my"}, :class => "button" %>
-    </nav>
-
-    <nav id="togglebuttons" class="button-group">
-      <%= link_to 'Open', {:show => "open"}, :class => "button" %>
-      <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
-      <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+      <nav id="togglebuttons" class="button-group">
+        <%= link_to 'Open', {:show => "open"}, :class => "button" %>
+        <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
+        <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+      </nav>
     </nav>
 
     <ul class="storylist">
