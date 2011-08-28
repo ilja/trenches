@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe StoriesController do
-  describe "routing" do    
+  describe "routing" do
     it "recognizes and generates #index" do
       { :get => "/projects/1/stories" }.should route_to(:controller => "stories", :action => "index", :project_id => "1")
     end
@@ -22,15 +22,6 @@ describe StoriesController do
     end
     it "recognizes and generates #destroy" do
       { :delete => "/projects/1/stories/1" }.should route_to(:controller => "stories", :action => "destroy", :id => "1", :project_id => "1")
-    end
-    it "recognizes and generates #open" do
-      { :get => "/projects/1/stories/open" }.should route_to(:controller => "stories", :action => "open", :project_id => "1")
-    end
-    it "recognizes and generates #active" do
-      { :get => "/projects/1/stories/active" }.should route_to(:controller => "stories", :action => "active", :project_id => "1")
-    end
-    it "recognizes and generates #done" do
-      { :get => "/projects/1/stories/done" }.should route_to(:controller => "stories", :action => "done", :project_id => "1")
     end
   end
 end
