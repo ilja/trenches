@@ -91,6 +91,15 @@ body {
 
 header {
   clear: both;
+  overflow: auto;
+}
+header h1 {
+  float: left;
+}
+
+nav.header-right{
+  float: right;
+  margin: 16px 0;
 }
 
 div.main {
@@ -119,7 +128,9 @@ nav#togglebuttons {
   float: right;
 }
 
-
+nav.button-container {
+  padding-bottom: 10px;
+}
 
 aside {
   display: table-cell;
@@ -492,7 +503,7 @@ div#storylist.sprint {
 
 div.full-description {
   p {
-    padding: 6px 0px;
+    margin: 6px 0px;
   }
 }
 
@@ -618,6 +629,7 @@ ul.fancy {
     border-left: $bnt-border-normal;
     border-right: $bnt-border-normal;
     border-bottom: $bnt-border-normal;
+    border-radius: 0.1em;
     height: 28px;
     a { color: $link-color; }
 
@@ -632,16 +644,16 @@ ul.fancy {
     }
 
     div.name {
-      width: 600px;
+      width: 848px;
       a {
         display: block;
       }
     }
     div.edit {
-      width: 20px;
+
     }
     div.destroy {
-      width: 40px;
+
     }
   }
 

@@ -4,7 +4,9 @@
     /
     Product Backlog
   </h1>
-    <%= link_to "sprints", project_sprints_path(@project) %>
+  <nav class="header-right">
+  <%= link_to "Sprints", project_sprints_path(@project), :class => "button" %>
+  </nav>
 </header>
 
 <div id="main" role="main">
