@@ -11,27 +11,29 @@
   <%= render "shared/flash" %>
 
   <section class="sprints-container">
-    <nav class="button-group">
+    <nav class="button-container">
     <% if can? :create, Sprint %>
-      <%= link_to 'New Sprint', new_project_sprint_path(@project), :class => "button" %>
+      <%= link_to 'New Sprint', new_project_sprint_path(@project), :class => "button primary" %>
     <% end %>
     </nav>
 
     <ul class="fancy">
     <% @sprints.each do |sprint| %>
       <li>
-        <div>
+        <article>
           <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint), 'data-skip-pjax' => true %></div>
-          <% if can? :update, Sprint %>
-            <div class="activate"><%= link_to 'Make active', set_active_sprint_path(@project, sprint), :class => "button small" %></div>
-          <% end %>
-          <% if can? :update, Sprint %>
-            <div class="edit"><%= link_to 'Edit', edit_project_sprint_path(@project, sprint), :class => "button small" %></div>
-          <% end %>
-          <% if can? :destroy, Sprint %>
-            <div class="destroy"><%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete, :class => "button small danger" %></div>
-          <% end %>
-        </div>
+          <nav class="button-group">
+            <% if can? :update, Sprint %>
+              <%= link_to 'Make active', set_active_sprint_path(@project, sprint), :class => "button small" %>
+            <% end %>
+            <% if can? :update, Sprint %>
+              <%= link_to 'Edit', edit_project_sprint_path(@project, sprint), :class => "button small" %>
+            <% end %>
+            <% if can? :destroy, Sprint %>
+              <%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete, :class => "button small danger" %>
+            <% end %>
+          </nav>
+        </article>
       </li>
     <% end %>
     </ul>

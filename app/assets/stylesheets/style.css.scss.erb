@@ -613,11 +613,6 @@ li.story:first-child {
   border-top: $bnt-border-normal;
 }
 
-
-
-
-
-
 /* fancy list */
 ul.fancy {
   padding: 0 0 $spacer1 0;
@@ -631,38 +626,29 @@ ul.fancy {
     border-right: $bnt-border-normal;
     border-bottom: $bnt-border-normal;
     border-radius: 0.1em;
-    height: 28px;
+    height: 27px;
     a { color: $link-color; }
 
-    >div {
-      padding: 3px 3px;
-    }
-
-    div {
+    article {
       display: table;
-      width: 100%;
       height: 22px;
       line-height: 22px;
-    }
-
-    div.name {
-      display: table-cell;
       width: 100%;
-      a {
-        display: block;
+      padding: 3px 3px;
+
+      div.name {
+        display: table-cell;
+        vertical-align: top;
+
+        a {
+          display: block;
+        }
       }
-    }
-    div.edit {
-      display: table-cell;
-      width: 100px;
-    }
-    div.destroy {
-      display: table-cell;
-      width: 100px;
-    }
-    div.activate {
-      display: table-cell;
-      width: 100px;
+      nav.button-group {
+        display: table-cell;
+        width: 144px;
+        vertical-align: top;
+      }
     }
   }
 
