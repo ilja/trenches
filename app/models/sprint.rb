@@ -10,9 +10,9 @@ class Sprint
   embedded_in :project, :inverse_of => :sprints
   references_many :stories
   references_many :users
-  
+
   validates_presence_of :name, :start_date, :end_date
-  
+
   # give the total number of workdays in this sprint
   def total_work_days
     total_days.select{|d| (1..5).include?(d.wday) }
@@ -48,6 +48,11 @@ class Sprint
     stories.any_in(:status => ["open", "active"]).inject(0) do |sum, story|
       sum + story.points
     end
+  end
+
+  def percentage_completed
+    done = total_story_points - open_story_points
+    done / (total_story_points / 100.to_f)
   end
 
   def done_story_points_per_workday

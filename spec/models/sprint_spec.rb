@@ -86,5 +86,15 @@ describe Sprint do
         @sprint.done_story_points_per_workday.should == expected
       end
     end
+
+    describe "#percentage_completed" do
+      it "returns the percentage this sprint is done" do
+        @story.status = "done"
+        @story.done_date = Date.new(2011, 03, 17)
+        @story.save
+
+        @sprint.percentage_completed.should == 62.5
+      end
+    end
   end
 end
