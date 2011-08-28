@@ -102,10 +102,10 @@ nav.header-right{
   margin: 16px 0;
 }
 
-div.main {
+div#main {
   display: table;
   margin: 0;
-
+  width: 100%;
 }
 
 section.sprint-container {
@@ -665,11 +665,12 @@ div.sortable-list {
   width: 49%;
   background: #f6f6f6;
   border:  $bnt-border-normal;
-	margin-top: $spacer1;
+	margin-top: 0;
   min-height: 100px;
-
+  display: table-cell;
   h1 {
     color: $border-color;
+    padding-left: $spacer1;
   }
 }
 
