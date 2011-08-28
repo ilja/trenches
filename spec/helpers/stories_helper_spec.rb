@@ -28,12 +28,12 @@ describe StoriesHelper do
       end
       it "renders a link to start the story if the status is 'open'" do
         story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "open", :project => @p, :sprint => @s)
-        expected = "| <a href=\"/projects/#{@p.id}/stories/#{story.id}/start\">Start</a>"
+        expected = "<a href=\"/projects/#{@p.id}/stories/#{story.id}/start\" class=\"button\">Start</a>"
         helper.change_status_button(story).should == expected
       end
       it "renders a link to mark the story as done if the status is 'active'" do
         story = Factory.create(:story, :points =>  StoryPoint::TWO, :status => "active", :project => @p, :sprint => @s)
-        expected = "| <a href=\"/projects/#{@p.id}/stories/#{story.id}/finish\">Done</a>"
+        expected = "<a href=\"/projects/#{@p.id}/stories/#{story.id}/finish\" class=\"button\">Done</a>"
         helper.change_status_button(story).should == expected
       end
     end
