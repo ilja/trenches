@@ -29,6 +29,7 @@ Feature: Manage stories
   Scenario: Delete a userstory
     Given story "deleteme" exists in the backlog of project "d"
     And I visit the backlog page of project "d"
-    When I follow "Destroy"
+    When I follow "Edit"
+    And I follow "destroy"
     Then I should see "'deleteme' was successfully deleted."
     And I should not see "deleteme" within "#storylist"
