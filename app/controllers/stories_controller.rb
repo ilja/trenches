@@ -1,14 +1,16 @@
 class StoriesController < ApplicationController
   before_filter :load_project
-  helper_method :show_scope
+  helper_method :filters
   respond_to :html
 
   def index
-    if show_scope == "all"
-      @stories = @project.stories.asc(:backlog_position)
+    unless params[:show].blank?
+      query = params[:show].to_a.select { |value| filters.include?value.to_s }
+      @stories = @project.stories.where(:status.in => query).asc(:backlog_position)
     else
-      @stories = @project.stories.where(:status => show_scope).asc(:backlog_position)
+      @stories = @project.stories.asc(:backlog_position)
     end
+
     authorize! :read, @stories
     respond_with @stories
   end
@@ -26,7 +28,7 @@ class StoriesController < ApplicationController
   end
 
   def edit
-    @story = Story.find(params[:id])    
+    @story = Story.find(params[:id])
     session[:return_to] = request.referer #remember where we came from
     authorize! :update, @story
   end
@@ -92,16 +94,15 @@ class StoriesController < ApplicationController
       end
     end
   end
-  
-  
+
+  private
 
   def load_project
     @project = Project.find(params[:project_id])
     authorize! :read, @project
   end
 
-  private
-  def show_scope
-    %w[open active done].include?(params[:show]) ?  params[:show] : "all"
+  def filters
+    %w[open active done]
   end
 end

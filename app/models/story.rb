@@ -5,7 +5,6 @@ class Story
 
   validates_presence_of :name, :message => "can't be blank"
 
-  #id (autoinc per project?)
   field :name
   field :description
   #list of notes?
