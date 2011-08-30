@@ -17,4 +17,27 @@ module StoriesHelper
     end
     html.html_safe
   end
+
+  def sort_button(params)
+    filters = %w[open active done]
+    active = params.to_a.select { |value| filters.include?value.to_s }
+    html = ""
+    names = {"open" => "Open", "active" => "In progress", "done" => "Done"}
+
+    filters.each do |filter|
+      text = names.fetch(filter, "")
+      css = ""
+      if active.include?(filter)
+        url = {:show => active.clone.delete_if { |item| item == filter} }
+        css = "button active"
+      else
+        url = {:show => active.clone << filter}
+        css = "button"
+      end
+      html << "<a href='?#{url.to_param}' class='#{css}'>#{text}</a>"
+    end
+
+    html.html_safe
+  end
+
 end

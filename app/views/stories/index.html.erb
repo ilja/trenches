@@ -20,10 +20,9 @@
          <%= link_to 'New Story', new_project_story_path(@project), :class => "button primary" %>
       <% end %>
 
+
       <nav id="togglebuttons" class="button-group">
-        <%= link_to 'Open', {:show => "open"}, :class => "button" %>
-        <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
-        <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+        <%= sort_button(params[:show]) %>
       </nav>
     </nav>
 

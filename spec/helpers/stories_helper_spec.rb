@@ -42,4 +42,28 @@ describe StoriesHelper do
       helper.change_status_button(story).should == ""
     end
   end
+
+  describe "#sort_button" do
+    it "renders links for own filter if no filters active" do
+      params = []
+      expected = "<a href='?show%5B%5D=open' class='button'>Open</a>" +
+        "<a href='?show%5B%5D=active' class='button'>In progress</a>" +
+        "<a href='?show%5B%5D=done' class='button'>Done</a>"
+      helper.sort_button(params).should == expected
+    end
+    it "renders a link with other active filters" do
+      params = ["open"]
+      expected = "<a href='?' class='button active'>Open</a>" +
+        "<a href='?show%5B%5D=open&show%5B%5D=active' class='button'>In progress</a>" +
+        "<a href='?show%5B%5D=open&show%5B%5D=done' class='button'>Done</a>"
+      helper.sort_button(params).should == expected
+    end
+    it "renders a link with multiple active filters" do
+      params = ["open", "done"]
+      expected = "<a href='?show%5B%5D=done' class='button active'>Open</a>" +
+        "<a href='?show%5B%5D=open&show%5B%5D=done&show%5B%5D=active' class='button'>In progress</a>" +
+        "<a href='?show%5B%5D=open' class='button active'>Done</a>"
+      helper.sort_button(params).should == expected
+    end
+  end
 end
