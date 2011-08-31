@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-#gem 'rails', '~>3.1.0.rc5'
+gem 'rails', '~>3.1.0'
 
 # Bundle edge Rails instead:
-gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
+#gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
 # Asset pipeline stuff
-gem 'sass-rails', :git => 'https://github.com/rails/sass-rails.git', :branch => '3-1-stable'
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'therubyracer'
@@ -18,8 +18,6 @@ gem 'therubyracer'
 gem 'jquery-rails'
 #gem 'pjax_rails'
 gem 'coffeebeans'
-
-gem 'launchy'
 
 # authentication with omniauth
 gem 'omniauth', '~>0.2.6'
@@ -40,6 +38,7 @@ group :development, :test do
   gem 'notifier'
   gem 'spork', '~>0.9.0rc'
   gem 'factory_girl_rails'
+  gem 'launchy'
   # Pretty printed test output
   gem 'turn', :require => false
 end
