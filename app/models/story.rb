@@ -1,13 +1,11 @@
 class Story
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Versioning
 
   validates_presence_of :name, :message => "can't be blank"
 
   field :name
   field :description
-  #list of notes?
   field :status, :type => String, default: "open"
   field :priority, :type => Integer
   field :points, :type => Integer
@@ -16,9 +14,9 @@ class Story
   field :position, :type => Integer
   field :last_edited_by, :type => String
   field :done_date, :type => Date
-  referenced_in :project
-  referenced_in :sprint
-  referenced_in :user#, default: nil
+  belongs_to :project, index: true
+  belongs_to :sprint, index: true
+  belongs_to :user, index: true
 
   def start(user)
     self.status = "active"
