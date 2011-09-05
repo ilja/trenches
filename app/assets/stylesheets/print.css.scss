@@ -109,7 +109,7 @@ li.story {
   }
 
   div.naam {
-    font-size: 24pt;
+    font-size: 16pt;
     font-weight: bold;   
   }
 
@@ -124,5 +124,25 @@ li.story:last-child {
 div#storylist div.full-description ul {
     padding-left: 40px;
 }
+
+.button, .button-group, nav, footer {
+  display: none;
+}
+
+li.story div.points {
+  width: auto;
+  border: none;
+  background: none;
+}
+
+li.story div.naam {
+  /* font-size: 16px;*/
+}
+
+header h1 a, header h1 a:visited {
+  text-decoration: none;
+}
+header h1 a[href]:after { content: ""; }
+
 
 }
