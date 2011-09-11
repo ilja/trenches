@@ -95,6 +95,10 @@ describe Sprint do
 
         @sprint.percentage_completed.should == 62.5
       end
+      it "returns 0% if the sprint is empty" do
+         empty_sprint = @p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 25), :name => "My test sprint")
+         empty_sprint.percentage_completed.should == 0.0
+      end
     end
   end
 end

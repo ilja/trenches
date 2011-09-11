@@ -52,7 +52,7 @@ class Sprint
 
   def percentage_completed
     done = total_story_points - open_story_points
-    done / (total_story_points / 100.to_f)
+    done == 0 ? 0 : done / (total_story_points / 100.to_f)
   end
 
   def done_story_points_per_workday
