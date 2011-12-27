@@ -5,6 +5,8 @@ gem 'rails', '~>3.1.0'
 # Bundle edge Rails instead:
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
 
+gem 'unicorn'
+
 # Asset pipeline stuff
 gem 'sass-rails'
 gem 'coffee-script'
