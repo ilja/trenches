@@ -1,0 +1,64 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1321478569.377792:@value{	I"length:EFiGI"digest;
+F"%88599d452e564d963b12d590d408676cI"source;
+FI"G(function() {
+  jQuery(function() {
+    var sortable_settings;
+    new App({
+      el: $('#app')
+    });
+    $('#sortable').sortable({
+      update: function() {
+        return $.ajax({
+          type: 'post',
+          data: $('#sortable').sortable('serialize', {
+            attribute: 'id'
+          }),
+          dataType: 'script',
+          complete: function() {
+            return $('#storylist').effect('highlight');
+          },
+          url: $('#sortable').attr("data-url")
+        });
+      }
+    });
+    $('#sortable').disableSelection();
+    $('div.expand').live('click', function() {
+      var storybody;
+      storybody = $(this).parents("li.story").children('.storybody');
+      if (storybody.css('display') === 'none') {
+        $(this).find("img").attr({
+          src: "/assets/close.png"
+        });
+      } else {
+        $(this).find("img").attr({
+          src: "/assets/open.png"
+        });
+      }
+      return storybody.toggle('fast');
+    });
+    sortable_settings = {
+      items: "li:not(.not-sortable)",
+      connectWith: ".connectedSortable"
+    };
+    $(".sortable").sortable(sortable_settings).disableSelection();
+    return $(".sortable").sortable({
+      update: function(event, ui) {
+        return $.ajax({
+          type: 'post',
+          data: $(this).sortable('serialize', {
+            attribute: 'id'
+          }),
+          dataType: 'script',
+          context: this,
+          complete: function(request) {
+            return $(this).effect('highlight');
+          },
+          url: $(this).attr('data-url')
+        });
+      }
+    });
+  });
+}).call(this);
+;
+FI"_version;
+F"%a9a3484f5ec159ea7841bf3a58b40a09

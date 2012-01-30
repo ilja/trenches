@@ -1,41 +1,82 @@
+require 'active_model'
+require_relative '../../app/models/story'
 require 'spec_helper'
 
 describe Story do
-  describe ".start" do
-    before(:each) do
-      @story = Factory.create(:story, :name => "test story")
-    end
+   it "should start with blank attributes" do
+    subject.title.should be_nil
+    subject.body.should be_nil
+  end
 
-    it "changes status to active" do
-      @story.status.should == "open"
-      @story.start(User.new)
-      @story.status.should == "active"
-    end
+  it "should support reading and writing a title" do
+    subject.title = "foo"
+    subject.title.should == "foo"
+  end
 
-    it "sets the assigned user" do
-      @story.assigned_to.should be_nil
-      user = Factory.create(:user, :name => "bob")
-      @story.start(user)
-      @story.assigned_to.should == user
-      @story.assigned_to.name.should == "bob"
+  it "should support reading and writing a story body" do
+    subject.body = "foo"
+    subject.body.should == "foo"
+  end
+
+  it "should support reading and writing story points" do
+    subject.points = 2
+    subject.points.should == 2
+  end
+
+  it "should support reading and writing the story's status" do
+    subject.status = "done"
+    subject.status.should == "done"
+  end
+
+  it "should support reading and writing a project reference" do
+    project = Object.new
+    subject.project = project
+    subject.project.should == project
+  end
+
+  it "should support setting attributes in the initializer" do
+    subject = Story.new(:title => "mytitle", :body => "mybody")
+    subject.title.should == "mytitle"
+    subject.body.should == "mybody"
+  end
+
+  context "validations " do
+    describe "#title" do
+      before do
+        subject.project = Object.new
+      end
+      it "should not allow an empty title" do
+        [nil, "", " "].each do |title|
+          subject.title = title
+          subject.valid?.should be_false
+        end
+      end
+      it "should allow a non empty title" do
+        subject.title = "a"
+        subject.valid?.should be_true
+      end
+    end
+    describe "#project" do
+      before do
+        subject.title = "x"
+      end
+      it "should not allow an empty project" do
+        subject.project = nil
+        subject.valid?.should be_false
+        subject.errors[:project].should include("can't be blank")
+      end
     end
   end
 
-  describe ".finish" do
-    before(:each) do
-      @story = Factory.create(:story, :name => "test story")
-      @user = Factory.create(:user)
-      @story.start(@user)
+  describe "#publish" do
+    before do
+      @project = double("Project")
+      subject.project = @project
     end
-    it "changes status to done" do      
-      @story.status.should == "active"
-      @story.finish(@user)
-      @story.status.should == "done"
-    end
-    it "sets the done_date" do
-      @story.done_date.should be_nil
-      @story.finish(@user)
-      @story.done_date.should_not be_nil
+
+    it "should add the story to the project" do
+      @project.should_receive(:add_entry).with(subject)
+      subject.publish
     end
   end
 end

@@ -1,0 +1,351 @@
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:00:40 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (31.9ms)
+Compiled ~/work/trenches/app/assets/stylesheets/application.css.scss  (850ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/stylesheets/_jquery.jqplot.css.scss  (88ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/stylesheets/_shared.scss.erb  (6ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/stylesheets/print.css.scss  (80ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/stylesheets/style.css.scss.erb  (143ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/stylesheets/application.css.scss  (0ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/javascripts/application.js  (10ms)  (pid 46968)
+Compiled ~/.rvm/gems/ruby-1.9.2-p0@rails31/gems/jquery-rails-1.0.13/vendor/assets/javascripts/jquery.js  (1ms)  (pid 46968)
+Compiled ~/.rvm/gems/ruby-1.9.2-p0@rails31/gems/jquery-rails-1.0.13/vendor/assets/javascripts/jquery_ujs.js  (0ms)  (pid 46968)
+Compiled ~/work/trenches/vendor/assets/javascripts/jquery-ui-1.8.10.custom.min.js  (2ms)  (pid 46968)
+Compiled ~/work/trenches/vendor/assets/javascripts/jquery.jqplot.min.js  (3ms)  (pid 46968)
+Compiled ~/.rvm/gems/ruby-1.9.2-p0@rails31/gems/pjax_rails-0.1.7/lib/assets/javascripts/pjax/index.js  (2ms)  (pid 46968)
+Compiled ~/.rvm/gems/ruby-1.9.2-p0@rails31/gems/pjax_rails-0.1.7/lib/assets/javascripts/pjax/jquery_pjax.js  (0ms)  (pid 46968)
+Compiled ~/.rvm/gems/ruby-1.9.2-p0@rails31/gems/pjax_rails-0.1.7/lib/assets/javascripts/pjax/page_triggers.js.coffee  (100ms)  (pid 46968)
+Compiled ~/.rvm/gems/ruby-1.9.2-p0@rails31/gems/pjax_rails-0.1.7/lib/assets/javascripts/pjax/enable_pjax.js.coffee  (1ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/javascripts/trenches.js.coffee.erb  (28ms)  (pid 46968)
+Compiled ~/work/trenches/app/assets/javascripts/application.js  (0ms)  (pid 46968)
+Rendered shared/_flash.html.erb (0.7ms)
+Completed 200 OK in 1658ms (Views: 1656.8ms)
+
+
+Started GET "/assets/application-64c76e39e956a0428ad7e8961124ea7c.css" for 127.0.0.1 at 2011-08-25 21:00:43 +0200
+Served asset /application-64c76e39e956a0428ad7e8961124ea7c.css - 200 OK (0ms)
+
+
+Started GET "/assets/application-7c505dd259940d0f8e8574792d228548.js" for 127.0.0.1 at 2011-08-25 21:00:43 +0200
+Served asset /application-7c505dd259940d0f8e8574792d228548.js - 200 OK (0ms)
+
+
+Started GET "/assets/bg-title-130d4ee1c061be8fbd5b442dc0a8442f.png" for 127.0.0.1 at 2011-08-25 21:00:43 +0200
+Served asset /bg-title-130d4ee1c061be8fbd5b442dc0a8442f.png - 200 OK (0ms)
+
+
+Started GET "/assets/bg-4f169532c7743f92aa06e32cbe56a117.png" for 127.0.0.1 at 2011-08-25 21:00:43 +0200
+Served asset /bg-4f169532c7743f92aa06e32cbe56a117.png - 200 OK (1ms)
+
+
+Started GET "/assets/bg-main-0ea91dad3ae2809ecfa80bca258c7e6f.png" for 127.0.0.1 at 2011-08-25 21:00:43 +0200
+Served asset /bg-main-0ea91dad3ae2809ecfa80bca258c7e6f.png - 200 OK (0ms)
+
+
+Started GET "/assets/bg-header-a63530896818346ea1acc7b9ffb78b58.png" for 127.0.0.1 at 2011-08-25 21:00:43 +0200
+Served asset /bg-header-a63530896818346ea1acc7b9ffb78b58.png - 200 OK (0ms)
+
+
+Started GET "/signin?_pjax=true" for 127.0.0.1 at 2011-08-25 21:00:46 +0200
+  Processing by SessionsController#new as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 1ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:00:46 +0200
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-08-25 21:00:46 +0200
+  Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:00:46 +0200
+
+
+Started GET "/auth/github/callback?code=8b98d4f10d9e40b1ed3a" for 127.0.0.1 at 2011-08-25 21:00:48 +0200
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"8b98d4f10d9e40b1ed3a", "provider"=>"github"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:00:50 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (2.6ms)
+Rendered shared/_flash.html.erb (0.1ms)
+Completed 200 OK in 1267ms (Views: 6.5ms)
+
+
+Started GET "/signout?_pjax=true" for 127.0.0.1 at 2011-08-25 21:00:55 +0200
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:00:55 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb (1.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2011-08-25 21:00:59 +0200
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 0ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:00:59 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.0ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.4ms)
+
+
+Started GET "/signin?_pjax=true" for 127.0.0.1 at 2011-08-25 21:01:01 +0200
+  Processing by SessionsController#new as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:01:01 +0200
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-08-25 21:01:01 +0200
+  Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:01:01 +0200
+
+
+Started GET "/auth/github/callback?code=2837c63f7f24834cb192" for 127.0.0.1 at 2011-08-25 21:01:01 +0200
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"2837c63f7f24834cb192", "provider"=>"github"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:01:03 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.3ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 3.9ms)
+
+
+Started GET "/signout?_pjax=true" for 127.0.0.1 at 2011-08-25 21:01:05 +0200
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:01:05 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.4ms)
+
+
+Started GET "/signout?_pjax=true" for 127.0.0.1 at 2011-08-25 21:01:07 +0200
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:01:07 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb (1.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2011-08-25 21:01:10 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.1ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.7ms)
+
+
+Started GET "/signin?_pjax=true" for 127.0.0.1 at 2011-08-25 21:01:13 +0200
+  Processing by SessionsController#new as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:01:13 +0200
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-08-25 21:01:13 +0200
+  Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:01:13 +0200
+
+
+Started GET "/auth/github/callback?code=57fb71b858ef51ee96ae" for 127.0.0.1 at 2011-08-25 21:01:14 +0200
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"57fb71b858ef51ee96ae", "provider"=>"github"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:01:15 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.3ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 4.2ms)
+
+
+Started GET "/signout?_pjax=true" for 127.0.0.1 at 2011-08-25 21:01:16 +0200
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:01:16 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb (1.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2011-08-25 21:01:18 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.1ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.5ms)
+
+
+Started GET "/signin?_pjax=true" for 127.0.0.1 at 2011-08-25 21:01:20 +0200
+  Processing by SessionsController#new as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:01:20 +0200
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-08-25 21:01:20 +0200
+  Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:01:20 +0200
+
+
+Started GET "/auth/github/callback?code=14b9d768211fccabbded" for 127.0.0.1 at 2011-08-25 21:01:20 +0200
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"14b9d768211fccabbded", "provider"=>"github"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:01:21 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.3ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:02:04 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.2ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 3.4ms)
+
+
+Started GET "/signout?_pjax=true" for 127.0.0.1 at 2011-08-25 21:02:06 +0200
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:02:06 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.4ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2011-08-25 21:02:09 +0200
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:02:09 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.0ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms)
+
+
+Started GET "/signin?_pjax=true" for 127.0.0.1 at 2011-08-25 21:02:12 +0200
+  Processing by SessionsController#new as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:02:12 +0200
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-08-25 21:02:12 +0200
+  Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 0ms
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2011-08-25 21:02:12 +0200
+
+
+Started GET "/auth/github/callback?code=e27c49fb9305d00775e3" for 127.0.0.1 at 2011-08-25 21:02:12 +0200
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"e27c49fb9305d00775e3", "provider"=>"github"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:02:14 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.4ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 4.2ms)
+
+
+Started GET "/signout?_pjax=true" for 127.0.0.1 at 2011-08-25 21:02:17 +0200
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"_pjax"=>"true"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:02:17 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb (1.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2011-08-25 21:02:20 +0200
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 21:02:20 +0200
+  Processing by ProjectsController#index as HTML
+Rendered projects/index.html.erb within layouts/application (1.2ms)
+Rendered shared/_flash.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 4.0ms)

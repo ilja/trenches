@@ -1,0 +1,4 @@
+Authenticatie: sorcery
+Authorizatie: CanCan
+Rollen: rolify
+

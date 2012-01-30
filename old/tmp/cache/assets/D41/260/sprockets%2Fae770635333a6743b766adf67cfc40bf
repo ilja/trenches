@@ -1,0 +1,169 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1321513316.559008:@value{	I"length:EFiI"digest;
+F"%89945881b7c197db18e7b8d7332aa602I"source;
+FI"(function() {
+  var $, Edit, Index, New, Show, Story;
+  var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
+    for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
+    function ctor() { this.constructor = child; }
+    ctor.prototype = parent.prototype;
+    child.prototype = new ctor;
+    child.__super__ = parent.prototype;
+    return child;
+  }, __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+  $ = jQuery.sub();
+  Story = App.Story;
+  $.fn.item = function() {
+    var elementID;
+    elementID = $(this).data('id');
+    elementID || (elementID = $(this).parents('[data-id]').data('id'));
+    return Story.find(elementID);
+  };
+  New = (function() {
+    __extends(New, Spine.Controller);
+    New.prototype.events = {
+      'click [data-type=back]': 'back',
+      'submit form': 'submit'
+    };
+    function New() {
+      New.__super__.constructor.apply(this, arguments);
+      this.active(this.render);
+    }
+    New.prototype.render = function() {
+      return this.html(this.view('stories/new'));
+    };
+    New.prototype.back = function() {
+      return this.navigate('/stories');
+    };
+    New.prototype.submit = function(e) {
+      var story;
+      e.preventDefault();
+      story = Story.fromForm(e.target).save();
+      if (story) {
+        return this.navigate('/stories', story.id);
+      }
+    };
+    return New;
+  })();
+  Edit = (function() {
+    __extends(Edit, Spine.Controller);
+    Edit.prototype.events = {
+      'click [data-type=back]': 'back',
+      'submit form': 'submit'
+    };
+    function Edit() {
+      Edit.__super__.constructor.apply(this, arguments);
+      this.active(function(params) {
+        return this.change(params.id);
+      });
+    }
+    Edit.prototype.change = function(id) {
+      this.item = Story.find(id);
+      return this.render();
+    };
+    Edit.prototype.render = function() {
+      return this.html(this.view('stories/edit')(this.item));
+    };
+    Edit.prototype.back = function() {
+      return this.navigate('/stories');
+    };
+    Edit.prototype.submit = function(e) {
+      e.preventDefault();
+      this.item.fromForm(e.target).save();
+      return this.navigate('/stories');
+    };
+    return Edit;
+  })();
+  Show = (function() {
+    __extends(Show, Spine.Controller);
+    Show.prototype.events = {
+      'click [bata-type=edit]': 'edit',
+      'click [data-type=back]': 'back'
+    };
+    function Show() {
+      Show.__super__.constructor.apply(this, arguments);
+      this.active(function(params) {
+        return this.change(params.id);
+      });
+    }
+    Show.prototype.change = function(id) {
+      this.item = Story.find(id);
+      return this.render();
+    };
+    Show.prototype.render = function() {
+      return this.html(this.view('stories/show')(this.item));
+    };
+    Show.prototype.edit = function() {
+      return this.navigate('/stories', this.item.id, 'edit');
+    };
+    Show.prototype.back = function() {
+      return this.navigate('/stories');
+    };
+    return Show;
+  })();
+  Index = (function() {
+    __extends(Index, Spine.Controller);
+    Index.prototype.events = {
+      'click [data-type=edit]': 'edit',
+      'click [data-type=destroy]': 'destroy',
+      'click [data-type=show]': 'show',
+      'click [data-type=new]': 'new'
+    };
+    function Index() {
+      this.render = __bind(this.render, this);      Index.__super__.constructor.apply(this, arguments);
+      Story.bind('refresh change', this.render);
+      Story.fetch();
+    }
+    Index.prototype.render = function() {
+      var stories;
+      stories = Story.all();
+      return this.html(this.view('stories/index')({
+        stories: stories
+      }));
+    };
+    Index.prototype.edit = function(e) {
+      var item;
+      item = $(e.target).item();
+      return this.navigate('/stories', item.id, 'edit');
+    };
+    Index.prototype.destroy = function(e) {
+      var item;
+      item = $(e.target).item();
+      if (confirm('Sure?')) {
+        return item.destroy();
+      }
+    };
+    Index.prototype.show = function(e) {
+      var item;
+      item = $(e.target).item();
+      return this.navigate('/stories', item.id);
+    };
+    Index.prototype["new"] = function() {
+      return this.navigate('/stories/new');
+    };
+    return Index;
+  })();
+  App.Stories = (function() {
+    __extends(Stories, Spine.Stack);
+    function Stories() {
+      Stories.__super__.constructor.apply(this, arguments);
+    }
+    Stories.prototype.controllers = {
+      index: Index,
+      edit: Edit,
+      show: Show,
+      "new": New
+    };
+    Stories.prototype.routes = {
+      '/stories/new': 'new',
+      '/stories/:id/edit': 'edit',
+      '/stories/:id': 'show',
+      '/stories': 'index'
+    };
+    Stories.prototype["default"] = 'index';
+    Stories.prototype.className = 'stack stories';
+    return Stories;
+  })();
+}).call(this);
+;
+FI"_version;
+F"%3ca7a9c9233ef32143eeb273cd343dd4

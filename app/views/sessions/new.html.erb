@@ -1,0 +1,25 @@
+<% title("Login") %>
+<header>
+  <h1>Log in</h1>
+</header>
+
+<div id="main" role="main">
+  <%= render "shared/flash", :flash => flash %>
+
+  <%= form_tag sessions_path do %>
+    <div class="field">
+      <%= label_tag :username %><br />
+      <%= text_field_tag :username, params[:username] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+    <div class="field">
+      <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+      <%= label_tag :remember_me %>
+    </div>
+    <div class="actions"><%= submit_tag "Log in", :rel => "new-session", :class => "button" %></div>
+  <% end %>
+
+</div>

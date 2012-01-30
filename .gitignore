@@ -2,10 +2,5 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
-.redcar
 .rspec
 .sass-cache
-config/initializers/omniauth.rb
-.idea
-*.sublime-project
-*.sublime-workspace

@@ -1,29 +1,14 @@
-TrenchesRb::Application.routes.draw do
+Trenches::Application.routes.draw do
 
-  match 'projects/:project_id/backlog' => 'stories#index', :as => :backlog
-  match 'projects/:project_id/sort_stories' => 'projects#sort_stories', :as => :sort_stories
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
 
-  resources :projects do
-    resources :stories
-    resources :sprints
-  end
+  get "secret" => "home#secret", :as => "secret"
 
-  match 'projects/:project_id/stories/:story_id/start' => 'stories#start', :as => :start_story
-  match 'projects/:project_id/stories/:story_id/finish' => 'stories#finish', :as => :finish_story
-
-  match 'projects/:project_id/sprints/:id/activate' => 'sprints#activate', :as => :set_active_sprint
-
-  match 'projects/:project_id/sprints/:sprint_id/add_and_sort_stories' => 'sprints#add_and_sort_stories', :as => :add_and_sort_stories
-  match 'projects/:project_id/sprints/:sprint_id/remove_and_sort_stories' => 'sprints#remove_and_sort_stories', :as => :remove_and_sort_stories
-
-  match 'projects/:project_id/sprints/:sprint_id/sort' => 'sprints#sort', :as => :sort
-
-  match 'projects/:project_id/sprints/:id/planning' => 'sprints#planning', :as => :sprint_planning
-
-  match '/auth/:provider/callback' => 'sessions#create'
-  match '/signin' => 'sessions#new', :as => :signin
-  match '/signout' => 'sessions#destroy', :as => :signout
-  match '/auth/failure' => 'sessions#failure'
+  resources :users
+  resources :sessions
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -74,7 +59,7 @@ TrenchesRb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "projects#index"
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

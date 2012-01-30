@@ -1,0 +1,27 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1321513679.526429:@value{	I"length:EFiI"digest;
+F"%8bcdacaa098a068c2d0d669f59874442I"source;
+FI"(function() {
+  var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
+    for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
+    function ctor() { this.constructor = child; }
+    ctor.prototype = parent.prototype;
+    child.prototype = new ctor;
+    child.__super__ = parent.prototype;
+    return child;
+  };
+  App.Story = (function() {
+    __extends(Story, Spine.Model);
+    function Story() {
+      Story.__super__.constructor.apply(this, arguments);
+    }
+    Story.configure('Story', 'name', 'description', 'status', 'points', 'moscow', 'prosition');
+    Story.extend(Spine.Model.Ajax);
+    Story.extend({
+      url: '4e4c10cb547143075d000004/stories/'
+    });
+    return Story;
+  })();
+}).call(this);
+;
+FI"_version;
+F"%57980212ef4bf95904fd4b1f57a242ba

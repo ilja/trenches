@@ -44,14 +44,14 @@
     <nav id="topnav">
       <ul>
         <% if current_user %>
-          <li><%= current_user.name %></li>
+          <li><%= current_user.username %></li>
         <% end %>
-        <li><%= link_to "all projects", projects_path, 'data-skip-pjax' => true %></li>
+        <li><%= link_to "all projects", projects_path, :rel => "my-projects" %></li>
         <li>
           <% if current_user %>
-            <%= link_to "sign out", signout_path, 'data-skip-pjax' => true %>
+            <%= link_to "sing out", logout_path, :rel => "logout" %>
           <% else %>
-            <%= link_to "sign in with GitHub", signin_path, 'data-skip-pjax' => true %>
+            <%= link_to "sign up", signup_path, :rel => "signup" %> or <%= link_to "log in", login_path, :rel => "login" %>.
           <% end %>
         </li>
       </ul>
@@ -60,7 +60,7 @@
     <%= yield %>
 
     <footer>
-      Trenches 0.3
+      Trenches 0.4
     </footer>
 
   </div> <!--! end of #container -->

@@ -1,0 +1,38 @@
+<% title("All projects") %>
+<header>
+  <h1>
+    All projects
+  </h1>
+</header>
+
+<div id="main" role="main">
+  <%= render "shared/flash", :flash => flash %>
+
+  <section class="backlog-container">
+    <nav class="button-container">
+      <% if can? :create, Project %>
+        <%= link_to 'New Project', new_project_path, :class => "button primary" %>
+      <% end %>
+    </nav>
+
+    <ul class="fancy">
+    <% @projects.each do |project| %>
+      <li>
+        <article>
+          <div class="name"><%= link_to project.name, project, 'data-skip-pjax' => :true %></div>
+          <nav class="button-group" style="width: 76px">
+          <% if can? :update, Project %>
+          	<%= link_to 'Edit', edit_project_path(project), :class => "button small" %>
+          <% end %>
+          <% if can? :destroy, Project %>
+          	<%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class=>"button danger small"%>
+          <% end %>
+          </nav>
+        </article>
+      </li>
+    <% end %>
+    </ul>
+
+  </section>
+
+</div>

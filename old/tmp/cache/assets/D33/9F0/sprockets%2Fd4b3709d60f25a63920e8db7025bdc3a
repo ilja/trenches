@@ -1,0 +1,16 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1315727223.536036:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%a092bb1d9c1cdc4badbeb220e138b5e3I"logical_path;
+F"dialog-notice.pngI"pathname;
+FI".$root/app/assets/images/dialog-notice.png;
+FI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2011-07-04T21:17:02+02:00;
+FI"length;
+FI"863;
+FI"digest;
+F"%0caf516999e816257e3ef7df37b6c78bI"_version;
+F"%97739329ce42ca4790d6d6355cef77c0

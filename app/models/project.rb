@@ -1,18 +1,45 @@
-class Project
-  include Mongoid::Document
-  include Mongoid::Timestamps
+require 'active_record'
 
-  validates_presence_of :name, :message => "can't be blank"
+class Project < ActiveRecord::Base
 
-  field :name
-  references_many :stories, :dependent => :delete
-  embeds_many :sprints
+  attr_reader :stories
+  attr_reader :sprints
+  attr_writer :story_maker
+  attr_writer :sprint_maker
+  attr_accessor :name
 
-  def backlog
-    stories.where(:sprint_id => nil)
+  validates :name, :presence => true
+
+
+  def initialize
+    @stories = []
+    @sprints = []
   end
 
-  def active_sprint_for(user)
-    sprints.for_ids(user.sprint_id).first
+  def new_story(*args)
+    story_maker.call(*args).tap do |s|
+      s.project = self
+    end
+  end
+
+  def add_story(story)
+    stories << story
+  end
+
+  def new_sprint(*args)
+    sprint_maker.call(*args).tap do |s|
+      s.project = self
+    end
+  end
+
+
+  private
+
+  def story_maker
+    @story_maker ||= Story.public_method(:new)
+  end
+
+  def sprint_maker
+    @sprint_maker ||= Sprint.public_method(:new)
   end
 end

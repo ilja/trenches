@@ -1,0 +1,12 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1321478167.868234:@value{	I"length:EFiˆI"digest;
+F"%568153db266ef5356de87f43180ea2bcI"source;
+FI"ˆ(function() {
+  Spine.Controller.include({
+    view: function(name) {
+      return JST["app/views/" + name];
+    }
+  });
+}).call(this);
+;
+FI"_version;
+F"%38f3b474157bebb49a51e4d58d941538

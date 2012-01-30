@@ -1,0 +1,16 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1315727228.943847:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%c90135cd90f621489d6150354aefe776I"logical_path;
+F"grip.pngI"pathname;
+FI"%$root/app/assets/images/grip.png;
+FI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2011-07-04T21:17:02+02:00;
+FI"length;
+FI"141;
+FI"digest;
+F"%a7a635e290de14f1a7ad1ac32feb2c65I"_version;
+F"%97739329ce42ca4790d6d6355cef77c0
