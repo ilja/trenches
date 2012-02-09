@@ -23,6 +23,10 @@ Feature: Manage projects
     Then I should be able to change my project
 
   Scenario: Delete an existing project
+    Given I have created a project
+    And I go to my projects page
+    Then I should be able to delete my project
+
   Scenario: Invite users to my project
   Scenario: Remove users from my project
 

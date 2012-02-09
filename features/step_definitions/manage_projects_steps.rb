@@ -27,3 +27,10 @@ Then /^I should be able to change my project$/ do
   find(:xpath, "//input[@rel='save-project']").click
   page.should have_content 'My changed project'
 end
+
+Then /^I should be able to delete my project$/ do
+  #find(:xpath, "//a[@rel='delete-project']").click
+  click_link 'Destroy'
+  page.should_not have_content 'My project'
+end
+

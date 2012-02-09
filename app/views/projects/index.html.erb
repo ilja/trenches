@@ -25,7 +25,7 @@
             <%= link_to 'Edit', edit_project_path(project), :class => "button small", :rel => 'edit-project' %>
           <%# end %>
           <%# if can? :destroy, Project %>
-            <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class=>"button danger small"%>
+            <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class=>"button danger small", :rel => 'delete-project' %>
           <%# end %>
           </nav>
         </article>
