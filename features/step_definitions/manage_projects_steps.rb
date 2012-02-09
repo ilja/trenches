@@ -11,3 +11,19 @@ end
 Then /^I should see my new project$/ do
   page.should have_content 'My new project'
 end
+
+Given /^I have created a project$/ do
+  FactoryGirl.create(:project, :name => "My project")
+end
+
+Then /^I should be able to view my project$/ do
+  click_link 'My project'
+  page.should have_content 'My project'
+end
+
+Then /^I should be able to change my project$/ do
+  find(:xpath, "//a[@rel='edit-project']").click
+  fill_in 'Name', :with => 'My changed project'
+  find(:xpath, "//input[@rel='save-project']").click
+  page.should have_content 'My changed project'
+end

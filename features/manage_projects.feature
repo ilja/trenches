@@ -12,7 +12,16 @@ Feature: Manage projects
     And I create a new project
     Then I should see my new project
 
+  Scenario: View an existing project
+    Given I have created a project
+    And I go to my projects page
+    Then I should be able to view my project
+
   Scenario: Edit an existing project
+    Given I have created a project
+    And I go to my projects page
+    Then I should be able to change my project
+
   Scenario: Delete an existing project
   Scenario: Invite users to my project
   Scenario: Remove users from my project

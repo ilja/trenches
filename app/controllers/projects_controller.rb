@@ -17,4 +17,22 @@ class ProjectsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @project = Project.find(params[:id])
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+
+    if @project.update_attributes(params[:project])
+      redirect_to projects_path, :notice => 'Project updated'
+    else
+      render :edit
+    end
+  end
 end

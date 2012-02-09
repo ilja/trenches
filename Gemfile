@@ -46,6 +46,7 @@ gem 'simplecov', :require => false, :group => :test
 
 group :test, :development do
   gem "rspec-rails", "~> 2.7"
+  gem 'factory_girl_rails'
   gem "capybara"
   gem 'cucumber-rails'
   gem 'launchy'

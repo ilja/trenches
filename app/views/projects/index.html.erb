@@ -19,10 +19,10 @@
     <% @projects.each do |project| %>
       <li>
         <article>
-          <div class="name"><%= link_to project.name, project, 'data-skip-pjax' => :true %></div>
+          <div class="name"><%= link_to project.name, project %></div>
           <nav class="button-group" style="width: 76px">
           <%# if can? :update, Project %>
-            <%= link_to 'Edit', edit_project_path(project), :class => "button small" %>
+            <%= link_to 'Edit', edit_project_path(project), :class => "button small", :rel => 'edit-project' %>
           <%# end %>
           <%# if can? :destroy, Project %>
             <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class=>"button danger small"%>
