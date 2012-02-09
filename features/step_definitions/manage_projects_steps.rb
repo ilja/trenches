@@ -4,8 +4,10 @@ end
 
 When /^I create a new project$/ do
   find(:xpath, "//a[@rel='new-project']").click
+  fill_in 'Name', :with => 'My new project'
+  find(:xpath, "//input[@rel='save-project']").click
 end
 
 Then /^I should see my new project$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'My new project'
 end

@@ -1,26 +1,26 @@
-<% if @project.errors.any? %>
+<% if project.errors.any? %>
    <div id="flash_warning" class="flashcontainer">
       <%= image_tag "dialog-warning.png", :alt => "info", :class => "icon" %>
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
       <ul>
-      <% @project.errors.full_messages.each do |msg| %>
+      <% project.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
 <% end %>
 
-<%= form_for(@project) do |f| %>
+<%= form_for(project) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, :required => "true" %>
   </div>
 
   <div class="actions">
-    <% if can? :create, Project %>
-      <%=  f.submit button_name, :class => "button", :disable_with => 'Saving...'  %>
-    <% end %>
+    <%# if can? :create, Project %>
+    <%=  f.submit button_name, :class => "button", :disable_with => 'Saving...', :rel => 'save-project'  %>
+    <%# end %>
     or go <%= link_to 'back', projects_path %>
   </div>
 <% end %>
