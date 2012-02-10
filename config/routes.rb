@@ -7,7 +7,9 @@ Trenches::Application.routes.draw do
   get "secret" => "home#secret", :as => "secret"
 
   resources :users do
-    resources :projects
+    resources :projects do
+      resources :members
+    end
   end
   resources :sessions
 

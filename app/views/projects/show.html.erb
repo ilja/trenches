@@ -7,5 +7,7 @@
 
 <div id="main" role="main">
   <%= render "shared/flash", :flash => flash %>
+
+  <%= link_to 'Invite users', user_project_members_path(current_user, @project), :class => "button primary", :rel => "add-members" %>
   project content?
 </div>

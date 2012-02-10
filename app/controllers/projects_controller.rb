@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   def new
@@ -10,8 +10,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
 
-    if @project.save
-
+    if @project.start(current_user)
       redirect_to user_projects_path(current_user), :notice => 'Project saved'
     else
       render :new

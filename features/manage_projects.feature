@@ -27,6 +27,10 @@ Feature: Manage projects
     And I go to my projects page
     Then I should be able to delete my project
 
-  Scenario: Invite users to my project
-  Scenario: Remove users from my project
+  Scenario: Add members to my project
+    Given I have created a project
+    And I go to my projects page
+    Then I should be able to add members
+
+  Scenario: Remove members from my project
 

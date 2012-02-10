@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
 
+  has_many :memberships, :class_name => "Member", :dependent => :destroy
+  has_many :projects, :through => :memberships
+
   attr_accessible :username, :email, :password, :password_confirmation
 
   validates_confirmation_of :password

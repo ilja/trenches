@@ -8,13 +8,18 @@ class Project < ActiveRecord::Base
 #  attr_writer :sprint_maker
 #  attr_accessor :name
 
-  validates :name, :presence => true
+  has_many :members, :dependent => :destroy
 
+  validates :name, :presence => true
 
  # def initialize
  #   @stories = []
  #   @sprints = []
  # end
+  def start user
+    members.build(:user => user, :project_owner => true)
+    save
+  end
 
   def new_story(*args)
     story_maker.call(*args).tap do |s|
@@ -32,6 +37,13 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def owner
+    members.where(:project_owner => true).first
+  end
+
+  def owner_username
+    owner.user.username
+  end
 
   private
 

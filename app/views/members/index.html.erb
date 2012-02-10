@@ -1,0 +1,27 @@
+<% title("All invited users") %>
+<header>
+  <h1>
+    All invited users
+  </h1>
+</header>
+
+<div id="main" role="main">
+  <%= render "shared/flash", :flash => flash %>
+  <ul>
+  <% @members.each do |member| %>
+    <li><%= member.user.username %></li>
+  <% end %>
+  <ul>
+
+  <%= form_tag do %>
+    <div class="field">
+      <%= label_tag :username, "Username" %><br />
+      <%= text_field_tag :username  %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Invite user",  :class => "button primary", :rel => "add-member" %>
+    </div>
+  <% end %>
+
+</div>
+
