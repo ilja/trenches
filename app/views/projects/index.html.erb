@@ -11,7 +11,7 @@
   <section class="backlog-container">
     <nav class="button-container">
       <%# if can? :create, Project %>
-        <%= link_to 'New Project', new_project_path, :class => "button primary", :rel => "new-project" %>
+        <%= link_to 'New Project', new_user_project_path(current_user), :class => "button primary", :rel => "new-project" %>
       <%# end %>
     </nav>
 
@@ -19,13 +19,13 @@
     <% @projects.each do |project| %>
       <li>
         <article>
-          <div class="name"><%= link_to project.name, project %></div>
+          <div class="name"><%= link_to project.name, user_project_path(current_user, project) %></div>
           <nav class="button-group" style="width: 76px">
           <%# if can? :update, Project %>
-            <%= link_to 'Edit', edit_project_path(project), :class => "button small", :rel => 'edit-project' %>
+            <%= link_to 'Edit', edit_user_project_path(current_user, project), :class => "button small", :rel => 'edit-project' %>
           <%# end %>
           <%# if can? :destroy, Project %>
-            <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class=>"button danger small", :rel => 'delete-project' %>
+            <%= link_to 'Destroy', user_project_path(current_user, project), :confirm => 'Are you sure?', :method => :delete, :class=>"button danger small", :rel => 'delete-project' %>
           <%# end %>
           </nav>
         </article>

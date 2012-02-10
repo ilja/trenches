@@ -11,7 +11,7 @@
     </div>
 <% end %>
 
-<%= form_for(project) do |f| %>
+<%= form_for([current_user, project]) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, :required => "true" %>
@@ -21,6 +21,6 @@
     <%# if can? :create, Project %>
     <%=  f.submit button_name, :class => "button", :disable_with => 'Saving...', :rel => 'save-project'  %>
     <%# end %>
-    or go <%= link_to 'back', projects_path %>
+    or go <%= link_to 'back', user_projects_path(current_user) %>
   </div>
 <% end %>

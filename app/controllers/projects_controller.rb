@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 
     if @project.save
 
-      redirect_to projects_path, :notice => 'Project saved'
+      redirect_to user_projects_path(current_user), :notice => 'Project saved'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 
     if @project.update_attributes(params[:project])
-      redirect_to projects_path, :notice => 'Project updated'
+      redirect_to user_projects_path(current_user), :notice => 'Project updated'
     else
       render :edit
     end
@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
       flash[:error] = 'An error occured while trying to delete the project'
     end
 
-    redirect_to projects_path
+    redirect_to user_projects_path(current_user)
   end
+
 end

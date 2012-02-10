@@ -46,7 +46,7 @@
         <% if current_user %>
           <li><%= current_user.username %></li>
         <% end %>
-        <li><%= link_to "all projects", projects_path, :rel => "my-projects" %></li>
+        <li><%= link_to "all projects", user_projects_path(current_user), :rel => "my-projects" %></li>
         <li>
           <% if current_user %>
             <%= link_to "sing out", logout_path, :rel => "logout" %>

@@ -6,9 +6,11 @@ Trenches::Application.routes.draw do
 
   get "secret" => "home#secret", :as => "secret"
 
-  resources :users
+  resources :users do
+    resources :projects
+  end
   resources :sessions
-  resources :projects
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
