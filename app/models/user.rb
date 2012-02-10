@@ -2,6 +2,8 @@ require 'active_record'
 
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 
   attr_accessible :username, :email, :password, :password_confirmation
 

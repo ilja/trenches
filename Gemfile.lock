@@ -73,6 +73,7 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     ffi (1.0.11)
+    friendly_id (4.0.0)
     gherkin (2.7.7)
       json (>= 1.4.6)
     guard (1.0.0)
@@ -193,6 +194,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   factory_girl_rails
+  friendly_id (~> 4.0.0)
   guard
   guard-rspec
   jquery-rails

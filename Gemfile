@@ -32,6 +32,8 @@ gem 'jquery-rails'
 
 gem 'sorcery'
 
+gem "friendly_id", "~> 4.0.0"
+
 group :development do
   gem 'guard'
   gem 'rb-inotify', :require => false
