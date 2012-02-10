@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20111226132633) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20111226132633) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "sprints", ["project_id"], :name => "index_sprints_on_project_id"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20111226132633) do
     t.text     "body"
     t.integer  "project_id"
     t.integer  "sprint_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20111226132633) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.string   "reset_password_token"
