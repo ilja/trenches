@@ -40,6 +40,7 @@ end
 Then /^I should be able to add members$/ do
   FactoryGirl.create(:user, :username => 'joe')
   click_link 'My new project'
+  find(:xpath, "//a[@rel='manage-project']").click
   find(:xpath, "//a[@rel='add-members']").click
   fill_in 'Username', :with => 'joe'
   find(:xpath, "//input[@rel='add-member']").click
