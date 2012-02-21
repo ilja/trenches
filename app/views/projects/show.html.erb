@@ -3,11 +3,20 @@
   <h1>
     <%= @project.name %>
   </h1>
+  <nav class="header-right">
+    <%= link_to "Manage project", edit_user_project_path(current_user, @project), :class => "button" %>
+  </nav>
 </header>
 
 <div id="main" role="main">
   <%= render "shared/flash", :flash => flash %>
 
-  <%= link_to 'Invite users', user_project_members_path(current_user, @project), :class => "button primary", :rel => "add-members" %>
-  project content?
+  <h2>Latest sprint</h2>
+  12-2-2012 - 13-3-2012
+  Progress....
+
+  <h2>Backlog</h2>
+  top 10 stories uit backlog
+  <a href="#">more</a>
+
 </div>

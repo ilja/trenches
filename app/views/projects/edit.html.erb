@@ -11,5 +11,5 @@
   <section class="backlog-container">
     <%= render :partial => 'form', :locals => {:project => @project, :button_name => "Update Project" }%>
   </section>
-
+  <%= link_to 'Invite users', user_project_members_path(current_user, @project), :class => "button primary", :rel => "add-members" %>
 </div>
