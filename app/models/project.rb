@@ -4,18 +4,16 @@ class Project < ActiveRecord::Base
 
 #  attr_reader :stories
 #  attr_reader :sprints
-#  attr_writer :story_maker
-#  attr_writer :sprint_maker
+  attr_writer :story_maker
+  attr_writer :sprint_maker
 #  attr_accessor :name
 
   has_many :members, :dependent => :destroy
+  has_many :sprints, :dependent => :destroy
+  has_many :stories, :dependent => :destroy
 
   validates :name, :presence => true
 
- # def initialize
- #   @stories = []
- #   @sprints = []
- # end
   def start user
     members.build(:user => user, :project_owner => true)
     save

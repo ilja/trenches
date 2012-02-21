@@ -28,7 +28,7 @@ describe Project do
 
   describe "#new_story" do
     before(:each) do
-      @new_story = OpenStruct.new
+      @new_story = Story.new
       subject.story_maker = -> { @new_story }
     end
     it "should return a new story" do
@@ -46,7 +46,7 @@ describe Project do
   end
   describe "#add_story" do
     it "should add the story to the project" do
-      story = Object.new
+      story = Story.new
       subject.add_story(story)
       subject.stories.should include(story)
     end
