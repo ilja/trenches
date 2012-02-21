@@ -8,6 +8,7 @@ Trenches::Application.routes.draw do
 
   resources :users do
     resources :projects do
+      get 'backlog', :on => :member
       resources :members
     end
   end

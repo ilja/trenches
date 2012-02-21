@@ -46,4 +46,7 @@ class ProjectsController < ApplicationController
     redirect_to user_projects_path(current_user)
   end
 
+  def backlog
+    @project = Project.find(params[:id])
+  end
 end
