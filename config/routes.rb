@@ -8,7 +8,7 @@ Trenches::Application.routes.draw do
 
   resources :users do
     resources :projects do
-      get 'backlog', :on => :member
+      
       resources :members
     end
   end
@@ -24,6 +24,7 @@ Trenches::Application.routes.draw do
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  match 'users/:username/projects/:id/backlog' => 'projects#backlog', :as => :project_backlog
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):

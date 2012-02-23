@@ -15,8 +15,8 @@
   12-2-2012 - 13-3-2012
   Progress....
 
-  <h2>Backlog</h2>
-  top 10 stories uit backlog
-  <a href="#">more</a>
+  <h2><%= link_to "Product backlog", project_backlog_path(@project.owner_username, @project), :rel => "project-backlog" %></h2>
+  top 10 stories uit backlog<br />
+  
 
 </div>
