@@ -8,7 +8,7 @@ Trenches::Application.routes.draw do
 
   resources :users do
     resources :projects do
-      
+      resources :stories
       resources :members
     end
   end

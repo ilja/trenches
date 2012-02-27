@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-<%= form_for [@project, @story] do |f| %>
+<%= form_for [current_user, @project, @story] do |f| -%>
 
   <div class="field">
     <%= f.label :name %>

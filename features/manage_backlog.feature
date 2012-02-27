@@ -16,5 +16,8 @@ Feature: Manage projects
   Scenario: Backlog without stories
 
   Scenario: Add a new story
+  	When I visit the project's backlog page
+  	Then I should be able to add a new story
+
   Scenario: Edit a story
   Scenario: Delete a story

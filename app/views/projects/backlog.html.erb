@@ -17,7 +17,7 @@
 
     <nav class="button-container">
       <%# if can? :create, Story %>
-         <%#= link_to 'New Story', new_project_story_path(@project), :class => "button primary" %>
+         <%= link_to 'New Story', new_user_project_story_path(current_user, @project), :class => "button primary", :rel => "new-story" %>
       <%# end %>
 
 
