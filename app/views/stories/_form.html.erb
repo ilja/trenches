@@ -1,6 +1,6 @@
  <% if story.errors.any? %>
     <div id="flash_warning" class="flashcontainer">
-      <%= image_tag "dialog-warning.png", :alt => "info", :class => "icon" %>
+      <%= image_tag "dialog-error.png", :alt => "info", :class => "icon" %>
       <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
 
       <ul>
@@ -16,7 +16,7 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, :required => "true", :autofocus => "true" %>
+    <%= f.text_field :title, :autofocus => "true" %>
   </div>
 
   <div class="field">

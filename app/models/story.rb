@@ -2,9 +2,9 @@ require 'active_record'
 
 class Story < ActiveRecord::Base
 
-  attr_accessor :title, :body, :project, :points, :status
+  attr_accessible :title, :body, :points, :status, :moscow
 
-  validates :title, :project,  :presence => true
+  validates :title, :project_id,  :presence => true
 
   # def initialize(attrs={})
   #   attrs.each do |k,v| send("#{k}=",v) end
