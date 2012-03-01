@@ -6,9 +6,9 @@ class Story < ActiveRecord::Base
 
   validates :title, :project,  :presence => true
 
-  def initialize(attrs={})
-    attrs.each do |k,v| send("#{k}=",v) end
-  end
+  # def initialize(attrs={})
+  #   attrs.each do |k,v| send("#{k}=",v) end
+  # end
 
   def publish
     @project.add_entry(self)

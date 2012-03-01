@@ -11,7 +11,7 @@
   <%= render "shared/flash", :flash => flash %>
 
   <section class="backlog-container">
-    <%= render 'form', :locals => {:button_name => "Create Story", :story => @story, :project => @project, :current_user => current_user }%>
+    <%= render :partial => "form", :locals => { :button_name => "Create Story", :story => @story, :project => @project, :current_user => current_user } %>
   </section>
 
 </div>

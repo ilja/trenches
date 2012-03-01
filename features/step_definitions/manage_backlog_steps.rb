@@ -20,7 +20,7 @@ end
 
 Then /^I should be able to add a new story$/ do
   find(:xpath, "//a[@rel='new-story']").click
-  fill_in 'Name', :with => 'My new story'
+  fill_in 'Title', :with => 'My new story'
   find(:xpath, "//input[@rel='save-story']").click
   page.should have_content 'My new story'
 end
