@@ -2,18 +2,21 @@ require 'active_record'
 require 'active_support/core_ext/object/conversions'
 
 class Sprint < ActiveRecord::Base
+  belongs_to :project
+  has_many :stories
 
-  attr_accessor :title, :goal, :start_date, :end_date, :project, :stories
+  attr_accessor :title, :goal, :start_date, :end_date, :project
   attr_writer :clock
 
   validates :title, :project, :presence => true
 
-  def initialize(attrs={})
-    attrs.each do |k,v| send("#{k}=",v) end
+  after_initialize :default_values
+
+  def default_values
+    return unless new_record?
 
     @start_date = clock.now
     @end_date = (3.weeks).since(clock.now)
-    @stories = []
   end
 
   def define
@@ -41,8 +44,10 @@ class Sprint < ActiveRecord::Base
   end
 
   def open_story_points
-    stories.select{ |s| ["open", "active"].include? s.status }.inject(0) do |sum, story|
-      sum + story.points
+    open_stories = stories.select { |s| [Status::OPEN, Status::ACTIVE].include? s.status }
+    open_stories.inject(0) do |sum, story|
+      sum += story.points
+      sum
     end
   end
 

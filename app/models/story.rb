@@ -2,13 +2,12 @@ require 'active_record'
 
 class Story < ActiveRecord::Base
 
-  attr_accessible :title, :body, :points, :status, :moscow
+  belongs_to :project
+  belongs_to :sprint
+
+  attr_accessible :title, :body, :points, :status, :moscow, :project_id
 
   validates :title, :project_id,  :presence => true
-
-  # def initialize(attrs={})
-  #   attrs.each do |k,v| send("#{k}=",v) end
-  # end
 
   def publish
     @project.add_entry(self)

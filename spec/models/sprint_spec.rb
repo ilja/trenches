@@ -19,7 +19,7 @@ describe Sprint do
 
   context "validations" do
     before do
-      subject.project = Object.new
+      subject.project = Project.new
     end
     describe "title" do
       it "should not allow an empty title" do
@@ -113,10 +113,10 @@ describe Sprint do
 
   context "with stories" do
     before(:each) do
-      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 1, :status => "open")
-      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 2, :status => "open")
-      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 5, :status => "done")
-      subject.stories.count.should == 3
+      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 1, :status => Status::OPEN, :sprint => subject)
+      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 2, :status => Status::OPEN, :sprint => subject)
+      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 5, :status => Status::DONE, :sprint => subject)
+      subject.stories.size.should == 3
     end
     it "should calculate the total story points" do
       subject.total_story_points.should == 8

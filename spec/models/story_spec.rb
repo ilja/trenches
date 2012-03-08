@@ -24,12 +24,12 @@ describe Story do
   end
 
   it "should support reading and writing the story's status" do
-    subject.status = "done"
-    subject.status.should == "done"
+    subject.status = Status::DONE
+    subject.status.should == Status::DONE
   end
 
   it "should support reading and writing a project reference" do
-    project = Object.new
+    project = Project.new
     subject.project = project
     subject.project.should == project
   end
@@ -42,13 +42,15 @@ describe Story do
 
   context "validations " do
     describe "#title" do
-      before do
-        subject.project = Object.new
+      before(:each) do
+        subject.project = Project.new
       end
       it "should not allow an empty title" do
         [nil, "", " "].each do |title|
           subject.title = title
+          puts "dfjkdjfkdjfkdj #{subject.inspect}"
           subject.valid?.should be_false
+          puts subject.errors.inspect
         end
       end
       it "should allow a non empty title" do
@@ -63,14 +65,14 @@ describe Story do
       it "should not allow an empty project" do
         subject.project = nil
         subject.valid?.should be_false
-        subject.errors[:project].should include("can't be blank")
+        subject.errors[:project_id].should include("can't be blank")
       end
     end
   end
 
   describe "#publish" do
     before do
-      @project = double("Project")
+      @project = Project.new
       subject.project = @project
     end
 
