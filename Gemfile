@@ -32,6 +32,9 @@ gem 'jquery-rails'
 
 gem 'sorcery'
 
+# markdown
+gem 'rdiscount'
+
 gem "friendly_id", "~> 4.0.0"
 
 group :development do
@@ -46,12 +49,12 @@ group :development do
 end
 
 gem 'simplecov', :require => false, :group => :test
+gem 'cucumber-rails', :require => false, :group => :test
 
 group :test, :development do
   gem "rspec-rails", "~> 2.7"
   gem 'factory_girl_rails'
   gem "capybara"
-  gem 'cucumber-rails'
   gem 'launchy'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'

@@ -22,6 +22,23 @@ Then /^I should be able to add a new story$/ do
   find(:xpath, "//a[@rel='new-story']").click
   fill_in 'Title', :with => 'My new story'
   find(:xpath, "//input[@rel='save-story']").click
-  page.should have_content 'My new story'
+  within("#storylist") do
+    page.should have_content 'My new story'
+  end
 end
 
+Given /^I have added a story$/ do
+  steps %Q{
+    When I visit the project's backlog page
+    Then I should be able to add a new story
+  }
+end
+
+Then /^I should be able to edit that story$/ do
+  find(:xpath, "//a[@rel='edit-story']").click
+  fill_in 'Title', :with => 'My edited story'
+  find(:xpath, "//input[@rel='save-story']").click
+  within("#storylist") do
+    page.should have_content 'My edited story'
+  end
+end

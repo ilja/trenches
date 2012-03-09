@@ -17,4 +17,22 @@ class StoriesController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:project_id])
+    @story = @project.stories.find(params[:id])
+
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @story = @project.stories.find(params[:id])
+
+
+    if @story.update_attributes(params[:story])
+      redirect_to project_backlog_path(@project.owner_username, @project), :notice => 'Story updated'
+    else
+      render :edit
+    end
+  end
+
 end

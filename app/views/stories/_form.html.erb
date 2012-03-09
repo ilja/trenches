@@ -43,9 +43,9 @@
   <div class="actions">
     <%= f.submit button_name, :class => "button", :disable_with => 'Saving...', :rel => "save-story" %> or <%= link_to 'go back', :back %>
     <% unless story.new_record? %>
-      <% if can? :destroy, story %>
-        or <%= link_to 'destroy', project_story_path(project, story), :confirm => 'Are you sure?', :method => :delete, :class => "button danger" %>
-      <% end %>
+      <%# if can? :destroy, story %>
+        or <%= link_to 'destroy', user_project_story_path(current_user, story.project, story), :confirm => 'Are you sure?', :method => :delete, :class => "button danger" %>
+      <%# end %>
     <% end %>
   </div>
 <% end %>
