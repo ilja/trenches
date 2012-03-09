@@ -35,4 +35,17 @@ class StoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:project_id])
+    @story = @project.stories.find(params[:id])
+
+    if @story.destroy
+      flash[:notice] = 'Story deleted.'
+    else
+      flash[:error] = 'An error occured while trying to delete the story'
+    end
+
+    redirect_to project_backlog_path(@project.owner_username, @project)
+  end
+
 end

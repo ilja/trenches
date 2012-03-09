@@ -25,3 +25,6 @@ Feature: Manage projects
     Then I should be able to edit that story
 
   Scenario: Delete a story
+    Given I have added a story
+    When I visit the project's backlog page
+    Then I should be able to delete that story

@@ -42,3 +42,11 @@ Then /^I should be able to edit that story$/ do
     page.should have_content 'My edited story'
   end
 end
+
+Then /^I should be able to delete that story$/ do
+  find(:xpath, "//a[@rel='edit-story']").click
+  find(:xpath, "//a[@rel='delete-story nofollow']").click
+  within("#storylist") do
+    page.should_not have_content 'My new story'
+  end
+end
