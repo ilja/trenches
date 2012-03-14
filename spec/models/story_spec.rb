@@ -43,14 +43,12 @@ describe Story do
   context "validations " do
     describe "#title" do
       before(:each) do
-        subject.project = Project.new
+        subject.stub(:project_id) { 666 }
       end
       it "should not allow an empty title" do
         [nil, "", " "].each do |title|
           subject.title = title
-          puts "dfjkdjfkdjfkdj #{subject.inspect}"
           subject.valid?.should be_false
-          puts subject.errors.inspect
         end
       end
       it "should allow a non empty title" do
@@ -73,11 +71,10 @@ describe Story do
   describe "#publish" do
     before do
       @project = Project.new
-      subject.project = @project
+      subject.stub(:project) { @project }
     end
-
     it "should add the story to the project" do
-      @project.should_receive(:add_entry).with(subject)
+      @project.should_receive(:add_story).with(subject)
       subject.publish
     end
   end

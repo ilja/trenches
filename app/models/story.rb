@@ -10,6 +10,6 @@ class Story < ActiveRecord::Base
   validates :title, :project_id,  :presence => true
 
   def publish
-    @project.add_entry(self)
+    project.add_story(self)
   end
 end
