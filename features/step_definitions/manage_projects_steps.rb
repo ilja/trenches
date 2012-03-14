@@ -41,9 +41,24 @@ Then /^I should be able to add members$/ do
   FactoryGirl.create(:user, :username => 'joe')
   click_link 'My new project'
   find(:xpath, "//a[@rel='manage-project']").click
-  find(:xpath, "//a[@rel='add-members']").click
+  find(:xpath, "//a[@rel='manage-members']").click
   fill_in 'Username', :with => 'joe'
   find(:xpath, "//input[@rel='add-member']").click
   page.should have_content 'joe'
+end
+
+Given /^I have added other members$/ do
+  steps %Q{
+    When I go to my projects page
+    And I should be able to add members
+  }
+end
+
+Then /^I should be able to remove members$/ do
+  within(:xpath, "//li[contains(child::text(),'joe')]") do
+    page.should have_content 'joe'
+    find(:xpath, "//li[contains(child::text(),'joe')]/a[contains(@rel,'remove-member')]").click
+  end
+  page.should have_content 'joe is no longer a member of this project'
 end
 

@@ -9,7 +9,10 @@
   <%= render "shared/flash", :flash => flash %>
   <ul>
   <% @members.each do |member| %>
-    <li><%= member.user.username %></li>
+    <li>
+      <%= member.user.username %>
+      <%= link_to 'remove', user_project_member_path(current_user, member.project, member), :confirm => 'Are you sure?', :method => :delete, :class => "button danger", :rel => "remove-member" %>
+    </li>
   <% end %>
   <ul>
 

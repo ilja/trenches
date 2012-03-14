@@ -33,4 +33,6 @@ Feature: Manage projects
     Then I should be able to add members
 
   Scenario: Remove members from my project
-
+    Given I have created a project
+    And I have added other members
+    Then I should be able to remove members

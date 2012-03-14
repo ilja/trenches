@@ -12,9 +12,6 @@ Feature: Manage projects
     And I go to its backlog page
     Then I should see the product backlog
 
-
-  Scenario: Backlog without stories
-
   Scenario: Add a new story
     When I visit the project's backlog page
     Then I should be able to add a new story
