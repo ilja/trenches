@@ -1,0 +1,16 @@
+<li>
+  <article>
+    <div class="name"><%= link_to sprint.title, user_project_sprint_path(@project.owner_username, @project, sprint) %></div>
+    <nav class="button-group">
+      <%# if can? :update, Sprint %>
+      <%#= link_to 'Make active', set_active_sprint_path(@project, sprint), :class => "button small", :rel => 'make-sprint-active' %>
+      <%# end %>
+      <%# if can? :update, Sprint %>
+      <%= link_to 'Edit', edit_user_project_sprint_path(@project.owner_username, @project, sprint), :class => "button small", :rel => 'edit-sprint' %>
+      <%# end %>
+      <%# if can? :destroy, Sprint %>
+      <%= link_to 'Destroy', user_project_sprint_path(@project.owner_username, @project, sprint), :confirm => 'Are you sure?', :method => :delete, :class => "button small danger", :rel => 'delete-sprint' %>
+      <%# end %>
+    </nav>
+  </article>
+</li>

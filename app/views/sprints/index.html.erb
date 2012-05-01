@@ -1,0 +1,38 @@
+<% title("#{@project.name} / Sprints") %>
+<header>
+  <h1>
+    <%= link_to @project.name, user_project_path(current_user, @project) %>
+    /
+    Sprints
+  </h1>
+  <nav class="header-right">
+  <%#= link_to "Sprints", user_project_sprints_path(current_user, @project), :class => "button" %>
+  </nav>
+</header>
+
+<div id="main" role="main">
+  <%= render "shared/flash", :flash => flash %>
+
+  <section class="sprints-container">
+
+    <nav class="button-container">
+      <%# if can? :create, Story %>
+         <%= link_to 'New Sprint', new_user_project_sprint_path(current_user, @project), :class => "button primary", :rel => "new-sprint" %>
+      <%# end %>
+
+
+      <nav id="togglebuttons" class="button-group">
+        <%#= sort_button(params[:show]) %>
+      </nav>
+    </nav>
+
+    <div id="sprintlist">
+      <ul>
+        <%= render :partial => 'sprints/sprint', :collection => @project.sprints %>
+      </ul>
+    </div>
+
+  </section>
+
+</div>
+

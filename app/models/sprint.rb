@@ -5,10 +5,10 @@ class Sprint < ActiveRecord::Base
   belongs_to :project
   has_many :stories
 
-  attr_accessor :title, :goal, :start_date, :end_date, :project
+  attr_accessible :title, :goal, :start_date, :end_date, :project
   attr_writer :clock
 
-  validates :title, :project, :presence => true
+  validates :title, :project_id, :presence => true
 
   after_initialize :default_values
 

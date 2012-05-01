@@ -1,5 +1,5 @@
 When /^I go to my project's page$/ do
-  click_link 'My new projec'
+  click_link 'My new project'
 end
 
 When /^I go to its backlog page$/ do
@@ -13,8 +13,8 @@ end
 When /^I visit the project's backlog page$/ do
   steps %Q{
     When I go to my project's page
-  	And I go to its backlog page
-  	Then I should see the product backlog
+    And I go to its backlog page
+    Then I should see the product backlog
   }
 end
 

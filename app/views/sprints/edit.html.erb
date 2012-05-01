@@ -1,0 +1,17 @@
+<% title("Edit #{@sprint.title}") %>
+<header>
+  <h1>
+ 	<%= link_to @project.name, user_project_path(current_user, @project) %>
+    /
+    Edit <%= @sprint.title %>
+  </h1>
+</header>
+
+<div id="main" role="main">
+  <%= render "shared/flash", :flash => flash %>
+
+  <section class="sprints-container">
+    <%= render :partial => "form", :locals => { :button_name => "Update Sprint", :sprint => @sprint, :project => @project, :current_user => current_user } %>
+  </section>
+
+</div>
