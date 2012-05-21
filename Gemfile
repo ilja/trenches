@@ -30,7 +30,7 @@ gem 'jquery-rails'
 # To use debugger
 #gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'sorcery'
+gem 'sorcery', "~> 0.7.0"
 
 # markdown
 gem 'rdiscount'
@@ -43,7 +43,7 @@ group :development do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
 #  gem 'growl_notify'
-  
+
 
   gem 'guard-rspec'
 end

@@ -213,6 +213,6 @@ DEPENDENCIES
   rspec-rails (~> 2.7)
   sass-rails (~> 3.2.3)
   simplecov
-  sorcery
+  sorcery (~> 0.7.0)
   sqlite3
   uglifier (>= 1.0.3)

@@ -1,7 +1,4 @@
-require 'active_record'
-require 'sorcery'
 require 'spec_helper'
-require_relative '../../app/models/user'
 
 describe User do
   context "validations" do

@@ -1,6 +1,3 @@
-require 'active_model'
-require_relative '../../app/models/project'
-require 'ostruct'
 require 'spec_helper'
 
 describe Project do

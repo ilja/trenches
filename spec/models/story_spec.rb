@@ -1,5 +1,3 @@
-require 'active_model'
-require_relative '../../app/models/story'
 require 'spec_helper'
 
 describe Story do
