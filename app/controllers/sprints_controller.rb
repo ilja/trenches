@@ -1,15 +1,15 @@
 class SprintsController < ApplicationController
+  before_filter :load_project
+  before_filter :load_sprint, :except => [:index, :new, :create]
+
   def index
-    @project = Project.find(params[:project_id])
   end
 
   def new
-    @project = Project.find(params[:project_id])
     @sprint = Sprint.new
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @sprint = @project.sprints.create(params[:sprint])
 
     if @sprint.save
@@ -21,14 +21,9 @@ class SprintsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:project_id])
-    @sprint = @project.sprints.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:project_id])
-    @sprint = @project.sprints.find(params[:id])
-
     if @sprint.update_attributes(params[:sprint])
       redirect_to project_sprints_path(@project.owner_username, @project), :notice => 'Sprint updated'
     else
@@ -36,10 +31,7 @@ class SprintsController < ApplicationController
     end
   end
 
-  def destroy
-    @project = Project.find(params[:project_id])
-    @sprint = @project.sprints.find(params[:id])
-
+  def destroy    
     if @sprint.destroy
       flash[:notice] = 'Sprint deleted.'
     else
@@ -47,6 +39,16 @@ class SprintsController < ApplicationController
     end
     
     redirect_to project_sprints_path(@project.owner_username, @project)
+  end
+
+  private
+
+  def load_project
+    @project = Project.find(params[:project_id])
+  end
+
+  def load_sprint
+    @sprint = @project.sprints.find(params[:id])
   end
 
 
