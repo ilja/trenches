@@ -4,7 +4,11 @@
     <%= @project.name %>
   </h1>
   <nav class="header-right">
-    <%= link_to "Manage project", edit_user_project_path(@project.owner_username, @project), :class => "button", :rel => "manage-project" %>
+    <div class="button-group">
+      <%= link_to "Manage project", edit_user_project_path(@project.owner_username, @project), :class => "button", :rel => "manage-project" %>
+      <%= link_to "Manage sprints",project_sprints_path(@project.owner_username, @project), :class => "button", :rel => "sprints" %>
+      <%= link_to "Product backlog", project_backlog_path(@project.owner_username, @project), :class => "button", :rel => "project-backlog" %>
+    </div>
   </nav>
 </header>
 
