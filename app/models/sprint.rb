@@ -5,22 +5,18 @@ class Sprint < ActiveRecord::Base
   belongs_to :project
   has_many :stories
 
-  attr_accessible :title, :goal, :start_date, :end_date, :project
+  attr_accessible :title, :goal, :start_date, :end_date, :project, :clock
   attr_writer :clock
 
-  validates :title, :project_id, :presence => true
+  validates :title, :project, :presence => true
 
   after_initialize :default_values
 
   def default_values
     return unless new_record?
 
-    @start_date = clock.now
-    @end_date = (3.weeks).since(clock.now)
-  end
-
-  def define
-    @project.add_entry(self)
+    self.start_date = clock.now
+    self.end_date = (3.weeks).since(clock.now)
   end
 
   def total_work_days

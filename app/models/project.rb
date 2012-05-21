@@ -24,6 +24,7 @@ class Project < ActiveRecord::Base
   end
 
   def owner_username
+    #todo denormalize?
     owner.user.username
   end
 

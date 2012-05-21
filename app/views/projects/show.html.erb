@@ -4,7 +4,7 @@
     <%= @project.name %>
   </h1>
   <nav class="header-right">
-    <%= link_to "Manage project", edit_user_project_path(current_user, @project), :class => "button", :rel => "manage-project" %>
+    <%= link_to "Manage project", edit_user_project_path(@project.owner_username, @project), :class => "button", :rel => "manage-project" %>
   </nav>
 </header>
 

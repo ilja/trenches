@@ -89,7 +89,7 @@ describe Sprint do
   end
 
   it "should support reading and writing a project reference" do
-    project = Object.new
+    project = Project.new
     subject.project = project
     subject.project.should == project
   end
@@ -98,17 +98,6 @@ describe Sprint do
     subject = Sprint.new(:title => "mytitle", :goal => "mygoal")
     subject.title.should == "mytitle"
     subject.goal.should == "mygoal"
-  end
-
-  describe "#define" do
-    before do
-      @project = double("Project")
-      subject.project = @project
-    end
-    it "should add the sprint to the project" do
-      @project.should_receive(:add_entry).with(subject)
-      subject.define
-    end
   end
 
   context "with stories" do

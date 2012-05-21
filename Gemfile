@@ -43,7 +43,7 @@ group :development do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
 #  gem 'growl_notify'
-  gem 'pry'
+  
 
   gem 'guard-rspec'
 end
@@ -58,4 +58,5 @@ group :test, :development do
   gem 'launchy'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'pry'
 end
