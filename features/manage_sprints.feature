@@ -19,4 +19,8 @@ Feature: Manage sprints
     Then I should be able to edit that sprint
 
   Scenario: Delete a sprint
+    Given I have added a sprint
+    When I visit the project's sprints page
+    Then I should be able to delete that sprint
+
   Scenario: View the quickinfo of a sprint

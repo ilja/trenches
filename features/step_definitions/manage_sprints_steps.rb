@@ -30,3 +30,10 @@ Then /^I should be able to edit that sprint$/ do
     page.should_not have_content 'My new sprint'
   end
 end
+
+Then /^I should be able to delete that sprint$/ do
+
+    find(:xpath, "//a[@rel='delete-sprint nofollow']").click
+
+  page.should have_content 'Sprint deleted'
+end

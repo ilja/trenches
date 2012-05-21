@@ -36,5 +36,18 @@ class SprintsController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:project_id])
+    @sprint = @project.sprints.find(params[:id])
+
+    if @sprint.destroy
+      flash[:notice] = 'Sprint deleted.'
+    else
+      flash[:error] = 'An error occured while trying to delete the sprint'
+    end
+    
+    redirect_to project_sprints_path(@project.owner_username, @project)
+  end
+
 
 end
