@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :load_project, :except => [:index, :new, :create]
+
   def index
     @projects = current_user.projects
   end
@@ -18,16 +20,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
   end
 
   def edit
-    @project = Project.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
-
     if @project.update_attributes(params[:project])
       redirect_to user_projects_path(current_user), :notice => 'Project updated'
     else
@@ -36,7 +34,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
     if @project.destroy
       flash[:notice] = 'Project deleted.'
     else
@@ -47,6 +44,11 @@ class ProjectsController < ApplicationController
   end
 
   def backlog
+  end
+
+  private
+
+  def load_project
     @project = Project.find(params[:id])
   end
 end

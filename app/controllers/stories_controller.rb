@@ -1,12 +1,12 @@
 class StoriesController < ApplicationController
+  before_filter :load_project
+  before_filter :load_story, :except => [:new, :create]
 
   def new
-    @project = Project.find(params[:project_id])
     @story = @project.stories.build
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @story = @project.stories.create(params[:story])
 
     if @story.save
@@ -18,16 +18,9 @@ class StoriesController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:project_id])
-    @story = @project.stories.find(params[:id])
-
   end
 
   def update
-    @project = Project.find(params[:project_id])
-    @story = @project.stories.find(params[:id])
-
-
     if @story.update_attributes(params[:story])
       redirect_to project_backlog_path(@project.owner_username, @project), :notice => 'Story updated'
     else
@@ -36,9 +29,6 @@ class StoriesController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:project_id])
-    @story = @project.stories.find(params[:id])
-
     if @story.destroy
       flash[:notice] = 'Story deleted.'
     else
@@ -46,6 +36,16 @@ class StoriesController < ApplicationController
     end
 
     redirect_to project_backlog_path(@project.owner_username, @project)
+  end
+
+  private
+
+  def load_project
+    @project = Project.find(params[:project_id])
+  end
+
+  def load_story
+    @story = @project.stories.find(params[:id])
   end
 
 end

@@ -1,11 +1,11 @@
 class MembersController < ApplicationController
+  before_filter :load_project
+
   def index
-    @project = Project.find(params[:project_id])
     @members = Member.where(:project_id => @project)
   end
 
   def create
-    @project = Project.find(params[:project_id])
     user = User.where(:username => params[:username]).first
     unless user.nil?
       member = Member.new(:user => user, :project => @project)
@@ -20,7 +20,6 @@ class MembersController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:project_id])
     @member = Member.find(params[:id])
     if @member.destroy
       flash[:notice] = "#{@member.user.username} is no longer a member of this project."
@@ -29,5 +28,9 @@ class MembersController < ApplicationController
     end
 
     redirect_to user_project_members_path(current_user, @project)
+  end
+
+  def load_project
+    @project = Project.find(params[:project_id])
   end
 end
