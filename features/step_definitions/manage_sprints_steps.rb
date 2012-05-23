@@ -8,6 +8,7 @@ end
 Then /^I should be able to add a new sprint$/ do
   find(:xpath, "//a[@rel='new-sprint']").click
   fill_in 'Title', :with => 'My new sprint'
+  fill_in 'Goal', :with => 'World Domination'
   find(:xpath, "//input[@rel='save-sprint']").click
   within("#sprintlist") do
     page.should have_content 'My new sprint'
@@ -36,4 +37,11 @@ Then /^I should be able to delete that sprint$/ do
     find(:xpath, "//a[@rel='delete-sprint nofollow']").click
 
   page.should have_content 'Sprint deleted'
+end
+
+
+Then /^I should be able to go to that sprint's page$/ do
+   click_link 'My new sprint'
+  page.should have_content 'My new sprint'
+  page.should have_content 'World Domination'
 end

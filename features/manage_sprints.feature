@@ -8,6 +8,9 @@ Feature: Manage sprints
     And I have created a project
 
   Scenario: View a sprint
+    Given I have added a sprint
+    When I visit the project's sprints page
+    Then I should be able to go to that sprint's page
 
   Scenario: Add a sprint
     When I visit the project's sprints page

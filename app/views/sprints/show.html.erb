@@ -1,0 +1,53 @@
+<% title("#{@project.name} / #{@sprint.title}") %>
+<header>
+  <h1>
+    <%= link_to @project.name, user_project_path(current_user, @project) %>
+    /
+    <%= @sprint.title %>
+  </h1>
+  <nav class="header-right">
+  <%#= link_to "Planning", sprint_planning_path(@project, @sprint), :class => "button" %>
+  </nav>
+</header>
+
+<div id="main" role="main">
+  <%= render "shared/flash", :flash => flash %>
+
+  <section class="sprint-container">
+    <nav class="button-container">
+      <nav class="button-group">
+        <%= link_to 'All stories', {:show => "all"}, :class => "button" %>
+        <%= link_to 'My stories', {:show => "my"}, :class => "button" %>
+      </nav>
+
+      <nav id="togglebuttons" class="button-group">
+        <%= link_to 'Open', {:show => "open"}, :class => "button" %>
+        <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
+        <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+      </nav>
+    </nav>
+
+    <ul class="storylist">
+      <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
+    </ul>
+
+  </section>
+
+  <aside>
+    <h2 class="sprint-time">
+    <time datetime="<%= @sprint.start_date.strftime("%Y-%m-%e") %>"><%= @sprint.start_date.strftime("%e-%m-%Y") %></time> &mdash;
+    <time datetime="<%= @sprint.end_date.strftime("%Y-%m-%e") %>"><%= @sprint.end_date.strftime("%e-%m-%Y") %></time>
+    </h2>
+
+    <blockquote>
+     <%= @sprint.goal %>
+    </blockquote>
+    <div class="progress-bar">
+      <span style="width: <%= @sprint.percentage_completed %>%"></span>
+    </div>
+  </aside>
+
+ </div>
+
+
+
