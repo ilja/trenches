@@ -97,6 +97,14 @@ describe Sprint do
     subject.goal.should == "mygoal"
   end
 
+  describe  "#add_story" do
+    it "should add the story to the sprint" do
+      story = Story.new
+      subject.add_story(story)
+      subject.stories.should include(story)
+    end
+  end
+
   context "with stories" do
     before(:each) do
       subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 1, :status => Status::OPEN, :sprint => subject)

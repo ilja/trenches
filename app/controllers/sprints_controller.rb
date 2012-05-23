@@ -44,6 +44,10 @@ class SprintsController < ApplicationController
     redirect_to project_sprints_path(@project.owner_username, @project)
   end
 
+  def planning
+
+  end
+
   private
 
   def load_project

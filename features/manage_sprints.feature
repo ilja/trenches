@@ -27,3 +27,8 @@ Feature: Manage sprints
     Then I should be able to delete that sprint
 
   Scenario: View the quickinfo of a sprint
+
+  Scenario: View sprint planning
+    Given I have added a sprint
+    Then I should be able to visit that sprint's planning page
+

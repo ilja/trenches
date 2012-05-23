@@ -52,6 +52,10 @@ class Sprint < ActiveRecord::Base
     done == 0 ? 0 : done / (total_story_points / 100.to_f)
   end
 
+  def add_story(story)
+    stories << story
+    story.sprint = self
+  end
 
   private
 

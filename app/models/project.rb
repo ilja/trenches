@@ -19,6 +19,10 @@ class Project < ActiveRecord::Base
     stories << story
   end
 
+  def add_sprint(sprint)
+    sprints << sprint
+  end
+
   def owner
     members.where(:project_owner => true).first
   end
@@ -26,6 +30,10 @@ class Project < ActiveRecord::Base
   def owner_username
     #todo denormalize?
     owner.user.username
+  end
+
+  def backlog
+    stories.where(:sprint_id => nil)
   end
 
   private

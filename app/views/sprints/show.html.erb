@@ -6,7 +6,7 @@
     <%= @sprint.title %>
   </h1>
   <nav class="header-right">
-  <%#= link_to "Planning", sprint_planning_path(@project, @sprint), :class => "button" %>
+  <%= link_to "Planning", sprint_planning_path(current_user, @project, @sprint), :class => "button", :rel => "sprint-planning" %>
   </nav>
 </header>
 

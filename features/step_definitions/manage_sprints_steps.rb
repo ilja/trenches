@@ -33,15 +33,21 @@ Then /^I should be able to edit that sprint$/ do
 end
 
 Then /^I should be able to delete that sprint$/ do
-
-    find(:xpath, "//a[@rel='delete-sprint nofollow']").click
-
+  find(:xpath, "//a[@rel='delete-sprint nofollow']").click
   page.should have_content 'Sprint deleted'
 end
 
-
 Then /^I should be able to go to that sprint's page$/ do
-   click_link 'My new sprint'
+  click_link 'My new sprint'
   page.should have_content 'My new sprint'
   page.should have_content 'World Domination'
+end
+
+Then /^I should be able to visit that sprint's planning page$/ do
+  steps %Q{
+    When I visit the project's sprints page
+    Then I should be able to go to that sprint's page
+  }
+  find(:xpath, "//a[@rel='sprint-planning']").click
+  page.should have_content 'My new sprint / Planning'
 end

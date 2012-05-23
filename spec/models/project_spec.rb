@@ -31,4 +31,31 @@ describe Project do
     end
   end
 
+  describe "#add_sprint" do
+    it "should add the sprint to the project" do
+      sprint = Sprint.new
+      subject.add_sprint(sprint)
+      subject.sprints.should include(sprint)
+    end
+  end
+
+  describe "#backlog" do
+    it "should return all stories not currently in a sprint" do
+      project = Project.create(name: "My project")
+
+      story1 = Story.create(:title => "story 1", :body => "Do stuff", :points => 1, :status => Status::OPEN, :project => project)
+      story2 = Story.create(:title => "story 2", :body => "Do more", :points => 2, :status => Status::OPEN, :project => project)
+      project.add_story(story1)
+      project.add_story(story2)
+
+      sprint = Sprint.create(project: project, title: "My Sprint")
+      project.add_sprint(sprint)
+
+      sprint.add_story(story1)
+      sprint.save!
+
+      project.backlog.should eq([story2])
+    end
+  end
+
 end
