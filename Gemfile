@@ -43,7 +43,7 @@ group :development do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
 #  gem 'growl_notify'
-
+  gem 'quiet_assets'
 
   gem 'guard-rspec'
 end

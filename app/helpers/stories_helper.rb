@@ -20,7 +20,7 @@ module StoriesHelper
 
   def sort_button(params)
     filters = %w[open active done]
-    active = params.to_a.select { |value| filters.include?value.to_s }
+    active = params.to_a.select { |value| filters.include?value.to_s.downcase }
     html = ""
     names = {"open" => "Open", "active" => "In progress", "done" => "Done"}
 

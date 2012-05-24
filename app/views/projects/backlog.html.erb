@@ -6,7 +6,7 @@
     Product Backlog
   </h1>
   <nav class="header-right">
-  <%#= link_to "Sprints", user_project_sprints_path(current_user, @project), :class => "button" %>
+  <%= link_to "Sprints", user_project_sprints_path(current_user, @project), :class => "button" %>
   </nav>
 </header>
 
@@ -22,13 +22,13 @@
 
 
       <nav id="togglebuttons" class="button-group">
-        <%#= sort_button(params[:show]) %>
+        <%= sort_button(params[:show]) %>
       </nav>
     </nav>
 
     <div id="storylist">
       <ul id="sortable" data-url="<%#= sort_stories_path(@project) %>">
-        <%= render :partial => 'stories/story', :collection => @project.stories, :locals => {:sortable => true} %>
+        <%= render :partial => 'stories/story', :collection => @stories, :locals => {:sortable => true} %>
       </ul>
     </div>
 

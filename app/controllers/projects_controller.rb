@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :load_project, :except => [:index, :new, :create]
+  helper_method :filters
 
   def index
     @projects = current_user.projects
@@ -44,11 +45,22 @@ class ProjectsController < ApplicationController
   end
 
   def backlog
+    unless params[:show].blank?
+      query = params[:show].to_a.inject([]) { |result, value| result << Status.to_integer(value); result }
+      puts "=========>>>>>>>>>>>>> #{query.inspect}"
+      @stories = @project.stories.where(:status => query).order(:backlog_position)
+    else
+      @stories = @project.stories.order(:backlog_position)
+    end
   end
 
   private
 
   def load_project
     @project = Project.find(params[:id])
+  end
+
+  def filters
+    %w[open active done]
   end
 end
