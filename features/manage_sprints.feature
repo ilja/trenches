@@ -32,3 +32,7 @@ Feature: Manage sprints
     Given I have added a sprint
     Then I should be able to visit that sprint's planning page
 
+  Scenario: View stories added to sprint
+    Given I have added a sprint
+    And I have added a story to that sprint
+    Then I should be able to see that story on the sprint's page

@@ -28,7 +28,7 @@
     </nav>
 
     <ul class="storylist">
-      <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
+      <%= render :partial => '/stories/story', :collection => @sprint.stories.order(:sprint_position), :locals => {:sortable=> false} %>
     </ul>
 
   </section>

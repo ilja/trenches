@@ -51,3 +51,22 @@ Then /^I should be able to visit that sprint's planning page$/ do
   find(:xpath, "//a[@rel='sprint-planning']").click
   page.should have_content 'My new sprint / Planning'
 end
+
+Given /^I have added a story to that sprint$/ do
+  steps %Q{
+    When I visit the project's backlog page
+    Then I should be able to add a new story
+  }
+  story = Story.first
+  sprint = Sprint.first
+  sprint.add_story(story)
+  sprint.save!
+end
+
+Then /^I should be able to see that story on the sprint's page$/ do
+  steps %Q{
+    When I visit the project's sprints page
+    Then I should be able to go to that sprint's page
+  }
+  page.should have_content 'My new story'
+end
