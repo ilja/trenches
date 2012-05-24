@@ -28,6 +28,10 @@ Trenches::Application.routes.draw do
   match 'users/:username/projects/:id/backlog' => 'projects#backlog', :as => :project_backlog
   match 'users/:username/projects/:id/sprints' => 'projects#sprints', :as => :project_sprints
   match 'users/:username/projects/:project_id/sprint/:id/planning' => 'sprints#planning', :as => :sprint_planning
+
+  match 'users/:username/projects/:project_id/sprints/:id/add_and_sort_stories' => 'sprints#add_and_sort_stories', :as => :add_and_sort_stories
+  match 'users/:username/projects/:project_id/sprints/:id/remove_and_sort_stories' => 'sprints#remove_and_sort_stories', :as => :remove_and_sort_stories
+
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):

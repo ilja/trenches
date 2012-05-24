@@ -48,6 +48,31 @@ class SprintsController < ApplicationController
 
   end
 
+
+  def add_and_sort_stories
+    #authorize! :update, @sprint
+
+    unless params[:story].blank?
+      params[:story].each_with_index do |story_id, index|
+        story = Story.find(story_id)
+        story.update_attributes(:sprint_position => index+1, :sprint => @sprint)
+      end
+    end
+    render :nothing => true
+  end
+
+  def remove_and_sort_stories
+    #authorize! :update, @sprint
+
+    unless params[:story].blank?
+      params[:story].each_with_index do |story_id, index|
+        story = Story.find(story_id)
+        story.update_attributes(:sprint_position => 0, :sprint => nil)
+      end
+    end
+    render :nothing => true
+  end
+
   private
 
   def load_project
