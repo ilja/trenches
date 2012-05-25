@@ -65,8 +65,7 @@ end
 
 Then /^I should be able to see that story on the sprint's page$/ do
   steps %Q{
-    When I visit the project's sprints page
-    Then I should be able to go to that sprint's page
+    Given I am on the sprint's page
   }
   page.should have_content 'My new story'
 end

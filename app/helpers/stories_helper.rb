@@ -1,18 +1,18 @@
 module StoriesHelper
   def link_to_story_developer(story)
     unless story.assigned_to.blank?
-      "(#{story.assigned_to.name})"
+      "(#{story.assigned_to.username})"
     end
   end
 
-  def change_status_button(story)
+  def change_status_button(user, story)
     html = ""
     unless story.blank? or story.points.blank? or story.sprint_id.blank?
-      if story.status == "open"
-        html << link_to('Start', start_story_path(story.project, story), :class => "button")
+      if story.status == Status::OPEN
+        html << link_to('Start', start_story_path(user, story.project, story), :class => "button", :rel => "start-story")
       end
-      if story.status == "active"
-        html << link_to('Done', finish_story_path(story.project, story), :class => "button")
+      if story.status == Status::ACTIVE
+        html << link_to('Done', finish_story_path(user, story.project, story), :class => "button", :rel => "finish-story")
       end
     end
     html.html_safe

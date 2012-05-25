@@ -15,6 +15,8 @@ Trenches::Application.routes.draw do
   end
   resources :sessions
 
+  match '/users/:username/projects/:project_id/stories/:id/start' => 'stories#start', :as => :start_story
+  match '/users/:username/projects/:project_id/stories/:id/finish' => 'stories#finish', :as => :finish_story
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

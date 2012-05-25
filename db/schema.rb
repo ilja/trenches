@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523130326) do
+ActiveRecord::Schema.define(:version => 20120525100601) do
 
   create_table "members", :force => true do |t|
     t.integer  "user_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120523130326) do
     t.integer  "status"
     t.integer  "sprint_position"
     t.integer  "backlog_position"
+    t.integer  "user_id"
   end
 
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"

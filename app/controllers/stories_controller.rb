@@ -38,6 +38,21 @@ class StoriesController < ApplicationController
     redirect_to project_backlog_path(@project.owner_username, @project)
   end
 
+  def start
+    #authorize! :update, @story
+
+    if current_user
+      @story.start(current_user)
+
+      if @story.save!
+        sprint = @project.sprints.find(@story.sprint_id)
+        redirect_to(request.referer, :notice => "story started")
+      else
+        #todo: error
+      end
+    end
+  end
+
   private
 
   def load_project

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :memberships, :class_name => "Member", :dependent => :destroy
   has_many :projects, :through => :memberships
+  has_many :stories
 
   attr_accessible :username, :email, :password, :password_confirmation
 

@@ -25,3 +25,7 @@ Feature: Manage projects
     Given I have added a story
     When I visit the project's backlog page
     Then I should be able to delete that story
+
+  Scenario: Show all open stories
+  Scenario: Show all active stories
+  Scenario: Show all done stories
