@@ -44,7 +44,7 @@ group :development do
   gem 'rb-fchange', :require => false
 #  gem 'growl_notify'
   gem 'quiet_assets'
-
+  gem 'thin'
   gem 'guard-rspec'
 end
 
