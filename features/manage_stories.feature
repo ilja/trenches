@@ -12,3 +12,10 @@ Feature: Manage stories
   Scenario: Start a story
     Given I am on the sprint's page
     Then I should be able to start the story
+
+  Scenario: Finish a story
+    Given I am on the sprint's page
+    And I have started a story
+    Then I should be able to finish it
+
+  #TODO: wat met finishen van stories van anderen?

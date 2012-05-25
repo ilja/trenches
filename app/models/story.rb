@@ -22,6 +22,11 @@ class Story < ActiveRecord::Base
     self.user = user
   end
 
+  def finish(user)
+    self.status = Status::DONE
+    self.user = user
+  end
+
   def assigned_to
     user
   end

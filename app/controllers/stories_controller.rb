@@ -46,7 +46,22 @@ class StoriesController < ApplicationController
 
       if @story.save!
         sprint = @project.sprints.find(@story.sprint_id)
-        redirect_to(request.referer, :notice => "story started")
+        redirect_to(request.referer, :notice => "Story started")
+      else
+        #todo: error
+      end
+    end
+  end
+
+  def finish
+    #authorize! :update, @story
+
+    if current_user
+      @story.finish(current_user)
+
+      if @story.save!
+        sprint = @project.sprints.find(@story.sprint_id)
+        redirect_to(request.referer, :notice => "Story finished")
       else
         #todo: error
       end
