@@ -1,0 +1,1 @@
+$('.storybody').html("<%= escape_javascript(render :partial => 'show.html', :locals => { :story => @story, :project => story.project, :current_user => current_user }) %>");

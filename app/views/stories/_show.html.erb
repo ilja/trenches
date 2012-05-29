@@ -1,0 +1,13 @@
+<div class="full-description"><%= markdown(story.body) %></div>
+<div class="edit-story">
+  <nav class="button-group">
+    <%# if can? :update, story %>
+      <%= link_to 'Edit', edit_user_project_story_path(current_user, story.project, story), :remote => true, :update => 'storybody', :class => "button", :rel => "edit-story" %>
+      <%#= link_to 'Edit', edit_user_project_story_path(current_user, story.project, story), :class => "button", :rel => "edit-story" %>
+    <%# end %>
+    <%# if can? :update, story and @sprint%>
+      <%= change_status_button(current_user, story) %>
+    <%# end %>
+  </nav>
+</div>
+

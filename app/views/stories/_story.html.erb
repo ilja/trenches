@@ -19,16 +19,6 @@
     <div class="naam" title="<%= story.title %> <%#= link_to_story_developer(story) %>"><%= story.title %> <%= link_to_story_developer(story) %></div>
   </div>
   <div class="storybody">
-    <div class="full-description"><%= markdown(story.body) %></div>
-    <div class="edit-story">
-      <nav class="button-group">
-        <%# if can? :update, story %>
-          <%= link_to 'Edit', edit_user_project_story_path(current_user, story.project, story), :class => "button", :rel => "edit-story" %>
-        <%# end %>
-        <%# if can? :update, story and @sprint%>
-          <%= change_status_button(current_user, story) %>
-        <%# end %>
-      </nav>
-    </div>
+    <%= render :partial => "/stories/show", :locals => { :story => story, :project => story.project, :current_user => current_user } %>
   </div>
 </li>

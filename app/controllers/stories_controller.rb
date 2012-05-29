@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   before_filter :load_project
   before_filter :load_story, :except => [:new, :create]
-
+  respond_to :html #, :js
   def new
     @story = @project.stories.build
   end
@@ -18,11 +18,27 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    # respond_with do |format|
+    #   format.html do
+    #     if request.xhr?
+    #       render :partial => "comments/show", :locals => { :comment => @comment }, :layout => false, :status => :created
+    #     else
   end
 
   def update
     if @story.update_attributes(params[:story])
-      redirect_to project_backlog_path(@project.owner_username, @project), :notice => 'Story updated'
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            render :partial => "story", :locals => { :story => @story, :sortable=> false }, :layout => false, :status => :created
+          else
+            redirect_to project_backlog_path(@project.owner_username, @project), :notice => 'Story updated'
+          end
+        end
+        format.js do
+          render :partial => "story", :locals => { :story => @story, :sortable=> false }, :layout => false, :status => :created
+        end
+      end
     else
       render :edit
     end
