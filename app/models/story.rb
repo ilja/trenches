@@ -5,7 +5,7 @@ class Story < ActiveRecord::Base
   belongs_to :sprint
   belongs_to :user
 
-  attr_accessible :title, :body, :points, :status, :moscow, :project_id, :sprint_position, :sprint
+  attr_accessible :title, :body, :points, :status, :moscow, :project, :sprint_position, :sprint
 
   validates :title, :project_id,  :presence => true
 

@@ -2,6 +2,7 @@ require 'active_record'
 
 class Project < ActiveRecord::Base
 
+  attr_accessible :name, :user, :user_id
   attr_writer :sprint_maker
 
   has_many :members, :dependent => :destroy
@@ -12,7 +13,7 @@ class Project < ActiveRecord::Base
 
   def start user
     members.build(:user => user, :project_owner => true)
-    save
+    save!
   end
 
   def add_story(story)
