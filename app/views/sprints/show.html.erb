@@ -16,19 +16,16 @@
   <section class="sprint-container">
     <nav class="button-container">
       <nav class="button-group">
-        <%= link_to 'All stories', {:show => "all"}, :class => "button" %>
-        <%= link_to 'My stories', {:show => "my"}, :class => "button" %>
+        <%= all_or_own_toggle_buttons(params[:show]) %>
       </nav>
 
       <nav id="togglebuttons" class="button-group">
-        <%= link_to 'Open', {:show => "open"}, :class => "button" %>
-        <%= link_to 'In progress', {:show => "active"}, :class => "button" %>
-        <%= link_to 'Done', {:show => "done"}, :class => "button" %>
+        <%= sort_buttons(params[:show]) %>
       </nav>
     </nav>
 
     <ul class="storylist">
-      <%= render :partial => '/stories/story', :collection => @sprint.stories.order(:sprint_position), :locals => {:sortable=> false} %>
+      <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
     </ul>
 
   </section>

@@ -1,6 +1,7 @@
 class SprintsController < ApplicationController
   before_filter :load_project
   before_filter :load_sprint, :except => [:index, :new, :create]
+  helper_method :show_scope
 
   def index
   end
@@ -21,6 +22,15 @@ class SprintsController < ApplicationController
   end
 
   def show
+    #authorize
+
+    if show_scope == "all"
+      @stories = @sprint.stories
+    elsif show_scope == "my"
+      @stories = @sprint.stories.where(:user_id => current_user)
+    else
+      @stories = @sprint.stories.where(:status => show_scope)
+    end
   end
 
   def edit
@@ -45,9 +55,7 @@ class SprintsController < ApplicationController
   end
 
   def planning
-
   end
-
 
   def add_and_sort_stories
     #authorize! :update, @sprint
@@ -83,5 +91,15 @@ class SprintsController < ApplicationController
     @sprint = @project.sprints.find(params[:id])
   end
 
+  def show_scope
+    query = Array(params[:show]).inject([]) { |result, value| result << Status.to_integer(value); result }
+    query.reject!(&:blank?)
+
+    if query.empty?
+      params[:show] == "my" ? "my" : "all"
+    else
+      query
+    end
+  end
 
 end

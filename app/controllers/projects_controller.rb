@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   def backlog
     unless params[:show].blank?
       query = params[:show].to_a.inject([]) { |result, value| result << Status.to_integer(value); result }
-      puts "=========>>>>>>>>>>>>> #{query.inspect}"
+
       @stories = @project.stories.where(:status => query).order(:backlog_position)
     else
       @stories = @project.stories.order(:backlog_position)
