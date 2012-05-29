@@ -12,40 +12,55 @@
     </div>
   <% end %>
 
-<%= form_for [current_user, project, story] do |f| -%>
+<%= form_for [current_user, project, story] do |f| %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, :autofocus => "true" %>
+  <div class="story-edit-container">
+    <div  class="story-title">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, :autofocus => "true" %>
+    </div>
+
+    <div class="story-edit-small-fields-container">
+      <div class="small-field">
+        <%= f.label :moscow, "Priority" %>
+        <%= f.select :moscow, Moscow::all %>
+      </div>
+
+      <div class="small-field">
+        <%= f.label :points %>
+        <%= f.select :points, StoryPoint::all %>
+      </div>
+
+      <div class="small-field">
+        <%= f.label :status %>
+        <%= f.select :status, Status::all %>
+      </div>
+    </div>
+
+    <div style="" class="story-description">
+      <%= f.label :body, "Description" %><br />
+      <%= f.text_area :body %>
+    </div>
+
+    <div class="story-edit-buttons-container">
+      <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> enabled!
+      <div class="story-edit-buttons">
+      <%= f.submit button_name, :class => "button", :disable_with => 'Saving...', :rel => "save-story" %> or <%= link_to 'go back', :back %>
+      <% unless story.new_record? %>
+        <%# if can? :destroy, story %>
+          or <%= link_to 'destroy', user_project_story_path(current_user, story.project, story), :confirm => 'Are you sure?', :method => :delete, :class => "button danger", :rel => "delete-story" %>
+        <%# end %>
+      <% end %>
+      </div>
+    </div>
+
+
   </div>
 
-  <div class="field">
-    <%= f.label :body, "Description" %><br />
-    <%= f.text_area :body %><br />
-    <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> enabled!
-  </div>
 
-  <div class="field">
-    <%= f.label :moscow, "Priority" %><br />
-    <%= f.select :moscow, Moscow::all %>
-  </div>
 
-  <div class="field">
-    <%= f.label :points %><br />
-    <%= f.select :points, StoryPoint::all %>
-  </div>
 
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.select :status, Status::all %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit button_name, :class => "button", :disable_with => 'Saving...', :rel => "save-story" %> or <%= link_to 'go back', :back %>
-    <% unless story.new_record? %>
-      <%# if can? :destroy, story %>
-        or <%= link_to 'destroy', user_project_story_path(current_user, story.project, story), :confirm => 'Are you sure?', :method => :delete, :class => "button danger", :rel => "delete-story" %>
-      <%# end %>
-    <% end %>
-  </div>
+
+
 <% end %>

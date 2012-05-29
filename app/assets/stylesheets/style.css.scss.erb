@@ -331,7 +331,7 @@ form.edit_story {
 
 div.field {
   padding-bottom: 15px;
-  textarea#story_description {
+  textarea.story_description {
     width: 99%;
   }
 
@@ -340,6 +340,41 @@ div.field {
   }
 }
 
+.story-edit-container {
+
+  padding: 10px;
+
+  overflow: auto;
+
+  .story-title {
+    float: left;
+  }
+
+  .story-edit-small-fields-container {
+    float: right;
+    .small-field {
+      padding: 2px;
+      text-align: right;
+    }
+  }
+
+  .story-description{
+    clear: both;
+    width: 100%;
+
+    textarea {
+      width: 98%;
+    }
+  }
+
+  .story-edit-buttons-container {
+    padding: 5px 0 0 0;
+
+    .story-edit-buttons {
+      float: right;
+    }
+  }
+}
 
 #subnav {
   overflow: auto;
