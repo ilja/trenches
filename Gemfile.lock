@@ -216,6 +216,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   jquery-rails
+  json
   launchy
   pry
   quiet_assets

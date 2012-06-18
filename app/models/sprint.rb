@@ -6,7 +6,7 @@ class Sprint < ActiveRecord::Base
   has_many :stories, :order => :sprint_position
 
   attr_accessible :title, :goal, :start_date, :end_date, :project, :clock
-  attr_writer :clock
+  attr_writer :clock, :uuid
 
   validates :title, :project, :presence => true
 
