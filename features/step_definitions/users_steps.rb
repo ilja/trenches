@@ -12,7 +12,7 @@ When /^I choose to sign up for an account$/ do
 end
 
 Then /^my account should be created$/ do
-  page.should have_content 'Thank you for registering! You are now logged in!'
+  page.should have_content 'Thank you for registering! You can now log in!'
 end
 
 Given /^I have registered an account$/ do

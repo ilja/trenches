@@ -1,16 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1315727226.019476:@value{I"
-class:EFI"StaticAsset;
-FI"id;
-F"%e1e667873555241c8dfd51fac3b69916I"logical_path;
-F"bg-hover.pngI"pathname;
-FI")$root/app/assets/images/bg-hover.png;
-FI"content_type;
-FI"image/png;
-FI"
-mtime;
-FI"2011-07-04T21:17:02+02:00;
-FI"length;
-FI"752;
-FI"digest;
-F"%50e8d94858a4781328b521821735a217I"_version;
-F"%97739329ce42ca4790d6d6355cef77c0

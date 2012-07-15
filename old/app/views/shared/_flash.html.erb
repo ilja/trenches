@@ -1,8 +1,0 @@
-<% unless flash.blank? %>
-  <% flash.each do |name, msg| %>
-    <div id="<%= "flash_#{name}" %>" class="flashcontainer">
-      <%= "<img src=\"/assets/dialog-#{name}.png\" alt='info' class='icon' /> ".html_safe %>
-      <%=  msg %>
-    </div>
-  <% end %>
-<% end %>

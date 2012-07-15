@@ -1,1 +1,0 @@
-/Users/ilja/Dropbox/source/trenches/omniauth.rb
