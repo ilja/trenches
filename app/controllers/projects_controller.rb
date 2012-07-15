@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @latest_sprint = @project.sprints.last
   end
 
   def edit

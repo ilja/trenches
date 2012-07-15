@@ -36,3 +36,8 @@ Feature: Manage sprints
     Given I have added a sprint
     And I have added a story to that sprint
     Then I should be able to see that story on the sprint's page
+
+  Scenario: View latest sprint on project dashboard
+    Given I have a sprint with stories
+    When I go to my project's page
+    Then I should see the latest sprint statistics

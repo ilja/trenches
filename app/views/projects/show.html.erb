@@ -15,11 +15,20 @@
 <div id="main" role="main">
   <%= render "shared/flash", :flash => flash %>
 
-  <h2>Latest Sprint</h2>
-  12-2-2012 - 13-3-2012
-  Progress....
-  <%= link_to "manage sprints", project_sprints_path(@project.owner_username, @project), :rel => "sprints" %>
-
+  
+  <h2>Latest Sprint: 
+    <% if @latest_sprint %>
+      <%= link_to @latest_sprint.title, user_project_sprint_path(@project.owner_username, @project, @latest_sprint) %>      
+    <% else %>
+      No sprints defined.
+    <% end %>
+    
+    <small><%= link_to "view all",project_sprints_path(@project.owner_username, @project), :rel => "sprints" %></small>
+  </h2>  
+  <div class="sprint-info">
+    <%= render :partial => 'sprints/info', :locals => { :sprint => @latest_sprint } if @latest_sprint %>
+  </div>
+  
   <h2>
     Top 10 product backlog stories
     <small><%= link_to "view all", project_backlog_path(@project.owner_username, @project), :rel => "project-backlog" %></small>

@@ -69,3 +69,15 @@ Then /^I should be able to see that story on the sprint's page$/ do
   }
   page.should have_content 'My new story'
 end
+
+Given /^I have a sprint with stories$/ do
+  steps %Q{
+    Given I have added a sprint
+    And I have added a story to that sprint
+    And I have added a story to that sprint
+  }
+end
+
+Then /^I should see the latest sprint statistics$/ do
+  page.should have_content 'My new sprint'
+end

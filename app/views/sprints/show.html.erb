@@ -31,17 +31,7 @@
   </section>
 
   <aside>
-    <h2 class="sprint-time">
-    <time datetime="<%= @sprint.start_date.strftime("%Y-%m-%e") %>"><%= @sprint.start_date.strftime("%e-%m-%Y") %></time> &mdash;
-    <time datetime="<%= @sprint.end_date.strftime("%Y-%m-%e") %>"><%= @sprint.end_date.strftime("%e-%m-%Y") %></time>
-    </h2>
-
-    <blockquote>
-     <%= @sprint.goal %>
-    </blockquote>
-    <div class="progress-bar">
-      <span style="width: <%= @sprint.percentage_completed %>%"></span>
-    </div>
+    <%= render :partial => 'sprints/info', :locals => { :sprint => @sprint } %>    
   </aside>
 
  </div>
