@@ -20,8 +20,16 @@
   Progress....
   <%= link_to "manage sprints", project_sprints_path(@project.owner_username, @project), :rel => "sprints" %>
 
-  <h2><%= link_to "Product backlog", project_backlog_path(@project.owner_username, @project), :rel => "project-backlog" %></h2>
-  top 10 stories uit backlog<br />
+  <h2>
+    Top 10 product backlog stories
+    <small><%= link_to "view all", project_backlog_path(@project.owner_username, @project), :rel => "project-backlog" %></small>
+  </h2>
+  <ul>
+  <% @project.backlog.limit(10).each do |story| %>
+    <li><%= story.title %></li>
+  <% end %>
+  </ul>
+  
 
 
 </div>

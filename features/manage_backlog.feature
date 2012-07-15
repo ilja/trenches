@@ -29,3 +29,8 @@ Feature: Manage projects
   Scenario: Show all open stories
   Scenario: Show all active stories
   Scenario: Show all done stories
+
+  Scenario: View the top 10 backlog items on the dashboard
+    Given I have 11 backlog items
+    When I go to my project's page    
+    Then I should see the top 10 backlog items

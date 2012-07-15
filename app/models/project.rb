@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
   end
 
   def backlog
-    stories.where(:sprint_id => nil)
+    stories.where(:sprint_id => nil).order(:backlog_position)
   end
 
   private

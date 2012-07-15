@@ -50,3 +50,16 @@ Then /^I should be able to delete that story$/ do
     page.should_not have_content 'My new story'
   end
 end
+
+Given /^I have (\d+) backlog items$/ do |amount|
+  project = Project.first
+  amount.to_i.times do |i|
+    Story.create(:title => "Story #{i}", :project => project)    
+  end
+end
+
+Then /^I should see the top 10 backlog items$/ do
+  page.should have_content 'Story 1'
+  page.should have_content 'Story 9'
+  page.should_not have_content 'Story 10'
+end
