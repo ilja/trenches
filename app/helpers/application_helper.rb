@@ -1,5 +1,5 @@
 module ApplicationHelper
-  require 'rdiscount' 
+  require 'rdiscount'
 
   # markdown -> html
   def markdown(string)

@@ -1,35 +1,21 @@
 Feature: Manage stories
-  In order to capture what a user should be able to do
-  As a registered user
-  I want to create, update and delete user stories
+  In order to work on stories
+  As a logged in user
+  I want to manage my stories
 
-  Background:
+  Background: Sign in
     Given I am logged in
+    And I have created a project
+    And I have added a sprint
+    And I have added a story to that sprint
 
-  @omniauth_test
-  Scenario: Create a userstory
-    Given I visit the backlog page of project "y"
-    When I follow "New Story"
-    And I fill in "Name" with "My first story"
-    And I press "Create Story"
-    Then I should see "'My first story' was successfully created."
-    And I should return to the backlog page of project "y"
+  Scenario: Start a story
+    Given I am on the sprint's page
+    Then I should be able to start the story
 
-  @omniauth_test
-  Scenario: Edit a userstory
-    Given story "teststory" exists in the backlog of project "p"
-    And I visit the backlog page of project "p"
-    When I follow "Edit"
-    And I fill in "Name" with "Better name"
-    And I press "Update Story"
-    Then I should see "'Better name' was successfully updated."
-    And I should not see "teststory"
+  Scenario: Finish a story
+    Given I am on the sprint's page
+    And I have started a story
+    Then I should be able to finish it
 
-  @omniauth_test
-  Scenario: Delete a userstory
-    Given story "deleteme" exists in the backlog of project "d"
-    And I visit the backlog page of project "d"
-    When I follow "Edit"
-    And I follow "destroy"
-    Then I should see "'deleteme' was successfully deleted."
-    And I should not see "deleteme" within "#storylist"
+  #TODO: wat met finishen van stories van anderen?

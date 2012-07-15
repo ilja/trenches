@@ -1,44 +1,38 @@
 <% title("#{@project.name} / Sprints") %>
 <header>
   <h1>
-    <%= link_to @project.name, backlog_path(@project) %>
+    <%= link_to @project.name, user_project_path(current_user, @project) %>
     /
     Sprints
   </h1>
-
+  <nav class="header-right">
+  <%#= link_to "Sprints", user_project_sprints_path(current_user, @project), :class => "button" %>
+  </nav>
 </header>
 
 <div id="main" role="main">
   <%= render "shared/flash", :flash => flash %>
 
   <section class="sprints-container">
+
     <nav class="button-container">
-    <% if can? :create, Sprint %>
-      <%= link_to 'New Sprint', new_project_sprint_path(@project), :class => "button primary" %>
-    <% end %>
+      <%# if can? :create, Story %>
+         <%= link_to 'New Sprint', new_user_project_sprint_path(current_user, @project), :class => "button primary", :rel => "new-sprint" %>
+      <%# end %>
+
+
+      <nav id="togglebuttons" class="button-group">
+        <%#= sort_button(params[:show]) %>
+      </nav>
     </nav>
 
-    <ul class="fancy">
-    <% @sprints.each do |sprint| %>
-      <li>
-        <article>
-          <div class="name"><%= link_to sprint.name, project_sprint_path(@project, sprint), 'data-skip-pjax' => true %></div>
-          <nav class="button-group">
-            <% if can? :update, Sprint %>
-              <%= link_to 'Make active', set_active_sprint_path(@project, sprint), :class => "button small" %>
-            <% end %>
-            <% if can? :update, Sprint %>
-              <%= link_to 'Edit', edit_project_sprint_path(@project, sprint), :class => "button small" %>
-            <% end %>
-            <% if can? :destroy, Sprint %>
-              <%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete, :class => "button small danger" %>
-            <% end %>
-          </nav>
-        </article>
-      </li>
-    <% end %>
-    </ul>
+    <div id="sprintlist">
+      <ul class="fancy">
+        <%= render :partial => 'sprints/sprint', :collection => @project.sprints %>
+      </ul>
+    </div>
 
   </section>
 
 </div>
+

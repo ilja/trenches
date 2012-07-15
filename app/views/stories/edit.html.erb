@@ -1,9 +1,9 @@
-<% title("Edit #{@story.name}") %>
+<% title("Edit #{@story.title}") %>
 <header>
   <h1>
-    <%= link_to @project.name, backlog_path(@project) %>
+    <%= link_to @project.name, project_backlog_path(@project.owner_username, @project) %>
     /
-    Edit <%= @story.name %>
+    Edit <%= @story.title %>
   </h1>
 </header>
 
@@ -11,7 +11,7 @@
   <%= render "shared/flash", :flash => flash %>
 
   <section class="backlog-container">
-    <%= render 'form', :button_name => "Update Story" %>
+    <%= render :partial => "form", :locals => { :button_name => "Update Story", :story => @story, :project => @project, :current_user => current_user, :remote => false } %>
   </section>
 
 </div>

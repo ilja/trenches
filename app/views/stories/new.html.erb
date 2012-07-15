@@ -1,7 +1,7 @@
 <% title("#{@project.name} / New Story") %>
 <header>
   <h1>
-    <%= link_to @project.name, backlog_path(@project) %>
+ 	<%= link_to @project.name, user_project_path(current_user, @project) %>
     /
     New Story
   </h1>
@@ -11,7 +11,7 @@
   <%= render "shared/flash", :flash => flash %>
 
   <section class="backlog-container">
-    <%= render 'form', :button_name => "Create Story" %>
+    <%= render :partial => "form", :locals => { :button_name => "Create Story", :story => @story, :project => @project, :current_user => current_user, :remote => false } %>
   </section>
 
 </div>

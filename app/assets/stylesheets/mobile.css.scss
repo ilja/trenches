@@ -1,0 +1,39 @@
+@media screen and (max-width: 480px) {
+  #container {
+    width: auto;
+    padding: 0 5px;
+  }
+
+  #container #logo {
+    width: 100%;
+    font-size: 3em;
+    letter-spacing: 20px;
+  }
+
+  #container nav#topnav {
+    float: left;
+  }
+
+  #container header h1 {
+    font-size: 1.9em;
+  }
+
+  section.sprint-container {
+    width: auto;
+    padding-right: 0;
+  }
+
+  section.sprint-container nav.button-container nav.button-group {
+    float: left;
+  }
+
+  section.sprint-container nav#togglebuttons {
+    margin-left: 5px;
+    float: right;
+  }
+
+  div#main aside {
+    width: 100%;
+    padding-top: 10px;
+  }
+}

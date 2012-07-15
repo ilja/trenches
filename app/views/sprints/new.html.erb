@@ -1,6 +1,8 @@
-<% title("#{@project.name} / New sprint") %>
+<% title("#{@project.name} / New Sprint") %>
 <header>
   <h1>
+ 	<%= link_to @project.name, user_project_path(current_user, @project) %>
+    /
     New Sprint
   </h1>
 </header>
@@ -8,8 +10,8 @@
 <div id="main" role="main">
   <%= render "shared/flash", :flash => flash %>
 
-  <section class="backlog-container">
-    <%= render 'form', :button_name => "Create Sprint" %>
+  <section class="sprints-container">
+    <%= render :partial => "form", :locals => { :button_name => "Create Sprint", :sprint => @sprint, :project => @project, :current_user => current_user } %>
   </section>
 
 </div>

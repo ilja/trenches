@@ -1,52 +1,50 @@
-class Sprint
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  include Mongoid::MultiParameterAttributes #so we can assign dates from date_select form helpers
+require 'active_record'
+require 'active_support/core_ext/object/conversions'
 
-  field :name, :type => String
-  field :goal, :type => String
-  field :start_date, :type => Date
-  field :end_date, :type => Date
-  embedded_in :project, :inverse_of => :sprints
-  references_many :stories
-  references_many :users
+class Sprint < ActiveRecord::Base
+  belongs_to :project
+  has_many :stories, :order => :sprint_position
 
-  validates_presence_of :name, :start_date, :end_date
+  attr_accessible :title, :goal, :start_date, :end_date, :project, :clock
+  attr_writer :clock
+  attr_accessor :uuid
 
-  # give the total number of workdays in this sprint
+  validates :title, :project, :presence => true
+
+  after_initialize :default_values
+
+  def default_values
+    return unless new_record?
+
+    self.start_date = clock.now
+    self.end_date = (3.weeks).since(clock.now)
+  end
+
   def total_work_days
     total_days.select{|d| (1..5).include?(d.wday) }
   end
 
   def total_days
-    (start_date.to_date..end_date.to_date)
+    start_date.to_date..end_date.to_date
   end
 
-  # give the total remaining workdays in this sprint on the given date
   def remaining_work_days(day)
     ((day+1).to_date..end_date.to_date).select{|d|(1..5).include?(d.wday)}
   end
 
-  # give the total spent workdays in this sprint on the given date
   def spent_work_days(day)
     (start_date.to_date..day.to_date).select{|d|(1..5).include?(d.wday)}
   end
 
   def total_story_points
-    stories.inject(0) do |sum, story|
-      sum + story.points
-    end
-  end
-
-  def done_story_points_on(date)
-    stories.done.where(:done_date.lte => date).inject(0) do |sum, story|
-      sum + story.points
-    end
+    stories.inject(0) { |sum, story| sum += story.points; sum }
   end
 
   def open_story_points
-    stories.any_in(:status => ["open", "active"]).inject(0) do |sum, story|
-      sum + story.points
+    open_stories = stories.select { |s| [Status::OPEN, Status::ACTIVE].include? s.status }
+    open_stories.inject(0) do |sum, story|
+      sum += story.points
+      sum
     end
   end
 
@@ -55,25 +53,15 @@ class Sprint
     done == 0 ? 0 : done / (total_story_points / 100.to_f)
   end
 
-  def done_story_points_per_workday
-    count = 0
-    result = []
-    total_days.each do |day|
-      result << [count, self.done_story_points_on(day)]
-      count += 1
-    end
-    result
+  def add_story(story)
+    stories << story
+    story.sprint = self
   end
 
-  def open_story_points_per_workday
-    count = 0
-    result = []
-    total_work_days.each do |day|
-      open = total_story_points - done_story_points_on(day)
-      result << [count, open]
-      count += 1
-    end
-    result
+  private
+
+  def clock
+    @clock ||= DateTime
   end
 
 end

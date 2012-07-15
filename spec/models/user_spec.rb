@@ -1,14 +1,22 @@
 require 'spec_helper'
 
 describe User do
-
-  it "can assign an active sprint" do
-    user = User.create(:name => "bob")
-    p = Project.create
-    s = p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 25), :name => "My test sprint")
-    user.assign_active_sprint(s)
-
-    user.active_sprint.should == s
+  context "validations" do
+    before do
+      subject.save
+    end
+    it "should not save if invalid" do
+      subject.save.should be_false
+    end
+    it "should require a username" do
+      subject.errors[:username].should eq ["can't be blank"]
+    end
+    it "should require a password" do
+      subject.errors[:password].should eq ["can't be blank"]
+    end
+    it "should require an email address" do
+      subject.errors[:email].should eq ["can't be blank"]
+    end
   end
-
 end
+

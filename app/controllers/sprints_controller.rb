@@ -1,121 +1,105 @@
 class SprintsController < ApplicationController
   before_filter :load_project
+  before_filter :load_sprint, :except => [:index, :new, :create]
   helper_method :show_scope
-  respond_to :html
 
   def index
-    @sprints = @project.sprints
-    authorize! :read, @sprints
-    respond_with @sprints
-  end
-
-  def show
-    @sprint = @project.sprints.find(params[:id])
-    authorize! :read, @sprint
-
-    if show_scope == "all"
-      @stories = @sprint.stories.asc(:position)
-    elsif show_scope == "my"
-      @stories = @sprint.stories.stories_for(current_user).asc(:position)
-    else
-      @stories = @sprint.stories.where(:status => show_scope).asc(:position)
-    end
-
-    respond_with @sprint
-  end
-
-  def planning
-    @sprint = @project.sprints.find(params[:id])
-    authorize! :read, @sprint
-    respond_with @sprint
   end
 
   def new
-    authorize! :create, Sprint
     @sprint = Sprint.new
-    respond_with @sprint
-  end
-
-  def edit
-    @sprint = @project.sprints.find(params[:id])
-    authorize! :read, @sprint
   end
 
   def create
-    # todo: fix date select assignment failure
-    @sprint = @project.sprints.build(params[:sprint])
-    authorize! :create, @sprint
+    @sprint = @project.sprints.create(params[:sprint])
 
-    if @sprint.save!
-      redirect_to project_sprints_path(@project), :notice => "'#{@sprint.name}' was successfully created."
+    if @sprint.save
+      flash[:notice] = "'#{@sprint.title}' was successfully created."
+      redirect_to project_sprints_path(@project.owner_username, @project)
     else
       render :new
     end
   end
 
-  def update
-    @sprint = @project.sprints.find(params[:id])
-    authorize! :update, @sprint
+  def show
+    #authorize
 
+    if show_scope == "all"
+      @stories = @sprint.stories
+    elsif show_scope == "my"
+      @stories = @sprint.stories.where(:user_id => current_user)
+    else
+      @stories = @sprint.stories.where(:status => show_scope)
+    end
+  end
+
+  def edit
+  end
+
+  def update
     if @sprint.update_attributes(params[:sprint])
-      redirect_to project_sprints_path(@project),  :notice => "'#{@sprint.name}' was successfully updated."
+      redirect_to project_sprints_path(@project.owner_username, @project), :notice => 'Sprint updated'
     else
       render :edit
     end
   end
 
   def destroy
-    @sprint = @project.sprints.find(params[:id])
-    authorize! :destroy, @sprint
-    sprintname = @sprint.name
-    @sprint.destroy
-    redirect_to project_sprints_url, :notice => "'#{sprintname}' was successfully deleted."
+    if @sprint.destroy
+      flash[:notice] = 'Sprint deleted.'
+    else
+      flash[:error] = 'An error occured while trying to delete the sprint'
+    end
+
+    redirect_to project_sprints_path(@project.owner_username, @project)
+  end
+
+  def planning
   end
 
   def add_and_sort_stories
-    sprint = @project.sprints.find(params[:sprint_id])
-    authorize! :update, sprint
+    #authorize! :update, @sprint
 
     unless params[:story].blank?
       params[:story].each_with_index do |story_id, index|
         story = Story.find(story_id)
-        story.update_attributes(:position => index+1, :sprint => sprint)
+        story.update_attributes(:sprint_position => index+1, :sprint => @sprint)
       end
     end
     render :nothing => true
   end
 
   def remove_and_sort_stories
-    authorize! :update, Sprint
+    #authorize! :update, @sprint
 
     unless params[:story].blank?
       params[:story].each_with_index do |story_id, index|
         story = Story.find(story_id)
-        story.update_attributes(:position => index+1, :sprint_id => nil)
+        story.update_attributes(:sprint_position => 0, :sprint => nil)
       end
     end
     render :nothing => true
-  end
-
-  def activate
-    if current_user
-      sprint = @project.sprints.find(params[:id])
-      current_user.assign_active_sprint(sprint)
-
-      if current_user.save
-        redirect_to project_sprint_path(@project, current_user.active_sprint), :notice => "Active sprint set."
-      end
-    end
   end
 
   private
 
   def load_project
     @project = Project.find(params[:project_id])
-    authorize! :read, @project
+  end
+
+  def load_sprint
+    @sprint = @project.sprints.find(params[:id])
   end
 
   def show_scope
-    %w[open active done my].include?(params[:show]) ?  params[:show] : "all"
+    query = Array(params[:show]).inject([]) { |result, value| result << Status.to_integer(value); result }
+    query.reject!(&:blank?)
+
+    if query.empty?
+      params[:show] == "my" ? "my" : "all"
+    else
+      query
+    end
   end
+
 end

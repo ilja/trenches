@@ -1,21 +1,21 @@
-<% if @sprint.errors.any? %>
+<% if sprint.errors.any? %>
    <div id="flash_warning" class="flashcontainer">
       <%= image_tag "dialog-warning.png", :alt => "info", :class => "icon" %>
-      <h2><%= pluralize(@sprint.errors.count, "error") %> prohibited this sprint from being saved:</h2>
+      <h2><%= pluralize(sprint.errors.count, "error") %> prohibited this sprint from being saved:</h2>
 
       <ul>
-      <% @sprint.errors.full_messages.each do |msg| %>
+      <% sprint.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
 <% end %>
 
-<%= form_for [@project, @sprint], :html => { :autocomplete => :off } do |f| %>
+<%= form_for [current_user, project, sprint], :html => { :autocomplete => :off } do |f| %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, :required => "true" %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :required => "true" %>
   </div>
 
   <div class="field">
@@ -33,6 +33,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit button_name, :class => "button", :disable_with => 'Saving...' if can? :update, @sprint %> or go <%= link_to 'back', project_sprints_path(@project) %>
+    <%# if can? :update, sprint %>
+      <%= f.submit button_name, :class => "button", :data => {:disable_with => 'Saving...'}, :rel => 'save-sprint' %> or
+    <%# end %>
+    go <%= link_to 'back', user_project_sprints_path(project.owner_username, project) %>
   </div>
 <% end %>
+

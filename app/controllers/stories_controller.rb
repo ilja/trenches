@@ -1,78 +1,68 @@
 class StoriesController < ApplicationController
   before_filter :load_project
-  helper_method :filters
-  respond_to :html
-
-  def index
-    unless params[:show].blank?
-      query = params[:show].to_a.select { |value| filters.include?value.to_s }
-      @stories = @project.stories.where(:status.in => query).asc(:backlog_position)
-    else
-      @stories = @project.stories.asc(:backlog_position)
-    end
-
-    authorize! :read, @stories
-    respond_with @stories
-  end
-
-  def show
-    @story = Story.find(params[:id])
-    authorize! :read, @story
-    respond_with @story
-  end
-
+  before_filter :load_story, :except => [:new, :create]
+  respond_to :html #, :js
   def new
-    @story = Story.new
-    authorize! :create, Story
-    respond_with @story
-  end
-
-  def edit
-    @story = Story.find(params[:id])
-    session[:return_to] = request.referer #remember where we came from
-    authorize! :update, @story
+    @story = @project.stories.build
   end
 
   def create
-    @story = @project.stories.build(params[:story])
-    authorize! :create, @story
+    @story = @project.stories.create(params[:story])
 
     if @story.save
-      redirect_to backlog_path(@project), :notice => "'#{@story.name}' was successfully created."
+      flash[:notice] = "'#{@story.title}' was successfully created."
+      redirect_to project_backlog_path(@project.owner_username, @project)
     else
       render :new
     end
   end
 
-  def update
-    @story = Story.find(params[:id])
-    authorize! :update, @story
+  def edit
+    # respond_with do |format|
+    #   format.html do
+    #     if request.xhr?
+    #       render :partial => "comments/show", :locals => { :comment => @comment }, :layout => false, :status => :created
+    #     else
+  end
 
+  def update
     if @story.update_attributes(params[:story])
-      redirect_to session[:return_to], :notice => "'#{@story.name}' was successfully updated."
+      respond_with do |format|
+        format.html do
+          if request.xhr?
+            render :partial => "story", :locals => { :story => @story, :sortable=> false }, :layout => false, :status => :created
+          else
+            redirect_to project_backlog_path(@project.owner_username, @project), :notice => 'Story updated'
+          end
+        end
+        format.js do
+          render :partial => "story", :locals => { :story => @story, :sortable=> false }, :layout => false, :status => :created
+        end
+      end
     else
       render :edit
     end
   end
 
   def destroy
-    @story = Story.find(params[:id])
-    authorize! :destroy, @story
-    storyname = @story.name
-    @story.destroy
-    redirect_to backlog_url(@project), :notice => "'#{storyname}' was successfully deleted."
+    if @story.destroy
+      flash[:notice] = 'Story deleted.'
+    else
+      flash[:error] = 'An error occured while trying to delete the story'
+    end
+
+    redirect_to project_backlog_path(@project.owner_username, @project)
   end
 
   def start
-    @story = @project.stories.find(params[:story_id])
-    authorize! :update, @story
+    #authorize! :update, @story
 
     if current_user
       @story.start(current_user)
 
       if @story.save!
         sprint = @project.sprints.find(@story.sprint_id)
-        redirect_to(request.referer, :notice => "story started")
+        redirect_to(request.referer, :notice => "Story started")
       else
         #todo: error
       end
@@ -80,15 +70,14 @@ class StoriesController < ApplicationController
   end
 
   def finish
-    @story = @project.stories.find(params[:story_id])
-    authorize! :update, @story
+    #authorize! :update, @story
 
     if current_user
       @story.finish(current_user)
 
       if @story.save!
         sprint = @project.sprints.find(@story.sprint_id)
-        redirect_to(request.referer, :notice => "story finished")
+        redirect_to(request.referer, :notice => "Story finished")
       else
         #todo: error
       end
@@ -99,10 +88,10 @@ class StoriesController < ApplicationController
 
   def load_project
     @project = Project.find(params[:project_id])
-    authorize! :read, @project
   end
 
-  def filters
-    %w[open active done]
+  def load_story
+    @story = @project.stories.find(params[:id])
   end
+
 end

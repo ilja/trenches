@@ -1,30 +1,21 @@
-class User
-  include Mongoid::Document
-  field :provider, :type => String
-  field :uid, :type => String
-  field :name, :type => String
-  references_many :stories
-  referenced_in :sprint
+require 'active_record'
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["user_info"]["nickname"]
-    end
-  end
+class User < ActiveRecord::Base
+  authenticates_with_sorcery!
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 
-  def assign_active_sprint(sprint)
-    self.sprint = sprint
-  end
+  attr_accessor :uuid
 
-  def active_sprint
-    sprint
-  end
+  has_many :memberships, :class_name => "Member", :dependent => :destroy
+  has_many :projects, :through => :memberships
+  has_many :stories
 
-  #def active_sprint_for(project)
-   # sprint = project.sprints.where(:user => self).first
-    #sprint
-  #end
+  attr_accessible :username, :email, :password, :password_confirmation
+
+  validates_confirmation_of :password
+  validates_presence_of :password, :on => :create
+  validates :email, :username, :presence => true
+  validates :email, :username, :uniqueness => true
 
 end

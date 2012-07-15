@@ -1,22 +1,20 @@
 class SessionsController < ApplicationController
-
   def new
-    redirect_to '/auth/github'
   end
 
   def create
-    auth = request.env["omniauth.auth"]
-    user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first || User.create_with_omniauth(auth)
-    session[:user_id] = user.id
-    redirect_to root_url, :notice => "Signed in!"
+    user = login(params[:username], params[:password], params[:remember_me])
+    if user
+      redirect_back_or_to root_url, :notice => "Nice Work! You are now logged in!"
+    else
+      flash.now.alert = "Sorry, Email or password was invalid."
+      render :new
+    end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_url, :notice => "Signed out!"
+    logout
+    redirect_to root_url, :notice => "Logged out."
   end
 
-  def failure
-    render :text => "I say, old chap, I'm terribly sorry but it seems an error has occurred. It seems you're unable to login at this time."
-  end
 end

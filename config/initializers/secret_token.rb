@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-TrenchesRb::Application.config.secret_token = '2feb1ccf80a47bf9703482ccf6ba4f765c00496427e1c189e13782803616715b84171073de2ceda3b509703a93ac96ab227c4f746c3cc43ea9da4a65dd362ae8'
+Trenches::Application.config.secret_token = 'ff63f8e3867f4830d893ce16d50f42eb8501bdcc485873faed51c1276f175f2e634df0ccc527ca7ba6d001c6d5cd3691bfb9558a166951756cc91468af6bbe8c'

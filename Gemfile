@@ -1,51 +1,66 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.1.0'
+gem 'rails', '~>3.2.3'
 
 # Bundle edge Rails instead:
-#gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => "3-1-stable"
+# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'unicorn'
+gem 'sqlite3'
 
-# Asset pipeline stuff
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
-gem 'therubyracer'
+gem 'json'
 
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
 
 gem 'jquery-rails'
-#gem 'pjax_rails'
-gem 'coffeebeans'
 
-# authentication with omniauth
-gem 'omniauth', '~>0.2.6'
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
-# authorization with cancan
-gem 'cancan', '~>1.6.1'
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+#gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'sorcery', "~> 0.7.0"
 
 # markdown
 gem 'rdiscount'
 
-#mongodb
-gem 'mongoid', '>= 2.0.1'
-gem 'bson_ext', '>= 1.3.0'
+gem "friendly_id", "~> 4.0.0"
 
-group :development, :test do
-  gem 'rspec-rails', '>= 2.0.1'
-  gem 'watchr'
-  gem 'notifier'
-  gem 'spork', '~>0.9.0rc'
-  gem 'factory_girl_rails'
-  gem 'launchy'
-  # Pretty printed test output
-  gem 'turn', :require => false
+group :development do
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+#  gem 'growl_notify'
+  gem 'quiet_assets'
+  #gem 'thin'
+  gem 'guard-rspec'
+  gem 'rack-livereload'
+  gem 'puma'
 end
 
-gem 'cucumber-rails', :group => :test
-gem 'capybara', :group => :test
-gem 'database_cleaner', :group => :test
+gem 'simplecov', :require => false, :group => :test
+gem 'cucumber-rails', :require => false, :group => :test
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.7"
+  gem 'factory_girl_rails'
+  gem "capybara"
+  gem 'launchy'
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'pry'
+end

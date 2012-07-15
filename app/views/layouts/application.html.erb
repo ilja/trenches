@@ -44,14 +44,14 @@
     <nav id="topnav">
       <ul>
         <% if current_user %>
-          <li><%= current_user.name %></li>
-        <% end %>
-        <li><%= link_to "all projects", projects_path, 'data-skip-pjax' => true %></li>
+          <li><%= current_user.username %></li>
+          <li><%= link_to "all projects", user_projects_path(current_user), :rel => "my-projects" %></li>
+         <% end %>
         <li>
           <% if current_user %>
-            <%= link_to "sign out", signout_path, 'data-skip-pjax' => true %>
+            <%= link_to "sing out", logout_path, :rel => "logout" %>
           <% else %>
-            <%= link_to "sign in with GitHub", signin_path, 'data-skip-pjax' => true %>
+            <%= link_to "sign up", signup_path, :rel => "signup" %> or <%= link_to "log in", login_path, :rel => "login" %>.
           <% end %>
         </li>
       </ul>
@@ -60,7 +60,7 @@
     <%= yield %>
 
     <footer>
-      Trenches 0.3
+      Trenches 0.4
     </footer>
 
   </div> <!--! end of #container -->
@@ -69,8 +69,8 @@
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
 
   <!-- scripts concatenated and minified via ant build script-->

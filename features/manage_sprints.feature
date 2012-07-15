@@ -1,40 +1,43 @@
 Feature: Manage sprints
-  In order develop iteratively
-  As a developer
-  I want to have sprints
+  In order to have sprints
+  As a logged in user
+  I want to manage my sprints
 
-  Background:
+  Background: Sign in
     Given I am logged in
+    And I have created a project
 
-  @omniauth_test
-  Scenario: Create a new sprint
-    Given project "x" exists
-    And I visit the sprints page for project "x"
-    When I follow "New Sprint"
-    And I fill in "Name" with "My first sprint"
-    And I press "Create Sprint"
-    Then I should see "'My first sprint' was successfully created."
-    And I should be on the sprints page
+  Scenario: View a sprint
+    Given I have added a sprint
+    When I visit the project's sprints page
+    Then I should be able to go to that sprint's page
 
-  @omniauth_test
-  Scenario: Edit an existing sprint
-    Given project "x" exists
-    And I visit the sprints page for project "x"
-    And I have created sprint "a sprint"
-    Then show me the page
-    When I follow "Edit"
-    And I fill in "Name" with "The sprint"
-    And I press "Update Sprint"
-    Then I should see "'The sprint' was successfully updated."
-    And I should be on the sprints page
-    And I should not see "a sprint"
+  Scenario: Add a sprint
+    When I visit the project's sprints page
+    Then I should be able to add a new sprint
 
-  @omniauth_test
-  Scenario: Delete an existing sprint
-    Given project "x" exists
-    And I visit the sprints page for project "x"
-    And I have created sprint "deletesprint"
-    When I follow "Destroy"
-    Then I should see "'deletesprint' was successfully deleted."
-    And I should be on the sprints page
-    And I should not see "Destroy"
+  Scenario: Edit a sprint
+    Given I have added a sprint
+    When I visit the project's sprints page
+    Then I should be able to edit that sprint
+
+  Scenario: Delete a sprint
+    Given I have added a sprint
+    When I visit the project's sprints page
+    Then I should be able to delete that sprint
+
+  Scenario: View the quickinfo of a sprint
+
+  Scenario: View sprint planning
+    Given I have added a sprint
+    Then I should be able to visit that sprint's planning page
+
+  Scenario: View stories added to sprint
+    Given I have added a sprint
+    And I have added a story to that sprint
+    Then I should be able to see that story on the sprint's page
+
+  Scenario: View latest sprint on project dashboard
+    Given I have a sprint with stories
+    When I go to my project's page
+    Then I should see the latest sprint statistics

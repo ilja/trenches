@@ -1,10 +1,10 @@
- <% if @story.errors.any? %>
+ <% if story.errors.any? %>
     <div id="flash_warning" class="flashcontainer">
-      <%= image_tag "dialog-warning.png", :alt => "info", :class => "icon" %>
-      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+      <%= image_tag "dialog-error.png", :alt => "info", :class => "icon" %>
+      <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
 
       <ul>
-      <% @story.errors.full_messages.each do |msg| %>
+      <% story.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,40 +12,61 @@
     </div>
   <% end %>
 
-<%= form_for [@project, @story] do |f| %>
+<%= form_for [current_user, project, story] , remote: remote do |f| %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => "true", :autofocus => "true" %>
-  </div>
+  <div class="story-edit-container">
+    <div  class="story-title">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, :autofocus => "true" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %><br />
-    <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> enabled!
-  </div>
+    <div class="story-edit-small-fields-container">
+      <div class="small-field">
+        <%= f.label :moscow, "Priority" %>
+        <%= f.select :moscow, Moscow::all %>
+      </div>
 
-  <div class="field">
-    <%= f.label :moscow, "Priority" %><br />
-    <%= f.select :moscow, Moscow::all %>
-  </div>
+      <div class="small-field">
+        <%= f.label :points %>
+        <%= f.select :points, StoryPoint::all %>
+      </div>
 
-  <div class="field">
-    <%= f.label :points %><br />
-    <%= f.select :points, StoryPoint::all %>
-  </div>
+      <div class="small-field">
+        <%= f.label :status %>
+        <%= f.select :status, Status::all %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.select :status, ["open", "active", "done"] %>
-  </div>
+    <div style="" class="story-description">
+      <%= f.label :body, "Description" %><br />
+      <%= f.text_area :body %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit button_name, :class => "button", :disable_with => 'Saving...' %> or <%= link_to 'go back', :back %>
-    <% unless @story.new_record? %>
-      <% if can? :destroy, @story %>
-        or <%= link_to 'destroy', project_story_path(@project, @story), :confirm => 'Are you sure?', :method => :delete, :class => "button danger" %>
+    <div class="story-edit-buttons-container">
+      <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> enabled!
+      <div class="story-edit-buttons">
+      <%= f.submit button_name, :class => "button", :data => { :disable_with => 'Saving...'}, :rel => "save-story" %> or <%= link_to 'go back', :back %>
+      <% unless story.new_record? %>
+        <%# if can? :destroy, story %>
+          or <%= link_to 'destroy', user_project_story_path(current_user, story.project, story), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => "button danger", :rel => "delete-story" %>
+        <%# end %>
       <% end %>
-    <% end %>
+      </div>
+    </div>
+
+
   </div>
+
+
+
+
+
+
+
 <% end %>
+
+<script>
+$('.button').bind('ajax:success', function(){
+  alert("Success!");
+});
+</script>

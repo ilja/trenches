@@ -1,80 +1,67 @@
 class ProjectsController < ApplicationController
-  respond_to :html
+  before_filter :load_project, :except => [:index, :new, :create]
+  helper_method :filters
 
   def index
-    @projects = Project.all
-    authorize! :read, @project
-    respond_with(@projects)
-  end
-
-  def show
-    @project = Project.find(params[:id])
-    authorize! :read, @project
-
-    if current_user && @project.active_sprint_for(current_user).blank? == false
-      redirect_to project_sprint_path(@project, @project.active_sprint_for(current_user))
-    else
-      redirect_to backlog_path(@project)
-    end
+    @projects = current_user.projects
   end
 
   def new
     @project = Project.new
-    authorize! :create, Project
-    respond_with(@project)
-  end
-
-  def edit
-    @project = Project.find(params[:id])
-    authorize! :read, @project
   end
 
   def create
     @project = Project.new(params[:project])
-    authorize! :create, @project
 
-    if @project.save
-      redirect_to projects_path, :notice => "'#{@project.name}' was successfully created."
+    if @project.start(current_user)
+      redirect_to user_projects_path(current_user), :notice => 'Project saved'
     else
       render :new
     end
   end
 
-  def update
-    @project = Project.find(params[:id])
-    authorize! :update, @project
+  def show
+    @latest_sprint = @project.sprints.last
+  end
 
+  def edit
+  end
+
+  def update
     if @project.update_attributes(params[:project])
-      redirect_to projects_path, :notice => "'#{@project.name}' was successfully updated."
+      redirect_to user_projects_path(current_user), :notice => 'Project updated'
     else
       render :edit
     end
   end
 
   def destroy
-    @project = Project.find(params[:id])
-    authorize! :destroy, @project
-
-    projectname = @project.name
     if @project.destroy
-      flash[:notice] = "'#{projectname}' was successfully deleted."
+      flash[:notice] = 'Project deleted.'
     else
-      flash[:error] = "Unable to delete '#{projectname}'."
+      flash[:error] = 'An error occured while trying to delete the project'
     end
-    redirect_to projects_url
+
+    redirect_to user_projects_path(current_user)
   end
 
-  def sort_stories
-    @project = Project.find(params[:project_id])
-    authorize! :update, @project
+  def backlog
+    unless params[:show].blank?
+      query = params[:show].to_a.inject([]) { |result, value| result << Status.to_integer(value); result }
 
-    unless params[:story].blank?
-      params[:story].each_with_index do |id, index|
-        story = Story.find(id)
-        story.update_attributes(:backlog_position => index+1)
-      end
+      @stories = @project.stories.where(:status => query).order(:backlog_position)
+    else
+      @stories = @project.stories.order(:backlog_position)
     end
-    render :nothing => true
   end
 
+  private
+
+  def load_project
+    @project = Project.find(params[:id])
+  end
+
+  def filters
+    %w[open active done]
+  end
 end

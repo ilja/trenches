@@ -1,104 +1,125 @@
 require 'spec_helper'
 
 describe Sprint do
-  before(:each) do
-    @p = Project.create
+  it "should start with blank attributes" do
+    subject.title.should be_nil
+    subject.goal.should be_nil
   end
 
-  subject do
-    @p.sprints.create
+  it "should have no stories" do
+    subject.stories.should == []
   end
 
-  it "requires a name" do
-    subject.errors[:name].should include("can't be blank")
+  it "should be 0% completed" do
+    subject.percentage_completed.should == 0.0
   end
 
-  it "requires a start date" do
-    subject.errors[:start_date].should include("can't be blank")
+  context "validations" do
+    before do
+      subject.project = Project.new
+    end
+    describe "title" do
+      it "should not allow an empty title" do
+        [nil, "", " "].each do |invalid_title|
+          subject.title = invalid_title
+          subject.valid?.should be_false
+        end
+      end
+      it "should allow a non empty title" do
+        subject.title = "sprint"
+        subject.valid?.should be_true
+      end
+    end
+    describe "project" do
+      it "should require a project" do
+        subject.project = nil
+        subject.valid?.should be_false
+        subject.errors[:project].should include("can't be blank")
+      end
+    end
   end
 
-  it "requires a end date" do
-    subject.errors[:end_date].should include("can't be blank")
-  end
-
-  it "can give the total work days" do
-    s = @p.sprints.create(
-      :start_date => Date.new(2011, 03, 07),
-      :end_date => Date.new(2011, 03, 25),
-      :name => "My test sprint")
-
-     s.total_work_days.count.should == 15
-  end
-
-  it "can give the remaining work days" do
-    s = @p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 25), :name => "My test sprint")
-    on_date = Date.new(2011, 03, 17)
-    s.remaining_work_days(on_date).count.should == 6
-  end
-
-  it "can give the spent work days" do
-    s = @p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 25), :name => "My test sprint")
-    on_date = Date.new(2011, 03, 17)
-    s.spent_work_days(on_date).count.should == 9
-  end
-
-  describe "with stories" do
+  context "start and end dates" do
     before(:each) do
-      @sprint = @p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 25), :name => "My test sprint")
-      @sprint.stories.create(:name => "Story 1", :points => 2, :status => "open")
-      @sprint.stories.create(:name => "Story 2", :points => 1, :status => "active")
-      @story = @sprint.stories.create(:name => "Story 3", :points => 5)
+      @clock = double()
+      @now = DateTime.parse("2011-09-11T02:56")
+      @clock.stub(:now) { @now }
+    end
+    subject { Sprint.new(:clock => @clock) }
+
+    it "should set the start date to today" do
+      subject.start_date.should == @now
     end
 
-    it "can give the total story points" do
-      @sprint.total_story_points.should == 8
+    it "should set the end date to three weeks from today" do
+      three_weeks_later = DateTime.parse("2011-10-02T02:56")
+      subject.end_date.should == three_weeks_later
     end
 
-    it "can give the total done story points on a given date" do
-      date = Date.new(2011, 03, 18)
-      @story.status = "done"
-      @story.done_date = date
-      @story.save
-      @sprint.done_story_points_on(date).should == 5
+    it "should calculate the total days" do
+      subject.total_days.count.should == 22
     end
 
-    it "does not give total done story points for a different date than the given date" do
-      date = Date.new(2011, 03, 17)
-      @story.status = "done"
-      @story.done_date = Date.new(2011, 03, 18)
-      @story.save
-      @sprint.done_story_points_on(date).should == 0
+    it "should calculate the total work days" do
+      subject.total_work_days.count.should == 15
     end
 
-    it "can give the total open story points" do
-      @story.status = "done"
-      @story.done_date = Date.new(2011, 03, 17)
-      @story.save
-      @sprint.open_story_points.should == 3
+    it "should give the remaining work days on the given date" do
+      on_date = DateTime.parse("2011-09-17T02:56")
+      subject.remaining_work_days(on_date).count.should == 10
     end
 
-    describe "#done_story_points_per_workday" do
-      it "returns a nested array of story points per day" do
-        @sprint = @p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 11), :name => "My test sprint")
-
-        expected = [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0]]
-
-        @sprint.done_story_points_per_workday.should == expected
-      end
+    it "should give the spent work days on the given date" do
+      on_date = DateTime.parse("2011-09-19T02:56")
+      subject.spent_work_days(on_date).count.should == 6
     end
+  end
 
-    describe "#percentage_completed" do
-      it "returns the percentage this sprint is done" do
-        @story.status = "done"
-        @story.done_date = Date.new(2011, 03, 17)
-        @story.save
+  it "should support reading and writing a title" do
+    subject.title = "foo"
+    subject.title.should == "foo"
+  end
 
-        @sprint.percentage_completed.should == 62.5
-      end
-      it "returns 0% if the sprint is empty" do
-         empty_sprint = @p.sprints.create(:start_date => Date.new(2011, 03, 07), :end_date => Date.new(2011, 03, 25), :name => "My test sprint")
-         empty_sprint.percentage_completed.should == 0.0
-      end
+  it "should support reading and writing a sprint goal" do
+    subject.goal = "foo"
+    subject.goal.should == "foo"
+  end
+
+  it "should support reading and writing a project reference" do
+    project = Project.new
+    subject.project = project
+    subject.project.should == project
+  end
+
+  it "should support setting attributes in the initializer" do
+    subject = Sprint.new(:title => "mytitle", :goal => "mygoal")
+    subject.title.should == "mytitle"
+    subject.goal.should == "mygoal"
+  end
+
+  describe  "#add_story" do
+    it "should add the story to the sprint" do
+      story = Story.new
+      subject.add_story(story)
+      subject.stories.should include(story)
+    end
+  end
+
+  context "with stories" do
+    before(:each) do
+      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 1, :status => Status::OPEN, :sprint => subject)
+      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 2, :status => Status::OPEN, :sprint => subject)
+      subject.stories << Story.new(:title => "mytitle", :body => "mybody", :points => 5, :status => Status::DONE, :sprint => subject)
+      subject.stories.size.should == 3
+    end
+    it "should calculate the total story points" do
+      subject.total_story_points.should == 8
+    end
+    it "should calculate the total open story points" do
+      subject.open_story_points.should == 3
+    end
+    it "should calculate the percentage completed" do
+      subject.percentage_completed.should == 62.5
     end
   end
 end
