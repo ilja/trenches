@@ -9,7 +9,7 @@
       <%= link_to 'Edit', edit_user_project_sprint_path(@project.owner_username, @project, sprint), :class => "button small", :rel => 'edit-sprint' %>
       <%# end %>
       <%# if can? :destroy, Sprint %>
-      <%= link_to 'Destroy', user_project_sprint_path(@project.owner_username, @project, sprint), :confirm => 'Are you sure?', :method => :delete, :class => "button small danger", :rel => 'delete-sprint' %>
+      <%= link_to 'Destroy', user_project_sprint_path(@project.owner_username, @project, sprint), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => "button small danger", :rel => 'delete-sprint' %>
       <%# end %>
     </nav>
   </article>

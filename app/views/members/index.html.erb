@@ -11,7 +11,7 @@
   <% @members.each do |member| %>
     <li>
       <%= member.user.username %>
-      <%= link_to 'remove', user_project_member_path(current_user, member.project, member), :confirm => 'Are you sure?', :method => :delete, :class => "button danger", :rel => "remove-member" %>
+      <%= link_to 'remove', user_project_member_path(current_user, member.project, member), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => "button danger", :rel => "remove-member" %>
     </li>
   <% end %>
   <ul>

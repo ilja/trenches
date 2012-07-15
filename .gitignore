@@ -4,3 +4,5 @@ log/*.log
 tmp/**/*
 .rspec
 .sass-cache
+public/assets/*
+*.bak

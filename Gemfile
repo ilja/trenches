@@ -49,6 +49,7 @@ group :development do
   #gem 'thin'
   gem 'guard-rspec'
   gem 'rack-livereload'
+  gem 'puma'
 end
 
 gem 'simplecov', :require => false, :group => :test

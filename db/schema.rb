@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(:version => 20120525100601) do
   create_table "members", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.boolean  "project_owner"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.boolean  "project_owner", :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "members", ["project_id"], :name => "index_members_on_project_id"

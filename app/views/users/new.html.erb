@@ -33,7 +33,7 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
     </div>
-    <div class="actions"><%= f.submit "Create my account", :class => "button", :disable_with => "Creating your account..." %></div>
+    <div class="actions"><%= f.submit "Create my account", :class => "button", :data => { :disable_with => "Creating your account..." } %></div>
   <% end %>
 
 </div>

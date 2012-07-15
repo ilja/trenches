@@ -33,6 +33,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit button_name, :class => "button", :disable_with => 'Saving...' if can? :update, @sprint %> or go <%= link_to 'back', project_sprints_path(@project) %>
+    <%= f.submit button_name, :class => "button", :data => { :disable_with => 'Saving...' } if can? :update, @sprint %> or go <%= link_to 'back', project_sprints_path(@project) %>
   </div>
 <% end %>

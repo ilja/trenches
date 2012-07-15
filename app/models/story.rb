@@ -6,7 +6,7 @@ class Story < ActiveRecord::Base
   belongs_to :user
 
   attr_accessible :title, :body, :points, :status, :moscow, :project, :sprint_position, :sprint
-
+  attr_accessor :uuid
   validates :title, :project_id,  :presence => true
 
   def publish

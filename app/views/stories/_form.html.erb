@@ -45,10 +45,10 @@
     <div class="story-edit-buttons-container">
       <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> enabled!
       <div class="story-edit-buttons">
-      <%= f.submit button_name, :class => "button", :disable_with => 'Saving...', :rel => "save-story" %> or <%= link_to 'go back', :back %>
+      <%= f.submit button_name, :class => "button", :data => { :disable_with => 'Saving...'}, :rel => "save-story" %> or <%= link_to 'go back', :back %>
       <% unless story.new_record? %>
         <%# if can? :destroy, story %>
-          or <%= link_to 'destroy', user_project_story_path(current_user, story.project, story), :confirm => 'Are you sure?', :method => :delete, :class => "button danger", :rel => "delete-story" %>
+          or <%= link_to 'destroy', user_project_story_path(current_user, story.project, story), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => "button danger", :rel => "delete-story" %>
         <%# end %>
       <% end %>
       </div>

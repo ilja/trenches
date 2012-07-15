@@ -31,7 +31,7 @@
               <%= link_to 'Edit', edit_project_sprint_path(@project, sprint), :class => "button small" %>
             <% end %>
             <% if can? :destroy, Sprint %>
-              <%= link_to 'Destroy', project_sprint_path(@project, sprint), :confirm => 'Are you sure?', :method => :delete, :class => "button small danger" %>
+              <%= link_to 'Destroy', project_sprint_path(@project, sprint), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => "button small danger" %>
             <% end %>
           </nav>
         </article>

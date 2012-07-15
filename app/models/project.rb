@@ -3,7 +3,8 @@ require 'active_record'
 class Project < ActiveRecord::Base
 
   attr_accessible :name, :user, :user_id
-  attr_writer :sprint_maker, :uuid
+  attr_writer :sprint_maker
+  attr_accessor :uuid
 
   has_many :members, :dependent => :destroy
   has_many :sprints, :dependent => :destroy
