@@ -5,7 +5,6 @@ gem 'rails', '~>3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 gem 'json'
 
@@ -55,6 +54,10 @@ end
 gem 'simplecov', :require => false, :group => :test
 gem 'cucumber-rails', :require => false, :group => :test
 
+group :test do
+  gem 'sqlite3'
+end
+
 group :test, :development do
   gem "rspec-rails", "~> 2.7"
   gem 'factory_girl_rails'
@@ -63,4 +66,8 @@ group :test, :development do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'pry'
+end
+
+group :development, :production do
+  gem 'pg'
 end

@@ -115,6 +115,7 @@ GEM
     oauth2 (0.5.2)
       faraday (~> 0.7)
       multi_json (~> 1.0)
+    pg (0.14.0)
     polyglot (0.3.3)
     pry (0.9.9.6)
       coderay (~> 1.0.5)
@@ -223,6 +224,7 @@ DEPENDENCIES
   jquery-rails
   json
   launchy
+  pg
   pry
   puma
   quiet_assets
