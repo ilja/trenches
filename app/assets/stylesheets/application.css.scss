@@ -5,8 +5,9 @@
  *= require html5boilerplatetop
  *= require_self
  *= require gh-buttons
- *= require _shared.scss.erb
+ *= require _shared
  *= require style
+ *= require print.css
  *= require mobile.css
  *= require html5boilerplatebottom
 */
