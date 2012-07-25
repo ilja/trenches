@@ -15,23 +15,27 @@
       <%# end %>
     </nav>
 
-    <ul class="fancy">
-    <% @projects.each do |project| %>
-      <li>
-        <article>
-          <div class="name"><%= link_to project.name, user_project_path(project.owner_username, project) %></div>
-          <nav class="button-group" style="width: 76px">
-          <%# if can? :update, Project %>
-            <%= link_to 'Edit', edit_user_project_path(current_user, project), :class => "button small", :rel => 'edit-project' %>
-          <%# end %>
-          <%# if can? :destroy, Project %>
-            <%= link_to 'Destroy', user_project_path(current_user, project), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class=>"button danger small", :rel => 'delete-project' %>
-          <%# end %>
-          </nav>
-        </article>
-      </li>
+    <% cache @projects do %>
+      <ul class="fancy">
+      <% @projects.each do |project| %>
+        <% cache [project, 'main-listing'] do %>
+        <li>
+          <article>
+            <div class="name"><%= link_to project.name, user_project_path(project.owner_username, project) %></div>
+            <nav class="button-group" style="width: 76px">
+            <%# if can? :update, Project %>
+              <%= link_to 'Edit', edit_user_project_path(current_user, project), :class => "button small", :rel => 'edit-project' %>
+            <%# end %>
+            <%# if can? :destroy, Project %>
+              <%= link_to 'Destroy', user_project_path(current_user, project), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class=>"button danger small", :rel => 'delete-project' %>
+            <%# end %>
+            </nav>
+          </article>
+        </li>
+        <% end %>
+      <% end %>
+      </ul>
     <% end %>
-    </ul>
 
   </section>
 

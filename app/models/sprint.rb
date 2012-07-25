@@ -2,7 +2,7 @@ require 'active_record'
 require 'active_support/core_ext/object/conversions'
 
 class Sprint < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :project, :touch => true
   has_many :stories, :order => :sprint_position
 
   attr_accessible :title, :goal, :start_date, :end_date, :project, :clock

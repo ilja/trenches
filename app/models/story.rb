@@ -1,8 +1,9 @@
 require 'active_record'
+require 'digest/md5'
 
 class Story < ActiveRecord::Base
-  belongs_to :project
-  belongs_to :sprint
+  belongs_to :project, :touch => true
+  belongs_to :sprint, :touch => true
   belongs_to :user
 
   attr_accessible :title, :body, :points, :status, :moscow, :project, :sprint_position, :sprint
@@ -29,6 +30,10 @@ class Story < ActiveRecord::Base
 
   def assigned_to
     user
+  end
+
+  def self.cache_key
+    Digest::MD5.hexdigest "#{maximum(:updated_at)}.try(:to_i)-#{count}"
   end
 
 end

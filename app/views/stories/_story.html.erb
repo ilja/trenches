@@ -1,24 +1,29 @@
-<% if story.points == 0 %>
-  <li class="story not-sortable" id="story_<%= story.id %>" data-id="<%= story.id %>">
-<% else %>
-  <li class="story" id="story_<%= story.id %>" data-id="<%= story.id %>">
-<% end %>
-  <div class="storyheader">
-    <% if sortable %>
-    <div class="grip">
-      <%= image_tag "grip.png", :alt => "drag to sort" %>
+
+
+  <% if story.points == 0 %>
+    <li class="story not-sortable" id="story_<%= story.id %>" data-id="<%= story.id %>">
+  <% else %>
+    <li class="story" id="story_<%= story.id %>" data-id="<%= story.id %>">
+  <% end %>
+    <% cache [story, "story-display-#{sortable}"] do %>
+    <div class="storyheader">
+      <% if sortable %>
+      <div class="grip">
+        <%= image_tag "grip.png", :alt => "drag to sort" %>
+      </div>
+      <% end %>
+      <div class="expand">
+        <%= image_tag "open.png", :alt => "open" %>
+      </div>
+      <div class="story-menu">
+        <div class="priority" title="Priority: <%= Moscow.to_name(story.moscow) %>"><%= Moscow.to_name(story.moscow) %></div>
+        <div class="points" title="Story points: <%= story.assigned_points %>"><%= story.assigned_points %></div>
+      </div>
+      <div class="naam" title="<%= story.title %> <%#= link_to_story_developer(story) %>"><%= story.title %> <%= link_to_story_developer(story) %></div>
+    </div>
+    <div class="storybody">
+      <%= render :partial => "/stories/show", :locals => { :story => story, :project => story.project, :current_user => current_user } %>
     </div>
     <% end %>
-    <div class="expand">
-      <%= image_tag "open.png", :alt => "open" %>
-    </div>
-    <div class="story-menu">
-      <div class="priority" title="Priority: <%= Moscow.to_name(story.moscow) %>"><%= Moscow.to_name(story.moscow) %></div>
-      <div class="points" title="Story points: <%= story.assigned_points %>"><%= story.assigned_points %></div>
-    </div>
-    <div class="naam" title="<%= story.title %> <%#= link_to_story_developer(story) %>"><%= story.title %> <%= link_to_story_developer(story) %></div>
-  </div>
-  <div class="storybody">
-    <%= render :partial => "/stories/show", :locals => { :story => story, :project => story.project, :current_user => current_user } %>
-  </div>
-</li>
+  </li>
+

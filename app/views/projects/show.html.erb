@@ -1,44 +1,51 @@
-<% title("#{@project.name}") %>
-<header>
-  <h1>
-    <%= @project.name %>
-  </h1>
-  <nav class="header-right">
-    <div class="button-group">
-      <%= link_to "Manage project", edit_user_project_path(@project.owner_username, @project), :class => "button", :rel => "manage-project" %>
-      <%= link_to "Manage sprints",project_sprints_path(@project.owner_username, @project), :class => "button", :rel => "sprints" %>
-      <%= link_to "Product backlog", project_backlog_path(@project.owner_username, @project), :class => "button", :rel => "project-backlog" %>
-    </div>
-  </nav>
-</header>
+<% cache [@project, 'project-dashboard'] do %>
+  <% title("#{@project.name}") %>
+  <header>
+    <h1>
+      <%= @project.name %>
+    </h1>
+    <nav class="header-right">
+      <div class="button-group">
+        <%= link_to "Manage project", edit_user_project_path(@project.owner_username, @project), :class => "button", :rel => "manage-project" %>
+        <%= link_to "Manage sprints",project_sprints_path(@project.owner_username, @project), :class => "button", :rel => "sprints" %>
+        <%= link_to "Product backlog", project_backlog_path(@project.owner_username, @project), :class => "button", :rel => "project-backlog" %>
+      </div>
+    </nav>
+  </header>
+<% end %>
 
 <div id="main" role="main">
   <%= render "shared/flash", :flash => flash %>
 
-  
-  <h2>Latest Sprint: 
+  <h2>Latest Sprint:
+    <% cache [@latest_sprint, 'latest-sprint'] do %>
     <% if @latest_sprint %>
-      <%= link_to @latest_sprint.title, user_project_sprint_path(@project.owner_username, @project, @latest_sprint) %>      
+      <%= link_to @latest_sprint.title, user_project_sprint_path(@project.owner_username, @project, @latest_sprint) %>
     <% else %>
       No sprints defined.
     <% end %>
-    
+
     <small><%= link_to "view all",project_sprints_path(@project.owner_username, @project), :rel => "sprints" %></small>
-  </h2>  
+    <% end %>
+  </h2>
   <div class="sprint-info">
-    <%= render :partial => 'sprints/info', :locals => { :sprint => @latest_sprint } if @latest_sprint %>
+    <% cache [@latest_sprint, 'sprint-info'] do %>
+      <%= render :partial => 'sprints/info', :locals => { :sprint => @latest_sprint } if @latest_sprint %>
+    <% end %>
   </div>
-  
+
   <h2>
     Top 10 product backlog stories
     <small><%= link_to "view all", project_backlog_path(@project.owner_username, @project), :rel => "project-backlog" %></small>
   </h2>
   <ul>
-  <% @project.backlog.limit(10).each do |story| %>
-    <li><%= story.title %></li>
+  <% cache [@project, 'top-10-backlog-stories'] do %>
+    <% @project.backlog.limit(10).each do |story| %>
+      <li><%= story.title %></li>
+    <% end %>
   <% end %>
   </ul>
-  
+
 
 
 </div>

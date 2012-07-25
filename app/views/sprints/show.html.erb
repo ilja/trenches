@@ -25,13 +25,17 @@
     </nav>
 
     <ul class="storylist">
-      <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
+      <% cache [@stories, "sprint-storylist-#{params[:show]}"] do %>
+        <%= render :partial => '/stories/story', :collection => @stories, :locals => {:sortable=> false} %>
+      <% end %>
     </ul>
 
   </section>
 
   <aside>
-    <%= render :partial => 'sprints/info', :locals => { :sprint => @sprint } %>    
+    <% cache [@sprint, 'sprint-info'] do %>
+      <%= render :partial => 'sprints/info', :locals => { :sprint => @sprint } %>
+    <% end %>
   </aside>
 
  </div>

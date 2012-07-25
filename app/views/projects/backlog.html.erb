@@ -28,7 +28,9 @@
 
     <div id="storylist">
       <ul id="sortable" data-url="<%#= sort_stories_path(@project) %>">
-        <%= render :partial => 'stories/story', :collection => @stories, :locals => {:sortable => true} %>
+        <% cache @stories do %>
+          <%= render :partial => 'stories/story', :collection => @stories, :locals => {:sortable => true} %>
+        <% end %>
       </ul>
     </div>
 

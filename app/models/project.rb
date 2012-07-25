@@ -1,4 +1,5 @@
 require 'active_record'
+require 'digest/md5'
 
 class Project < ActiveRecord::Base
 
@@ -36,6 +37,10 @@ class Project < ActiveRecord::Base
 
   def backlog
     stories.where(:sprint_id => nil).order(:backlog_position)
+  end
+
+  def self.cache_key
+    Digest::MD5.hexdigest "#{maximum(:updated_at)}.try(:to_i)-#{count}"
   end
 
   private
