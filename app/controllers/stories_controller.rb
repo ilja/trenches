@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   before_filter :load_project
   before_filter :load_story, :except => [:new, :create]
-  respond_to :html #, :js
+  respond_to :html, :json
   def new
     @story = @project.stories.build
   end
@@ -18,11 +18,14 @@ class StoriesController < ApplicationController
   end
 
   def edit
-    # respond_with do |format|
-    #   format.html do
-    #     if request.xhr?
-    #       render :partial => "comments/show", :locals => { :comment => @comment }, :layout => false, :status => :created
-    #     else
+    respond_with do |format|
+      format.html do
+        render :partial => "stories/form", :locals => { :story => @story, :project => @project, :remote => false, :button_name => "Update story" }, :layout => false
+      end
+      format.json do
+        render :json => @story
+      end
+    end
   end
 
   def update
