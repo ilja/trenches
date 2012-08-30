@@ -1,4 +1,0 @@
-Authentication: sorcery
-Authorization: CanCan
-Roles: rolify
-
