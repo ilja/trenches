@@ -28,6 +28,7 @@ Trenches::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   match 'users/:username/projects/:id/backlog' => 'projects#backlog', :as => :project_backlog
+  match 'users/:username/projects/:id/sort_stories' => 'projects#sort_stories', :as => :project_sort_backlog_stories
   match 'users/:username/projects/:id/sprints' => 'projects#sprints', :as => :project_sprints
   match 'users/:username/projects/:project_id/sprint/:id/planning' => 'sprints#planning', :as => :sprint_planning
 

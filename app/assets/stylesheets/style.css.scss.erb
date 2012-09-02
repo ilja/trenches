@@ -195,22 +195,22 @@ div.progress-bar span {
 /*
 
 body {
-	font-family: $font1;
-	font-size: 12px;
+  font-family: $font1;
+  font-size: 12px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-	background: $bg-color;
-	margin: 0;
-	padding: 0;
+  background: $bg-color;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-	font-size: 20px;
-	font-weight: bold;
-	background-color: $main-color;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: $main-color;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E8F4FF), to(#ABBDCC));
   padding: 18px;
-	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 
   padding: 0;
   margin: 0;
@@ -222,18 +222,18 @@ a img {
 }
 
 p {
-	margin: 0;
+  margin: 0;
 }
 
 #container {
-	width:1000px;
+  width:1000px;
 
-	text-align:left;
+  text-align:left;
 
   left: 50%;
   margin:0px auto;
 
-	overflow: visible;
+  overflow: visible;
 }
 
 
@@ -273,34 +273,34 @@ p {
 #topnav {
   overflow: auto;
   ul {
-	  border-color: $main-color;
-  	border-style: none solid solid solid;
-	  border-width: 1px;
-  	background: $nav-bg;
+    border-color: $main-color;
+    border-style: none solid solid solid;
+    border-width: 1px;
+    background: $nav-bg;
 
-	  padding: 2px 5px 2px 5px;
-  	margin: 0px;
+    padding: 2px 5px 2px 5px;
+    margin: 0px;
     height: 18px;
-	  float: right;
-  	/*text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);*/
+    float: right;
+    /*text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);*/
 
-  	@include rounded-bottom-left;
-  	@include rounded-bottom-right;
+    @include rounded-bottom-left;
+    @include rounded-bottom-right;
 
-  	font-family: $font1;
+    font-family: $font1;
     font-size: 12px;
     text-shadow: 1px 1px 0 #fff;
 
-	  list-style: none;
+    list-style: none;
   }
 
   a { color: $link-color; }
   a:active { /*font-weight: bold;*/ }
 
   li {
-	  display: inline;
-  	padding: 0;
-	  margin: 0;
+    display: inline;
+    padding: 0;
+    margin: 0;
 
   }
 
@@ -316,12 +316,12 @@ p {
 /* content */
 
 #content {
-	clear: both;
-	overflow: hidden;
+  clear: both;
+  overflow: hidden;
   display: inline-block; /* Necessary to trigger "hasLayout" in IE */
   display: block;
   background: url(<%= image_path("bg-main.png") %>) repeat-x 0px -57px;
-	padding: $spacer1;
+  padding: $spacer1;
 
 }
 
@@ -431,55 +431,55 @@ div#content div#subnav {
 
 #status-menu {
   margin-top: $spacer1;
-/*	font-family: $font1;*/
-	font-size: 12px;
+/*  font-family: $font1;*/
+  font-size: 12px;
 
-	text-shadow: 1px 1px 0 #fff;
-	overflow: hidden;
-	margin-bottom: 10px;
+  text-shadow: 1px 1px 0 #fff;
+  overflow: hidden;
+  margin-bottom: 10px;
 
   ul {
     /*padding: 2px 0 0 0;*/
-  	padding: 0;
-	  margin: 0;
-  	/*border: 1px solid green;*/
+    padding: 0;
+    margin: 0;
+    /*border: 1px solid green;*/
 
   }
 
   li {
 
-	  background-image: $nav-bg;
+    background-image: $nav-bg;
 
-  	height: 28px;
-	  padding: 0 0 0 0px;
-  	/*margin: 3px 5px;
-	  border: 1px solid red;*/
-  	display: block;
-	  float: left;
-  	list-style-type: none;
-	  border-top: $bnt-border-normal;
-  	border-bottom: $bnt-border-normal;
-	  border-left: $bnt-border-highlight;
-  	border-right: $bnt-border-normal;
+    height: 28px;
+    padding: 0 0 0 0px;
+    /*margin: 3px 5px;
+    border: 1px solid red;*/
+    display: block;
+    float: left;
+    list-style-type: none;
+    border-top: $bnt-border-normal;
+    border-bottom: $bnt-border-normal;
+    border-left: $bnt-border-highlight;
+    border-right: $bnt-border-normal;
 
 
 
 
     a {
       /*margin-top: 10px;*/
-	    margin: 0px 5px;
+      margin: 0px 5px;
       /*border: 1px solid red;*/
-	    line-height: 28px;
+      line-height: 28px;
       /*margin-bottom: 5px;*/
       text-decoration: none;
-    	color: black;
+      color: black;
       display: block;
       /*font-family: DroidSansBold, 'Bitstream Vera Sans Bold';
-  	  font-size: 18px;*/
+      font-size: 18px;*/
     }
 
    /* a:hover {
-	    color: #fff;
+      color: #fff;
     }
     */
 
@@ -500,8 +500,8 @@ div#content div#subnav {
 
   li:first-child {
     @include rounded-left;
-	  border-left: $bnt-border-normal;
-  	border-right: $bnt-border-normal;
+    border-left: $bnt-border-normal;
+    border-right: $bnt-border-normal;
   }
 
   li:last-child {
@@ -511,12 +511,12 @@ div#content div#subnav {
 
 #storylist {
   clear: left;
-	float: left;
+  float: left;
 }
 
 #burndown {
-	float: right;
-	border: $bnt-border-normal;
+  float: right;
+  border: $bnt-border-normal;
   width: 400px;
   height: 450px;
 }
@@ -524,21 +524,21 @@ div#content div#subnav {
 /* footer */
 
 footer {
-	border-top: $bnt-border-normal;
-	margin-top: 10px;
-	font-size: 10px;
-	color: #C8C8C8;
+  border-top: $bnt-border-normal;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #C8C8C8;
 }
 
 
 div#storylist {
-	width: 940px;
-	/*width: 580px;
-	border: 1px solid blue;*/
+  width: 940px;
+  /*width: 580px;
+  border: 1px solid blue;*/
 
   > ul {
-  	display: inline;
-	  padding: 0px;
+    display: inline;
+    padding: 0px;
   }
 }
 
@@ -548,7 +548,7 @@ ul.storylist {
 }
 
 div#storylist.sprint {
-	width: 580px;
+  width: 580px;
 }
 
 div.full-description {
@@ -558,17 +558,17 @@ div.full-description {
 }
 
 li.story {
-	list-style: none;
-	background: #f9f9f9;
-	border-left: $bnt-border-normal;
+  list-style: none;
+  background: #f9f9f9;
+  border-left: $bnt-border-normal;
   border-right: $bnt-border-normal;
   border-bottom: $bnt-border-normal;
   overflow: hidden;
 
   /*width: inherit;
-	margin-bottom: 5px;
-	padding: 3px;
-	position: relative;*/
+  margin-bottom: 5px;
+  padding: 3px;
+  position: relative;*/
 
   /*
   @include rounded-left;
@@ -610,8 +610,8 @@ li.story {
       /* width: 440px; */
       font-weight: bold;
       display: block;
-			height: 22px;
-			line-height: 22px;
+      height: 22px;
+      line-height: 22px;
       @include ellipsis;
     }
     .priority {
@@ -624,28 +624,29 @@ li.story {
     }
     .notes { width: 20px; }
     .points {
-			width: 20px;
-			height: 20px;
-			line-height: 20px;
-			text-align: center;
-			border: $bnt-border-normal;
-			@include rounded;
-			margin-right: 3px;
-			background: rgba(255, 255, 255, 0.4);
-		}
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      border: $bnt-border-normal;
+      @include rounded;
+      margin-right: 3px;
+      background: rgba(255, 255, 255, 0.4);
+    }
     .assigned { width: 50px; }
 
 
 
     .storyheader {
-    	width: 100%;
+      width: 100%;
       background-image: $nav-bg;
-    	padding: 3px 0px 3px 0px;
+      padding: 3px 0px 3px 0px;
+      cursor: pointer;
     }
     .storybody {
-    	border-top: $bnt-border-normal;
-    	background: white;
-    	padding: 3px;
+      border-top: $bnt-border-normal;
+      background: white;
+      padding: 3px;
       overflow: auto;
       display: none;
       .edit-story {
@@ -715,7 +716,7 @@ div.sortable-list {
   width: 49%;
   background: #f6f6f6;
   border:  $bnt-border-normal;
-	margin-top: 0;
+  margin-top: 0;
   min-height: 100px;
   display: table-cell;
   h1 {
@@ -774,7 +775,7 @@ div#flash_warning {
 }
 
 div[data-header-title] {
-	display: none;
+  display: none;
 }
 
 img.icon {

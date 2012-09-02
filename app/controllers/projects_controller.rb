@@ -55,6 +55,18 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def sort_stories
+    #authorize! :update, @project
+
+    unless params[:story].blank?
+      params[:story].each_with_index do |id, index|
+        story = Story.find(id)
+        story.update_attributes(:backlog_position => index+1)
+      end
+    end
+    render :nothing => true
+  end
+
   private
 
   def load_project

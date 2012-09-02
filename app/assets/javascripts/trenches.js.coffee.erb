@@ -2,12 +2,6 @@
 
 jQuery ->
 
- # $(document).bind 'end.pjax', ->
- #   title = $.trim( $(document).find('title').first().text() )
- #   $('div#title h1').html(title) if title
- #   #subnav = $('[data-pjax-container]').find('[data-subnav-container]').remove().html()
- #   #$('div#header').find('[data-subnav-container]').html subnav if subnav
-
   # sort backlog
   $('#sortable').sortable
     update: ->
@@ -20,12 +14,12 @@ jQuery ->
         url: $('#sortable').attr("data-url")
   $('#sortable').disableSelection()
 
-  $('ul.storylist').on 'click', 'div.expand', (e) ->
+  $('ul.storylist').on 'click', 'div.storyheader', (e) ->
     storybody = $(this).parents("li.story").children('.storybody')
     if storybody.css('display') == 'none'
-      $(this).find("img").attr src:"<%= image_path("close.png") %>"
+      $(this).find("div.expand img").attr src:"<%= image_path("close.png") %>"
     else
-      $(this).find("img").attr src:"<%= image_path("open.png") %>"
+      $(this).find("div.expand img").attr src:"<%= image_path("open.png") %>"
     storybody.slideToggle('fast')
 
 
