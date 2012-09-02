@@ -42,7 +42,7 @@ gem "friendly_id", "~> 4.0.0"
 
 group :development do
   gem 'guard'
-  gem 'guard-livereload'
+#  gem 'guard-livereload'
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
@@ -50,8 +50,9 @@ group :development do
   gem 'quiet_assets'
   #gem 'thin'
   gem 'guard-rspec'
-  gem 'rack-livereload'
+#  gem 'rack-livereload'
   gem 'puma'
+  gem 'sextant'
 end
 
 gem 'simplecov', :require => false, :group => :test
