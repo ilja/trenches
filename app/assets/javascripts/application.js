@@ -5,6 +5,8 @@
 // the compiled file.
 //
 //= require jquery
+//= require turbolinks
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require_tree .

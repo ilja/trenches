@@ -9,6 +9,8 @@ gem 'rails', '~>3.2.8'
 gem 'dalli'
 gem 'memcachier'
 
+gem 'thin'
+
 gem 'json'
 
 # Gems used only for assets and not required
@@ -21,6 +23,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
