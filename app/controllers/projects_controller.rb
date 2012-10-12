@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ProjectsController < SecureController
   before_filter :load_project, :except => [:index, :new, :create]
   helper_method :filters
 

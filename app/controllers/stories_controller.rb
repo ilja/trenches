@@ -1,4 +1,4 @@
-class StoriesController < ApplicationController
+class StoriesController < SecureController
   before_filter :load_project
   before_filter :load_story, :except => [:new, :create]
   respond_to :html, :json

@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class MembersController < SecureController
   before_filter :load_project
 
   def index

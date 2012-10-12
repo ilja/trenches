@@ -1,4 +1,4 @@
-class SprintsController < ApplicationController
+class SprintsController < SecureController
   before_filter :load_project
   before_filter :load_sprint, :except => [:index, :new, :create]
   helper_method :show_scope

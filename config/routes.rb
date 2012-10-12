@@ -1,19 +1,29 @@
 Trenches::Application.routes.draw do
 
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
+  devise_for :users
 
-  get "secret" => "home#secret", :as => "secret"
+  # devise_for :users, :skip => [:sessions]
+  # as :user do
+  #   get 'signin' => 'devise/sessions#new', :as => :login
+  #   post 'signin' => 'devise/sessions#create', :as => :login
+  #   delete 'signout' => 'devise/sessions#destroy', :as => :logout
+  #   get 'signup' => 'devise/registrations#new', :as => :signup
+  # end
 
-  resources :users do
+  # get "logout" => "sessions#destroy", :as => "logout"
+  # get "login" => "sessions#new", :as => "login"
+  # get "signup" => "users#new", :as => "signup"
+
+   get "secret" => "home#secret", :as => "secret"
+
+  resources :users, :except => [:new, :index, :show, :destroy, :edit, :create, :update, :sign_out] do
     resources :projects do
       resources :stories
       resources :members
       resources :sprints
     end
   end
-  resources :sessions
+  # resources :sessions
 
   match '/users/:username/projects/:project_id/stories/:id/start' => 'stories#start', :as => :start_story
   match '/users/:username/projects/:project_id/stories/:id/finish' => 'stories#finish', :as => :finish_story
