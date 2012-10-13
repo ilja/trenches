@@ -11,5 +11,5 @@ jQuery ->
     form = $('form.edit_story')
     elm = $(this)
     $.post form.attr('action'), form.serialize(), (data) ->
-      elm.closest('li.story').html data
+      elm.closest('li.story').replaceWith data
 
