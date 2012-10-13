@@ -4,7 +4,5 @@ class HomeController < ApplicationController
 
   end
 
-  def secret
 
-  end
 end
