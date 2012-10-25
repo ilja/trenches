@@ -22,7 +22,7 @@
         <li>
           <article>
             <div class="name"><%= link_to project.name, user_project_path(project.owner_username, project) %></div>
-            <nav class="button-group" style="width: 76px">
+            <nav class="button-group" style="width: 80px">
             <%# if can? :update, Project %>
               <%= link_to 'Edit', edit_user_project_path(current_user, project), :class => "button small", :rel => 'edit-project' %>
             <%# end %>
