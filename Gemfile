@@ -8,7 +8,7 @@ gem 'rails', '~>3.2.8'
 
 gem 'dalli'
 gem 'memcachier'
-
+gem 'cache_digests'
 gem 'thin'
 
 gem 'json'
