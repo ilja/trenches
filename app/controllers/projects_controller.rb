@@ -51,7 +51,8 @@ class ProjectsController < SecureController
 
       @stories = @project.stories.where(:status => query).order(:backlog_position)
     else
-      @stories = @project.stories.order(:backlog_position)
+      params[:show] = "open"
+      @stories = @project.stories.where(:status => Status::OPEN).order(:backlog_position)
     end
   end
 
