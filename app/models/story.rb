@@ -6,7 +6,7 @@ class Story < ActiveRecord::Base
   belongs_to :sprint, :touch => true
   belongs_to :user
 
-  attr_accessible :title, :body, :points, :status, :moscow, :project, :sprint_position, :sprint
+  attr_accessible :title, :body, :points, :status, :moscow, :project, :sprint_position, :sprint, :backlog_position
   attr_accessor :uuid
   validates :title, :project_id,  :presence => true
 
