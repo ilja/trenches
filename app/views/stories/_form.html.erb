@@ -15,25 +15,27 @@
 <%= form_for [current_user, project, story] , remote: remote do |f| %>
 
   <div class="story-edit-container">
-    <div  class="story-title">
-      <%= f.label :title %><br />
-      <%= f.text_field :title, :autofocus => "true" %>
-    </div>
-
-    <div class="story-edit-small-fields-container">
-      <div class="small-field">
-        <%= f.label :moscow, "Priority" %>
-        <%= f.select :moscow, Moscow::all %>
+    <div class="story-edit-container-top">
+      <div  class="story-title">
+        <%= f.label :title %><br />
+        <%= f.text_field :title, :autofocus => "true" %>
       </div>
 
-      <div class="small-field">
-        <%= f.label :points %>
-        <%= f.select :points, StoryPoint::all %>
-      </div>
+      <div class="story-edit-small-fields-container">
+        <div class="small-field">
+          <%= f.label :moscow, "Priority" %>
+          <%= f.select :moscow, Moscow::all %>
+        </div>
 
-      <div class="small-field">
-        <%= f.label :status %>
-        <%= f.select :status, Status::all %>
+        <div class="small-field">
+          <%= f.label :points %>
+          <%= f.select :points, StoryPoint::all %>
+        </div>
+
+        <div class="small-field">
+          <%= f.label :status %>
+          <%= f.select :status, Status::all %>
+        </div>
       </div>
     </div>
 

@@ -350,19 +350,28 @@ div.story-edit-container {
   width:auto;
   overflow: auto;
 
-  .story-title {
-    float: left;
-  }
+  .story-edit-container-top {
+    display: table;
+    width: 100%;
 
-  .story-edit-small-fields-container {
-    float: right;
-    .small-field {
-      padding: 2px;
-      text-align: right;
-      display: block;
+    .story-title {
+      display: table-cell;
+      vertical-align: top;
+      input {
+        width: 100%;
+      }
+    }
+
+    .story-edit-small-fields-container {
+      width: 200px;
+      display: table-cell;
+      .small-field {
+        padding: 2px;
+        text-align: right;
+        display: block;
+      }
     }
   }
-
   .story-description{
     clear: both;
     width: 100%;
