@@ -47,6 +47,10 @@ body {
   color: #ff7800;
 }
 
+#logo a:hover {
+  text-decoration: none;
+}
+
 #topnav {
   overflow: auto;
 }
@@ -696,7 +700,7 @@ ul.fancy {
     border-bottom: $bnt-border-normal;
     border-radius: 0.1em;
     height: 27px;
-    a { color: $link-color; }
+    /*a { color: $link-color; }*/
 
     article {
       display: table;
@@ -711,6 +715,10 @@ ul.fancy {
 
         a {
           display: block;
+          color: $text-color;
+        }
+        a:hover {
+          text-decoration: none;
         }
       }
       nav.button-group {
