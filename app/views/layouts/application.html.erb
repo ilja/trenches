@@ -40,7 +40,7 @@
 
   <div id="container">
 
-    <div id="logo"><%= link_to "Trenches", root_path, 'data-skip-pjax' => true %></div>
+    <div id="logo"><%= link_to "Trenches", root_path %></div>
 
     <nav id="topnav">
       <ul>
@@ -50,7 +50,7 @@
          <% end %>
         <li>
           <% if user_signed_in? %>
-            <%= link_to "sing out", destroy_user_session_path, :method => :delete, :rel => "logout" %>
+            <%= link_to "sign out", destroy_user_session_path, :method => :delete, :rel => "logout" %>
           <% else %>
             <%= link_to "sign up", new_user_registration_path, :rel => "signup" %> or <%= link_to "log in", new_user_session_path, :rel => "login" %>.
           <% end %>
@@ -61,7 +61,7 @@
     <%= yield %>
 
     <footer>
-      Trenches 0.5
+      Trenches 0.6
     </footer>
 
   </div> <!--! end of #container -->
