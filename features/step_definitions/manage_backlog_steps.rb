@@ -1,9 +1,11 @@
 When /^I go to my project's page$/ do
-  click_link 'My new project'
+  click_on 'My new project'
 end
 
 When /^I go to its backlog page$/ do
-  find(:xpath, "//a[@rel='project-backlog']").click
+  within(".button-group") do
+    find(:xpath, "a[@rel='project-backlog']").click
+  end
 end
 
 Then /^I should see the product backlog$/ do
@@ -54,7 +56,7 @@ end
 Given /^I have (\d+) backlog items$/ do |amount|
   project = Project.first
   amount.to_i.times do |i|
-    Story.create(:title => "Story #{i}", :project => project)    
+    Story.create(:title => "Story #{i}", :project => project)
   end
 end
 

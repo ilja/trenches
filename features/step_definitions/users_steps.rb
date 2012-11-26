@@ -6,8 +6,8 @@ When /^I choose to sign up for an account$/ do
   find(:xpath, "//a[@rel='signup']").click
   fill_in 'Username', :with => 'bob'
   fill_in 'Email', :with => 'bob@example.com'
-  fill_in 'Password', :with => 'secret'
-  fill_in 'Password confirmation', :with => 'secret'
+  fill_in 'user_password', :with => 'secret'
+  fill_in 'user_password_confirmation', :with => 'secret'
   click_button 'Create my account'
 end
 

@@ -2,7 +2,9 @@ When /^I visit the project's sprints page$/ do
   steps %Q{
     When I go to my project's page
   }
-  find(:xpath, "//a[@rel='sprints']").click
+  within(".button-group") do
+    find(:xpath, "a[@rel='sprints']").click
+  end
 end
 
 Then /^I should be able to add a new sprint$/ do
@@ -38,7 +40,7 @@ Then /^I should be able to delete that sprint$/ do
 end
 
 Then /^I should be able to go to that sprint's page$/ do
-  click_link 'My new sprint'
+  click_on 'My new sprint'
   page.should have_content 'My new sprint'
   page.should have_content 'World Domination'
 end
