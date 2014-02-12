@@ -1,4 +1,6 @@
 image: ruby1.9.3
+env:
+  - RAILS_ENV=test
 script:
   - bundle install --without production
   - bundle exec rake db:migrate
