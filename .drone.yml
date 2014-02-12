@@ -1,4 +1,5 @@
 image: ruby1.9.3
 script:
-  - bundle install
+  - bundle install --without production
+  - bundle exec rake db:migrate
   - bundle exec rspec spec
